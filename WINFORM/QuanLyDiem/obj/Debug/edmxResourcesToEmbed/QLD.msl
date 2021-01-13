@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLiDiemModelStoreContainer" CdmEntityContainer="QuanLiDiemEntities">
+    <EntitySetMapping Name="DangNhap">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.DangNhap">
+        <MappingFragment StoreEntitySet="DangNhap">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Quyen" ColumnName="Quyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiemHP">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.DiemHP">
+        <MappingFragment StoreEntitySet="DiemHP">
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="MaMonHP" ColumnName="MaMonHP" />
+          <ScalarProperty Name="ChuyenCan" ColumnName="ChuyenCan" />
+          <ScalarProperty Name="GiuaKi" ColumnName="GiuaKi" />
+          <ScalarProperty Name="DiemLan1" ColumnName="DiemLan1" />
+          <ScalarProperty Name="DiemLan2" ColumnName="DiemLan2" />
+          <ScalarProperty Name="DiemChu" ColumnName="DiemChu" />
+          <ScalarProperty Name="XepLoai" ColumnName="XepLoai" />
+          <ScalarProperty Name="KetQua" ColumnName="KetQua" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeDaoTao">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.HeDaoTao">
+        <MappingFragment StoreEntitySet="HeDaoTao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaHe" ColumnName="MaHe" />
+          <ScalarProperty Name="TenHe" ColumnName="TenHe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HocKy">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.HocKy">
+        <MappingFragment StoreEntitySet="HocKy">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaHK" ColumnName="MaHK" />
+          <ScalarProperty Name="TenHK" ColumnName="TenHK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lop">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.Lop">
+        <MappingFragment StoreEntitySet="Lop">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+          <ScalarProperty Name="MaHe" ColumnName="MaHe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonHP">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.MonHP">
+        <MappingFragment StoreEntitySet="MonHP">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaMonHP" ColumnName="MaMonHP" />
+          <ScalarProperty Name="TenMonHP" ColumnName="TenMonHP" />
+          <ScalarProperty Name="SoTin" ColumnName="SoTin" />
+          <ScalarProperty Name="TietLT" ColumnName="TietLT" />
+          <ScalarProperty Name="TietTH" ColumnName="TietTH" />
+          <ScalarProperty Name="MaHK" ColumnName="MaHK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SinhVien">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.SinhVien">
+        <MappingFragment StoreEntitySet="SinhVien">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="HoLot" ColumnName="HoLot" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinhTrang">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.TinhTrang">
+        <MappingFragment StoreEntitySet="TinhTrang">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+          <ScalarProperty Name="TinhTrang1" ColumnName="TinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongTin">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.ThongTin">
+        <MappingFragment StoreEntitySet="ThongTin">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaThongTin" ColumnName="MaThongTin" />
+          <ScalarProperty Name="Tinh" ColumnName="Tinh" />
+          <ScalarProperty Name="DonViChuQuan" ColumnName="DonViChuQuan" />
+          <ScalarProperty Name="TenTruong" ColumnName="TenTruong" />
+          <ScalarProperty Name="KhoaHoc" ColumnName="KhoaHoc" />
+          <ScalarProperty Name="NganhHoc" ColumnName="NganhHoc" />
+          <ScalarProperty Name="ChuyenNganh" ColumnName="ChuyenNganh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DiemHPDelete" FunctionName="QuanLiDiemModel.Store.DiemHPDelete" />
+    <FunctionImportMapping FunctionImportName="DiemHPUpdate" FunctionName="QuanLiDiemModel.Store.DiemHPUpdate" />
+    <FunctionImportMapping FunctionImportName="HeDaoTaoDelete" FunctionName="QuanLiDiemModel.Store.HeDaoTaoDelete" />
+    <FunctionImportMapping FunctionImportName="HeDaoTaoInsert" FunctionName="QuanLiDiemModel.Store.HeDaoTaoInsert" />
+    <FunctionImportMapping FunctionImportName="HeDaoTaoUpdate" FunctionName="QuanLiDiemModel.Store.HeDaoTaoUpdate" />
+    <FunctionImportMapping FunctionImportName="HocKyDelete" FunctionName="QuanLiDiemModel.Store.HocKyDelete" />
+    <FunctionImportMapping FunctionImportName="HocKyInsert" FunctionName="QuanLiDiemModel.Store.HocKyInsert" />
+    <FunctionImportMapping FunctionImportName="HocKyUpdate" FunctionName="QuanLiDiemModel.Store.HocKyUpdate" />
+    <FunctionImportMapping FunctionImportName="LopDelete" FunctionName="QuanLiDiemModel.Store.LopDelete" />
+    <FunctionImportMapping FunctionImportName="LopInsert" FunctionName="QuanLiDiemModel.Store.LopInsert" />
+    <FunctionImportMapping FunctionImportName="LopSelectAll" FunctionName="QuanLiDiemModel.Store.LopSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.LopSelectAll_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+          <ScalarProperty Name="MaHe" ColumnName="MaHe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LopUpdate" FunctionName="QuanLiDiemModel.Store.LopUpdate" />
+    <FunctionImportMapping FunctionImportName="MonHPInsert" FunctionName="QuanLiDiemModel.Store.MonHPInsert" />
+    <FunctionImportMapping FunctionImportName="MonHPUpdate" FunctionName="QuanLiDiemModel.Store.MonHPUpdate" />
+    <FunctionImportMapping FunctionImportName="SinhVienDelete" FunctionName="QuanLiDiemModel.Store.SinhVienDelete" />
+    <FunctionImportMapping FunctionImportName="SinhVienInsert" FunctionName="QuanLiDiemModel.Store.SinhVienInsert" />
+    <FunctionImportMapping FunctionImportName="SinhVienSelectAll" FunctionName="QuanLiDiemModel.Store.SinhVienSelectAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectAll_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="HoLot" ColumnName="HoLot" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SinhVienSelectAllByLop" FunctionName="QuanLiDiemModel.Store.SinhVienSelectAllByLop">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectAllByLop_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="HoLot" ColumnName="HoLot" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SinhVienUpdate" FunctionName="QuanLiDiemModel.Store.SinhVienUpdate" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QuanLiDiemModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QuanLiDiemModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QuanLiDiemModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="QuanLiDiemModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="QuanLiDiemModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QuanLiDiemModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QuanLiDiemModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="TinhTrangDelete" FunctionName="QuanLiDiemModel.Store.TinhTrangDelete" />
+    <FunctionImportMapping FunctionImportName="TinhTrangInsert" FunctionName="QuanLiDiemModel.Store.TinhTrangInsert" />
+    <FunctionImportMapping FunctionImportName="TinhTrangUpdate" FunctionName="QuanLiDiemModel.Store.TinhTrangUpdate" />
+  </EntityContainerMapping>
+</Mapping>
