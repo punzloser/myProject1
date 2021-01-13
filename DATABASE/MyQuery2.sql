@@ -617,7 +617,7 @@ GO
 
 
 SELECT dbo.DiemHP.*, SoTin FROM dbo.DiemHP LEFT JOIN dbo.MonHP ON MonHP.MaMonHP = DiemHP.MaMonHP
-WHERE MaSV = '190001'
+WHERE MaSV = '190002'
 
 
 
