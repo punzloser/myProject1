@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -149,6 +150,111 @@ namespace QuanLyDiem
             lblXL.Text = xl.XepLoaiTK(t);
             lblTinChiDat.Text = TongTinDat.ToString();
             gcDiemCT.DataSource = table;
+        }
+
+        public void ExportExcelGoc()
+        {
+            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            {
+                saveDialog.Filter = "Excel (2003)(.xls)|*.xls|Excel (2010) (.xlsx)|*.xlsx |RichText File (.rtf)|*.rtf |Pdf File (.pdf)|*.pdf |Html File (.html)|*.html";
+                if (saveDialog.ShowDialog() != DialogResult.Cancel)
+                {
+                    string exportFilePath = saveDialog.FileName;
+                    string fileExtenstion = new FileInfo(exportFilePath).Extension;
+
+                    switch (fileExtenstion)
+                    {
+                        case ".xls":
+                            gcDiemCT.ExportToXls(exportFilePath);
+                            break;
+                        case ".xlsx":
+                            gcDiemCT.ExportToXlsx(exportFilePath);
+                            break;
+                        case ".rtf":
+                            gcDiemCT.ExportToRtf(exportFilePath);
+                            break;
+                        case ".pdf":
+                            gcDiemCT.ExportToPdf(exportFilePath);
+                            break;
+                        case ".html":
+                            gcDiemCT.ExportToHtml(exportFilePath);
+                            break;
+                        case ".mht":
+                            gcDiemCT.ExportToMht(exportFilePath);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    if (File.Exists(exportFilePath))
+                    {
+                        try
+                        {
+                            //Try to open the file and let windows decide how to open it.
+                            System.Diagnostics.Process.Start(exportFilePath);
+                        }
+                        catch
+                        {
+                            String msg = "The file could not be opened." + Environment.NewLine + Environment.NewLine + "Path: " + exportFilePath;
+                            MessageBox.Show(msg, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        String msg = "The file could not be saved." + Environment.NewLine + Environment.NewLine + "Path: " + exportFilePath;
+                        MessageBox.Show(msg, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnXuatExcel_Click(object sender, EventArgs e)
+        {
+            //khởi tạo excel
+            Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+            //khởi tạo workbook
+            Microsoft.Office.Interop.Excel.Workbook workbook = app.Workbooks.Add(Type.Missing);
+            //khởi tạo worksheet
+            Microsoft.Office.Interop.Excel.Worksheet worksheet = null;
+            worksheet = workbook.Sheets["Sheet1"];
+            worksheet = workbook.ActiveSheet;
+            app.WindowState = Microsoft.Office.Interop.Excel.XlWindowState.xlMaximized;
+            app.Visible = true;
+            //đổ dữ liệu vào sheet
+            worksheet.Cells[1, 1] = "BẢNG TỔNG HỢP ĐIỂM CHI TIẾT SINH VIÊN";
+            worksheet.Cells[3, 2] = "Mã SV : " + lbMaSV.Text;
+            worksheet.Cells[4, 2] = "Tên SV : " + lbTenSV.Text;
+            worksheet.Cells[5, 2] = "Ngày sinh : " + lbNgaySinh.Text;
+            worksheet.Cells[6, 2] = "Giởi tính : " + lbGioiTinh.Text;
+            worksheet.Cells[7, 2] = "Nơi sinh : " + lbNoiSinh.Text;
+            worksheet.Cells[8, 2] = "Dân tộc : " + lbDanToc.Text;
+            worksheet.Cells[9, 1] = "STT";
+            worksheet.Cells[9, 2] = "Mã môn HP";
+            worksheet.Cells[9, 3] = "Tên môn HP";
+            worksheet.Cells[9, 4] = "Số tín";
+            worksheet.Cells[9, 5] = "Chuyên cần";
+            worksheet.Cells[9, 6] = "Giữa kì";
+            worksheet.Cells[9, 7] = "Cuối kỳ";
+            worksheet.Cells[9, 8] = "Điểm HP";
+            worksheet.Cells[9, 9] = "Điểm chữ";
+            worksheet.Cells[9, 10] = "Điểm hệ 4";
+            worksheet.Cells[9, 11] = "Kết quả";
+
+            //vòng lặp i row - in từ hàng 0 tới số hàng hiện có
+            for (int i = 0; i < gridView1.RowCount; i++)
+            {
+                // vòng lặp j column in từ cột 0 tới cột hiện có
+                for (int j = 0; j < gridView1.Columns.Count; j++)
+                {
+                    //worksheet.Cells[9, 1] = "STT" hàng 9 cột 1 
+                    // bắt đầu đổ STT i 0 - vị trí row 0 + 10, cột 1 = 0 + 1 (số)  v.v...
+                    worksheet.Cells[i + 10, 1] = i + 1;
+                   
+                    // tương tự đổ dữ liệu từ gridview
+                    worksheet.Cells[i + 10, j + 2] = gridView1.GetRowCellValue(i , gridView1.Columns[j]);
+                }
+            }
+            //ExportExcelGoc();
         }
     }
 }

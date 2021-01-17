@@ -61,6 +61,7 @@ namespace QuanLyDiem
             this.lbNgaySinh = new DevExpress.XtraEditors.LabelControl();
             this.lbTenSV = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnXuatExcel = new QuanLyDiem.CircularButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
@@ -404,6 +405,7 @@ namespace QuanLyDiem
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.btnXuatExcel);
             this.panelControl4.Controls.Add(this.circularLabel1);
             this.panelControl4.Controls.Add(this.lblTinChiDat);
             this.panelControl4.Controls.Add(this.lblXL);
@@ -510,6 +512,28 @@ namespace QuanLyDiem
             this.panelControl2.Size = new System.Drawing.Size(1230, 648);
             this.panelControl2.TabIndex = 1;
             // 
+            // btnXuatExcel
+            // 
+            this.btnXuatExcel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(222)))), ((int)(((byte)(33)))));
+            this.btnXuatExcel.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(186)))), ((int)(((byte)(51)))));
+            this.btnXuatExcel.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatExcel.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnXuatExcel.Appearance.Options.UseBackColor = true;
+            this.btnXuatExcel.Appearance.Options.UseBorderColor = true;
+            this.btnXuatExcel.Appearance.Options.UseFont = true;
+            this.btnXuatExcel.Appearance.Options.UseForeColor = true;
+            this.btnXuatExcel.Location = new System.Drawing.Point(1014, 77);
+            this.btnXuatExcel.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.btnXuatExcel.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
+            this.btnXuatExcel.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Padding = new System.Windows.Forms.Padding(3);
+            this.btnXuatExcel.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnXuatExcel.Size = new System.Drawing.Size(153, 49);
+            this.btnXuatExcel.TabIndex = 4;
+            this.btnXuatExcel.Text = "Xuất Excel";
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
+            // 
             // frmBangDiemFull
             // 
             this.Appearance.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -578,5 +602,6 @@ namespace QuanLyDiem
         private DevExpress.XtraEditors.PanelControl panelControl5;
         private DevExpress.XtraEditors.LabelControl lblTinChiDat;
         private CircularLabel circularLabel10;
+        private CircularButton btnXuatExcel;
     }
 }

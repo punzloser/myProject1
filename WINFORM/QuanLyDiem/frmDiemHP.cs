@@ -239,26 +239,22 @@ namespace QuanLyDiem
             {
                 try
                 {
+                    if (gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["DiemLan1"]) == null)
+                    {
+                        db.DiemLan1Update(Convert.ToDouble(""), Convert.ToDouble(""), Convert.ToDouble(""), view.GetRowCellValue(e.RowHandle, view.Columns[0]).ToString(),
+               luHP.EditValue.ToString());
+                    }
                     // bỏ chấp nhận làm frm mới cập nhật điểm lần 2 riêng
-                    //if (gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["ChuyenCan"]) == null||
-                    //    gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["GiuaKy"]) == null||
-                    //    gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["DiemLan1"]) == null)
-                    //{
-                    //    XtraMessageBox.Show("Lỗi !");
-                    //    luHP_EditValueChanged(sender, e);
-                    //    return;
-                            
-                    //}
-                   db.DiemLan1Update(Convert.ToDouble(view.GetRowCellValue(e.RowHandle, view.Columns[3])),
-                   Convert.ToDouble(view.GetRowCellValue(e.RowHandle, view.Columns[4])),
-                   Convert.ToDouble(view.GetRowCellValue(e.RowHandle, view.Columns[5])),
-                   view.GetRowCellValue(e.RowHandle, view.Columns[0]).ToString(),
-                   luHP.EditValue.ToString());
+                    db.DiemLan1Update(Convert.ToDouble(view.GetRowCellValue(e.RowHandle, view.Columns[3])),
+               Convert.ToDouble(view.GetRowCellValue(e.RowHandle, view.Columns[4])),
+               Convert.ToDouble(view.GetRowCellValue(e.RowHandle, view.Columns[5])),
+               view.GetRowCellValue(e.RowHandle, view.Columns[0]).ToString(),
+               luHP.EditValue.ToString());
                 }
                 catch (Exception err)
                 {
-
                     XtraMessageBox.Show("Không được để trống !\n" + err, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    luHP_EditValueChanged(sender, e);
                 }
             }
         }
