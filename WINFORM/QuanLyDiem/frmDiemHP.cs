@@ -35,13 +35,16 @@ namespace QuanLyDiem
 
         private void luHK_EditValueChanged(object sender, EventArgs e)
         {
-            luHP.Properties.DataSource = db.MonHP_SelectByHK(luHK.EditValue.ToString());
-            luHP.Properties.ValueMember = "MaMonHP";
-            luHP.Properties.DisplayMember = "TenMonHP";
-            luHP.Properties.ForceInitialize();
+            if (db.MonHP_SelectByHK(luHK.EditValue.ToString()).Count() > 0)
+            {
+                luHP.Properties.DataSource = db.MonHP_SelectByHK(luHK.EditValue.ToString());
+                luHP.Properties.ValueMember = "MaMonHP";
+                luHP.Properties.DisplayMember = "TenMonHP";
+                luHP.Properties.ForceInitialize();
+            }
+            
             //load mới
             monHPSelectByHKResultBindingSource.ResetBindings(false);
-
             txtMaHK.Text = luHK.GetColumnValue("MaHK").ToString();
             txtTenHK.Text = luHK.GetColumnValue("TenHK").ToString();
             //
@@ -184,10 +187,14 @@ namespace QuanLyDiem
         //
         private void luHK1_EditValueChanged(object sender, EventArgs e)
         {
-            luHP.Properties.DataSource = db.MonHP_SelectByHK(luHK1.EditValue.ToString());
-            luHP.Properties.ValueMember = "MaMonHP";
-            luHP.Properties.DisplayMember = "TenMonHP";
-            luHP.Properties.ForceInitialize();
+
+            if (db.MonHP_SelectByHK(luHK1.EditValue.ToString()).Count() > 0)
+            {
+                luHP.Properties.DataSource = db.MonHP_SelectByHK(luHK1.EditValue.ToString());
+                luHP.Properties.ValueMember = "MaMonHP";
+                luHP.Properties.DisplayMember = "TenMonHP";
+                luHP.Properties.ForceInitialize();
+            }
 
             monHPSelectByHKResultBindingSource.ResetBindings(false);
 
@@ -205,21 +212,44 @@ namespace QuanLyDiem
                     e.Valid = false;
                     e.ErrorText = "Điểm không đúng định dạng !";
                 }
-                else if (chuyenCan > 10 || chuyenCan < 0)
+                if (chuyenCan >= 100)
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm không hợp lệ !";
                 }
-                else if (!float.TryParse(e.Value as String, out chuyenCan))
+                
+            }
+            if (gridView1.FocusedColumn.FieldName == "GiuaKi")
+            {
+                float giuaKy = 0;
+
+                if (!float.TryParse(e.Value as String, out giuaKy))
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm không đúng định dạng !";
                 }
-                else if (String.IsNullOrEmpty(chuyenCan.ToString()))
+                if (giuaKy >= 100)
                 {
                     e.Valid = false;
-                    e.ErrorText = "Trống !";
+                    e.ErrorText = "Điểm không hợp lệ !";
                 }
+                
+            }
+            if (gridView1.FocusedColumn.FieldName == "DiemLan1")
+            {
+                float diemLan1 = 0;
+
+                if (!float.TryParse(e.Value as String, out diemLan1))
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Điểm không đúng định dạng !";
+                }
+                if (diemLan1 >= 100)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Điểm không hợp lệ !";
+                }
+                
             }
         }
 
@@ -241,21 +271,37 @@ namespace QuanLyDiem
                 {
                     if (gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["DiemLan1"]) == null)
                     {
-                        db.DiemLan1Update(Convert.ToDouble(""), Convert.ToDouble(""), Convert.ToDouble(""), view.GetRowCellValue(e.RowHandle, view.Columns[0]).ToString(),
-               luHP.EditValue.ToString());
+                        db.DiemLan1Update(Convert.ToDouble(""), Convert.ToDouble(""), Convert.ToDouble(""), view.GetRowCellValue(e.RowHandle, view.Columns[0]).ToString(), luHP.EditValue.ToString());
                     }
-                    // bỏ chấp nhận làm frm mới cập nhật điểm lần 2 riêng
-                    db.DiemLan1Update(Convert.ToDouble(view.GetRowCellValue(e.RowHandle, view.Columns[3])),
-               Convert.ToDouble(view.GetRowCellValue(e.RowHandle, view.Columns[4])),
-               Convert.ToDouble(view.GetRowCellValue(e.RowHandle, view.Columns[5])),
-               view.GetRowCellValue(e.RowHandle, view.Columns[0]).ToString(),
-               luHP.EditValue.ToString());
+                    // bỏ // chấp nhận làm frm mới cập nhật điểm lần 2 riêng
+                    Double chuyenCan = Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "ChuyenCan"));
+                    Double giuaKi = Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "GiuaKi"));
+                    Double diemLan1 = Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "DiemLan1"));
+                    if (diemLan1 > 10 && diemLan1 < 100)
+                    {
+                        diemLan1 /= 10;
+                        db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
+                    }
+                    else if (giuaKi > 10 && giuaKi < 100)
+                    {
+                        giuaKi /= 10;
+                        db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
+                    }
+                    else if (chuyenCan > 10 && chuyenCan < 100)
+                    {
+                        chuyenCan /= 10;
+                        db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
+                    }
+                    else
+                    {
+                        db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
+                    }
                 }
                 catch (Exception err)
                 {
                     XtraMessageBox.Show("Không được để trống !\n" + err, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    luHP_EditValueChanged(sender, e);
                 }
+                luHP_EditValueChanged(sender, e);
             }
         }
 

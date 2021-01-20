@@ -214,31 +214,37 @@ namespace QuanLyDiem
             Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
             //khởi tạo workbook
             Microsoft.Office.Interop.Excel.Workbook workbook = app.Workbooks.Add(Type.Missing);
-            //khởi tạo worksheet
+            //khởi tạo worksheet, chạy excel
             Microsoft.Office.Interop.Excel.Worksheet worksheet = null;
             worksheet = workbook.Sheets["Sheet1"];
             worksheet = workbook.ActiveSheet;
+            //worksheet.Columns.AutoFit();
+            //worksheet.Rows.AutoFit();
             app.WindowState = Microsoft.Office.Interop.Excel.XlWindowState.xlMaximized;
             app.Visible = true;
+
+            //luu
+            //ExcelApp.ActiveWorkbook.SaveCopyAs(Application.StartupPath + "\\HaulerInfo.xlsx");
+            //ExcelApp.ActiveWorkbook.Saved = true;
             //đổ dữ liệu vào sheet
             worksheet.Cells[1, 1] = "BẢNG TỔNG HỢP ĐIỂM CHI TIẾT SINH VIÊN";
             worksheet.Cells[3, 2] = "Mã SV : " + lbMaSV.Text;
             worksheet.Cells[4, 2] = "Tên SV : " + lbTenSV.Text;
-            worksheet.Cells[5, 2] = "Ngày sinh : " + lbNgaySinh.Text;
-            worksheet.Cells[6, 2] = "Giởi tính : " + lbGioiTinh.Text;
-            worksheet.Cells[7, 2] = "Nơi sinh : " + lbNoiSinh.Text;
-            worksheet.Cells[8, 2] = "Dân tộc : " + lbDanToc.Text;
-            worksheet.Cells[9, 1] = "STT";
-            worksheet.Cells[9, 2] = "Mã môn HP";
-            worksheet.Cells[9, 3] = "Tên môn HP";
-            worksheet.Cells[9, 4] = "Số tín";
-            worksheet.Cells[9, 5] = "Chuyên cần";
-            worksheet.Cells[9, 6] = "Giữa kì";
-            worksheet.Cells[9, 7] = "Cuối kỳ";
-            worksheet.Cells[9, 8] = "Điểm HP";
-            worksheet.Cells[9, 9] = "Điểm chữ";
-            worksheet.Cells[9, 10] = "Điểm hệ 4";
-            worksheet.Cells[9, 11] = "Kết quả";
+            worksheet.Cells[3, 4] = "Ngày sinh : " + lbNgaySinh.Text;
+            worksheet.Cells[4, 4] = "Giới tính : " + lbGioiTinh.Text;
+            worksheet.Cells[3, 7] = "Nơi sinh : " + lbNoiSinh.Text;
+            worksheet.Cells[4, 7] = "Dân tộc : " + lbDanToc.Text;
+            worksheet.Cells[6, 1] = "STT";
+            worksheet.Cells[6, 2] = "Mã môn HP";
+            worksheet.Cells[6, 3] = "Tên môn HP";
+            worksheet.Cells[6, 4] = "Số tín";
+            worksheet.Cells[6, 5] = "Chuyên cần";
+            worksheet.Cells[6, 6] = "Giữa kì";
+            worksheet.Cells[6, 7] = "Cuối kỳ";
+            worksheet.Cells[6, 8] = "Điểm HP";
+            worksheet.Cells[6, 9] = "Điểm chữ";
+            worksheet.Cells[6, 10] = "Điểm hệ 4";
+            worksheet.Cells[6, 11] = "Kết quả";
 
             //vòng lặp i row - in từ hàng 0 tới số hàng hiện có
             for (int i = 0; i < gridView1.RowCount; i++)
@@ -248,13 +254,66 @@ namespace QuanLyDiem
                 {
                     //worksheet.Cells[9, 1] = "STT" hàng 9 cột 1 
                     // bắt đầu đổ STT i 0 - vị trí row 0 + 10, cột 1 = 0 + 1 (số)  v.v...
-                    worksheet.Cells[i + 10, 1] = i + 1;
+                    worksheet.Cells[i + 7, 1] = i + 1;
                    
                     // tương tự đổ dữ liệu từ gridview
-                    worksheet.Cells[i + 10, j + 2] = gridView1.GetRowCellValue(i , gridView1.Columns[j]);
+                    worksheet.Cells[i + 7, j + 2] = gridView1.GetRowCellValue(i , gridView1.Columns[j]);
                 }
             }
             //ExportExcelGoc();
+
+            int setViTri = gridView1.RowCount;
+            worksheet.Cells[setViTri + 7, 1] = "Chú ý : _Những môn có dấu (*) sẽ không tính điểm trung bình mà chỉ là môn điều kiện";
+            worksheet.Cells[setViTri + 9, 1] = "Trung bình toàn khóa : " + lblTB.Text;
+            worksheet.Cells[setViTri + 10, 1] = "Xếp loại toàn khóa : " + lblXL.Text;
+            worksheet.Cells[setViTri + 11, 1] = "Tổng số tín chỉ đạt : " + lblTinChiDat.Text;
+
+            //định dạng trang
+
+            worksheet.PageSetup.Orientation = Microsoft.Office.Interop.Excel.XlPageOrientation.xlLandscape;
+            worksheet.PageSetup.PaperSize = Microsoft.Office.Interop.Excel.XlPaperSize.xlPaperA4;
+            worksheet.PageSetup.BottomMargin = 0;
+            worksheet.PageSetup.LeftMargin = 0;
+            worksheet.PageSetup.RightMargin = 0;
+            worksheet.PageSetup.TopMargin = 0;
+            worksheet.PageSetup.HeaderMargin = 0;
+            worksheet.PageSetup.FooterMargin = 0;
+            //định dạng cột
+
+            worksheet.Range["A1"].ColumnWidth = 10;
+            worksheet.Range["B1"].ColumnWidth = 13;
+            worksheet.Range["C1"].ColumnWidth = 35;
+            worksheet.Range["D1"].ColumnWidth = 10;
+            worksheet.Range["E1"].ColumnWidth = 12;
+            worksheet.Range["F1"].ColumnWidth = 10;
+            worksheet.Range["G1"].ColumnWidth = 10;
+            worksheet.Range["H1"].ColumnWidth = 14;
+            worksheet.Range["I1"].ColumnWidth = 10;
+            worksheet.Range["J1"].ColumnWidth = 10;
+            worksheet.Range["K1"].ColumnWidth = 10;
+
+            //định dạng font
+
+            worksheet.Range["A1", "K100"].Font.Name = "Times News Roman";
+            worksheet.Range["A1", "K100"].Font.Size = 12;
+            worksheet.Range["A1", "K1"].MergeCells = true;
+            worksheet.Range["A" + (setViTri + 7), "K" + (setViTri + 7)].MergeCells = true;
+            worksheet.Range["A1", "K1"].Font.Bold = true;
+            worksheet.Range["A6", "K6"].Font.Bold = true;
+            worksheet.Range["A" + (setViTri + 9), "A" + (setViTri + 11)].Font.Bold = true;
+            worksheet.Range["A" + (setViTri + 9), "A" + (setViTri + 11)].Font.Italic = true;
+            worksheet.Range["A1", "K1"].Font.Size = 16;
+            worksheet.Range["A1", "K1"].Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+            worksheet.Range["B3", "H4"].Font.Italic = true;
+            //kẻ bảng 
+
+            worksheet.Range["A6", "K" + (setViTri + 7)].Borders.LineStyle = 1;
+
+            //định dạng all dòng text ra giữa
+
+            worksheet.Range["A1", "K1"].HorizontalAlignment = 3;
+            worksheet.Range["A6", "K" + (setViTri + 7)].HorizontalAlignment = 3;
+            worksheet.Range["A" + (setViTri + 7), "K" + (setViTri + 7)].HorizontalAlignment = 3;
         }
     }
 }

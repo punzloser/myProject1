@@ -407,6 +407,10 @@
   <Function Name="SinhVienSelectAllByLop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaLop" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="SinhVienSelectAllByLopDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaLop" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SinhVienSelectAllDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SinhVienUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaSV" Type="varchar" Mode="In" />
     <Parameter Name="HoLot" Type="nvarchar" Mode="In" />

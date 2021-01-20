@@ -173,9 +173,9 @@ namespace QuanLyDiem
             // 
             this.panelControl2.Controls.Add(this.gcDiem);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 260);
+            this.panelControl2.Location = new System.Drawing.Point(0, 274);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1457, 323);
+            this.panelControl2.Size = new System.Drawing.Size(1457, 309);
             this.panelControl2.TabIndex = 1;
             // 
             // gcDiem
@@ -185,7 +185,7 @@ namespace QuanLyDiem
             this.gcDiem.Location = new System.Drawing.Point(2, 2);
             this.gcDiem.MainView = this.gridView1;
             this.gcDiem.Name = "gcDiem";
-            this.gcDiem.Size = new System.Drawing.Size(1453, 319);
+            this.gcDiem.Size = new System.Drawing.Size(1453, 305);
             this.gcDiem.TabIndex = 0;
             this.gcDiem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -319,7 +319,7 @@ namespace QuanLyDiem
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1457, 260);
+            this.panelControl1.Size = new System.Drawing.Size(1457, 274);
             this.panelControl1.TabIndex = 0;
             // 
             // panelControl4
@@ -331,7 +331,7 @@ namespace QuanLyDiem
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(2, 42);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1453, 216);
+            this.panelControl4.Size = new System.Drawing.Size(1453, 230);
             this.panelControl4.TabIndex = 5;
             // 
             // panelControl6
@@ -340,7 +340,7 @@ namespace QuanLyDiem
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl6.Location = new System.Drawing.Point(729, 45);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(724, 171);
+            this.panelControl6.Size = new System.Drawing.Size(724, 185);
             this.panelControl6.TabIndex = 3;
             // 
             // dataLayoutControl2
@@ -359,7 +359,7 @@ namespace QuanLyDiem
             this.dataLayoutControl2.Location = new System.Drawing.Point(2, 2);
             this.dataLayoutControl2.Name = "dataLayoutControl2";
             this.dataLayoutControl2.Root = this.layoutControlGroup1;
-            this.dataLayoutControl2.Size = new System.Drawing.Size(720, 167);
+            this.dataLayoutControl2.Size = new System.Drawing.Size(720, 181);
             this.dataLayoutControl2.TabIndex = 0;
             this.dataLayoutControl2.Text = "dataLayoutControl2";
             // 
@@ -750,7 +750,7 @@ namespace QuanLyDiem
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl7.Location = new System.Drawing.Point(0, 45);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(729, 171);
+            this.panelControl7.Size = new System.Drawing.Size(729, 185);
             this.panelControl7.TabIndex = 2;
             // 
             // dataLayoutControl1
@@ -765,7 +765,7 @@ namespace QuanLyDiem
             this.dataLayoutControl1.Location = new System.Drawing.Point(2, 2);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(725, 167);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(725, 181);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -778,7 +778,7 @@ namespace QuanLyDiem
             this.btnCapNhatTheoLop.Location = new System.Drawing.Point(12, 102);
             this.btnCapNhatTheoLop.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.btnCapNhatTheoLop.Name = "btnCapNhatTheoLop";
-            this.btnCapNhatTheoLop.Size = new System.Drawing.Size(675, 32);
+            this.btnCapNhatTheoLop.Size = new System.Drawing.Size(701, 32);
             this.btnCapNhatTheoLop.StyleController = this.dataLayoutControl1;
             this.btnCapNhatTheoLop.TabIndex = 14;
             this.btnCapNhatTheoLop.Text = "CẬP NHẬP TẤT CẢ MÔN MỚI THEO LỚP";
@@ -800,11 +800,11 @@ namespace QuanLyDiem
             this.btnCapNhatAll.AppearancePressed.BorderColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCapNhatAll.AppearancePressed.Options.UseBorderColor = true;
             this.btnCapNhatAll.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.Full;
-            this.btnCapNhatAll.Location = new System.Drawing.Point(183, 12);
+            this.btnCapNhatAll.Location = new System.Drawing.Point(190, 12);
             this.btnCapNhatAll.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.btnCapNhatAll.Name = "btnCapNhatAll";
             this.btnCapNhatAll.Padding = new System.Windows.Forms.Padding(0, 27, 0, 27);
-            this.btnCapNhatAll.Size = new System.Drawing.Size(504, 86);
+            this.btnCapNhatAll.Size = new System.Drawing.Size(523, 86);
             this.btnCapNhatAll.StyleController = this.dataLayoutControl1;
             this.btnCapNhatAll.TabIndex = 7;
             this.btnCapNhatAll.Text = "CẬP NHẬT TẤT CẢ CÁC MÔN MỚI VÀO TẤT CẢ LỚP";
@@ -823,7 +823,7 @@ namespace QuanLyDiem
             this.luLop.Properties.DisplayMember = "TenLop";
             this.luLop.Properties.NullText = "";
             this.luLop.Properties.ValueMember = "MaLop";
-            this.luLop.Size = new System.Drawing.Size(600, 26);
+            this.luLop.Size = new System.Drawing.Size(626, 26);
             this.luLop.StyleController = this.dataLayoutControl1;
             this.luLop.TabIndex = 4;
             // 
@@ -832,7 +832,7 @@ namespace QuanLyDiem
             this.txtTenHK.Location = new System.Drawing.Point(87, 72);
             this.txtTenHK.MenuManager = this.barManager1;
             this.txtTenHK.Name = "txtTenHK";
-            this.txtTenHK.Size = new System.Drawing.Size(92, 26);
+            this.txtTenHK.Size = new System.Drawing.Size(99, 26);
             this.txtTenHK.StyleController = this.dataLayoutControl1;
             this.txtTenHK.TabIndex = 12;
             // 
@@ -843,7 +843,7 @@ namespace QuanLyDiem
             this.txtMaHK.Location = new System.Drawing.Point(87, 42);
             this.txtMaHK.MenuManager = this.barManager1;
             this.txtMaHK.Name = "txtMaHK";
-            this.txtMaHK.Size = new System.Drawing.Size(92, 26);
+            this.txtMaHK.Size = new System.Drawing.Size(99, 26);
             this.txtMaHK.StyleController = this.dataLayoutControl1;
             this.txtMaHK.TabIndex = 13;
             // 
@@ -860,7 +860,7 @@ namespace QuanLyDiem
             this.luHK.Properties.DisplayMember = "TenHK";
             this.luHK.Properties.NullText = "";
             this.luHK.Properties.ValueMember = "MaHK";
-            this.luHK.Size = new System.Drawing.Size(92, 26);
+            this.luHK.Size = new System.Drawing.Size(99, 26);
             this.luHK.StyleController = this.dataLayoutControl1;
             this.luHK.TabIndex = 10;
             this.luHK.EditValueChanged += new System.EventHandler(this.luHK_EditValueChanged);
@@ -877,7 +877,7 @@ namespace QuanLyDiem
             this.layoutControlItem6,
             this.layoutControlItem1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(699, 176);
+            this.Root.Size = new System.Drawing.Size(725, 181);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -886,16 +886,16 @@ namespace QuanLyDiem
             this.layoutControlGroup2.GroupBordersVisible = false;
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(171, 0);
+            this.layoutControlGroup2.Location = new System.Drawing.Point(178, 0);
             this.layoutControlGroup2.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(508, 90);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(527, 90);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnCapNhatAll;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(508, 90);
+            this.layoutControlItem2.Size = new System.Drawing.Size(527, 90);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -904,7 +904,7 @@ namespace QuanLyDiem
             this.layoutControlItem3.Control = this.luHK;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(171, 30);
+            this.layoutControlItem3.Size = new System.Drawing.Size(178, 30);
             this.layoutControlItem3.Text = "Chọn HK";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(72, 18);
             // 
@@ -913,7 +913,7 @@ namespace QuanLyDiem
             this.layoutControlItem5.Control = this.txtTenHK;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 60);
             this.layoutControlItem5.Name = "ItemForTenHK";
-            this.layoutControlItem5.Size = new System.Drawing.Size(171, 30);
+            this.layoutControlItem5.Size = new System.Drawing.Size(178, 30);
             this.layoutControlItem5.Text = "Ten HK";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(72, 18);
             // 
@@ -922,7 +922,7 @@ namespace QuanLyDiem
             this.ItemForMaHK.Control = this.txtMaHK;
             this.ItemForMaHK.Location = new System.Drawing.Point(0, 30);
             this.ItemForMaHK.Name = "ItemForMaHK";
-            this.ItemForMaHK.Size = new System.Drawing.Size(171, 30);
+            this.ItemForMaHK.Size = new System.Drawing.Size(178, 30);
             this.ItemForMaHK.Text = "Ma HK";
             this.ItemForMaHK.TextSize = new System.Drawing.Size(72, 18);
             // 
@@ -931,7 +931,7 @@ namespace QuanLyDiem
             this.layoutControlItem6.Control = this.btnCapNhatTheoLop;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 90);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(679, 36);
+            this.layoutControlItem6.Size = new System.Drawing.Size(705, 36);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -940,7 +940,7 @@ namespace QuanLyDiem
             this.layoutControlItem1.Control = this.luLop;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 126);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(679, 30);
+            this.layoutControlItem1.Size = new System.Drawing.Size(705, 35);
             this.layoutControlItem1.Text = "Chọn lớp";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(72, 18);
             // 

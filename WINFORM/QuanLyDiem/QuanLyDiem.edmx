@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLiDiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanLiDiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DangNhap">
           <Key>
             <PropertyRef Name="UserName" />
@@ -412,6 +412,10 @@
         <Function Name="SinhVienSelectAllByLop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MaLop" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="SinhVienSelectAllByLopDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaLop" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SinhVienSelectAllDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SinhVienUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MaSV" Type="varchar" Mode="In" />
           <Parameter Name="HoLot" Type="nvarchar" Mode="In" />
@@ -499,8 +503,7 @@
             <End Role="SinhVien" EntitySet="SinhVien" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLiDiemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -899,10 +902,10 @@
             <Parameter Name="MaMonHP" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="HeDaoTaoDelete">
-            <Parameter Name="MaHe" Mode="In" Type="String" />
+          <Parameter Name="MaHe" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="HeDaoTaoInsert">
-            <Parameter Name="TenHe" Mode="In" Type="String" />
+          <Parameter Name="TenHe" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="HeDaoTaoUpdate">
             <Parameter Name="MaHe" Mode="In" Type="String" />
@@ -911,17 +914,17 @@
           <FunctionImport Name="HeSelectALL" ReturnType="Collection(QuanLiDiemModel.HeSelectALL_Result)" />
           <FunctionImport Name="HKSelectALL" ReturnType="Collection(QuanLiDiemModel.HKSelectALL_Result)" />
           <FunctionImport Name="HocKyDelete">
-            <Parameter Name="MaHK" Mode="In" Type="String" />
+          <Parameter Name="MaHK" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="HocKyInsert">
-            <Parameter Name="TenHK" Mode="In" Type="String" />
+          <Parameter Name="TenHK" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="HocKyUpdate">
             <Parameter Name="MaHK" Mode="In" Type="String" />
             <Parameter Name="TenHK" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LopDelete">
-            <Parameter Name="MaLop" Mode="In" Type="String" />
+          <Parameter Name="MaLop" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LopInsert">
             <Parameter Name="TenLop" Mode="In" Type="String" />
@@ -929,17 +932,17 @@
           </FunctionImport>
           <FunctionImport Name="LopSelectAll" ReturnType="Collection(QuanLiDiemModel.LopSelectAll_Result)" />
           <FunctionImport Name="LopSelectALLByHe" ReturnType="Collection(QuanLiDiemModel.LopSelectALLByHe_Result)">
-            <Parameter Name="MaHe" Mode="In" Type="String" />
+          <Parameter Name="MaHe" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LopUpdate">
             <Parameter Name="MaLop" Mode="In" Type="String" />
             <Parameter Name="TenLop" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHP_SelectByHK" ReturnType="Collection(QuanLiDiemModel.MonHP_SelectByHK_Result)">
-            <Parameter Name="MaHK" Mode="In" Type="String" />
+          <Parameter Name="MaHK" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHPDelete">
-            <Parameter Name="MaMonHP" Mode="In" Type="String" />
+          <Parameter Name="MaMonHP" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHPInsert">
             <Parameter Name="TenMonHP" Mode="In" Type="String" />
@@ -949,11 +952,11 @@
             <Parameter Name="MaHK" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHPOnlySelect" ReturnType="Collection(QuanLiDiemModel.MonHPOnlySelect_Result)">
-            <Parameter Name="MaMonHP" Mode="In" Type="String" />
+          <Parameter Name="MaMonHP" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHPSelectAll" ReturnType="Collection(QuanLiDiemModel.MonHPSelectAll_Result)" />
           <FunctionImport Name="MonHPSelectBySV" ReturnType="Collection(QuanLiDiemModel.MonHPSelectBySV_Result)">
-            <Parameter Name="MaSV" Mode="In" Type="String" />
+          <Parameter Name="MaSV" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHPUpdate">
             <Parameter Name="MaMonHP" Mode="In" Type="String" />
@@ -963,11 +966,11 @@
             <Parameter Name="TietTH" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="SinhVienDelete">
-            <Parameter Name="MaSV" Mode="In" Type="String" />
+          <Parameter Name="MaSV" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SinhVienHA_SelectALL" ReturnType="Collection(QuanLiDiemModel.SinhVienHA_SelectALL_Result)" />
           <FunctionImport Name="SinhVienHA_SelectByLop" ReturnType="Collection(QuanLiDiemModel.SinhVienHA_SelectByLop_Result)">
-            <Parameter Name="MaLop" Mode="In" Type="String" />
+          <Parameter Name="MaLop" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SinhVienHA_Update">
             <Parameter Name="SV_IMG" Mode="In" Type="String" />
@@ -986,10 +989,10 @@
           </FunctionImport>
           <FunctionImport Name="SinhVienSelectAll" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAll_Result)" />
           <FunctionImport Name="SinhVienSelectAllByID" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllByID_Result)">
-            <Parameter Name="MaSV" Mode="In" Type="String" />
+          <Parameter Name="MaSV" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SinhVienSelectAllByLop" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllByLop_Result)">
-            <Parameter Name="MaLop" Mode="In" Type="String" />
+          <Parameter Name="MaLop" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SinhVienUpdate">
             <Parameter Name="MaSV" Mode="In" Type="String" />
@@ -1010,15 +1013,19 @@
             <Parameter Name="ChuyenNganh" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="TinhTrangDelete">
-            <Parameter Name="MaTinhTrang" Mode="In" Type="String" />
+          <Parameter Name="MaTinhTrang" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="TinhTrangInsert">
-            <Parameter Name="TinhTrang" Mode="In" Type="String" />
+          <Parameter Name="TinhTrang" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="TinhTrangUpdate">
             <Parameter Name="MaTinhTrang" Mode="In" Type="String" />
             <Parameter Name="TinhTrang" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SinhVienSelectAllByLopDetail" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllByLopDetail_Result)">
+          <Parameter Name="MaLop" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SinhVienSelectAllDetail" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllDetail_Result)" />
         </EntityContainer>
         <ComplexType Name="BangDiemHP_Result">
           <Property Type="String" Name="MaSV" Nullable="true" MaxLength="6" />
@@ -1143,6 +1150,22 @@
           <Property Type="String" Name="DanToc" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="MaLop" Nullable="true" MaxLength="6" />
           <Property Type="String" Name="MaTinhTrang" Nullable="true" MaxLength="6" />
+        </ComplexType>
+        <ComplexType Name="SinhVienSelectAllByLopDetail_Result">
+          <Property Type="String" Name="MaSV" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="38" />
+          <Property Type="DateTime" Name="NgaySinh" Nullable="true" Precision="23" />
+          <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="DanToc" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="SinhVienSelectAllDetail_Result">
+          <Property Type="String" Name="MaSV" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="38" />
+          <Property Type="DateTime" Name="NgaySinh" Nullable="true" Precision="23" />
+          <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="DanToc" Nullable="true" MaxLength="20" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1509,6 +1532,30 @@
           <FunctionImportMapping FunctionImportName="TinhTrangDelete" FunctionName="QuanLiDiemModel.Store.TinhTrangDelete" />
           <FunctionImportMapping FunctionImportName="TinhTrangInsert" FunctionName="QuanLiDiemModel.Store.TinhTrangInsert" />
           <FunctionImportMapping FunctionImportName="TinhTrangUpdate" FunctionName="QuanLiDiemModel.Store.TinhTrangUpdate" />
+          <FunctionImportMapping FunctionImportName="SinhVienSelectAllByLopDetail" FunctionName="QuanLiDiemModel.Store.SinhVienSelectAllByLopDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectAllByLopDetail_Result">
+                <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SinhVienSelectAllDetail" FunctionName="QuanLiDiemModel.Store.SinhVienSelectAllDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectAllDetail_Result">
+                <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

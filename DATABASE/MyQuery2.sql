@@ -507,6 +507,21 @@ BEGIN
 END
 GO
 
+CREATE PROC SinhVienSelectAllByLopDetail
+@MaLop VARCHAR(6)
+AS
+BEGIN
+	SELECT MaSV, HoLot + ' ' + Ten [HoTen], NgaySinh, GioiTinh, NoiSinh, DanToc FROM dbo.SinhVien WHERE MaLop = @MaLop
+END
+GO
+
+CREATE PROC SinhVienSelectAllDetail
+AS
+BEGIN
+	SELECT MaSV, HoLot + ' ' + Ten [HoTen], NgaySinh, GioiTinh, NoiSinh, DanToc FROM dbo.SinhVien 
+END
+GO
+
 CREATE PROC MonHPSelectAll
 AS
 BEGIN
@@ -595,7 +610,7 @@ ALTER PROC DiemLan1Update
 @MaMonHP VARCHAR(6)
 AS
 BEGIN
-	UPDATE dbo.DiemHP SET ChuyenCan = ISNULL(ChuyenCan, @ChuyenCan), GiuaKi = ISNULL(GiuaKi, @GiuaKi), DiemLan1 = ISNULL(DiemLan1, @DiemLan1)
+	UPDATE dbo.DiemHP SET ChuyenCan = @ChuyenCan, GiuaKi = @GiuaKi, DiemLan1 = @DiemLan1
 	WHERE MaSV = @MaSV AND MaMonHP = @MaMonHP
 END
 GO

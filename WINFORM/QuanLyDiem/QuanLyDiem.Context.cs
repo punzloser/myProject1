@@ -597,5 +597,19 @@ namespace QuanLyDiem
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TinhTrangUpdate", maTinhTrangParameter, tinhTrangParameter);
         }
+    
+        public virtual ObjectResult<SinhVienSelectAllByLopDetail_Result> SinhVienSelectAllByLopDetail(string maLop)
+        {
+            var maLopParameter = maLop != null ?
+                new ObjectParameter("MaLop", maLop) :
+                new ObjectParameter("MaLop", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SinhVienSelectAllByLopDetail_Result>("SinhVienSelectAllByLopDetail", maLopParameter);
+        }
+    
+        public virtual ObjectResult<SinhVienSelectAllDetail_Result> SinhVienSelectAllDetail()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SinhVienSelectAllDetail_Result>("SinhVienSelectAllDetail");
+        }
     }
 }
