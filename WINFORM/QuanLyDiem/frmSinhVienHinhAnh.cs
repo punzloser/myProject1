@@ -24,7 +24,7 @@ namespace QuanLyDiem
         private void frmSinhVienHinhAnh_Load(object sender, EventArgs e)
         {
             db = new QuanLiDiemEntities();
-            db.SinhVienHA_SelectALL().ToList();
+           // db.SinhVienHA_SelectALL().ToList();
             sinhVienHASelectALLResultBindingSource.DataSource = db.SinhVienHA_SelectALL().ToList();
             lopBindingSource.DataSource = db.Lop.ToList();
         }

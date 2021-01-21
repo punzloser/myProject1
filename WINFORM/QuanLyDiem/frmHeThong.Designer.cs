@@ -90,8 +90,7 @@ namespace QuanLyDiem
             this.panelControl1.Controls.Add(this.circularPanel1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.panelControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+            this.panelControl1.LookAndFeel.SkinName = "Blue";
             this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1021, 522);
@@ -138,7 +137,7 @@ namespace QuanLyDiem
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.ForeColor = System.Drawing.Color.Black;
             this.dataLayoutControl1.Location = new System.Drawing.Point(2, 2);
-            this.dataLayoutControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.dataLayoutControl1.LookAndFeel.SkinName = "Xmas 2008 Blue";
             this.dataLayoutControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsView.ItemBorderColor = System.Drawing.Color.Red;
@@ -157,10 +156,10 @@ namespace QuanLyDiem
             this.circularButton1.Appearance.Options.UseBorderColor = true;
             this.circularButton1.Appearance.Options.UseFont = true;
             this.circularButton1.Appearance.Options.UseForeColor = true;
-            this.circularButton1.Location = new System.Drawing.Point(549, 221);
+            this.circularButton1.Location = new System.Drawing.Point(543, 246);
             this.circularButton1.Name = "circularButton1";
             this.circularButton1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.circularButton1.Size = new System.Drawing.Size(256, 52);
+            this.circularButton1.Size = new System.Drawing.Size(255, 54);
             this.circularButton1.StyleController = this.dataLayoutControl1;
             this.circularButton1.TabIndex = 0;
             this.circularButton1.Text = "Cập nhật";
@@ -169,9 +168,9 @@ namespace QuanLyDiem
             // txtTinh
             // 
             this.txtTinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.thongTinBindingSource, "Tinh", true));
-            this.txtTinh.Location = new System.Drawing.Point(150, 5);
+            this.txtTinh.Location = new System.Drawing.Point(161, 16);
             this.txtTinh.Name = "txtTinh";
-            this.txtTinh.Size = new System.Drawing.Size(367, 26);
+            this.txtTinh.Size = new System.Drawing.Size(352, 27);
             this.txtTinh.StyleController = this.dataLayoutControl1;
             this.txtTinh.TabIndex = 4;
             // 
@@ -182,45 +181,45 @@ namespace QuanLyDiem
             // txtDonVi
             // 
             this.txtDonVi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.thongTinBindingSource, "DonViChuQuan", true));
-            this.txtDonVi.Location = new System.Drawing.Point(150, 41);
+            this.txtDonVi.Location = new System.Drawing.Point(161, 55);
             this.txtDonVi.Name = "txtDonVi";
-            this.txtDonVi.Size = new System.Drawing.Size(655, 26);
+            this.txtDonVi.Size = new System.Drawing.Size(633, 27);
             this.txtDonVi.StyleController = this.dataLayoutControl1;
             this.txtDonVi.TabIndex = 5;
             // 
             // txtTenTruong
             // 
             this.txtTenTruong.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.thongTinBindingSource, "TenTruong", true));
-            this.txtTenTruong.Location = new System.Drawing.Point(150, 77);
+            this.txtTenTruong.Location = new System.Drawing.Point(161, 94);
             this.txtTenTruong.Name = "txtTenTruong";
-            this.txtTenTruong.Size = new System.Drawing.Size(655, 26);
+            this.txtTenTruong.Size = new System.Drawing.Size(633, 27);
             this.txtTenTruong.StyleController = this.dataLayoutControl1;
             this.txtTenTruong.TabIndex = 6;
             // 
             // txtKhoaHoc
             // 
             this.txtKhoaHoc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.thongTinBindingSource, "KhoaHoc", true));
-            this.txtKhoaHoc.Location = new System.Drawing.Point(150, 113);
+            this.txtKhoaHoc.Location = new System.Drawing.Point(161, 133);
             this.txtKhoaHoc.Name = "txtKhoaHoc";
-            this.txtKhoaHoc.Size = new System.Drawing.Size(655, 26);
+            this.txtKhoaHoc.Size = new System.Drawing.Size(633, 27);
             this.txtKhoaHoc.StyleController = this.dataLayoutControl1;
             this.txtKhoaHoc.TabIndex = 7;
             // 
             // txtNganh
             // 
             this.txtNganh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.thongTinBindingSource, "NganhHoc", true));
-            this.txtNganh.Location = new System.Drawing.Point(150, 149);
+            this.txtNganh.Location = new System.Drawing.Point(161, 172);
             this.txtNganh.Name = "txtNganh";
-            this.txtNganh.Size = new System.Drawing.Size(655, 26);
+            this.txtNganh.Size = new System.Drawing.Size(633, 27);
             this.txtNganh.StyleController = this.dataLayoutControl1;
             this.txtNganh.TabIndex = 8;
             // 
             // txtChuyenNganh
             // 
             this.txtChuyenNganh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.thongTinBindingSource, "ChuyenNganh", true));
-            this.txtChuyenNganh.Location = new System.Drawing.Point(150, 185);
+            this.txtChuyenNganh.Location = new System.Drawing.Point(161, 211);
             this.txtChuyenNganh.Name = "txtChuyenNganh";
-            this.txtChuyenNganh.Size = new System.Drawing.Size(655, 26);
+            this.txtChuyenNganh.Size = new System.Drawing.Size(633, 27);
             this.txtChuyenNganh.StyleController = this.dataLayoutControl1;
             this.txtChuyenNganh.TabIndex = 9;
             // 
@@ -228,9 +227,9 @@ namespace QuanLyDiem
             // 
             this.txtMTT.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.thongTinBindingSource, "MaThongTin", true));
             this.txtMTT.Enabled = false;
-            this.txtMTT.Location = new System.Drawing.Point(672, 5);
+            this.txtMTT.Location = new System.Drawing.Point(670, 16);
             this.txtMTT.Name = "txtMTT";
-            this.txtMTT.Size = new System.Drawing.Size(133, 26);
+            this.txtMTT.Size = new System.Drawing.Size(124, 27);
             this.txtMTT.StyleController = this.dataLayoutControl1;
             this.txtMTT.TabIndex = 10;
             // 
@@ -262,85 +261,92 @@ namespace QuanLyDiem
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(810, 329);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(790, 309);
             // 
             // ItemForTinh
             // 
             this.ItemForTinh.Control = this.txtTinh;
             this.ItemForTinh.Location = new System.Drawing.Point(0, 0);
             this.ItemForTinh.Name = "ItemForTinh";
-            this.ItemForTinh.Size = new System.Drawing.Size(522, 36);
+            this.ItemForTinh.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
+            this.ItemForTinh.Size = new System.Drawing.Size(509, 39);
             this.ItemForTinh.Text = "Tinh";
             this.ItemForTinh.TextSize = new System.Drawing.Size(140, 18);
             // 
             // ItemForDonViChuQuan
             // 
             this.ItemForDonViChuQuan.Control = this.txtDonVi;
-            this.ItemForDonViChuQuan.Location = new System.Drawing.Point(0, 36);
+            this.ItemForDonViChuQuan.Location = new System.Drawing.Point(0, 39);
             this.ItemForDonViChuQuan.Name = "ItemForDonViChuQuan";
-            this.ItemForDonViChuQuan.Size = new System.Drawing.Size(810, 36);
+            this.ItemForDonViChuQuan.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
+            this.ItemForDonViChuQuan.Size = new System.Drawing.Size(790, 39);
             this.ItemForDonViChuQuan.Text = "Don Vi Chu Quan";
             this.ItemForDonViChuQuan.TextSize = new System.Drawing.Size(140, 18);
             // 
             // ItemForTenTruong
             // 
             this.ItemForTenTruong.Control = this.txtTenTruong;
-            this.ItemForTenTruong.Location = new System.Drawing.Point(0, 72);
+            this.ItemForTenTruong.Location = new System.Drawing.Point(0, 78);
             this.ItemForTenTruong.Name = "ItemForTenTruong";
-            this.ItemForTenTruong.Size = new System.Drawing.Size(810, 36);
+            this.ItemForTenTruong.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
+            this.ItemForTenTruong.Size = new System.Drawing.Size(790, 39);
             this.ItemForTenTruong.Text = "Ten Truong";
             this.ItemForTenTruong.TextSize = new System.Drawing.Size(140, 18);
             // 
             // ItemForKhoaHoc
             // 
             this.ItemForKhoaHoc.Control = this.txtKhoaHoc;
-            this.ItemForKhoaHoc.Location = new System.Drawing.Point(0, 108);
+            this.ItemForKhoaHoc.Location = new System.Drawing.Point(0, 117);
             this.ItemForKhoaHoc.Name = "ItemForKhoaHoc";
-            this.ItemForKhoaHoc.Size = new System.Drawing.Size(810, 36);
+            this.ItemForKhoaHoc.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
+            this.ItemForKhoaHoc.Size = new System.Drawing.Size(790, 39);
             this.ItemForKhoaHoc.Text = "Khoa Hoc";
             this.ItemForKhoaHoc.TextSize = new System.Drawing.Size(140, 18);
             // 
             // ItemForNganhHoc
             // 
             this.ItemForNganhHoc.Control = this.txtNganh;
-            this.ItemForNganhHoc.Location = new System.Drawing.Point(0, 144);
+            this.ItemForNganhHoc.Location = new System.Drawing.Point(0, 156);
             this.ItemForNganhHoc.Name = "ItemForNganhHoc";
-            this.ItemForNganhHoc.Size = new System.Drawing.Size(810, 36);
+            this.ItemForNganhHoc.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
+            this.ItemForNganhHoc.Size = new System.Drawing.Size(790, 39);
             this.ItemForNganhHoc.Text = "Nganh Hoc";
             this.ItemForNganhHoc.TextSize = new System.Drawing.Size(140, 18);
             // 
             // ItemForChuyenNganh
             // 
             this.ItemForChuyenNganh.Control = this.txtChuyenNganh;
-            this.ItemForChuyenNganh.Location = new System.Drawing.Point(0, 180);
+            this.ItemForChuyenNganh.Location = new System.Drawing.Point(0, 195);
             this.ItemForChuyenNganh.Name = "ItemForChuyenNganh";
-            this.ItemForChuyenNganh.Size = new System.Drawing.Size(810, 36);
+            this.ItemForChuyenNganh.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
+            this.ItemForChuyenNganh.Size = new System.Drawing.Size(790, 39);
             this.ItemForChuyenNganh.Text = "Chuyen Nganh";
             this.ItemForChuyenNganh.TextSize = new System.Drawing.Size(140, 18);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 216);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 234);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(544, 113);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(531, 75);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.circularButton1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(544, 216);
+            this.layoutControlItem1.Location = new System.Drawing.Point(531, 234);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(266, 113);
+            this.layoutControlItem1.Size = new System.Drawing.Size(259, 75);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // ItemForMaThongTin
             // 
             this.ItemForMaThongTin.Control = this.txtMTT;
-            this.ItemForMaThongTin.Location = new System.Drawing.Point(522, 0);
+            this.ItemForMaThongTin.Location = new System.Drawing.Point(509, 0);
             this.ItemForMaThongTin.Name = "ItemForMaThongTin";
-            this.ItemForMaThongTin.Size = new System.Drawing.Size(288, 36);
+            this.ItemForMaThongTin.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
+            this.ItemForMaThongTin.Size = new System.Drawing.Size(281, 39);
             this.ItemForMaThongTin.Text = "Ma Thong Tin";
             this.ItemForMaThongTin.TextSize = new System.Drawing.Size(140, 18);
             // 

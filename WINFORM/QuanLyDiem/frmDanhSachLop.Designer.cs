@@ -40,61 +40,67 @@ namespace QuanLyDiem
             this.colNoiSinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDanToc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.luLop = new DevExpress.XtraEditors.LookUpEdit();
             this.lopBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.MaSVTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.HoTenTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.NgaySinhDateEdit = new DevExpress.XtraEditors.DateEdit();
-            this.GioiTinhTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.NoiSinhTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.DanTocTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaSV = new DevExpress.XtraEditors.TextEdit();
+            this.txtHoTen = new DevExpress.XtraEditors.TextEdit();
+            this.dateNgaySinh = new DevExpress.XtraEditors.DateEdit();
+            this.txtGioiTinh = new DevExpress.XtraEditors.TextEdit();
+            this.txtNoiSinh = new DevExpress.XtraEditors.TextEdit();
+            this.txtDanToc = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForMaSV = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForHoTen = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForNgaySinh = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForHoTen = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForDanToc = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForGioiTinh = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForNoiSinh = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForDanToc = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnExport = new QuanLyDiem.CircularButton();
+            this.btnImport = new QuanLyDiem.CircularButton();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSachLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sinhVienSelectAllDetailResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.luLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lopBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaSVTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HoTenTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NgaySinhDateEdit.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NgaySinhDateEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GioiTinhTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NoiSinhTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DanTocTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaSV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGioiTinh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDanToc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMaSV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForHoTen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForNgaySinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForHoTen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDanToc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForGioiTinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForNoiSinh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForDanToc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gcDanhSachLop
             // 
             this.gcDanhSachLop.DataSource = this.sinhVienSelectAllDetailResultBindingSource;
-            this.gcDanhSachLop.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gcDanhSachLop.Location = new System.Drawing.Point(2, 299);
+            this.gcDanhSachLop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcDanhSachLop.Location = new System.Drawing.Point(2, 2);
             this.gcDanhSachLop.MainView = this.gridView1;
             this.gcDanhSachLop.Name = "gcDanhSachLop";
-            this.gcDanhSachLop.Size = new System.Drawing.Size(1048, 226);
+            this.gcDanhSachLop.Size = new System.Drawing.Size(1044, 314);
             this.gcDanhSachLop.TabIndex = 0;
             this.gcDanhSachLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -171,29 +177,38 @@ namespace QuanLyDiem
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.panelControl3);
             this.panelControl1.Controls.Add(this.dataLayoutControl1);
-            this.panelControl1.Controls.Add(this.gcDanhSachLop);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1052, 527);
             this.panelControl1.TabIndex = 2;
             // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.gcDanhSachLop);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(2, 207);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(1048, 318);
+            this.panelControl3.TabIndex = 2;
+            // 
             // dataLayoutControl1
             // 
             this.dataLayoutControl1.Controls.Add(this.luLop);
-            this.dataLayoutControl1.Controls.Add(this.MaSVTextEdit);
-            this.dataLayoutControl1.Controls.Add(this.HoTenTextEdit);
-            this.dataLayoutControl1.Controls.Add(this.NgaySinhDateEdit);
-            this.dataLayoutControl1.Controls.Add(this.GioiTinhTextEdit);
-            this.dataLayoutControl1.Controls.Add(this.NoiSinhTextEdit);
-            this.dataLayoutControl1.Controls.Add(this.DanTocTextEdit);
+            this.dataLayoutControl1.Controls.Add(this.txtMaSV);
+            this.dataLayoutControl1.Controls.Add(this.txtHoTen);
+            this.dataLayoutControl1.Controls.Add(this.dateNgaySinh);
+            this.dataLayoutControl1.Controls.Add(this.txtGioiTinh);
+            this.dataLayoutControl1.Controls.Add(this.txtNoiSinh);
+            this.dataLayoutControl1.Controls.Add(this.txtDanToc);
             this.dataLayoutControl1.DataSource = this.sinhVienSelectAllDetailResultBindingSource;
-            this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataLayoutControl1.Location = new System.Drawing.Point(2, 2);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(1048, 297);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(1048, 205);
             this.dataLayoutControl1.TabIndex = 1;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -218,65 +233,65 @@ namespace QuanLyDiem
             // 
             this.lopBindingSource.DataSource = typeof(QuanLyDiem.Lop);
             // 
-            // MaSVTextEdit
+            // txtMaSV
             // 
-            this.MaSVTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "MaSV", true));
-            this.MaSVTextEdit.Location = new System.Drawing.Point(97, 42);
-            this.MaSVTextEdit.Name = "MaSVTextEdit";
-            this.MaSVTextEdit.Size = new System.Drawing.Size(939, 26);
-            this.MaSVTextEdit.StyleController = this.dataLayoutControl1;
-            this.MaSVTextEdit.TabIndex = 4;
+            this.txtMaSV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "MaSV", true));
+            this.txtMaSV.Location = new System.Drawing.Point(97, 42);
+            this.txtMaSV.Name = "txtMaSV";
+            this.txtMaSV.Size = new System.Drawing.Size(373, 26);
+            this.txtMaSV.StyleController = this.dataLayoutControl1;
+            this.txtMaSV.TabIndex = 4;
             // 
-            // HoTenTextEdit
+            // txtHoTen
             // 
-            this.HoTenTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "HoTen", true));
-            this.HoTenTextEdit.Location = new System.Drawing.Point(97, 72);
-            this.HoTenTextEdit.Name = "HoTenTextEdit";
-            this.HoTenTextEdit.Size = new System.Drawing.Size(939, 26);
-            this.HoTenTextEdit.StyleController = this.dataLayoutControl1;
-            this.HoTenTextEdit.TabIndex = 5;
+            this.txtHoTen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "HoTen", true));
+            this.txtHoTen.Location = new System.Drawing.Point(559, 42);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(477, 26);
+            this.txtHoTen.StyleController = this.dataLayoutControl1;
+            this.txtHoTen.TabIndex = 5;
             // 
-            // NgaySinhDateEdit
+            // dateNgaySinh
             // 
-            this.NgaySinhDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "NgaySinh", true));
-            this.NgaySinhDateEdit.EditValue = null;
-            this.NgaySinhDateEdit.Location = new System.Drawing.Point(97, 102);
-            this.NgaySinhDateEdit.Name = "NgaySinhDateEdit";
-            this.NgaySinhDateEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.NgaySinhDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateNgaySinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "NgaySinh", true));
+            this.dateNgaySinh.EditValue = null;
+            this.dateNgaySinh.Location = new System.Drawing.Point(611, 72);
+            this.dateNgaySinh.Name = "dateNgaySinh";
+            this.dateNgaySinh.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.dateNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.NgaySinhDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.NgaySinhDateEdit.Size = new System.Drawing.Size(939, 26);
-            this.NgaySinhDateEdit.StyleController = this.dataLayoutControl1;
-            this.NgaySinhDateEdit.TabIndex = 6;
+            this.dateNgaySinh.Size = new System.Drawing.Size(425, 26);
+            this.dateNgaySinh.StyleController = this.dataLayoutControl1;
+            this.dateNgaySinh.TabIndex = 6;
             // 
-            // GioiTinhTextEdit
+            // txtGioiTinh
             // 
-            this.GioiTinhTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "GioiTinh", true));
-            this.GioiTinhTextEdit.Location = new System.Drawing.Point(97, 132);
-            this.GioiTinhTextEdit.Name = "GioiTinhTextEdit";
-            this.GioiTinhTextEdit.Size = new System.Drawing.Size(939, 26);
-            this.GioiTinhTextEdit.StyleController = this.dataLayoutControl1;
-            this.GioiTinhTextEdit.TabIndex = 7;
+            this.txtGioiTinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "GioiTinh", true));
+            this.txtGioiTinh.Location = new System.Drawing.Point(97, 102);
+            this.txtGioiTinh.Name = "txtGioiTinh";
+            this.txtGioiTinh.Size = new System.Drawing.Size(425, 26);
+            this.txtGioiTinh.StyleController = this.dataLayoutControl1;
+            this.txtGioiTinh.TabIndex = 7;
             // 
-            // NoiSinhTextEdit
+            // txtNoiSinh
             // 
-            this.NoiSinhTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "NoiSinh", true));
-            this.NoiSinhTextEdit.Location = new System.Drawing.Point(97, 162);
-            this.NoiSinhTextEdit.Name = "NoiSinhTextEdit";
-            this.NoiSinhTextEdit.Size = new System.Drawing.Size(939, 26);
-            this.NoiSinhTextEdit.StyleController = this.dataLayoutControl1;
-            this.NoiSinhTextEdit.TabIndex = 8;
+            this.txtNoiSinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "NoiSinh", true));
+            this.txtNoiSinh.Location = new System.Drawing.Point(97, 72);
+            this.txtNoiSinh.Name = "txtNoiSinh";
+            this.txtNoiSinh.Size = new System.Drawing.Size(425, 26);
+            this.txtNoiSinh.StyleController = this.dataLayoutControl1;
+            this.txtNoiSinh.TabIndex = 8;
             // 
-            // DanTocTextEdit
+            // txtDanToc
             // 
-            this.DanTocTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "DanToc", true));
-            this.DanTocTextEdit.Location = new System.Drawing.Point(97, 192);
-            this.DanTocTextEdit.Name = "DanTocTextEdit";
-            this.DanTocTextEdit.Size = new System.Drawing.Size(939, 26);
-            this.DanTocTextEdit.StyleController = this.dataLayoutControl1;
-            this.DanTocTextEdit.TabIndex = 9;
+            this.txtDanToc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetailResultBindingSource, "DanToc", true));
+            this.txtDanToc.Location = new System.Drawing.Point(611, 102);
+            this.txtDanToc.Name = "txtDanToc";
+            this.txtDanToc.Size = new System.Drawing.Size(425, 26);
+            this.txtDanToc.StyleController = this.dataLayoutControl1;
+            this.txtDanToc.TabIndex = 9;
             // 
             // Root
             // 
@@ -285,7 +300,7 @@ namespace QuanLyDiem
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1048, 297);
+            this.Root.Size = new System.Drawing.Size(1048, 205);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -294,69 +309,33 @@ namespace QuanLyDiem
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.ItemForMaSV,
-            this.ItemForHoTen,
             this.ItemForNgaySinh,
-            this.ItemForGioiTinh,
-            this.ItemForNoiSinh,
+            this.layoutControlItem1,
+            this.ItemForHoTen,
             this.ItemForDanToc,
-            this.layoutControlItem1});
+            this.ItemForGioiTinh,
+            this.ItemForNoiSinh});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1028, 277);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1028, 185);
             // 
             // ItemForMaSV
             // 
-            this.ItemForMaSV.Control = this.MaSVTextEdit;
+            this.ItemForMaSV.Control = this.txtMaSV;
             this.ItemForMaSV.Location = new System.Drawing.Point(0, 30);
             this.ItemForMaSV.Name = "ItemForMaSV";
-            this.ItemForMaSV.Size = new System.Drawing.Size(1028, 30);
+            this.ItemForMaSV.Size = new System.Drawing.Size(462, 30);
             this.ItemForMaSV.Text = "Ma SV";
             this.ItemForMaSV.TextSize = new System.Drawing.Size(82, 18);
             // 
-            // ItemForHoTen
-            // 
-            this.ItemForHoTen.Control = this.HoTenTextEdit;
-            this.ItemForHoTen.Location = new System.Drawing.Point(0, 60);
-            this.ItemForHoTen.Name = "ItemForHoTen";
-            this.ItemForHoTen.Size = new System.Drawing.Size(1028, 30);
-            this.ItemForHoTen.Text = "Ho Ten";
-            this.ItemForHoTen.TextSize = new System.Drawing.Size(82, 18);
-            // 
             // ItemForNgaySinh
             // 
-            this.ItemForNgaySinh.Control = this.NgaySinhDateEdit;
-            this.ItemForNgaySinh.Location = new System.Drawing.Point(0, 90);
+            this.ItemForNgaySinh.Control = this.dateNgaySinh;
+            this.ItemForNgaySinh.Location = new System.Drawing.Point(514, 60);
             this.ItemForNgaySinh.Name = "ItemForNgaySinh";
-            this.ItemForNgaySinh.Size = new System.Drawing.Size(1028, 30);
+            this.ItemForNgaySinh.Size = new System.Drawing.Size(514, 30);
             this.ItemForNgaySinh.Text = "Ngay Sinh";
             this.ItemForNgaySinh.TextSize = new System.Drawing.Size(82, 18);
-            // 
-            // ItemForGioiTinh
-            // 
-            this.ItemForGioiTinh.Control = this.GioiTinhTextEdit;
-            this.ItemForGioiTinh.Location = new System.Drawing.Point(0, 120);
-            this.ItemForGioiTinh.Name = "ItemForGioiTinh";
-            this.ItemForGioiTinh.Size = new System.Drawing.Size(1028, 30);
-            this.ItemForGioiTinh.Text = "Gioi Tinh";
-            this.ItemForGioiTinh.TextSize = new System.Drawing.Size(82, 18);
-            // 
-            // ItemForNoiSinh
-            // 
-            this.ItemForNoiSinh.Control = this.NoiSinhTextEdit;
-            this.ItemForNoiSinh.Location = new System.Drawing.Point(0, 150);
-            this.ItemForNoiSinh.Name = "ItemForNoiSinh";
-            this.ItemForNoiSinh.Size = new System.Drawing.Size(1028, 30);
-            this.ItemForNoiSinh.Text = "Noi Sinh";
-            this.ItemForNoiSinh.TextSize = new System.Drawing.Size(82, 18);
-            // 
-            // ItemForDanToc
-            // 
-            this.ItemForDanToc.Control = this.DanTocTextEdit;
-            this.ItemForDanToc.Location = new System.Drawing.Point(0, 180);
-            this.ItemForDanToc.Name = "ItemForDanToc";
-            this.ItemForDanToc.Size = new System.Drawing.Size(1028, 97);
-            this.ItemForDanToc.Text = "Dan Toc";
-            this.ItemForDanToc.TextSize = new System.Drawing.Size(82, 18);
             // 
             // layoutControlItem1
             // 
@@ -367,13 +346,80 @@ namespace QuanLyDiem
             this.layoutControlItem1.Text = "Chọn lớp";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(82, 18);
             // 
+            // ItemForHoTen
+            // 
+            this.ItemForHoTen.Control = this.txtHoTen;
+            this.ItemForHoTen.Location = new System.Drawing.Point(462, 30);
+            this.ItemForHoTen.Name = "ItemForHoTen";
+            this.ItemForHoTen.Size = new System.Drawing.Size(566, 30);
+            this.ItemForHoTen.Text = "Ho Ten";
+            this.ItemForHoTen.TextSize = new System.Drawing.Size(82, 18);
+            // 
+            // ItemForDanToc
+            // 
+            this.ItemForDanToc.Control = this.txtDanToc;
+            this.ItemForDanToc.Location = new System.Drawing.Point(514, 90);
+            this.ItemForDanToc.Name = "ItemForDanToc";
+            this.ItemForDanToc.Size = new System.Drawing.Size(514, 95);
+            this.ItemForDanToc.Text = "Dan Toc";
+            this.ItemForDanToc.TextSize = new System.Drawing.Size(82, 18);
+            // 
+            // ItemForGioiTinh
+            // 
+            this.ItemForGioiTinh.Control = this.txtGioiTinh;
+            this.ItemForGioiTinh.Location = new System.Drawing.Point(0, 90);
+            this.ItemForGioiTinh.Name = "ItemForGioiTinh";
+            this.ItemForGioiTinh.Size = new System.Drawing.Size(514, 95);
+            this.ItemForGioiTinh.Text = "Gioi Tinh";
+            this.ItemForGioiTinh.TextSize = new System.Drawing.Size(82, 18);
+            // 
+            // ItemForNoiSinh
+            // 
+            this.ItemForNoiSinh.Control = this.txtNoiSinh;
+            this.ItemForNoiSinh.Location = new System.Drawing.Point(0, 60);
+            this.ItemForNoiSinh.Name = "ItemForNoiSinh";
+            this.ItemForNoiSinh.Size = new System.Drawing.Size(514, 30);
+            this.ItemForNoiSinh.Text = "Noi Sinh";
+            this.ItemForNoiSinh.TextSize = new System.Drawing.Size(82, 18);
+            // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnExport);
+            this.panelControl2.Controls.Add(this.btnImport);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(1052, 0);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(236, 527);
             this.panelControl2.TabIndex = 3;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Appearance.Options.UseFont = true;
+            this.btnExport.Location = new System.Drawing.Point(30, 68);
+            this.btnExport.LookAndFeel.SkinName = "VS2010";
+            this.btnExport.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(177, 94);
+            this.btnExport.TabIndex = 0;
+            this.btnExport.Text = "Export Excel";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnImport
+            // 
+            this.btnImport.Appearance.BorderColor = System.Drawing.Color.Red;
+            this.btnImport.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.Appearance.Options.UseBorderColor = true;
+            this.btnImport.Appearance.Options.UseFont = true;
+            this.btnImport.AppearanceHovered.BorderColor = System.Drawing.Color.Red;
+            this.btnImport.AppearanceHovered.Options.UseBorderColor = true;
+            this.btnImport.Location = new System.Drawing.Point(30, 240);
+            this.btnImport.LookAndFeel.SkinName = "Office 2007 Green";
+            this.btnImport.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(177, 94);
+            this.btnImport.TabIndex = 0;
+            this.btnImport.Text = "Import Excel";
             // 
             // frmDanhSachLop
             // 
@@ -390,27 +436,30 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.luLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lopBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaSVTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HoTenTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NgaySinhDateEdit.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NgaySinhDateEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GioiTinhTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NoiSinhTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DanTocTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaSV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGioiTinh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDanToc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMaSV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForHoTen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForNgaySinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForHoTen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDanToc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForGioiTinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForNoiSinh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForDanToc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -431,12 +480,12 @@ namespace QuanLyDiem
         private DevExpress.XtraGrid.Columns.GridColumn colNoiSinh;
         private DevExpress.XtraGrid.Columns.GridColumn colDanToc;
         private DevExpress.XtraEditors.LookUpEdit luLop;
-        private DevExpress.XtraEditors.TextEdit MaSVTextEdit;
-        private DevExpress.XtraEditors.TextEdit HoTenTextEdit;
-        private DevExpress.XtraEditors.DateEdit NgaySinhDateEdit;
-        private DevExpress.XtraEditors.TextEdit GioiTinhTextEdit;
-        private DevExpress.XtraEditors.TextEdit NoiSinhTextEdit;
-        private DevExpress.XtraEditors.TextEdit DanTocTextEdit;
+        private DevExpress.XtraEditors.TextEdit txtMaSV;
+        private DevExpress.XtraEditors.TextEdit txtHoTen;
+        private DevExpress.XtraEditors.DateEdit dateNgaySinh;
+        private DevExpress.XtraEditors.TextEdit txtGioiTinh;
+        private DevExpress.XtraEditors.TextEdit txtNoiSinh;
+        private DevExpress.XtraEditors.TextEdit txtDanToc;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem ItemForMaSV;
         private DevExpress.XtraLayout.LayoutControlItem ItemForHoTen;
@@ -446,5 +495,8 @@ namespace QuanLyDiem
         private DevExpress.XtraLayout.LayoutControlItem ItemForDanToc;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private System.Windows.Forms.BindingSource lopBindingSource;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private CircularButton btnExport;
+        private CircularButton btnImport;
     }
 }
