@@ -355,10 +355,58 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SinhVienSelectAllByLopDetail" FunctionName="QuanLiDiemModel.Store.SinhVienSelectAllByLopDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectAllByLopDetail_Result">
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SinhVienSelectAllDetail" FunctionName="QuanLiDiemModel.Store.SinhVienSelectAllDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectAllDetail_Result">
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SinhVienSelectAllDetail_1" FunctionName="QuanLiDiemModel.Store.SinhVienSelectAllDetail_1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectAllDetail_1_Result">
+          <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+          <ScalarProperty Name="HoLot" ColumnName="HoLot" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="SinhVienUpdate" FunctionName="QuanLiDiemModel.Store.SinhVienUpdate" />
+    <FunctionImportMapping FunctionImportName="SinhVienUpdate_1" FunctionName="QuanLiDiemModel.Store.SinhVienUpdate_1" />
     <FunctionImportMapping FunctionImportName="ThongTinUpdate" FunctionName="QuanLiDiemModel.Store.ThongTinUpdate" />
     <FunctionImportMapping FunctionImportName="TinhTrangDelete" FunctionName="QuanLiDiemModel.Store.TinhTrangDelete" />
     <FunctionImportMapping FunctionImportName="TinhTrangInsert" FunctionName="QuanLiDiemModel.Store.TinhTrangInsert" />
     <FunctionImportMapping FunctionImportName="TinhTrangUpdate" FunctionName="QuanLiDiemModel.Store.TinhTrangUpdate" />
+    <FunctionImportMapping FunctionImportName="SinhVienInsert_1" FunctionName="QuanLiDiemModel.Store.SinhVienInsert_1" />
+    <FunctionImportMapping FunctionImportName="SinhVienSelectCheckNew" FunctionName="QuanLiDiemModel.Store.SinhVienSelectCheckNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectCheckNew_Result">
+          <ScalarProperty Name="HoLot" ColumnName="HoLot" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

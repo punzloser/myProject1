@@ -487,10 +487,22 @@
     <FunctionImport Name="SinhVienSelectAllByLop" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllByLop_Result)">
       <Parameter Name="MaLop" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="SinhVienSelectAllByLopDetail" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllByLopDetail_Result)">
+      <Parameter Name="MaLop" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SinhVienSelectAllDetail" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllDetail_Result)" />
+    <FunctionImport Name="SinhVienSelectAllDetail_1" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllDetail_1_Result)" />
     <FunctionImport Name="SinhVienUpdate">
       <Parameter Name="MaSV" Mode="In" Type="String" />
       <Parameter Name="HoLot" Mode="In" Type="String" />
       <Parameter Name="Ten" Mode="In" Type="String" />
+      <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
+      <Parameter Name="GioiTinh" Mode="In" Type="String" />
+      <Parameter Name="NoiSinh" Mode="In" Type="String" />
+      <Parameter Name="DanToc" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SinhVienUpdate_1">
+      <Parameter Name="MaSV" Mode="In" Type="String" />
       <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
       <Parameter Name="GioiTinh" Mode="In" Type="String" />
       <Parameter Name="NoiSinh" Mode="In" Type="String" />
@@ -514,6 +526,19 @@
     <FunctionImport Name="TinhTrangUpdate">
       <Parameter Name="MaTinhTrang" Mode="In" Type="String" />
       <Parameter Name="TinhTrang" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SinhVienInsert_1">
+      <Parameter Name="HoLot" Mode="In" Type="String" />
+      <Parameter Name="Ten" Mode="In" Type="String" />
+      <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
+      <Parameter Name="GioiTinh" Mode="In" Type="String" />
+      <Parameter Name="NoiSinh" Mode="In" Type="String" />
+      <Parameter Name="DanToc" Mode="In" Type="String" />
+      <Parameter Name="MaLop" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SinhVienSelectCheckNew" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectCheckNew_Result)">
+      <Parameter Name="HoLot" Mode="In" Type="String" />
+      <Parameter Name="Ten" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="BangDiemHP_Result">
@@ -639,5 +664,35 @@
     <Property Type="String" Name="DanToc" Nullable="true" MaxLength="20" />
     <Property Type="String" Name="MaLop" Nullable="true" MaxLength="6" />
     <Property Type="String" Name="MaTinhTrang" Nullable="true" MaxLength="6" />
+  </ComplexType>
+  <ComplexType Name="SinhVienSelectAllByLopDetail_Result">
+    <Property Type="String" Name="MaSV" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="38" />
+    <Property Type="DateTime" Name="NgaySinh" Nullable="true" Precision="23" />
+    <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="DanToc" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="SinhVienSelectAllDetail_Result">
+    <Property Type="String" Name="MaSV" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="38" />
+    <Property Type="DateTime" Name="NgaySinh" Nullable="true" Precision="23" />
+    <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="DanToc" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="SinhVienSelectAllDetail_1_Result">
+    <Property Type="String" Name="MaSV" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="HoLot" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Ten" Nullable="true" MaxLength="7" />
+    <Property Type="DateTime" Name="NgaySinh" Nullable="true" Precision="23" />
+    <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="DanToc" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="SinhVienSelectCheckNew_Result">
+    <Property Type="String" Name="HoLot" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Ten" Nullable="true" MaxLength="7" />
+    <Property Type="DateTime" Name="NgaySinh" Nullable="true" Precision="23" />
   </ComplexType>
 </Schema>

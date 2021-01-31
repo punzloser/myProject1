@@ -104,7 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BangDiemHP_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="CircularButton.cs">
       <SubType>Component</SubType>
@@ -116,13 +116,13 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DangNhap.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="DiemHP.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="DiemHPSearch_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="frmBangDiemFull.cs">
       <SubType>Form</SubType>
@@ -161,49 +161,49 @@
       <DependentUpon>frmLopSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GiaoVien.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="GiaoVien_HinhAnh.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="HeDaoTao.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="HeSelectALL_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="HKSelectALL_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="HocKy.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="Lop.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="LopSelectALLByHe_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="LopSelectAll_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="MonHP.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="MonHPOnlySelect_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="MonHPSelectAll_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="MonHPSelectBySV_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="MonHP_SelectByHK_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="PhanCong.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,53 +213,59 @@
     <Compile Include="frmHeThong.Designer.cs">
       <DependentUpon>frmHeThong.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyDiem.Context.cs">
+    <Compile Include="QuanLiDiem.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyDiem.Context.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyDiem.cs">
+    <Compile Include="QuanLiDiem.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
-    <Compile Include="QuanLyDiem.Designer.cs">
+    <Compile Include="QuanLiDiem.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyDiem.edmx</DependentUpon>
+      <DependentUpon>QuanLiDiem.edmx</DependentUpon>
     </Compile>
     <Compile Include="SinhVien.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="SinhVienHA_SelectALL_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="SinhVienHA_SelectByLop_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="SinhVienSelectAllByID_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="SinhVienSelectAllByLopDetail_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="SinhVienSelectAllByLop_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SinhVienSelectAllDetail_1_Result.cs">
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="SinhVienSelectAllDetail_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="SinhVienSelectAll_Result.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SinhVienSelectCheckNew_Result.cs">
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="SinhVien_HinhAnh.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="ThongTin.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="TinhTrang.cs">
-      <DependentUpon>QuanLyDiem.tt</DependentUpon>
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="XuLyDiem.cs" />
     <EmbeddedResource Include="frmBangDiemFull.resx">
@@ -305,11 +311,14 @@
     <None Include="Properties\DataSources\LopSelectAll_Result.datasource" />
     <None Include="Properties\DataSources\MonHP.datasource" />
     <None Include="Properties\DataSources\MonHP_SelectByHK_Result.datasource" />
+    <None Include="Properties\DataSources\QuanLyDiem.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\QuanLyDiem.Properties.Settings.datasource" />
     <None Include="Properties\DataSources\SinhVien.datasource" />
     <None Include="Properties\DataSources\SinhVienHA_SelectALL1_Result.datasource" />
     <None Include="Properties\DataSources\SinhVienHA_SelectALL_Result.datasource" />
     <None Include="Properties\DataSources\SinhVienSelectAllByLopDetail_Result.datasource" />
     <None Include="Properties\DataSources\SinhVienSelectAllByLop_Result.datasource" />
+    <None Include="Properties\DataSources\SinhVienSelectAllDetail_1_Result.datasource" />
     <None Include="Properties\DataSources\SinhVienSelectAllDetail_Result.datasource" />
     <None Include="Properties\DataSources\SinhVien_HinhAnh.datasource" />
     <None Include="Properties\DataSources\ThongTin.datasource" />
@@ -322,12 +331,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="QuanLyDiem.edmx">
+    <EntityDeploy Include="QuanLiDiem.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanLyDiem.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLiDiem.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="QuanLyDiem.edmx.diagram">
-      <DependentUpon>QuanLyDiem.edmx</DependentUpon>
+    <None Include="QuanLiDiem.edmx.diagram">
+      <DependentUpon>QuanLiDiem.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -336,18 +345,6 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="QuanLyDiem.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyDiem.edmx</DependentUpon>
-      <LastGenOutput>QuanLyDiem.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="QuanLyDiem.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyDiem.edmx</DependentUpon>
-      <LastGenOutput>QuanLyDiem.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
@@ -360,6 +357,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QuanLiDiem.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLiDiem.edmx</DependentUpon>
+      <LastGenOutput>QuanLiDiem.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="QuanLiDiem.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLiDiem.edmx</DependentUpon>
+      <LastGenOutput>QuanLiDiem.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

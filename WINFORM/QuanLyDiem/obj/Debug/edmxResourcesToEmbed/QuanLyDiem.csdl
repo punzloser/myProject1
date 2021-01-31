@@ -519,6 +519,13 @@
       <Parameter Name="MaLop" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="SinhVienSelectAllDetail" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllDetail_Result)" />
+    <FunctionImport Name="SinhVienUpdate_1">
+      <Parameter Name="MaSV" Mode="In" Type="String" />
+      <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
+      <Parameter Name="GioiTinh" Mode="In" Type="String" />
+      <Parameter Name="NoiSinh" Mode="In" Type="String" />
+      <Parameter Name="DanToc" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="BangDiemHP_Result">
     <Property Type="String" Name="MaSV" Nullable="true" MaxLength="6" />

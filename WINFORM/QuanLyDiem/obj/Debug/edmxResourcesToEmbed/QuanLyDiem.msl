@@ -384,5 +384,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SinhVienUpdate_1" FunctionName="QuanLiDiemModel.Store.SinhVienUpdate_1" />
   </EntityContainerMapping>
 </Mapping>

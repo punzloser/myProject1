@@ -112,7 +112,6 @@ C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\ru\DevExpress.Xtr
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmHeThong.resources
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmBangDiemFull.resources
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\DevComponents.TreeGX.dll
-C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.csprojAssemblyReference.cache
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\DevExpress.SpellChecker.v19.2.Core.dll
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\DevExpress.XtraScheduler.v19.2.Core.dll
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\DevExpress.XtraScheduler.v19.2.dll
@@ -140,3 +139,4 @@ C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\es\DevExpress.Xtr
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\ja\DevExpress.XtraSpellChecker.v19.2.resources.dll
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\ru\DevExpress.XtraSpellChecker.v19.2.resources.dll
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmDanhSachLop.resources
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.csprojAssemblyReference.cache

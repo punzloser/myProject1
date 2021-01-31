@@ -445,6 +445,23 @@ BEGIN
 END
 GO
 
+CREATE PROC SinhVienInsert_1 
+@HoLot NVARCHAR(30),
+@Ten NVARCHAR(7),
+@NgaySinh DATETIME,
+@GioiTinh NCHAR(4),
+@NoiSinh NVARCHAR(30),
+@DanToc NVARCHAR(20),
+@MaLop VARCHAR(6)
+AS
+BEGIN
+	INSERT SinhVien (HoLot, Ten, NgaySinh, GioiTinh, NoiSinh, DanToc, MaLop) VALUES (@HoLot, @Ten, @NgaySinh, @GioiTinh, @NoiSinh, @DanToc, @MaLop)
+END
+GO
+
+----8	190008	Trần Tiến 	Đạt	2001-03-19 00:00:00.000	Nam 	Đồng Nai	Kinh	L00002	T00001
+--SinhVienUpdate '190008', N'Trần Tiến', N'Đạt', '2001-2-22', N'Nữ', N'Đồng Nai 2', N'Kinh 2' 
+
 CREATE PROC SinhVienUpdate 
 @MaSV VARCHAR(6),
 @HoLot NVARCHAR(30),
@@ -458,8 +475,6 @@ BEGIN
 	UPDATE dbo.SinhVien SET HoLot = @HoLot, Ten = @Ten, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, NoiSinh = @NoiSinh, DanToc = @DanToc WHERE MaSV = @MaSV
 END
 GO
-----8	190008	Trần Tiến 	Đạt	2001-03-19 00:00:00.000	Nam 	Đồng Nai	Kinh	L00002	T00001
---SinhVienUpdate '190008', N'Trần Tiến', N'Đạt', '2001-2-22', N'Nữ', N'Đồng Nai 2', N'Kinh 2' 
 
 CREATE PROC SinhVienDelete
 @MaSV VARCHAR(6)
@@ -499,6 +514,15 @@ BEGIN
 END
 GO
 
+CREATE PROC SinhVienSelectCheckNew
+@HoLot NVARCHAR(30),
+@Ten NVARCHAR(7)
+AS
+BEGIN
+	SELECT dbo.SinhVien.HoLot, dbo.SinhVien.Ten, dbo.SinhVien.NgaySinh, dbo.SinhVien.GioiTinh, dbo.SinhVien.NoiSinh, dbo.SinhVien.DanToc FROM dbo.SinhVien
+END
+GO
+
 CREATE PROC SinhVienSelectAllByID
 @MaSV VARCHAR(6)
 AS
@@ -519,6 +543,13 @@ CREATE PROC SinhVienSelectAllDetail
 AS
 BEGIN
 	SELECT MaSV, HoLot + ' ' + Ten [HoTen], NgaySinh, GioiTinh, NoiSinh, DanToc FROM dbo.SinhVien 
+END
+GO
+
+CREATE PROC SinhVienSelectAllDetail_1
+AS
+BEGIN
+	SELECT MaSV, HoLot, Ten, NgaySinh, GioiTinh, NoiSinh, DanToc FROM dbo.SinhVien 
 END
 GO
 

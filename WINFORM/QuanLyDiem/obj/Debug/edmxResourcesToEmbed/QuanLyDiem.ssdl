@@ -420,6 +420,13 @@
     <Parameter Name="NoiSinh" Type="nvarchar" Mode="In" />
     <Parameter Name="DanToc" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="SinhVienUpdate_1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaSV" Type="varchar" Mode="In" />
+    <Parameter Name="NgaySinh" Type="datetime" Mode="In" />
+    <Parameter Name="GioiTinh" Type="nchar" Mode="In" />
+    <Parameter Name="NoiSinh" Type="nvarchar" Mode="In" />
+    <Parameter Name="DanToc" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="ThongTinUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaThongTin" Type="varchar" Mode="In" />
     <Parameter Name="DonViChuQuan" Type="nvarchar" Mode="In" />

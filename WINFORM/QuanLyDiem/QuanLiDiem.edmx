@@ -241,7 +241,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__SinhVien___FileI__239E4DCF">
-          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="0..1" />
+          <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SinhVien_HinhAnh" Type="Self.SinhVien_HinhAnh" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SinhVien">
@@ -405,6 +407,15 @@
           <Parameter Name="MaLop" Type="varchar" Mode="In" />
           <Parameter Name="MaTinhTrang" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="SinhVienInsert_1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="HoLot" Type="nvarchar" Mode="In" />
+          <Parameter Name="Ten" Type="nvarchar" Mode="In" />
+          <Parameter Name="NgaySinh" Type="datetime" Mode="In" />
+          <Parameter Name="GioiTinh" Type="nchar" Mode="In" />
+          <Parameter Name="NoiSinh" Type="nvarchar" Mode="In" />
+          <Parameter Name="DanToc" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaLop" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="SinhVienSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SinhVienSelectAllByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MaSV" Type="varchar" Mode="In" />
@@ -416,10 +427,22 @@
           <Parameter Name="MaLop" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SinhVienSelectAllDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SinhVienSelectAllDetail_1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SinhVienSelectCheckNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="HoLot" Type="nvarchar" Mode="In" />
+          <Parameter Name="Ten" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="SinhVienUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MaSV" Type="varchar" Mode="In" />
           <Parameter Name="HoLot" Type="nvarchar" Mode="In" />
           <Parameter Name="Ten" Type="nvarchar" Mode="In" />
+          <Parameter Name="NgaySinh" Type="datetime" Mode="In" />
+          <Parameter Name="GioiTinh" Type="nchar" Mode="In" />
+          <Parameter Name="NoiSinh" Type="nvarchar" Mode="In" />
+          <Parameter Name="DanToc" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SinhVienUpdate_1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaSV" Type="varchar" Mode="In" />
           <Parameter Name="NgaySinh" Type="datetime" Mode="In" />
           <Parameter Name="GioiTinh" Type="nchar" Mode="In" />
           <Parameter Name="NoiSinh" Type="nvarchar" Mode="In" />
@@ -994,10 +1017,22 @@
           <FunctionImport Name="SinhVienSelectAllByLop" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllByLop_Result)">
           <Parameter Name="MaLop" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SinhVienSelectAllByLopDetail" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllByLopDetail_Result)">
+          <Parameter Name="MaLop" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SinhVienSelectAllDetail" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllDetail_Result)" />
+          <FunctionImport Name="SinhVienSelectAllDetail_1" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllDetail_1_Result)" />
           <FunctionImport Name="SinhVienUpdate">
             <Parameter Name="MaSV" Mode="In" Type="String" />
             <Parameter Name="HoLot" Mode="In" Type="String" />
             <Parameter Name="Ten" Mode="In" Type="String" />
+            <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
+            <Parameter Name="GioiTinh" Mode="In" Type="String" />
+            <Parameter Name="NoiSinh" Mode="In" Type="String" />
+            <Parameter Name="DanToc" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SinhVienUpdate_1">
+            <Parameter Name="MaSV" Mode="In" Type="String" />
             <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
             <Parameter Name="GioiTinh" Mode="In" Type="String" />
             <Parameter Name="NoiSinh" Mode="In" Type="String" />
@@ -1022,10 +1057,19 @@
             <Parameter Name="MaTinhTrang" Mode="In" Type="String" />
             <Parameter Name="TinhTrang" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SinhVienSelectAllByLopDetail" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllByLopDetail_Result)">
-          <Parameter Name="MaLop" Mode="In" Type="String" />
+          <FunctionImport Name="SinhVienInsert_1">
+            <Parameter Name="HoLot" Mode="In" Type="String" />
+            <Parameter Name="Ten" Mode="In" Type="String" />
+            <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
+            <Parameter Name="GioiTinh" Mode="In" Type="String" />
+            <Parameter Name="NoiSinh" Mode="In" Type="String" />
+            <Parameter Name="DanToc" Mode="In" Type="String" />
+            <Parameter Name="MaLop" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SinhVienSelectAllDetail" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllDetail_Result)" />
+          <FunctionImport Name="SinhVienSelectCheckNew" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectCheckNew_Result)" >
+            <Parameter Name="HoLot" Mode="In" Type="String" />
+            <Parameter Name="Ten" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="BangDiemHP_Result">
           <Property Type="String" Name="MaSV" Nullable="true" MaxLength="6" />
@@ -1166,6 +1210,20 @@
           <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="4" />
           <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="DanToc" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="SinhVienSelectAllDetail_1_Result">
+          <Property Type="String" Name="MaSV" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="HoLot" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ten" Nullable="true" MaxLength="7" />
+          <Property Type="DateTime" Name="NgaySinh" Nullable="true" Precision="23" />
+          <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="DanToc" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="SinhVienSelectCheckNew_Result">
+          <Property Type="String" Name="HoLot" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ten" Nullable="true" MaxLength="7" />
+          <Property Type="DateTime" Name="NgaySinh" Nullable="true" Precision="23" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1527,11 +1585,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SinhVienUpdate" FunctionName="QuanLiDiemModel.Store.SinhVienUpdate" />
-          <FunctionImportMapping FunctionImportName="ThongTinUpdate" FunctionName="QuanLiDiemModel.Store.ThongTinUpdate" />
-          <FunctionImportMapping FunctionImportName="TinhTrangDelete" FunctionName="QuanLiDiemModel.Store.TinhTrangDelete" />
-          <FunctionImportMapping FunctionImportName="TinhTrangInsert" FunctionName="QuanLiDiemModel.Store.TinhTrangInsert" />
-          <FunctionImportMapping FunctionImportName="TinhTrangUpdate" FunctionName="QuanLiDiemModel.Store.TinhTrangUpdate" />
           <FunctionImportMapping FunctionImportName="SinhVienSelectAllByLopDetail" FunctionName="QuanLiDiemModel.Store.SinhVienSelectAllByLopDetail">
             <ResultMapping>
               <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectAllByLopDetail_Result">
@@ -1553,6 +1606,35 @@
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
                 <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SinhVienSelectAllDetail_1" FunctionName="QuanLiDiemModel.Store.SinhVienSelectAllDetail_1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectAllDetail_1_Result">
+                <ScalarProperty Name="MaSV" ColumnName="MaSV" />
+                <ScalarProperty Name="HoLot" ColumnName="HoLot" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SinhVienUpdate" FunctionName="QuanLiDiemModel.Store.SinhVienUpdate" />
+          <FunctionImportMapping FunctionImportName="SinhVienUpdate_1" FunctionName="QuanLiDiemModel.Store.SinhVienUpdate_1" />
+          <FunctionImportMapping FunctionImportName="ThongTinUpdate" FunctionName="QuanLiDiemModel.Store.ThongTinUpdate" />
+          <FunctionImportMapping FunctionImportName="TinhTrangDelete" FunctionName="QuanLiDiemModel.Store.TinhTrangDelete" />
+          <FunctionImportMapping FunctionImportName="TinhTrangInsert" FunctionName="QuanLiDiemModel.Store.TinhTrangInsert" />
+          <FunctionImportMapping FunctionImportName="TinhTrangUpdate" FunctionName="QuanLiDiemModel.Store.TinhTrangUpdate" />
+          <FunctionImportMapping FunctionImportName="SinhVienInsert_1" FunctionName="QuanLiDiemModel.Store.SinhVienInsert_1" />
+          <FunctionImportMapping FunctionImportName="SinhVienSelectCheckNew" FunctionName="QuanLiDiemModel.Store.SinhVienSelectCheckNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectCheckNew_Result">
+                <ScalarProperty Name="HoLot" ColumnName="HoLot" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
