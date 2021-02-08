@@ -22,12 +22,22 @@
     <Property Name="DiemLan2" Type="float" />
     <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="GV_PhanCong">
+    <Key>
+      <PropertyRef Name="MaGV" />
+      <PropertyRef Name="MaMonHP" />
+      <PropertyRef Name="MaLop" />
+    </Key>
+    <Property Name="MaGV" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="MaMonHP" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="MaLop" Type="varchar" MaxLength="6" Nullable="false" />
+  </EntityType>
   <EntityType Name="GiaoVien">
     <Key>
       <PropertyRef Name="MaGV" />
     </Key>
     <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaGV" Type="varchar" MaxLength="6" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="MaGV" Type="varchar" MaxLength="6" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenGV" Type="nvarchar" MaxLength="40" />
     <Property Name="TrinhDo" Type="nvarchar" MaxLength="10" />
     <Property Name="NgaySinh" Type="datetime" />
@@ -159,6 +169,42 @@
         <PropertyRef Name="MaMonHP" />
       </Principal>
       <Dependent Role="DiemHP">
+        <PropertyRef Name="MaMonHP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GV_PhanCo__MaLop__4F47C5E3">
+    <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1" />
+    <End Role="GV_PhanCong" Type="Self.GV_PhanCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiaoVien">
+        <PropertyRef Name="MaGV" />
+      </Principal>
+      <Dependent Role="GV_PhanCong">
+        <PropertyRef Name="MaGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GV_PhanCo__MaLop__51300E55">
+    <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
+    <End Role="GV_PhanCong" Type="Self.GV_PhanCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lop">
+        <PropertyRef Name="MaLop" />
+      </Principal>
+      <Dependent Role="GV_PhanCong">
+        <PropertyRef Name="MaLop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GV_PhanCo__MaMon__503BEA1C">
+    <End Role="MonHP" Type="Self.MonHP" Multiplicity="1" />
+    <End Role="GV_PhanCong" Type="Self.GV_PhanCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonHP">
+        <PropertyRef Name="MaMonHP" />
+      </Principal>
+      <Dependent Role="GV_PhanCong">
         <PropertyRef Name="MaMonHP" />
       </Dependent>
     </ReferentialConstraint>
@@ -465,6 +511,7 @@
   <EntityContainer Name="QuanLiDiemModelStoreContainer">
     <EntitySet Name="DangNhap" EntityType="Self.DangNhap" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DiemHP" EntityType="Self.DiemHP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GV_PhanCong" EntityType="Self.GV_PhanCong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GiaoVien" EntityType="Self.GiaoVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GiaoVien_HinhAnh" EntityType="Self.GiaoVien_HinhAnh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HeDaoTao" EntityType="Self.HeDaoTao" Schema="dbo" store:Type="Tables" />
@@ -483,6 +530,18 @@
     <AssociationSet Name="FK__DiemHP__MaMonHP__276EDEB3" Association="Self.FK__DiemHP__MaMonHP__276EDEB3">
       <End Role="MonHP" EntitySet="MonHP" />
       <End Role="DiemHP" EntitySet="DiemHP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GV_PhanCo__MaLop__4F47C5E3" Association="Self.FK__GV_PhanCo__MaLop__4F47C5E3">
+      <End Role="GiaoVien" EntitySet="GiaoVien" />
+      <End Role="GV_PhanCong" EntitySet="GV_PhanCong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GV_PhanCo__MaLop__51300E55" Association="Self.FK__GV_PhanCo__MaLop__51300E55">
+      <End Role="Lop" EntitySet="Lop" />
+      <End Role="GV_PhanCong" EntitySet="GV_PhanCong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GV_PhanCo__MaMon__503BEA1C" Association="Self.FK__GV_PhanCo__MaMon__503BEA1C">
+      <End Role="MonHP" EntitySet="MonHP" />
+      <End Role="GV_PhanCong" EntitySet="GV_PhanCong" />
     </AssociationSet>
     <AssociationSet Name="FK__GiaoVien___FileI__6383C8BA" Association="Self.FK__GiaoVien___FileI__6383C8BA">
       <End Role="GiaoVien" EntitySet="GiaoVien" />

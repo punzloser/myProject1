@@ -29,6 +29,10 @@
         <AssociationConnector Association="QuanLiDiemModel.FK__PhanCong__MaMonH__6754599E" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLiDiemModel.FK__SinhVien___FileI__239E4DCF" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLiDiemModel.FK__SinhVien__MaTinh__20C1E124" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QuanLiDiemModel.GV_PhanCong" Width="1.5" PointX="5.25" PointY="11.125" />
+        <AssociationConnector Association="QuanLiDiemModel.FK__GV_PhanCo__MaLop__4F47C5E3" />
+        <AssociationConnector Association="QuanLiDiemModel.FK__GV_PhanCo__MaLop__51300E55" />
+        <AssociationConnector Association="QuanLiDiemModel.FK__GV_PhanCo__MaMon__503BEA1C" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

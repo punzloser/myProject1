@@ -450,7 +450,7 @@ namespace QuanLyDiem
             this.btnXuatExcel.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnXuatExcel.Size = new System.Drawing.Size(153, 49);
             this.btnXuatExcel.TabIndex = 4;
-            this.btnXuatExcel.Text = "Xuất Excel";
+            this.btnXuatExcel.Text = "Export Excel";
             this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // lblTinChiDat

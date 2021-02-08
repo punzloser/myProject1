@@ -40,6 +40,7 @@ namespace QuanLyDiem
         public virtual DbSet<SinhVien_HinhAnh> SinhVien_HinhAnh { get; set; }
         public virtual DbSet<TinhTrang> TinhTrang { get; set; }
         public virtual DbSet<ThongTin> ThongTin { get; set; }
+        public virtual DbSet<GV_PhanCong> GV_PhanCong { get; set; }
     
         public virtual ObjectResult<BangDiemHP_Result> BangDiemHP(string maLop, string maMonHP)
         {

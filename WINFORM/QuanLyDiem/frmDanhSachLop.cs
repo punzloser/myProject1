@@ -127,6 +127,12 @@ namespace QuanLyDiem
                 {
                     if (db.SinhVienSelectAllByID(a[1].ToString()).Count() == 0)
                     {
+                        if (luLop.EditValue is null)
+                        {
+                            XtraMessageBox.Show("Vui lòng chọn lớp !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            return;
+                        }
                         db.SinhVienInsert_1(a[2].ToString(), a[3].ToString(), Convert.ToDateTime(a[4]), a[5].ToString(), a[6].ToString(), a[7].ToString(), luLop.EditValue.ToString());
                     }
                 }

@@ -408,5 +408,14 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="GV_PhanCong">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.GV_PhanCong">
+        <MappingFragment StoreEntitySet="GV_PhanCong">
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="MaMonHP" ColumnName="MaMonHP" />
+          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

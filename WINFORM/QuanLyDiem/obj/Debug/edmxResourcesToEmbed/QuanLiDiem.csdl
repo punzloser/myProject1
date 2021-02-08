@@ -29,7 +29,7 @@
       <PropertyRef Name="MaGV" />
     </Key>
     <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MaGV" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="MaGV" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenGV" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <Property Name="TrinhDo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="NgaySinh" Type="DateTime" Precision="3" />
@@ -39,6 +39,7 @@
     <Property Name="ChucVu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="GiaoVien_HinhAnh" Relationship="Self.FK__GiaoVien___FileI__6383C8BA" FromRole="GiaoVien" ToRole="GiaoVien_HinhAnh" />
     <NavigationProperty Name="PhanCong" Relationship="Self.FK__PhanCong__MaLop__66603565" FromRole="GiaoVien" ToRole="PhanCong" />
+    <NavigationProperty Name="GV_PhanCong" Relationship="QuanLiDiemModel.FK__GV_PhanCo__MaLop__4F47C5E3" FromRole="GiaoVien" ToRole="GV_PhanCong" />
   </EntityType>
   <EntityType Name="GiaoVien_HinhAnh">
     <Key>
@@ -80,6 +81,7 @@
     <NavigationProperty Name="HeDaoTao" Relationship="Self.FK__Lop__MaHe__1B0907CE" FromRole="Lop" ToRole="HeDaoTao" />
     <NavigationProperty Name="PhanCong" Relationship="Self.FK__PhanCong__MaLop__68487DD7" FromRole="Lop" ToRole="PhanCong" />
     <NavigationProperty Name="SinhVien" Relationship="Self.FK__SinhVien__MaTinh__1FCDBCEB" FromRole="Lop" ToRole="SinhVien" />
+    <NavigationProperty Name="GV_PhanCong" Relationship="QuanLiDiemModel.FK__GV_PhanCo__MaLop__51300E55" FromRole="Lop" ToRole="GV_PhanCong" />
   </EntityType>
   <EntityType Name="MonHP">
     <Key>
@@ -95,6 +97,7 @@
     <NavigationProperty Name="DiemHP" Relationship="Self.FK__DiemHP__MaMonHP__276EDEB3" FromRole="MonHP" ToRole="DiemHP" />
     <NavigationProperty Name="HocKy" Relationship="Self.FK__MonHP__MaHK__164452B1" FromRole="MonHP" ToRole="HocKy" />
     <NavigationProperty Name="PhanCong" Relationship="Self.FK__PhanCong__MaMonH__6754599E" FromRole="MonHP" ToRole="PhanCong" />
+    <NavigationProperty Name="GV_PhanCong" Relationship="QuanLiDiemModel.FK__GV_PhanCo__MaMon__503BEA1C" FromRole="MonHP" ToRole="GV_PhanCong" />
   </EntityType>
   <EntityType Name="PhanCong">
     <Key>
@@ -540,6 +543,19 @@
       <Parameter Name="HoLot" Mode="In" Type="String" />
       <Parameter Name="Ten" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="GV_PhanCong" EntityType="QuanLiDiemModel.GV_PhanCong" />
+    <AssociationSet Name="FK__GV_PhanCo__MaLop__4F47C5E3" Association="QuanLiDiemModel.FK__GV_PhanCo__MaLop__4F47C5E3">
+      <End Role="GiaoVien" EntitySet="GiaoVien" />
+      <End Role="GV_PhanCong" EntitySet="GV_PhanCong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GV_PhanCo__MaLop__51300E55" Association="QuanLiDiemModel.FK__GV_PhanCo__MaLop__51300E55">
+      <End Role="Lop" EntitySet="Lop" />
+      <End Role="GV_PhanCong" EntitySet="GV_PhanCong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GV_PhanCo__MaMon__503BEA1C" Association="QuanLiDiemModel.FK__GV_PhanCo__MaMon__503BEA1C">
+      <End Role="MonHP" EntitySet="MonHP" />
+      <End Role="GV_PhanCong" EntitySet="GV_PhanCong" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="BangDiemHP_Result">
     <Property Type="String" Name="MaSV" Nullable="true" MaxLength="6" />
@@ -695,4 +711,53 @@
     <Property Type="String" Name="Ten" Nullable="true" MaxLength="7" />
     <Property Type="DateTime" Name="NgaySinh" Nullable="true" Precision="23" />
   </ComplexType>
+  <EntityType Name="GV_PhanCong">
+    <Key>
+      <PropertyRef Name="MaGV" />
+      <PropertyRef Name="MaMonHP" />
+      <PropertyRef Name="MaLop" />
+    </Key>
+    <Property Name="MaGV" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="MaMonHP" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="MaLop" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="GiaoVien" Relationship="QuanLiDiemModel.FK__GV_PhanCo__MaLop__4F47C5E3" FromRole="GV_PhanCong" ToRole="GiaoVien" />
+    <NavigationProperty Name="Lop" Relationship="QuanLiDiemModel.FK__GV_PhanCo__MaLop__51300E55" FromRole="GV_PhanCong" ToRole="Lop" />
+    <NavigationProperty Name="MonHP" Relationship="QuanLiDiemModel.FK__GV_PhanCo__MaMon__503BEA1C" FromRole="GV_PhanCong" ToRole="MonHP" />
+  </EntityType>
+  <Association Name="FK__GV_PhanCo__MaLop__4F47C5E3">
+    <End Type="QuanLiDiemModel.GiaoVien" Role="GiaoVien" Multiplicity="1" />
+    <End Type="QuanLiDiemModel.GV_PhanCong" Role="GV_PhanCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiaoVien">
+        <PropertyRef Name="MaGV" />
+      </Principal>
+      <Dependent Role="GV_PhanCong">
+        <PropertyRef Name="MaGV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GV_PhanCo__MaLop__51300E55">
+    <End Type="QuanLiDiemModel.Lop" Role="Lop" Multiplicity="1" />
+    <End Type="QuanLiDiemModel.GV_PhanCong" Role="GV_PhanCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lop">
+        <PropertyRef Name="MaLop" />
+      </Principal>
+      <Dependent Role="GV_PhanCong">
+        <PropertyRef Name="MaLop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GV_PhanCo__MaMon__503BEA1C">
+    <End Type="QuanLiDiemModel.MonHP" Role="MonHP" Multiplicity="1" />
+    <End Type="QuanLiDiemModel.GV_PhanCong" Role="GV_PhanCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonHP">
+        <PropertyRef Name="MaMonHP" />
+      </Principal>
+      <Dependent Role="GV_PhanCong">
+        <PropertyRef Name="MaMonHP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

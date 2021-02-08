@@ -142,6 +142,12 @@
     <Compile Include="frmDiemHP.Designer.cs">
       <DependentUpon>frmDiemHP.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGiaoVien.Designer.cs">
+      <DependentUpon>frmGiaoVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="GiaoVien_HinhAnh.cs">
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GV_PhanCong.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="HeDaoTao.cs">
@@ -276,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiemHP.resx">
       <DependentUpon>frmDiemHP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGiaoVien.resx">
+      <DependentUpon>frmGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
