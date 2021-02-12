@@ -30,9 +30,9 @@ namespace QuanLyDiem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.btnDuongDan = new DevExpress.XtraEditors.SimpleButton();
             this.controlNavigator1 = new DevExpress.XtraEditors.ControlNavigator();
             this.gcSVHA = new DevExpress.XtraGrid.GridControl();
             this.sinhVienHASelectALLResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -60,7 +60,6 @@ namespace QuanLyDiem
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForMaSV1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -68,6 +67,8 @@ namespace QuanLyDiem
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bar1 = new DevExpress.XtraBars.Bar();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnDuongDan = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
@@ -87,13 +88,13 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMaSV1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForIMG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -125,16 +126,6 @@ namespace QuanLyDiem
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // btnDuongDan
-            // 
-            this.btnDuongDan.Location = new System.Drawing.Point(291, 100);
-            this.btnDuongDan.Name = "btnDuongDan";
-            this.btnDuongDan.Size = new System.Drawing.Size(276, 32);
-            this.btnDuongDan.StyleController = this.dataLayoutControl1;
-            this.btnDuongDan.TabIndex = 18;
-            this.btnDuongDan.Text = "-- Đường dẫn --";
-            this.btnDuongDan.Click += new System.EventHandler(this.btnDuongDan_Click);
-            // 
             // controlNavigator1
             // 
             this.controlNavigator1.Appearance.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -155,6 +146,9 @@ namespace QuanLyDiem
             // 
             this.gcSVHA.DataSource = this.sinhVienHASelectALLResultBindingSource;
             this.gcSVHA.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode1.RelationName = "Level1";
+            this.gcSVHA.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gcSVHA.Location = new System.Drawing.Point(0, 0);
             this.gcSVHA.MainView = this.gridView1;
             this.gcSVHA.Name = "gcSVHA";
@@ -188,16 +182,19 @@ namespace QuanLyDiem
             this.colMaSV.OptionsColumn.ReadOnly = true;
             this.colMaSV.Visible = true;
             this.colMaSV.VisibleIndex = 0;
-            this.colMaSV.Width = 124;
+            this.colMaSV.Width = 322;
             // 
             // colIMG
             // 
             this.colIMG.FieldName = "IMG";
-            this.colIMG.MinWidth = 33;
+            this.colIMG.ImageOptions.Alignment = System.Drawing.StringAlignment.Center;
+            this.colIMG.MaxWidth = 100;
+            this.colIMG.MinWidth = 10;
             this.colIMG.Name = "colIMG";
+            this.colIMG.OptionsColumn.FixedWidth = true;
             this.colIMG.Visible = true;
             this.colIMG.VisibleIndex = 1;
-            this.colIMG.Width = 124;
+            this.colIMG.Width = 100;
             // 
             // colHoTenSV
             // 
@@ -207,7 +204,7 @@ namespace QuanLyDiem
             this.colHoTenSV.OptionsColumn.ReadOnly = true;
             this.colHoTenSV.Visible = true;
             this.colHoTenSV.VisibleIndex = 2;
-            this.colHoTenSV.Width = 124;
+            this.colHoTenSV.Width = 323;
             // 
             // luChonTheoLop
             // 
@@ -400,15 +397,6 @@ namespace QuanLyDiem
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.btnDuongDan;
-            this.layoutControlItem2.Location = new System.Drawing.Point(279, 88);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(280, 36);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.txtFile;
@@ -472,6 +460,25 @@ namespace QuanLyDiem
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.Text = "Tools";
             // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.btnDuongDan;
+            this.layoutControlItem2.Location = new System.Drawing.Point(279, 88);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(280, 36);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // btnDuongDan
+            // 
+            this.btnDuongDan.Location = new System.Drawing.Point(291, 100);
+            this.btnDuongDan.Name = "btnDuongDan";
+            this.btnDuongDan.Size = new System.Drawing.Size(276, 32);
+            this.btnDuongDan.StyleController = this.dataLayoutControl1;
+            this.btnDuongDan.TabIndex = 18;
+            this.btnDuongDan.Text = "-- Đường dẫn --";
+            this.btnDuongDan.Click += new System.EventHandler(this.btnDuongDan_Click);
+            // 
             // frmSinhVienHinhAnh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -506,13 +513,13 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMaSV1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForIMG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,8 +548,6 @@ namespace QuanLyDiem
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraEditors.SimpleButton btnDuongDan;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.TextEdit txtFile;
         private System.Windows.Forms.BindingSource sinhVienHASelectALLResultBindingSource;
         private DevExpress.XtraEditors.TextEdit txtMaSV;
@@ -558,5 +563,7 @@ namespace QuanLyDiem
         private DevExpress.XtraGrid.Columns.GridColumn colMaSV;
         private DevExpress.XtraGrid.Columns.GridColumn colIMG;
         private DevExpress.XtraGrid.Columns.GridColumn colHoTenSV;
+        private DevExpress.XtraEditors.SimpleButton btnDuongDan;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

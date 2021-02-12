@@ -148,6 +148,18 @@
     <Compile Include="frmGiaoVien.Designer.cs">
       <DependentUpon>frmGiaoVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGiaoVienHinhAnh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGiaoVienHinhAnh.Designer.cs">
+      <DependentUpon>frmGiaoVienHinhAnh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGiaoVienPhanCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGiaoVienPhanCong.Designer.cs">
+      <DependentUpon>frmGiaoVienPhanCong.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +179,12 @@
       <DependentUpon>frmLopSinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GiaoVien.cs">
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoVienHA_SelectALL_Result.cs">
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoVienHA_SelectByCV_Result.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="GiaoVien_HinhAnh.cs">
@@ -209,9 +227,6 @@
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="MonHP_SelectByHK_Result.cs">
-      <DependentUpon>QuanLiDiem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PhanCong.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -289,6 +304,12 @@
     <EmbeddedResource Include="frmGiaoVien.resx">
       <DependentUpon>frmGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGiaoVienHinhAnh.resx">
+      <DependentUpon>frmGiaoVienHinhAnh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGiaoVienPhanCong.resx">
+      <DependentUpon>frmGiaoVienPhanCong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,9 +335,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BangDiemHP_Result.datasource" />
+    <None Include="Properties\DataSources\frmGiaoVien.datasource" />
     <None Include="Properties\DataSources\frmLopSinhVien.datasource" />
     <None Include="Properties\DataSources\frmSinhVienHinhAnh.datasource" />
     <None Include="Properties\DataSources\GiaoVien.datasource" />
+    <None Include="Properties\DataSources\GiaoVienHA_SelectALL_Result.datasource" />
+    <None Include="Properties\DataSources\GiaoVien_HinhAnh.datasource" />
     <None Include="Properties\DataSources\HKSelectALL_Result.datasource" />
     <None Include="Properties\DataSources\HocKy.datasource" />
     <None Include="Properties\DataSources\Lop.datasource" />

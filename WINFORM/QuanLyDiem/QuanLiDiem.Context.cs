@@ -29,18 +29,17 @@ namespace QuanLyDiem
     
         public virtual DbSet<DangNhap> DangNhap { get; set; }
         public virtual DbSet<DiemHP> DiemHP { get; set; }
+        public virtual DbSet<GV_PhanCong> GV_PhanCong { get; set; }
         public virtual DbSet<GiaoVien> GiaoVien { get; set; }
         public virtual DbSet<GiaoVien_HinhAnh> GiaoVien_HinhAnh { get; set; }
         public virtual DbSet<HeDaoTao> HeDaoTao { get; set; }
         public virtual DbSet<HocKy> HocKy { get; set; }
         public virtual DbSet<Lop> Lop { get; set; }
         public virtual DbSet<MonHP> MonHP { get; set; }
-        public virtual DbSet<PhanCong> PhanCong { get; set; }
         public virtual DbSet<SinhVien> SinhVien { get; set; }
         public virtual DbSet<SinhVien_HinhAnh> SinhVien_HinhAnh { get; set; }
         public virtual DbSet<TinhTrang> TinhTrang { get; set; }
         public virtual DbSet<ThongTin> ThongTin { get; set; }
-        public virtual DbSet<GV_PhanCong> GV_PhanCong { get; set; }
     
         public virtual ObjectResult<BangDiemHP_Result> BangDiemHP(string maLop, string maMonHP)
         {
@@ -188,6 +187,37 @@ namespace QuanLyDiem
                 new ObjectParameter("MaMonHP", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DiemLan1Update", chuyenCanParameter, giuaKiParameter, diemLan1Parameter, maSVParameter, maMonHPParameter);
+        }
+    
+        public virtual ObjectResult<GiaoVienHA_SelectALL_Result> GiaoVienHA_SelectALL()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GiaoVienHA_SelectALL_Result>("GiaoVienHA_SelectALL");
+        }
+    
+        public virtual ObjectResult<GiaoVienHA_SelectByCV_Result> GiaoVienHA_SelectByCV(string chucVu)
+        {
+            var chucVuParameter = chucVu != null ?
+                new ObjectParameter("ChucVu", chucVu) :
+                new ObjectParameter("ChucVu", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GiaoVienHA_SelectByCV_Result>("GiaoVienHA_SelectByCV", chucVuParameter);
+        }
+    
+        public virtual int GiaoVienHA_Update(string gV_IMG, byte[] iMG, string fileIMG2)
+        {
+            var gV_IMGParameter = gV_IMG != null ?
+                new ObjectParameter("GV_IMG", gV_IMG) :
+                new ObjectParameter("GV_IMG", typeof(string));
+    
+            var iMGParameter = iMG != null ?
+                new ObjectParameter("IMG", iMG) :
+                new ObjectParameter("IMG", typeof(byte[]));
+    
+            var fileIMG2Parameter = fileIMG2 != null ?
+                new ObjectParameter("FileIMG2", fileIMG2) :
+                new ObjectParameter("FileIMG2", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GiaoVienHA_Update", gV_IMGParameter, iMGParameter, fileIMG2Parameter);
         }
     
         public virtual int HeDaoTaoDelete(string maHe)
@@ -479,6 +509,39 @@ namespace QuanLyDiem
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SinhVienInsert", hoLotParameter, tenParameter, ngaySinhParameter, gioiTinhParameter, noiSinhParameter, danTocParameter, maLopParameter, maTinhTrangParameter);
         }
     
+        public virtual int SinhVienInsert_1(string hoLot, string ten, Nullable<System.DateTime> ngaySinh, string gioiTinh, string noiSinh, string danToc, string maLop)
+        {
+            var hoLotParameter = hoLot != null ?
+                new ObjectParameter("HoLot", hoLot) :
+                new ObjectParameter("HoLot", typeof(string));
+    
+            var tenParameter = ten != null ?
+                new ObjectParameter("Ten", ten) :
+                new ObjectParameter("Ten", typeof(string));
+    
+            var ngaySinhParameter = ngaySinh.HasValue ?
+                new ObjectParameter("NgaySinh", ngaySinh) :
+                new ObjectParameter("NgaySinh", typeof(System.DateTime));
+    
+            var gioiTinhParameter = gioiTinh != null ?
+                new ObjectParameter("GioiTinh", gioiTinh) :
+                new ObjectParameter("GioiTinh", typeof(string));
+    
+            var noiSinhParameter = noiSinh != null ?
+                new ObjectParameter("NoiSinh", noiSinh) :
+                new ObjectParameter("NoiSinh", typeof(string));
+    
+            var danTocParameter = danToc != null ?
+                new ObjectParameter("DanToc", danToc) :
+                new ObjectParameter("DanToc", typeof(string));
+    
+            var maLopParameter = maLop != null ?
+                new ObjectParameter("MaLop", maLop) :
+                new ObjectParameter("MaLop", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SinhVienInsert_1", hoLotParameter, tenParameter, ngaySinhParameter, gioiTinhParameter, noiSinhParameter, danTocParameter, maLopParameter);
+        }
+    
         public virtual ObjectResult<SinhVienSelectAll_Result> SinhVienSelectAll()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SinhVienSelectAll_Result>("SinhVienSelectAll");
@@ -519,6 +582,19 @@ namespace QuanLyDiem
         public virtual ObjectResult<SinhVienSelectAllDetail_1_Result> SinhVienSelectAllDetail_1()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SinhVienSelectAllDetail_1_Result>("SinhVienSelectAllDetail_1");
+        }
+    
+        public virtual ObjectResult<SinhVienSelectCheckNew_Result> SinhVienSelectCheckNew(string hoLot, string ten)
+        {
+            var hoLotParameter = hoLot != null ?
+                new ObjectParameter("HoLot", hoLot) :
+                new ObjectParameter("HoLot", typeof(string));
+    
+            var tenParameter = ten != null ?
+                new ObjectParameter("Ten", ten) :
+                new ObjectParameter("Ten", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SinhVienSelectCheckNew_Result>("SinhVienSelectCheckNew", hoLotParameter, tenParameter);
         }
     
         public virtual int SinhVienUpdate(string maSV, string hoLot, string ten, Nullable<System.DateTime> ngaySinh, string gioiTinh, string noiSinh, string danToc)
@@ -643,50 +719,71 @@ namespace QuanLyDiem
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TinhTrangUpdate", maTinhTrangParameter, tinhTrangParameter);
         }
     
-        public virtual int SinhVienInsert_1(string hoLot, string ten, Nullable<System.DateTime> ngaySinh, string gioiTinh, string noiSinh, string danToc, string maLop)
+        public virtual int GVPhanCong_Insert(string tenGV, string tenMonHP, string tenLop, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT)
         {
-            var hoLotParameter = hoLot != null ?
-                new ObjectParameter("HoLot", hoLot) :
-                new ObjectParameter("HoLot", typeof(string));
+            var tenGVParameter = tenGV != null ?
+                new ObjectParameter("TenGV", tenGV) :
+                new ObjectParameter("TenGV", typeof(string));
     
-            var tenParameter = ten != null ?
-                new ObjectParameter("Ten", ten) :
-                new ObjectParameter("Ten", typeof(string));
+            var tenMonHPParameter = tenMonHP != null ?
+                new ObjectParameter("TenMonHP", tenMonHP) :
+                new ObjectParameter("TenMonHP", typeof(string));
     
-            var ngaySinhParameter = ngaySinh.HasValue ?
-                new ObjectParameter("NgaySinh", ngaySinh) :
-                new ObjectParameter("NgaySinh", typeof(System.DateTime));
+            var tenLopParameter = tenLop != null ?
+                new ObjectParameter("TenLop", tenLop) :
+                new ObjectParameter("TenLop", typeof(string));
     
-            var gioiTinhParameter = gioiTinh != null ?
-                new ObjectParameter("GioiTinh", gioiTinh) :
-                new ObjectParameter("GioiTinh", typeof(string));
+            var ngayBDParameter = ngayBD.HasValue ?
+                new ObjectParameter("NgayBD", ngayBD) :
+                new ObjectParameter("NgayBD", typeof(System.DateTime));
     
-            var noiSinhParameter = noiSinh != null ?
-                new ObjectParameter("NoiSinh", noiSinh) :
-                new ObjectParameter("NoiSinh", typeof(string));
+            var ngayKTParameter = ngayKT.HasValue ?
+                new ObjectParameter("NgayKT", ngayKT) :
+                new ObjectParameter("NgayKT", typeof(System.DateTime));
     
-            var danTocParameter = danToc != null ?
-                new ObjectParameter("DanToc", danToc) :
-                new ObjectParameter("DanToc", typeof(string));
-    
-            var maLopParameter = maLop != null ?
-                new ObjectParameter("MaLop", maLop) :
-                new ObjectParameter("MaLop", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SinhVienInsert_1", hoLotParameter, tenParameter, ngaySinhParameter, gioiTinhParameter, noiSinhParameter, danTocParameter, maLopParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Insert", tenGVParameter, tenMonHPParameter, tenLopParameter, ngayBDParameter, ngayKTParameter);
         }
     
-        public virtual ObjectResult<SinhVienSelectCheckNew_Result> SinhVienSelectCheckNew(string hoLot, string ten)
+        public virtual int GVPhanCong_Update(string tenGV, string tenMonHP, string tenLop, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT)
         {
-            var hoLotParameter = hoLot != null ?
-                new ObjectParameter("HoLot", hoLot) :
-                new ObjectParameter("HoLot", typeof(string));
+            var tenGVParameter = tenGV != null ?
+                new ObjectParameter("TenGV", tenGV) :
+                new ObjectParameter("TenGV", typeof(string));
     
-            var tenParameter = ten != null ?
-                new ObjectParameter("Ten", ten) :
-                new ObjectParameter("Ten", typeof(string));
+            var tenMonHPParameter = tenMonHP != null ?
+                new ObjectParameter("TenMonHP", tenMonHP) :
+                new ObjectParameter("TenMonHP", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SinhVienSelectCheckNew_Result>("SinhVienSelectCheckNew", hoLotParameter, tenParameter);
+            var tenLopParameter = tenLop != null ?
+                new ObjectParameter("TenLop", tenLop) :
+                new ObjectParameter("TenLop", typeof(string));
+    
+            var ngayBDParameter = ngayBD.HasValue ?
+                new ObjectParameter("NgayBD", ngayBD) :
+                new ObjectParameter("NgayBD", typeof(System.DateTime));
+    
+            var ngayKTParameter = ngayKT.HasValue ?
+                new ObjectParameter("NgayKT", ngayKT) :
+                new ObjectParameter("NgayKT", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Update", tenGVParameter, tenMonHPParameter, tenLopParameter, ngayBDParameter, ngayKTParameter);
+        }
+    
+        public virtual int GVPhanCong_Delete(string tenGV, string tenMonHP, string tenLop)
+        {
+            var tenGVParameter = tenGV != null ?
+                new ObjectParameter("TenGV", tenGV) :
+                new ObjectParameter("TenGV", typeof(string));
+    
+            var tenMonHPParameter = tenMonHP != null ?
+                new ObjectParameter("TenMonHP", tenMonHP) :
+                new ObjectParameter("TenMonHP", typeof(string));
+    
+            var tenLopParameter = tenLop != null ?
+                new ObjectParameter("TenLop", tenLop) :
+                new ObjectParameter("TenLop", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Delete", tenGVParameter, tenMonHPParameter, tenLopParameter);
         }
     }
 }

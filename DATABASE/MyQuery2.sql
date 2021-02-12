@@ -140,7 +140,9 @@ CREATE TABLE GV_PhanCong
 (
 	MaGV VARCHAR(6),
 	MaMonHP VARCHAR(6),
-	MaLop VARCHAR(6)
+	MaLop VARCHAR(6),
+	NgayBD DATETIME,
+	NgayKT DATETIME
 
 	PRIMARY KEY (MaGV, MaMonHP, MaLop)
 	FOREIGN KEY (MaGV) REFERENCES dbo.GiaoVien (MaGV),
@@ -159,18 +161,6 @@ CREATE TABLE GiaoVien_HinhAnh
 )
 GO
 
-CREATE TABLE PhanCong
-(
-	MaGV VARCHAR(6),
-	MaMonHP VARCHAR(6),
-	MaLop VARCHAR(6)
-
-	PRIMARY KEY (MaGV, MaMonHP, MaLop)
-	FOREIGN KEY (MaGV) REFERENCES dbo.GiaoVien (MaGV),
-	FOREIGN KEY (MaMonHP) REFERENCES dbo.MonHP (MaMonHP),
-	FOREIGN KEY (MaLop) REFERENCES dbo.Lop (MaLop)
-)
-GO
 -----------------------------------
 
 INSERT TinhTrang VALUES (N'Đang học')
@@ -442,6 +432,64 @@ BEGIN
 	WHERE MaSV = @MaSV
 END
 
+CREATE PROC GVPhanCong_Insert
+@TenGV NVARCHAR(40),
+@TenMonHP NVARCHAR(50),
+@TenLop CHAR(7),
+@NgayBD DATETIME,
+@NgayKT DATETIME
+AS
+BEGIN
+	SET @TenGV = (SELECT dbo.GiaoVien.MaGV FROM dbo.GiaoVien WHERE TenGV = @TenGV)
+	SET @TenMonHP = (SELECT MaMonHP FROM dbo.MonHP WHERE TenMonHP = @TenMonHP)
+	SET @TenLop = (SELECT MaLop FROM dbo.Lop WHERE TenLop = @TenLop)
+
+	INSERT GV_PhanCong VALUES (@TenGV, @TenMonHP, @TenLop, @NgayBD, @NgayKT)
+
+END
+
+GVPhanCong_Update N'Phạm Mạnh Cương', N'Các hệ cơ sở dữ liệu', 'K14CNTT'
+, '2021-02-10 00:00:00.000', '2021-04-18 00:00:00.000'
+CREATE PROC GVPhanCong_Update
+@TenGV NVARCHAR(40),
+@TenMonHP NVARCHAR(50),
+@TenLop CHAR(7),
+@NgayBD DATETIME,
+@NgayKT DATETIME
+AS
+BEGIN
+	SET @TenGV = (SELECT dbo.GiaoVien.MaGV FROM dbo.GiaoVien WHERE TenGV = @TenGV)
+	SET @TenMonHP = (SELECT MaMonHP FROM dbo.MonHP WHERE TenMonHP = @TenMonHP)
+	SET @TenLop = (SELECT MaLop FROM dbo.Lop WHERE TenLop = @TenLop)
+
+	UPDATE GV_PhanCong
+	SET MaGV = @TenGV,
+		MaMonHP = @TenMonHP,
+		MaLop = @TenLop,
+		NgayBD = @NgayBD,
+		NgayKT = @NgayKT
+	WHERE MaGV = @TenGV
+	AND	MaMonHP = @TenMonHP
+	AND MaLop = @TenLop
+END
+
+CREATE PROC GVPhanCong_Delete
+@TenGV NVARCHAR(40),
+@TenMonHP NVARCHAR(50),
+@TenLop CHAR(7)
+AS
+BEGIN
+	SET @TenGV = (SELECT dbo.GiaoVien.MaGV FROM dbo.GiaoVien WHERE TenGV = @TenGV)
+	SET @TenMonHP = (SELECT MaMonHP FROM dbo.MonHP WHERE TenMonHP = @TenMonHP)
+	SET @TenLop = (SELECT MaLop FROM dbo.Lop WHERE TenLop = @TenLop)
+
+	DELETE FROM GV_PhanCong
+	WHERE MaGV = @TenGV
+	AND	MaMonHP = @TenMonHP
+	AND MaLop = @TenLop
+END
+
+
 CREATE PROC SinhVienInsert 
 @HoLot NVARCHAR(30),
 @Ten NVARCHAR(7),
@@ -594,6 +642,13 @@ BEGIN
 END
 GO
 
+CREATE PROC GiaoVienHA_SelectALL
+AS
+BEGIN
+	SELECT a.FileIMG2, a.MaGV, a.GV_IMG, a.IMG, b.TenGV FROM dbo.GiaoVien_HinhAnh a RIGHT JOIN  dbo.GiaoVien b ON b.MaGV = a.MaGV
+END
+GO
+
 CREATE PROC SinhVienHA_SelectByLop
 @MaLop VARCHAR(6)
 AS
@@ -605,6 +660,15 @@ BEGIN
 END
 GO
 
+CREATE PROC GiaoVienHA_SelectByCV
+@ChucVu NVARCHAR(20)
+AS
+BEGIN
+	SELECT a.FileIMG2, a.MaGV, a.GV_IMG, a.IMG, b.TenGV FROM dbo.GiaoVien_HinhAnh a RIGHT JOIN  dbo.GiaoVien b ON b.MaGV = a.MaGV
+	WHERE b.ChucVu = @ChucVu
+END
+GO
+
 CREATE PROC SinhVienHA_Update
 @SV_IMG VARCHAR(8),
 @IMG VARBINARY(MAX),
@@ -612,6 +676,16 @@ CREATE PROC SinhVienHA_Update
 AS
 BEGIN
 	UPDATE dbo.SinhVien_HinhAnh SET IMG = @IMG, FileIMG = @FileIMG WHERE SV_IMG = @SV_IMG
+END
+GO
+
+CREATE PROC GiaoVienHA_Update
+@GV_IMG VARCHAR(8),
+@IMG VARBINARY(MAX),
+@FileIMG2 NVARCHAR(100)
+AS
+BEGIN
+	UPDATE dbo.GiaoVien_HinhAnh SET IMG = @IMG, FileIMG2 = @FileIMG2 WHERE GV_IMG = @GV_IMG
 END
 GO
 
@@ -673,8 +747,14 @@ BEGIN
 END
 GO
 
+SELECT * FROM dbo.MonHP
+WHERE MaHK = 'HK0005'
 
-
+SELECT TenGV, TenLop, TenMonHP, dbo.GV_PhanCong.NgayBD, dbo.GV_PhanCong.NgayKT FROM dbo.GV_PhanCong
+JOIN dbo.GiaoVien ON GiaoVien.MaGV = GV_PhanCong.MaGV
+JOIN dbo.Lop ON Lop.MaLop = GV_PhanCong.MaLop
+JOIN dbo.MonHP ON MonHP.MaMonHP = GV_PhanCong.MaMonHP
+WHERE TenGV = N'Nguyễn Thái Học'
 
 
 

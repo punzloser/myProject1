@@ -17,9 +17,8 @@ namespace QuanLyDiem
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GiaoVien()
         {
-            this.GiaoVien_HinhAnh = new HashSet<GiaoVien_HinhAnh>();
-            this.PhanCong = new HashSet<PhanCong>();
             this.GV_PhanCong = new HashSet<GV_PhanCong>();
+            this.GiaoVien_HinhAnh = new HashSet<GiaoVien_HinhAnh>();
         }
     
         public short ID { get; set; }
@@ -33,10 +32,8 @@ namespace QuanLyDiem
         public string ChucVu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GiaoVien_HinhAnh> GiaoVien_HinhAnh { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhanCong> PhanCong { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GV_PhanCong> GV_PhanCong { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GiaoVien_HinhAnh> GiaoVien_HinhAnh { get; set; }
     }
 }

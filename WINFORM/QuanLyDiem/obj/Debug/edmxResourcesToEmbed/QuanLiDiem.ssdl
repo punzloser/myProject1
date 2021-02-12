@@ -31,6 +31,8 @@
     <Property Name="MaGV" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="MaMonHP" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="MaLop" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="NgayBD" Type="datetime" />
+    <Property Name="NgayKT" Type="datetime" />
   </EntityType>
   <EntityType Name="GiaoVien">
     <Key>
@@ -51,7 +53,7 @@
       <PropertyRef Name="GV_IMG" />
     </Key>
     <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="GV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="GV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IMG" Type="varbinary(max)" />
     <Property Name="MaGV" Type="varchar" MaxLength="6" />
     <Property Name="FileIMG2" Type="nvarchar" MaxLength="100" />
@@ -77,7 +79,7 @@
       <PropertyRef Name="MaLop" />
     </Key>
     <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaLop" Type="varchar" MaxLength="6" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="MaLop" Type="varchar" MaxLength="6" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenLop" Type="char" MaxLength="7" />
     <Property Name="MaHe" Type="varchar" MaxLength="6" />
   </EntityType>
@@ -86,22 +88,12 @@
       <PropertyRef Name="MaMonHP" />
     </Key>
     <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaMonHP" Type="varchar" MaxLength="6" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="MaMonHP" Type="varchar" MaxLength="6" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenMonHP" Type="nvarchar" MaxLength="50" />
     <Property Name="SoTin" Type="tinyint" />
     <Property Name="TietLT" Type="tinyint" />
     <Property Name="TietTH" Type="tinyint" />
     <Property Name="MaHK" Type="varchar" MaxLength="6" />
-  </EntityType>
-  <EntityType Name="PhanCong">
-    <Key>
-      <PropertyRef Name="MaGV" />
-      <PropertyRef Name="MaMonHP" />
-      <PropertyRef Name="MaLop" />
-    </Key>
-    <Property Name="MaGV" Type="varchar" MaxLength="6" Nullable="false" />
-    <Property Name="MaMonHP" Type="varchar" MaxLength="6" Nullable="false" />
-    <Property Name="MaLop" Type="varchar" MaxLength="6" Nullable="false" />
   </EntityType>
   <EntityType Name="SinhVien">
     <Key>
@@ -174,7 +166,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__GV_PhanCo__MaLop__4F47C5E3">
-    <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1" />
+    <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="GV_PhanCong" Type="Self.GV_PhanCong" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="GiaoVien">
@@ -186,7 +180,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__GV_PhanCo__MaLop__51300E55">
-    <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
+    <End Role="Lop" Type="Self.Lop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="GV_PhanCong" Type="Self.GV_PhanCong" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Lop">
@@ -198,7 +194,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__GV_PhanCo__MaMon__503BEA1C">
-    <End Role="MonHP" Type="Self.MonHP" Multiplicity="1" />
+    <End Role="MonHP" Type="Self.MonHP" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="GV_PhanCong" Type="Self.GV_PhanCong" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MonHP">
@@ -210,7 +208,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__GiaoVien___FileI__6383C8BA">
-    <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1" />
+    <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="GiaoVien_HinhAnh" Type="Self.GiaoVien_HinhAnh" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="GiaoVien">
@@ -234,7 +234,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__MonHP__MaHK__164452B1">
-    <End Role="HocKy" Type="Self.HocKy" Multiplicity="0..1" />
+    <End Role="HocKy" Type="Self.HocKy" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="MonHP" Type="Self.MonHP" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="HocKy">
@@ -242,42 +244,6 @@
       </Principal>
       <Dependent Role="MonHP">
         <PropertyRef Name="MaHK" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__PhanCong__MaLop__66603565">
-    <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1" />
-    <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="GiaoVien">
-        <PropertyRef Name="MaGV" />
-      </Principal>
-      <Dependent Role="PhanCong">
-        <PropertyRef Name="MaGV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__PhanCong__MaLop__68487DD7">
-    <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
-    <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Lop">
-        <PropertyRef Name="MaLop" />
-      </Principal>
-      <Dependent Role="PhanCong">
-        <PropertyRef Name="MaLop" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__PhanCong__MaMonH__6754599E">
-    <End Role="MonHP" Type="Self.MonHP" Multiplicity="1" />
-    <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MonHP">
-        <PropertyRef Name="MaMonHP" />
-      </Principal>
-      <Dependent Role="PhanCong">
-        <PropertyRef Name="MaMonHP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -296,7 +262,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__SinhVien__MaTinh__1FCDBCEB">
-    <End Role="Lop" Type="Self.Lop" Multiplicity="0..1" />
+    <End Role="Lop" Type="Self.Lop" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Lop">
@@ -361,6 +329,34 @@
     <Parameter Name="DiemLan1" Type="float" Mode="In" />
     <Parameter Name="MaSV" Type="varchar" Mode="In" />
     <Parameter Name="MaMonHP" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GiaoVienHA_SelectALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GiaoVienHA_SelectByCV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ChucVu" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GiaoVienHA_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GV_IMG" Type="varchar" Mode="In" />
+    <Parameter Name="IMG" Type="varbinary(max)" Mode="In" />
+    <Parameter Name="FileIMG2" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GVPhanCong_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenGV" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenMonHP" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenLop" Type="char" Mode="In" />
+  </Function>
+  <Function Name="GVPhanCong_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenGV" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenMonHP" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenLop" Type="char" Mode="In" />
+    <Parameter Name="NgayBD" Type="datetime" Mode="In" />
+    <Parameter Name="NgayKT" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="GVPhanCong_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenGV" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenMonHP" Type="nvarchar" Mode="In" />
+    <Parameter Name="TenLop" Type="char" Mode="In" />
+    <Parameter Name="NgayBD" Type="datetime" Mode="In" />
+    <Parameter Name="NgayKT" Type="datetime" Mode="In" />
   </Function>
   <Function Name="HeDaoTaoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaHe" Type="varchar" Mode="In" />
@@ -518,7 +514,6 @@
     <EntitySet Name="HocKy" EntityType="Self.HocKy" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lop" EntityType="Self.Lop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MonHP" EntityType="Self.MonHP" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PhanCong" EntityType="Self.PhanCong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SinhVien_HinhAnh" EntityType="Self.SinhVien_HinhAnh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TinhTrang" EntityType="Self.TinhTrang" Schema="dbo" store:Type="Tables" />
@@ -554,18 +549,6 @@
     <AssociationSet Name="FK__MonHP__MaHK__164452B1" Association="Self.FK__MonHP__MaHK__164452B1">
       <End Role="HocKy" EntitySet="HocKy" />
       <End Role="MonHP" EntitySet="MonHP" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PhanCong__MaLop__66603565" Association="Self.FK__PhanCong__MaLop__66603565">
-      <End Role="GiaoVien" EntitySet="GiaoVien" />
-      <End Role="PhanCong" EntitySet="PhanCong" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PhanCong__MaLop__68487DD7" Association="Self.FK__PhanCong__MaLop__68487DD7">
-      <End Role="Lop" EntitySet="Lop" />
-      <End Role="PhanCong" EntitySet="PhanCong" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PhanCong__MaMonH__6754599E" Association="Self.FK__PhanCong__MaMonH__6754599E">
-      <End Role="MonHP" EntitySet="MonHP" />
-      <End Role="PhanCong" EntitySet="PhanCong" />
     </AssociationSet>
     <AssociationSet Name="FK__SinhVien___FileI__239E4DCF" Association="Self.FK__SinhVien___FileI__239E4DCF">
       <End Role="SinhVien" EntitySet="SinhVien" />

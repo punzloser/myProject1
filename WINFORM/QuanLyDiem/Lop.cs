@@ -17,9 +17,8 @@ namespace QuanLyDiem
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Lop()
         {
-            this.PhanCong = new HashSet<PhanCong>();
-            this.SinhVien = new HashSet<SinhVien>();
             this.GV_PhanCong = new HashSet<GV_PhanCong>();
+            this.SinhVien = new HashSet<SinhVien>();
         }
     
         public short ID { get; set; }
@@ -27,12 +26,10 @@ namespace QuanLyDiem
         public string TenLop { get; set; }
         public string MaHe { get; set; }
     
-        public virtual HeDaoTao HeDaoTao { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhanCong> PhanCong { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SinhVien> SinhVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GV_PhanCong> GV_PhanCong { get; set; }
+        public virtual HeDaoTao HeDaoTao { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SinhVien> SinhVien { get; set; }
     }
 }

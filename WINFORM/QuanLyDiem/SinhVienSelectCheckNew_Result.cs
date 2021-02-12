@@ -16,5 +16,8 @@ namespace QuanLyDiem
         public string HoLot { get; set; }
         public string Ten { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
+        public string GioiTinh { get; set; }
+        public string NoiSinh { get; set; }
+        public string DanToc { get; set; }
     }
 }

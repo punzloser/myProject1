@@ -24,6 +24,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="GV_PhanCong">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.GV_PhanCong">
+        <MappingFragment StoreEntitySet="GV_PhanCong">
+          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+          <ScalarProperty Name="MaMonHP" ColumnName="MaMonHP" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="NgayBD" ColumnName="NgayBD" />
+          <ScalarProperty Name="NgayKT" ColumnName="NgayKT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="GiaoVien">
       <EntityTypeMapping TypeName="QuanLiDiemModel.GiaoVien">
         <MappingFragment StoreEntitySet="GiaoVien">
@@ -88,15 +99,6 @@
           <ScalarProperty Name="TietLT" ColumnName="TietLT" />
           <ScalarProperty Name="TietTH" ColumnName="TietTH" />
           <ScalarProperty Name="MaHK" ColumnName="MaHK" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PhanCong">
-      <EntityTypeMapping TypeName="QuanLiDiemModel.PhanCong">
-        <MappingFragment StoreEntitySet="PhanCong">
-          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
-          <ScalarProperty Name="MaMonHP" ColumnName="MaMonHP" />
-          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -184,6 +186,29 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="DiemHPUpdate" FunctionName="QuanLiDiemModel.Store.DiemHPUpdate" />
     <FunctionImportMapping FunctionImportName="DiemLan1Update" FunctionName="QuanLiDiemModel.Store.DiemLan1Update" />
+    <FunctionImportMapping FunctionImportName="GiaoVienHA_SelectALL" FunctionName="QuanLiDiemModel.Store.GiaoVienHA_SelectALL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.GiaoVienHA_SelectALL_Result">
+          <ScalarProperty Name="FileIMG2" ColumnName="FileIMG2" />
+          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+          <ScalarProperty Name="GV_IMG" ColumnName="GV_IMG" />
+          <ScalarProperty Name="IMG" ColumnName="IMG" />
+          <ScalarProperty Name="TenGV" ColumnName="TenGV" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GiaoVienHA_SelectByCV" FunctionName="QuanLiDiemModel.Store.GiaoVienHA_SelectByCV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.GiaoVienHA_SelectByCV_Result">
+          <ScalarProperty Name="FileIMG2" ColumnName="FileIMG2" />
+          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+          <ScalarProperty Name="GV_IMG" ColumnName="GV_IMG" />
+          <ScalarProperty Name="IMG" ColumnName="IMG" />
+          <ScalarProperty Name="TenGV" ColumnName="TenGV" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GiaoVienHA_Update" FunctionName="QuanLiDiemModel.Store.GiaoVienHA_Update" />
     <FunctionImportMapping FunctionImportName="HeDaoTaoDelete" FunctionName="QuanLiDiemModel.Store.HeDaoTaoDelete" />
     <FunctionImportMapping FunctionImportName="HeDaoTaoInsert" FunctionName="QuanLiDiemModel.Store.HeDaoTaoInsert" />
     <FunctionImportMapping FunctionImportName="HeDaoTaoUpdate" FunctionName="QuanLiDiemModel.Store.HeDaoTaoUpdate" />
@@ -311,6 +336,7 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="SinhVienHA_Update" FunctionName="QuanLiDiemModel.Store.SinhVienHA_Update" />
     <FunctionImportMapping FunctionImportName="SinhVienInsert" FunctionName="QuanLiDiemModel.Store.SinhVienInsert" />
+    <FunctionImportMapping FunctionImportName="SinhVienInsert_1" FunctionName="QuanLiDiemModel.Store.SinhVienInsert_1" />
     <FunctionImportMapping FunctionImportName="SinhVienSelectAll" FunctionName="QuanLiDiemModel.Store.SinhVienSelectAll">
       <ResultMapping>
         <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectAll_Result">
@@ -392,30 +418,26 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SinhVienUpdate" FunctionName="QuanLiDiemModel.Store.SinhVienUpdate" />
-    <FunctionImportMapping FunctionImportName="SinhVienUpdate_1" FunctionName="QuanLiDiemModel.Store.SinhVienUpdate_1" />
-    <FunctionImportMapping FunctionImportName="ThongTinUpdate" FunctionName="QuanLiDiemModel.Store.ThongTinUpdate" />
-    <FunctionImportMapping FunctionImportName="TinhTrangDelete" FunctionName="QuanLiDiemModel.Store.TinhTrangDelete" />
-    <FunctionImportMapping FunctionImportName="TinhTrangInsert" FunctionName="QuanLiDiemModel.Store.TinhTrangInsert" />
-    <FunctionImportMapping FunctionImportName="TinhTrangUpdate" FunctionName="QuanLiDiemModel.Store.TinhTrangUpdate" />
-    <FunctionImportMapping FunctionImportName="SinhVienInsert_1" FunctionName="QuanLiDiemModel.Store.SinhVienInsert_1" />
     <FunctionImportMapping FunctionImportName="SinhVienSelectCheckNew" FunctionName="QuanLiDiemModel.Store.SinhVienSelectCheckNew">
       <ResultMapping>
         <ComplexTypeMapping TypeName="QuanLiDiemModel.SinhVienSelectCheckNew_Result">
           <ScalarProperty Name="HoLot" ColumnName="HoLot" />
           <ScalarProperty Name="Ten" ColumnName="Ten" />
           <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+          <ScalarProperty Name="DanToc" ColumnName="DanToc" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <EntitySetMapping Name="GV_PhanCong">
-      <EntityTypeMapping TypeName="QuanLiDiemModel.GV_PhanCong">
-        <MappingFragment StoreEntitySet="GV_PhanCong">
-          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
-          <ScalarProperty Name="MaMonHP" ColumnName="MaMonHP" />
-          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SinhVienUpdate" FunctionName="QuanLiDiemModel.Store.SinhVienUpdate" />
+    <FunctionImportMapping FunctionImportName="SinhVienUpdate_1" FunctionName="QuanLiDiemModel.Store.SinhVienUpdate_1" />
+    <FunctionImportMapping FunctionImportName="ThongTinUpdate" FunctionName="QuanLiDiemModel.Store.ThongTinUpdate" />
+    <FunctionImportMapping FunctionImportName="TinhTrangDelete" FunctionName="QuanLiDiemModel.Store.TinhTrangDelete" />
+    <FunctionImportMapping FunctionImportName="TinhTrangInsert" FunctionName="QuanLiDiemModel.Store.TinhTrangInsert" />
+    <FunctionImportMapping FunctionImportName="TinhTrangUpdate" FunctionName="QuanLiDiemModel.Store.TinhTrangUpdate" />
+    <FunctionImportMapping FunctionImportName="GVPhanCong_Insert" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Insert" />
+    <FunctionImportMapping FunctionImportName="GVPhanCong_Update" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Update" />
+    <FunctionImportMapping FunctionImportName="GVPhanCong_Delete" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Delete" />
   </EntityContainerMapping>
 </Mapping>

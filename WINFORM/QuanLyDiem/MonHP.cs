@@ -18,7 +18,6 @@ namespace QuanLyDiem
         public MonHP()
         {
             this.DiemHP = new HashSet<DiemHP>();
-            this.PhanCong = new HashSet<PhanCong>();
             this.GV_PhanCong = new HashSet<GV_PhanCong>();
         }
     
@@ -32,10 +31,8 @@ namespace QuanLyDiem
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DiemHP> DiemHP { get; set; }
-        public virtual HocKy HocKy { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhanCong> PhanCong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GV_PhanCong> GV_PhanCong { get; set; }
+        public virtual HocKy HocKy { get; set; }
     }
 }

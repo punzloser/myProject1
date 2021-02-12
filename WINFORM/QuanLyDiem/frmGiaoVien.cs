@@ -21,6 +21,11 @@ namespace QuanLyDiem
         QuanLiDiemEntities db = new QuanLiDiemEntities();
         private void frmGiaoVien_Load(object sender, EventArgs e)
         {
+            frmLoad();            
+        }
+
+        public void frmLoad()
+        {
             //normal
             // giaoVienBindingSource.DataSource = db.GiaoVien.ToList();
 
@@ -28,10 +33,12 @@ namespace QuanLyDiem
             //giaoVienBindingSource.DataSource = db.GiaoVien.Where(a => a.ID.CompareTo(1) == 1).OrderBy(p=>p.TrinhDo).ToList();
 
             // linq
-            giaoVienBindingSource.DataSource = (from a in db.GiaoVien
-                                                orderby a.ID descending
-                                                select a).ToList();
+            var result = from a in db.GiaoVien
+                         orderby a.ID 
+                         select a;
+            giaoVienBindingSource.DataSource = result.ToList();
         }
+
         bool ThemGV = false;
         private void btnThem_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -42,35 +49,53 @@ namespace QuanLyDiem
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            GiaoVien gv = db.GiaoVien.Where(a => a.MaGV == txtMaGV.Text).SingleOrDefault();
+            //test the same
+            var XoaGV = from a in db.GiaoVien
+                        where a.MaGV == txtMaGV.Text
+                        select a;
+            GiaoVien gv = XoaGV.SingleOrDefault();
+            //the same 
+            //GiaoVien gv = db.GiaoVien.Find(txtMaGV.Text);
+            //GiaoVien gv = db.GiaoVien.Where(a => a.MaGV == txtMaGV.Text).SingleOrDefault();
             db.GiaoVien.Remove(gv);
             db.SaveChanges();
-            frmGiaoVien_Load(sender, e);
+            frmLoad();
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (ThemGV == true)
             {
-                GiaoVien gv = new GiaoVien()
-                {
-                    TenGV = txtTenGV.Text,
-                    TrinhDo = txtTrinhDo.Text,
-                    NgaySinh = Convert.ToDateTime(dateNgaySinh.Text),
-                    GioiTinh = txtGioiTinh.Text,
-                    NoiSinh = txtNoiSinh.Text,
-                    DanToc = txtDanToc.Text,
-                    ChucVu = txtChucVu.Text
-                };
+                DateTime? ns = (DateTime?)gridView1.GetFocusedRowCellValue("Ngaysinh");
+                GiaoVien gv = new GiaoVien();
+                //the same
+                //{
+                //    TenGV = txtTenGV.Text,
+                //    TrinhDo = txtTrinhDo.Text,
+                //    NgaySinh = ns,
+                //    GioiTinh = txtGioiTinh.Text,
+                //    NoiSinh = txtNoiSinh.Text,
+                //    DanToc = txtDanToc.Text,
+                //    ChucVu = txtChucVu.Text
+                //};
+
+                gv.TenGV = txtTenGV.Text;
+                gv.TrinhDo = txtTrinhDo.Text;
+                gv.NgaySinh = ns;
+                gv.GioiTinh = txtGioiTinh.Text;
+                gv.NoiSinh = txtNoiSinh.Text;
+                gv.DanToc = txtDanToc.Text;
+                gv.ChucVu = txtChucVu.Text;
+                
                 db.GiaoVien.Add(gv);
                 db.SaveChanges();
-                frmGiaoVien_Load(sender, e);
+                frmLoad();
                 ThemGV = false;
             }
             else
             {
-                //string MaGV = gridView1.GetFocusedRowCellValue("MaGV").ToString();
-                GiaoVien gv = db.GiaoVien.Find(txtMaGV.Text);
+                string MaGV = gridView1.GetFocusedRowCellValue("MaGV").ToString();
+                GiaoVien gv = db.GiaoVien.Where(a => a.MaGV == MaGV).SingleOrDefault();
                 gv.TenGV = txtTenGV.Text;
                 gv.TrinhDo = txtTrinhDo.Text;
                 gv.NgaySinh = Convert.ToDateTime(dateNgaySinh.Text);
@@ -79,7 +104,7 @@ namespace QuanLyDiem
                 gv.DanToc = txtDanToc.Text;
                 gv.ChucVu = txtChucVu.Text;
                 db.SaveChanges();
-                frmGiaoVien_Load(sender, e);
+                frmLoad();
             }
         }
     }

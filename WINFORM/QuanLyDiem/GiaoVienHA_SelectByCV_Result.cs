@@ -10,18 +10,13 @@
 namespace QuanLyDiem
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class GV_PhanCong
+    public partial class GiaoVienHA_SelectByCV_Result
     {
+        public string FileIMG2 { get; set; }
         public string MaGV { get; set; }
-        public string MaMonHP { get; set; }
-        public string MaLop { get; set; }
-        public Nullable<System.DateTime> NgayBD { get; set; }
-        public Nullable<System.DateTime> NgayKT { get; set; }
-    
-        public virtual GiaoVien GiaoVien { get; set; }
-        public virtual Lop Lop { get; set; }
-        public virtual MonHP MonHP { get; set; }
+        public string GV_IMG { get; set; }
+        public byte[] IMG { get; set; }
+        public string TenGV { get; set; }
     }
 }
