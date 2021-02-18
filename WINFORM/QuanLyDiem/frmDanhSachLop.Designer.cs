@@ -33,6 +33,13 @@ namespace QuanLyDiem
             this.gcDanhSachLop = new DevExpress.XtraGrid.GridControl();
             this.sinhVienSelectAllDetail1ResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMaSV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHoLot = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTen = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgaySinh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGioiTinh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNoiSinh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDanToc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
@@ -56,15 +63,9 @@ namespace QuanLyDiem
             this.ItemForDanToc = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForHoLot = new DevExpress.XtraLayout.LayoutControlItem();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnPrint = new QuanLyDiem.CircularButton();
             this.btnExport = new QuanLyDiem.CircularButton();
             this.btnImport = new QuanLyDiem.CircularButton();
-            this.colMaSV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHoLot = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNgaySinh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colGioiTinh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNoiSinh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDanToc = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSachLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sinhVienSelectAllDetail1ResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -128,6 +129,69 @@ namespace QuanLyDiem
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditFormInplaceHideCurrentRow;
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
+            // 
+            // colMaSV
+            // 
+            this.colMaSV.FieldName = "MaSV";
+            this.colMaSV.MinWidth = 30;
+            this.colMaSV.Name = "colMaSV";
+            this.colMaSV.Visible = true;
+            this.colMaSV.VisibleIndex = 0;
+            this.colMaSV.Width = 112;
+            // 
+            // colHoLot
+            // 
+            this.colHoLot.FieldName = "HoLot";
+            this.colHoLot.MinWidth = 30;
+            this.colHoLot.Name = "colHoLot";
+            this.colHoLot.Visible = true;
+            this.colHoLot.VisibleIndex = 1;
+            this.colHoLot.Width = 112;
+            // 
+            // colTen
+            // 
+            this.colTen.FieldName = "Ten";
+            this.colTen.MinWidth = 30;
+            this.colTen.Name = "colTen";
+            this.colTen.Visible = true;
+            this.colTen.VisibleIndex = 2;
+            this.colTen.Width = 112;
+            // 
+            // colNgaySinh
+            // 
+            this.colNgaySinh.FieldName = "NgaySinh";
+            this.colNgaySinh.MinWidth = 30;
+            this.colNgaySinh.Name = "colNgaySinh";
+            this.colNgaySinh.Visible = true;
+            this.colNgaySinh.VisibleIndex = 3;
+            this.colNgaySinh.Width = 112;
+            // 
+            // colGioiTinh
+            // 
+            this.colGioiTinh.FieldName = "GioiTinh";
+            this.colGioiTinh.MinWidth = 30;
+            this.colGioiTinh.Name = "colGioiTinh";
+            this.colGioiTinh.Visible = true;
+            this.colGioiTinh.VisibleIndex = 4;
+            this.colGioiTinh.Width = 112;
+            // 
+            // colNoiSinh
+            // 
+            this.colNoiSinh.FieldName = "NoiSinh";
+            this.colNoiSinh.MinWidth = 30;
+            this.colNoiSinh.Name = "colNoiSinh";
+            this.colNoiSinh.Visible = true;
+            this.colNoiSinh.VisibleIndex = 5;
+            this.colNoiSinh.Width = 112;
+            // 
+            // colDanToc
+            // 
+            this.colDanToc.FieldName = "DanToc";
+            this.colDanToc.MinWidth = 30;
+            this.colDanToc.Name = "colDanToc";
+            this.colDanToc.Visible = true;
+            this.colDanToc.VisibleIndex = 6;
+            this.colDanToc.Width = 112;
             // 
             // panelControl1
             // 
@@ -358,6 +422,7 @@ namespace QuanLyDiem
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnPrint);
             this.panelControl2.Controls.Add(this.btnExport);
             this.panelControl2.Controls.Add(this.btnImport);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -365,6 +430,23 @@ namespace QuanLyDiem
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(236, 527);
             this.panelControl2.TabIndex = 3;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Appearance.BorderColor = System.Drawing.Color.Red;
+            this.btnPrint.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Appearance.Options.UseBorderColor = true;
+            this.btnPrint.Appearance.Options.UseFont = true;
+            this.btnPrint.AppearanceHovered.BorderColor = System.Drawing.Color.Red;
+            this.btnPrint.AppearanceHovered.Options.UseBorderColor = true;
+            this.btnPrint.Location = new System.Drawing.Point(30, 332);
+            this.btnPrint.LookAndFeel.SkinName = "Lilian";
+            this.btnPrint.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(177, 94);
+            this.btnPrint.TabIndex = 1;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnExport
             // 
@@ -387,7 +469,7 @@ namespace QuanLyDiem
             this.btnImport.Appearance.Options.UseFont = true;
             this.btnImport.AppearanceHovered.BorderColor = System.Drawing.Color.Red;
             this.btnImport.AppearanceHovered.Options.UseBorderColor = true;
-            this.btnImport.Location = new System.Drawing.Point(30, 240);
+            this.btnImport.Location = new System.Drawing.Point(30, 196);
             this.btnImport.LookAndFeel.SkinName = "Office 2007 Green";
             this.btnImport.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnImport.Name = "btnImport";
@@ -395,69 +477,6 @@ namespace QuanLyDiem
             this.btnImport.TabIndex = 0;
             this.btnImport.Text = "Import Excel";
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // colMaSV
-            // 
-            this.colMaSV.FieldName = "MaSV";
-            this.colMaSV.MinWidth = 30;
-            this.colMaSV.Name = "colMaSV";
-            this.colMaSV.Visible = true;
-            this.colMaSV.VisibleIndex = 0;
-            this.colMaSV.Width = 112;
-            // 
-            // colHoLot
-            // 
-            this.colHoLot.FieldName = "HoLot";
-            this.colHoLot.MinWidth = 30;
-            this.colHoLot.Name = "colHoLot";
-            this.colHoLot.Visible = true;
-            this.colHoLot.VisibleIndex = 1;
-            this.colHoLot.Width = 112;
-            // 
-            // colTen
-            // 
-            this.colTen.FieldName = "Ten";
-            this.colTen.MinWidth = 30;
-            this.colTen.Name = "colTen";
-            this.colTen.Visible = true;
-            this.colTen.VisibleIndex = 2;
-            this.colTen.Width = 112;
-            // 
-            // colNgaySinh
-            // 
-            this.colNgaySinh.FieldName = "NgaySinh";
-            this.colNgaySinh.MinWidth = 30;
-            this.colNgaySinh.Name = "colNgaySinh";
-            this.colNgaySinh.Visible = true;
-            this.colNgaySinh.VisibleIndex = 3;
-            this.colNgaySinh.Width = 112;
-            // 
-            // colGioiTinh
-            // 
-            this.colGioiTinh.FieldName = "GioiTinh";
-            this.colGioiTinh.MinWidth = 30;
-            this.colGioiTinh.Name = "colGioiTinh";
-            this.colGioiTinh.Visible = true;
-            this.colGioiTinh.VisibleIndex = 4;
-            this.colGioiTinh.Width = 112;
-            // 
-            // colNoiSinh
-            // 
-            this.colNoiSinh.FieldName = "NoiSinh";
-            this.colNoiSinh.MinWidth = 30;
-            this.colNoiSinh.Name = "colNoiSinh";
-            this.colNoiSinh.Visible = true;
-            this.colNoiSinh.VisibleIndex = 5;
-            this.colNoiSinh.Width = 112;
-            // 
-            // colDanToc
-            // 
-            this.colDanToc.FieldName = "DanToc";
-            this.colDanToc.MinWidth = 30;
-            this.colDanToc.Name = "colDanToc";
-            this.colDanToc.Visible = true;
-            this.colDanToc.VisibleIndex = 6;
-            this.colDanToc.Width = 112;
             // 
             // frmDanhSachLop
             // 
@@ -542,5 +561,6 @@ namespace QuanLyDiem
         private DevExpress.XtraGrid.Columns.GridColumn colGioiTinh;
         private DevExpress.XtraGrid.Columns.GridColumn colNoiSinh;
         private DevExpress.XtraGrid.Columns.GridColumn colDanToc;
+        private CircularButton btnPrint;
     }
 }

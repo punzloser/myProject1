@@ -56,6 +56,7 @@ namespace QuanLyDiem
             this.lbDanToc = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.btnXuatExcel = new QuanLyDiem.CircularButton();
+            this.btnPrint = new QuanLyDiem.CircularButton();
             this.lblTinChiDat = new DevExpress.XtraEditors.LabelControl();
             this.lblXL = new DevExpress.XtraEditors.LabelControl();
             this.circularLabel10 = new QuanLyDiem.CircularLabel();
@@ -174,7 +175,7 @@ namespace QuanLyDiem
             this.gcDiemCT.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gcDiemCT.MainView = this.gridView1;
             this.gcDiemCT.Name = "gcDiemCT";
-            this.gcDiemCT.Size = new System.Drawing.Size(1226, 437);
+            this.gcDiemCT.Size = new System.Drawing.Size(1273, 437);
             this.gcDiemCT.TabIndex = 0;
             this.gcDiemCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -406,6 +407,7 @@ namespace QuanLyDiem
             // panelControl4
             // 
             this.panelControl4.Controls.Add(this.btnXuatExcel);
+            this.panelControl4.Controls.Add(this.btnPrint);
             this.panelControl4.Controls.Add(this.circularLabel1);
             this.panelControl4.Controls.Add(this.lblTinChiDat);
             this.panelControl4.Controls.Add(this.lblXL);
@@ -428,30 +430,37 @@ namespace QuanLyDiem
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(2, 2);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(1226, 207);
+            this.panelControl4.Size = new System.Drawing.Size(1273, 207);
             this.panelControl4.TabIndex = 4;
             // 
             // btnXuatExcel
             // 
-            this.btnXuatExcel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(222)))), ((int)(((byte)(33)))));
-            this.btnXuatExcel.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(186)))), ((int)(((byte)(51)))));
-            this.btnXuatExcel.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXuatExcel.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btnXuatExcel.Appearance.Options.UseBackColor = true;
-            this.btnXuatExcel.Appearance.Options.UseBorderColor = true;
+            this.btnXuatExcel.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
             this.btnXuatExcel.Appearance.Options.UseFont = true;
-            this.btnXuatExcel.Appearance.Options.UseForeColor = true;
-            this.btnXuatExcel.Location = new System.Drawing.Point(1014, 77);
-            this.btnXuatExcel.LookAndFeel.SkinName = "Office 2016 Colorful";
-            this.btnXuatExcel.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
+            this.btnXuatExcel.Location = new System.Drawing.Point(1080, 28);
+            this.btnXuatExcel.LookAndFeel.SkinName = "VS2010";
             this.btnXuatExcel.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Padding = new System.Windows.Forms.Padding(3);
-            this.btnXuatExcel.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnXuatExcel.Size = new System.Drawing.Size(153, 49);
-            this.btnXuatExcel.TabIndex = 4;
+            this.btnXuatExcel.Size = new System.Drawing.Size(177, 76);
+            this.btnXuatExcel.TabIndex = 6;
             this.btnXuatExcel.Text = "Export Excel";
             this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Appearance.BorderColor = System.Drawing.Color.Red;
+            this.btnPrint.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Appearance.Options.UseBorderColor = true;
+            this.btnPrint.Appearance.Options.UseFont = true;
+            this.btnPrint.AppearanceHovered.BorderColor = System.Drawing.Color.Red;
+            this.btnPrint.AppearanceHovered.Options.UseBorderColor = true;
+            this.btnPrint.Location = new System.Drawing.Point(1080, 117);
+            this.btnPrint.LookAndFeel.SkinName = "Lilian";
+            this.btnPrint.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(177, 68);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "Print";
             // 
             // lblTinChiDat
             // 
@@ -531,7 +540,7 @@ namespace QuanLyDiem
             this.panelControl2.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1230, 648);
+            this.panelControl2.Size = new System.Drawing.Size(1277, 648);
             this.panelControl2.TabIndex = 1;
             // 
             // frmBangDiemFull
@@ -540,7 +549,7 @@ namespace QuanLyDiem
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1646, 648);
+            this.ClientSize = new System.Drawing.Size(1693, 648);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Name = "frmBangDiemFull";
@@ -602,6 +611,7 @@ namespace QuanLyDiem
         private DevExpress.XtraEditors.PanelControl panelControl5;
         private DevExpress.XtraEditors.LabelControl lblTinChiDat;
         private CircularLabel circularLabel10;
+        private CircularButton btnPrint;
         private CircularButton btnXuatExcel;
     }
 }

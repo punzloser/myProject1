@@ -27,7 +27,8 @@ namespace QuanLyDiem
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<DangNhap> DangNhap { get; set; }
+        public virtual DbSet<ChucNang> ChucNang { get; set; }
+        public virtual DbSet<ChucNang_TaiKhoan> ChucNang_TaiKhoan { get; set; }
         public virtual DbSet<DiemHP> DiemHP { get; set; }
         public virtual DbSet<GV_PhanCong> GV_PhanCong { get; set; }
         public virtual DbSet<GiaoVien> GiaoVien { get; set; }
@@ -38,6 +39,7 @@ namespace QuanLyDiem
         public virtual DbSet<MonHP> MonHP { get; set; }
         public virtual DbSet<SinhVien> SinhVien { get; set; }
         public virtual DbSet<SinhVien_HinhAnh> SinhVien_HinhAnh { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoan { get; set; }
         public virtual DbSet<TinhTrang> TinhTrang { get; set; }
         public virtual DbSet<ThongTin> ThongTin { get; set; }
     
@@ -218,6 +220,73 @@ namespace QuanLyDiem
                 new ObjectParameter("FileIMG2", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GiaoVienHA_Update", gV_IMGParameter, iMGParameter, fileIMG2Parameter);
+        }
+    
+        public virtual int GVPhanCong_Delete(string tenGV, string tenMonHP, string tenLop)
+        {
+            var tenGVParameter = tenGV != null ?
+                new ObjectParameter("TenGV", tenGV) :
+                new ObjectParameter("TenGV", typeof(string));
+    
+            var tenMonHPParameter = tenMonHP != null ?
+                new ObjectParameter("TenMonHP", tenMonHP) :
+                new ObjectParameter("TenMonHP", typeof(string));
+    
+            var tenLopParameter = tenLop != null ?
+                new ObjectParameter("TenLop", tenLop) :
+                new ObjectParameter("TenLop", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Delete", tenGVParameter, tenMonHPParameter, tenLopParameter);
+        }
+    
+        public virtual int GVPhanCong_Insert(string tenGV, string tenMonHP, string tenLop, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT)
+        {
+            var tenGVParameter = tenGV != null ?
+                new ObjectParameter("TenGV", tenGV) :
+                new ObjectParameter("TenGV", typeof(string));
+    
+            var tenMonHPParameter = tenMonHP != null ?
+                new ObjectParameter("TenMonHP", tenMonHP) :
+                new ObjectParameter("TenMonHP", typeof(string));
+    
+            var tenLopParameter = tenLop != null ?
+                new ObjectParameter("TenLop", tenLop) :
+                new ObjectParameter("TenLop", typeof(string));
+    
+            var ngayBDParameter = ngayBD.HasValue ?
+                new ObjectParameter("NgayBD", ngayBD) :
+                new ObjectParameter("NgayBD", typeof(System.DateTime));
+    
+            var ngayKTParameter = ngayKT.HasValue ?
+                new ObjectParameter("NgayKT", ngayKT) :
+                new ObjectParameter("NgayKT", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Insert", tenGVParameter, tenMonHPParameter, tenLopParameter, ngayBDParameter, ngayKTParameter);
+        }
+    
+        public virtual int GVPhanCong_Update(string tenGV, string tenMonHP, string tenLop, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT)
+        {
+            var tenGVParameter = tenGV != null ?
+                new ObjectParameter("TenGV", tenGV) :
+                new ObjectParameter("TenGV", typeof(string));
+    
+            var tenMonHPParameter = tenMonHP != null ?
+                new ObjectParameter("TenMonHP", tenMonHP) :
+                new ObjectParameter("TenMonHP", typeof(string));
+    
+            var tenLopParameter = tenLop != null ?
+                new ObjectParameter("TenLop", tenLop) :
+                new ObjectParameter("TenLop", typeof(string));
+    
+            var ngayBDParameter = ngayBD.HasValue ?
+                new ObjectParameter("NgayBD", ngayBD) :
+                new ObjectParameter("NgayBD", typeof(System.DateTime));
+    
+            var ngayKTParameter = ngayKT.HasValue ?
+                new ObjectParameter("NgayKT", ngayKT) :
+                new ObjectParameter("NgayKT", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Update", tenGVParameter, tenMonHPParameter, tenLopParameter, ngayBDParameter, ngayKTParameter);
         }
     
         public virtual int HeDaoTaoDelete(string maHe)
@@ -717,73 +786,6 @@ namespace QuanLyDiem
                 new ObjectParameter("TinhTrang", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TinhTrangUpdate", maTinhTrangParameter, tinhTrangParameter);
-        }
-    
-        public virtual int GVPhanCong_Insert(string tenGV, string tenMonHP, string tenLop, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT)
-        {
-            var tenGVParameter = tenGV != null ?
-                new ObjectParameter("TenGV", tenGV) :
-                new ObjectParameter("TenGV", typeof(string));
-    
-            var tenMonHPParameter = tenMonHP != null ?
-                new ObjectParameter("TenMonHP", tenMonHP) :
-                new ObjectParameter("TenMonHP", typeof(string));
-    
-            var tenLopParameter = tenLop != null ?
-                new ObjectParameter("TenLop", tenLop) :
-                new ObjectParameter("TenLop", typeof(string));
-    
-            var ngayBDParameter = ngayBD.HasValue ?
-                new ObjectParameter("NgayBD", ngayBD) :
-                new ObjectParameter("NgayBD", typeof(System.DateTime));
-    
-            var ngayKTParameter = ngayKT.HasValue ?
-                new ObjectParameter("NgayKT", ngayKT) :
-                new ObjectParameter("NgayKT", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Insert", tenGVParameter, tenMonHPParameter, tenLopParameter, ngayBDParameter, ngayKTParameter);
-        }
-    
-        public virtual int GVPhanCong_Update(string tenGV, string tenMonHP, string tenLop, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT)
-        {
-            var tenGVParameter = tenGV != null ?
-                new ObjectParameter("TenGV", tenGV) :
-                new ObjectParameter("TenGV", typeof(string));
-    
-            var tenMonHPParameter = tenMonHP != null ?
-                new ObjectParameter("TenMonHP", tenMonHP) :
-                new ObjectParameter("TenMonHP", typeof(string));
-    
-            var tenLopParameter = tenLop != null ?
-                new ObjectParameter("TenLop", tenLop) :
-                new ObjectParameter("TenLop", typeof(string));
-    
-            var ngayBDParameter = ngayBD.HasValue ?
-                new ObjectParameter("NgayBD", ngayBD) :
-                new ObjectParameter("NgayBD", typeof(System.DateTime));
-    
-            var ngayKTParameter = ngayKT.HasValue ?
-                new ObjectParameter("NgayKT", ngayKT) :
-                new ObjectParameter("NgayKT", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Update", tenGVParameter, tenMonHPParameter, tenLopParameter, ngayBDParameter, ngayKTParameter);
-        }
-    
-        public virtual int GVPhanCong_Delete(string tenGV, string tenMonHP, string tenLop)
-        {
-            var tenGVParameter = tenGV != null ?
-                new ObjectParameter("TenGV", tenGV) :
-                new ObjectParameter("TenGV", typeof(string));
-    
-            var tenMonHPParameter = tenMonHP != null ?
-                new ObjectParameter("TenMonHP", tenMonHP) :
-                new ObjectParameter("TenMonHP", typeof(string));
-    
-            var tenLopParameter = tenLop != null ?
-                new ObjectParameter("TenLop", tenLop) :
-                new ObjectParameter("TenLop", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Delete", tenGVParameter, tenMonHPParameter, tenLopParameter);
         }
     }
 }

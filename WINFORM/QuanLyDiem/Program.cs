@@ -17,7 +17,7 @@ namespace QuanLyDiem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmGiaoVienPhanCong());
+            Application.Run(new frmPhanCongGiaoVien());
         }
     }
 }

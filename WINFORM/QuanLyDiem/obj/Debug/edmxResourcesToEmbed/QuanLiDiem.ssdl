@@ -1,13 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="QuanLiDiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="DangNhap">
+  <EntityType Name="ChucNang">
+    <Key>
+      <PropertyRef Name="Menu" />
+    </Key>
+    <Property Name="Menu" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="App" Type="varchar" MaxLength="100" />
+    <Property Name="Detail" Type="nvarchar" MaxLength="100" />
+    <Property Name="ParentMenu" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ChucNang_TaiKhoan">
     <Key>
       <PropertyRef Name="UserName" />
+      <PropertyRef Name="Menu" />
     </Key>
     <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Pass" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Quyen" Type="varchar" MaxLength="20" />
+    <Property Name="Menu" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SetTime" Type="datetime" />
+    <Property Name="QuyenThem" Type="bit" />
+    <Property Name="QuyenSua" Type="bit" />
+    <Property Name="QuyenXoa" Type="bit" />
+    <Property Name="Cam" Type="bit" />
   </EntityType>
   <EntityType Name="DiemHP">
     <Key>
@@ -39,7 +52,7 @@
       <PropertyRef Name="MaGV" />
     </Key>
     <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaGV" Type="varchar" MaxLength="6" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaGV" Type="varchar" MaxLength="6" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="TenGV" Type="nvarchar" MaxLength="40" />
     <Property Name="TrinhDo" Type="nvarchar" MaxLength="10" />
     <Property Name="NgaySinh" Type="datetime" />
@@ -53,7 +66,7 @@
       <PropertyRef Name="GV_IMG" />
     </Key>
     <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="GV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="IMG" Type="varbinary(max)" />
     <Property Name="MaGV" Type="varchar" MaxLength="6" />
     <Property Name="FileIMG2" Type="nvarchar" MaxLength="100" />
@@ -79,7 +92,7 @@
       <PropertyRef Name="MaLop" />
     </Key>
     <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaLop" Type="varchar" MaxLength="6" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaLop" Type="varchar" MaxLength="6" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="TenLop" Type="char" MaxLength="7" />
     <Property Name="MaHe" Type="varchar" MaxLength="6" />
   </EntityType>
@@ -88,7 +101,7 @@
       <PropertyRef Name="MaMonHP" />
     </Key>
     <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaMonHP" Type="varchar" MaxLength="6" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaMonHP" Type="varchar" MaxLength="6" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="TenMonHP" Type="nvarchar" MaxLength="50" />
     <Property Name="SoTin" Type="tinyint" />
     <Property Name="TietLT" Type="tinyint" />
@@ -120,6 +133,14 @@
     <Property Name="MaSV" Type="varchar" MaxLength="6" />
     <Property Name="FileIMG" Type="nvarchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="TinhTrang">
     <Key>
       <PropertyRef Name="MaTinhTrang" />
@@ -141,6 +162,30 @@
     <Property Name="NganhHoc" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ChuyenNganh" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <Association Name="FK__ChucNang_T__Menu__12FDD1B2">
+    <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1" />
+    <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucNang">
+        <PropertyRef Name="Menu" />
+      </Principal>
+      <Dependent Role="ChucNang_TaiKhoan">
+        <PropertyRef Name="Menu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChucNang_Ta__Cam__1209AD79">
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
+    <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaiKhoan">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="ChucNang_TaiKhoan">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__DiemHP__GhiChu__267ABA7A">
     <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="1" />
     <End Role="DiemHP" Type="Self.DiemHP" Multiplicity="*" />
@@ -505,7 +550,8 @@
     <Parameter Name="TinhTrang" Type="nvarchar" Mode="In" />
   </Function>
   <EntityContainer Name="QuanLiDiemModelStoreContainer">
-    <EntitySet Name="DangNhap" EntityType="Self.DangNhap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChucNang" EntityType="Self.ChucNang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChucNang_TaiKhoan" EntityType="Self.ChucNang_TaiKhoan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DiemHP" EntityType="Self.DiemHP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GV_PhanCong" EntityType="Self.GV_PhanCong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GiaoVien" EntityType="Self.GiaoVien" Schema="dbo" store:Type="Tables" />
@@ -516,8 +562,17 @@
     <EntitySet Name="MonHP" EntityType="Self.MonHP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SinhVien_HinhAnh" EntityType="Self.SinhVien_HinhAnh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TinhTrang" EntityType="Self.TinhTrang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ThongTin" EntityType="Self.ThongTin" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ChucNang_T__Menu__12FDD1B2" Association="Self.FK__ChucNang_T__Menu__12FDD1B2">
+      <End Role="ChucNang" EntitySet="ChucNang" />
+      <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChucNang_Ta__Cam__1209AD79" Association="Self.FK__ChucNang_Ta__Cam__1209AD79">
+      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+      <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
+    </AssociationSet>
     <AssociationSet Name="FK__DiemHP__GhiChu__267ABA7A" Association="Self.FK__DiemHP__GhiChu__267ABA7A">
       <End Role="SinhVien" EntitySet="SinhVien" />
       <End Role="DiemHP" EntitySet="DiemHP" />

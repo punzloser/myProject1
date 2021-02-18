@@ -283,8 +283,9 @@ namespace QuanLyDiem
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(2, 2);
             this.panelControl3.LookAndFeel.SkinMaskColor = System.Drawing.Color.Navy;
-            this.panelControl3.LookAndFeel.SkinName = "Office 2019 Colorful";
-            this.panelControl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.panelControl3.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.White;
+            this.panelControl3.LookAndFeel.SkinName = "Summer 2008";
+            this.panelControl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl3.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(1453, 40);

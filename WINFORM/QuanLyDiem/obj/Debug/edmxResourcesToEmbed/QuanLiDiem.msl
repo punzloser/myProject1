@@ -1,13 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="QuanLiDiemModelStoreContainer" CdmEntityContainer="QuanLiDiemEntities">
-    <EntitySetMapping Name="DangNhap">
-      <EntityTypeMapping TypeName="QuanLiDiemModel.DangNhap">
-        <MappingFragment StoreEntitySet="DangNhap">
+    <EntitySetMapping Name="ChucNang">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.ChucNang">
+        <MappingFragment StoreEntitySet="ChucNang">
+          <ScalarProperty Name="Menu" ColumnName="Menu" />
+          <ScalarProperty Name="App" ColumnName="App" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="ParentMenu" ColumnName="ParentMenu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChucNang_TaiKhoan">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.ChucNang_TaiKhoan">
+        <MappingFragment StoreEntitySet="ChucNang_TaiKhoan">
           <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Pass" ColumnName="Pass" />
-          <ScalarProperty Name="Quyen" ColumnName="Quyen" />
+          <ScalarProperty Name="Menu" ColumnName="Menu" />
+          <ScalarProperty Name="SetTime" ColumnName="SetTime" />
+          <ScalarProperty Name="QuyenThem" ColumnName="QuyenThem" />
+          <ScalarProperty Name="QuyenSua" ColumnName="QuyenSua" />
+          <ScalarProperty Name="QuyenXoa" ColumnName="QuyenXoa" />
+          <ScalarProperty Name="Cam" ColumnName="Cam" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -129,6 +142,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoan">
+      <EntityTypeMapping TypeName="QuanLiDiemModel.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TinhTrang">
       <EntityTypeMapping TypeName="QuanLiDiemModel.TinhTrang">
         <MappingFragment StoreEntitySet="TinhTrang">
@@ -209,6 +231,9 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="GiaoVienHA_Update" FunctionName="QuanLiDiemModel.Store.GiaoVienHA_Update" />
+    <FunctionImportMapping FunctionImportName="GVPhanCong_Delete" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Delete" />
+    <FunctionImportMapping FunctionImportName="GVPhanCong_Insert" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Insert" />
+    <FunctionImportMapping FunctionImportName="GVPhanCong_Update" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Update" />
     <FunctionImportMapping FunctionImportName="HeDaoTaoDelete" FunctionName="QuanLiDiemModel.Store.HeDaoTaoDelete" />
     <FunctionImportMapping FunctionImportName="HeDaoTaoInsert" FunctionName="QuanLiDiemModel.Store.HeDaoTaoInsert" />
     <FunctionImportMapping FunctionImportName="HeDaoTaoUpdate" FunctionName="QuanLiDiemModel.Store.HeDaoTaoUpdate" />
@@ -436,8 +461,5 @@
     <FunctionImportMapping FunctionImportName="TinhTrangDelete" FunctionName="QuanLiDiemModel.Store.TinhTrangDelete" />
     <FunctionImportMapping FunctionImportName="TinhTrangInsert" FunctionName="QuanLiDiemModel.Store.TinhTrangInsert" />
     <FunctionImportMapping FunctionImportName="TinhTrangUpdate" FunctionName="QuanLiDiemModel.Store.TinhTrangUpdate" />
-    <FunctionImportMapping FunctionImportName="GVPhanCong_Insert" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Insert" />
-    <FunctionImportMapping FunctionImportName="GVPhanCong_Update" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Update" />
-    <FunctionImportMapping FunctionImportName="GVPhanCong_Delete" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Delete" />
   </EntityContainerMapping>
 </Mapping>

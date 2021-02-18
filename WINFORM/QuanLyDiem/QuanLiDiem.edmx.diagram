@@ -4,20 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3b3139366bb9471e8b312996954a666d" Name="Diagram1">
-        <EntityTypeShape EntityType="QuanLiDiemModel.DangNhap" Width="1.5" PointX="8.75" PointY="1.125" IsExpanded="true" />
+      <Diagram DiagramId="9f4fce8aa0734ba6a18815bc8c7f3cee" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLiDiemModel.ChucNang" Width="1.5" PointX="5.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiDiemModel.ChucNang_TaiKhoan" Width="1.5" PointX="8" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLiDiemModel.DiemHP" Width="1.5" PointX="10.5" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLiDiemModel.GV_PhanCong" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLiDiemModel.GiaoVien" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLiDiemModel.GiaoVien_HinhAnh" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiDiemModel.GiaoVien_HinhAnh" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLiDiemModel.HeDaoTao" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLiDiemModel.HocKy" Width="1.5" PointX="1.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiDiemModel.HocKy" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLiDiemModel.Lop" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLiDiemModel.MonHP" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLiDiemModel.SinhVien" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLiDiemModel.SinhVien_HinhAnh" Width="1.5" PointX="10.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiDiemModel.TaiKhoan" Width="1.5" PointX="5.75" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLiDiemModel.TinhTrang" Width="1.5" PointX="6" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLiDiemModel.ThongTin" Width="1.5" PointX="7.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLiDiemModel.ThongTin" Width="1.5" PointX="10.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="QuanLiDiemModel.FK__ChucNang_T__Menu__12FDD1B2" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLiDiemModel.FK__ChucNang_Ta__Cam__1209AD79" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLiDiemModel.FK__DiemHP__GhiChu__267ABA7A" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLiDiemModel.FK__DiemHP__MaMonHP__276EDEB3" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLiDiemModel.FK__GV_PhanCo__MaLop__4F47C5E3" ManuallyRouted="false" />

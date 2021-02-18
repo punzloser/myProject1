@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using DevExpress.XtraReports.UI;
 
 namespace QuanLyDiem
 {
@@ -30,7 +31,6 @@ namespace QuanLyDiem
         private void luLop_EditValueChanged(object sender, EventArgs e)
         {
             gcDanhSachLop.DataSource = db.SinhVienSelectAllByLop(luLop.EditValue.ToString());
-
             txtMaSV.DataBindings.Clear();
             txtMaSV.DataBindings.Add("Text", gcDanhSachLop.DataSource, "MaSV");
             txtHoLot.DataBindings.Clear();
@@ -145,6 +145,42 @@ namespace QuanLyDiem
 
             }
 
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Report.rptSV rpt = new Report.rptSV();
+            try
+            {
+                var table = from a in db.SinhVien
+                            from c in db.ThongTin
+                            join b in db.Lop on a.MaLop equals b.MaLop
+                            where b.MaLop.CompareTo(luLop.EditValue.ToString()) == 0
+                            select new
+                            {
+                                a.MaSV,
+                                a.HoLot,
+                                a.Ten,
+                                a.NgaySinh,
+                                a.GioiTinh,
+                                a.NoiSinh,
+                                a.DanToc,
+                                b.TenLop,
+                                c.TenTruong
+                            };
+
+                rpt.DataSource = table.ToList();
+                // lỗi củ chuối thiếu datamember thì only one row Bug Report Q243967
+                rpt.DataMember = rpt.DataMember;
+                rpt.ShowPreviewDialog();
+            }
+            catch (Exception)
+            {
+
+                XtraMessageBox.Show("Vui lòng chọn lớp !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                luLop.Focus();
+            }
+            
         }
     }
 }

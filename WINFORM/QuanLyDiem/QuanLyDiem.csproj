@@ -53,18 +53,32 @@
     </Reference>
     <Reference Include="DevComponents.TreeGX, Version=14.1.0.18, Culture=neutral, PublicKeyToken=055db68f670cfeab, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.BonusSkins.v19.2" />
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v19.2" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Images.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v19.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Export, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.SpellChecker.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v19.2" />
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v19.2" />
     <Reference Include="DevExpress.Sparkline.v19.2.Core" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v19.2" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.2.Extensions, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v19.2.Extensions, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -80,6 +94,10 @@
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfoExtended, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -106,6 +124,12 @@
     <Compile Include="BangDiemHP_Result.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
+    <Compile Include="ChucNang.cs">
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChucNang_TaiKhoan.cs">
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
+    </Compile>
     <Compile Include="CircularButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -115,9 +139,7 @@
     <Compile Include="CircularPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DangNhap.cs">
-      <DependentUpon>QuanLiDiem.tt</DependentUpon>
-    </Compile>
+    <Compile Include="ClassTaiKhoan.cs" />
     <Compile Include="DiemHP.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
@@ -129,6 +151,12 @@
     </Compile>
     <Compile Include="frmBangDiemFull.Designer.cs">
       <DependentUpon>frmBangDiemFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDanhSachLop.cs">
       <SubType>Form</SubType>
@@ -142,6 +170,12 @@
     <Compile Include="frmDiemHP.Designer.cs">
       <DependentUpon>frmDiemHP.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDiemHP_GiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDiemHP_GiaoVien.Designer.cs">
+      <DependentUpon>frmDiemHP_GiaoVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGiaoVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,17 +188,29 @@
     <Compile Include="frmGiaoVienHinhAnh.Designer.cs">
       <DependentUpon>frmGiaoVienHinhAnh.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGiaoVienPhanCong.cs">
+    <Compile Include="frmPhanCongGiaoVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGiaoVienPhanCong.Designer.cs">
-      <DependentUpon>frmGiaoVienPhanCong.cs</DependentUpon>
+    <Compile Include="frmPhanCongGiaoVien.Designer.cs">
+      <DependentUpon>frmPhanCongGiaoVien.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuyen.Designer.cs">
+      <DependentUpon>frmQuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSaoLuu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaoLuu.Designer.cs">
+      <DependentUpon>frmSaoLuu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSinhVienHinhAnh.cs">
       <SubType>Form</SubType>
@@ -252,6 +298,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLiDiem.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Report\rptSV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptSV.Designer.cs">
+      <DependentUpon>rptSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="SinhVien.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
@@ -285,6 +337,9 @@
     <Compile Include="SinhVien_HinhAnh.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
+    <Compile Include="TaiKhoan.cs">
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
+    </Compile>
     <Compile Include="ThongTin.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
@@ -295,11 +350,17 @@
     <EmbeddedResource Include="frmBangDiemFull.resx">
       <DependentUpon>frmBangDiemFull.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDanhSachLop.resx">
       <DependentUpon>frmDanhSachLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiemHP.resx">
       <DependentUpon>frmDiemHP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDiemHP_GiaoVien.resx">
+      <DependentUpon>frmDiemHP_GiaoVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGiaoVien.resx">
       <DependentUpon>frmGiaoVien.cs</DependentUpon>
@@ -307,11 +368,17 @@
     <EmbeddedResource Include="frmGiaoVienHinhAnh.resx">
       <DependentUpon>frmGiaoVienHinhAnh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGiaoVienPhanCong.resx">
-      <DependentUpon>frmGiaoVienPhanCong.cs</DependentUpon>
+    <EmbeddedResource Include="frmPhanCongGiaoVien.resx">
+      <DependentUpon>frmPhanCongGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuyen.resx">
+      <DependentUpon>frmQuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSaoLuu.resx">
+      <DependentUpon>frmSaoLuu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSinhVienHinhAnh.resx">
       <DependentUpon>frmSinhVienHinhAnh.cs</DependentUpon>
@@ -331,6 +398,9 @@
     </Compile>
     <EmbeddedResource Include="frmHeThong.resx">
       <DependentUpon>frmHeThong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptSV.resx">
+      <DependentUpon>rptSV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -357,6 +427,7 @@
     <None Include="Properties\DataSources\SinhVienSelectAllDetail_1_Result.datasource" />
     <None Include="Properties\DataSources\SinhVienSelectAllDetail_Result.datasource" />
     <None Include="Properties\DataSources\SinhVien_HinhAnh.datasource" />
+    <None Include="Properties\DataSources\TaiKhoan.datasource" />
     <None Include="Properties\DataSources\ThongTin.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

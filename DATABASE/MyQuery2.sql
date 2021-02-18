@@ -3,12 +3,36 @@ GO
 USE QuanLiDiem
 GO
 
-CREATE TABLE DangNhap
+--EXEC sp_rename 'DangNhap', 'TaiKhoan'
+
+CREATE TABLE TaiKhoan 
 (
 		UserName VARCHAR(30) PRIMARY KEY,
-		Name NVARCHAR(50) NOT NULL,
-		Pass VARCHAR(30) NOT NULL,
-		Quyen VARCHAR(20)
+		FullName NVARCHAR(50) NOT NULL,
+		Pass NVARCHAR(50) NOT NULL,
+		App VARCHAR(100)
+		FOREIGN KEY (App) REFERENCES dbo.ChucNang (App)
+)
+GO
+
+CREATE TABLE ChucNang 
+(
+		Menu VARCHAR(100),
+		App VARCHAR(100),
+		Detail NVARCHAR(100) NOT NULL,
+		ParentMenu NVARCHAR(100)
+		PRIMARY KEY (Menu, App)
+)
+GO
+CREATE TABLE ChucNang_TaiKhoan 
+(
+		UserName VARCHAR(30),
+		Menu VARCHAR(100),
+		SetTime DATETIME,
+		QuyenThem BIT,
+		QuyenSua BIT,
+		QuyenXoa BIT,
+		Cam BIT
 )
 GO
 
@@ -719,7 +743,7 @@ BEGIN
 END
 GO
 
-ALTER PROC DiemLan1Update
+CREATE PROC DiemLan1Update 
 @ChuyenCan FLOAT,
 @GiuaKi FLOAT,
 @DiemLan1 FLOAT,
@@ -727,8 +751,27 @@ ALTER PROC DiemLan1Update
 @MaMonHP VARCHAR(6)
 AS
 BEGIN
-	UPDATE dbo.DiemHP SET ChuyenCan = @ChuyenCan, GiuaKi = @GiuaKi, DiemLan1 = @DiemLan1
-	WHERE MaSV = @MaSV AND MaMonHP = @MaMonHP
+	IF(@ChuyenCan IS NULL)
+	BEGIN	
+		UPDATE dbo.DiemHP SET GiuaKi = @GiuaKi, DiemLan1 = @DiemLan1
+		WHERE MaSV = @MaSV AND MaMonHP = @MaMonHP
+	END
+	IF(@GiuaKi IS NULL)
+	BEGIN	
+		UPDATE dbo.DiemHP SET ChuyenCan = @ChuyenCan, DiemLan1 = @DiemLan1
+		WHERE MaSV = @MaSV AND MaMonHP = @MaMonHP
+	END
+	IF(@DiemLan1 IS NULL)
+	BEGIN	
+		UPDATE dbo.DiemHP SET GiuaKi = @GiuaKi, ChuyenCan = @ChuyenCan
+		WHERE MaSV = @MaSV AND MaMonHP = @MaMonHP
+	END
+	IF(@ChuyenCan IS NOT NULL AND @GiuaKi IS NOT NULL AND @DiemLan1 IS NOT NULL)
+	BEGIN
+		UPDATE dbo.DiemHP SET ChuyenCan = @ChuyenCan, GiuaKi = @GiuaKi, DiemLan1 = @DiemLan1
+		WHERE MaSV = @MaSV AND MaMonHP = @MaMonHP
+	END	
+	
 END
 GO
 

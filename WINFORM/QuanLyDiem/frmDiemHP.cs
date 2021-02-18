@@ -258,51 +258,42 @@ namespace QuanLyDiem
         private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             GridView view = sender as GridView;
+            
+            try
+            {
+                double? chuyenCan = Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "ChuyenCan") == null? Convert.ToDouble("") : (double?)Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "ChuyenCan")));
+                double? giuaKi = Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "GiuaKi") == null ? Convert.ToDouble("") : (double?)Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "GiuaKi")));
+                double? diemLan1 = Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "DiemLan1") == null ? Convert.ToDouble("") : (double?)Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "DiemLan1")));
 
-            //Kiểm tra đây là dòng dữ liệu mới hay cũ, nếu là dòng mới ko có gì thì thoi :)
-            if (view.IsNewItemRow(e.RowHandle))
-            {
-                return;
-            }
-            //Cũ thì update
-            else
-            {
-                try
+                //Double giuaKi = Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "GiuaKi"));
+                //Double diemLan1 = Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "DiemLan1"));
+
+                if (diemLan1 > 10 && diemLan1 < 100)
                 {
-                    if (gridView1.GetRowCellValue(e.RowHandle, gridView1.Columns["DiemLan1"]) == null)
-                    {
-                        db.DiemLan1Update(Convert.ToDouble(""), Convert.ToDouble(""), Convert.ToDouble(""), view.GetRowCellValue(e.RowHandle, view.Columns[0]).ToString(), luHP.EditValue.ToString());
-                    }
-                    // bỏ // chấp nhận làm frm mới cập nhật điểm lần 2 riêng
-                    Double chuyenCan = Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "ChuyenCan"));
-                    Double giuaKi = Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "GiuaKi"));
-                    Double diemLan1 = Convert.ToDouble(view.GetRowCellValue(e.RowHandle, "DiemLan1"));
-                    if (diemLan1 > 10 && diemLan1 < 100)
-                    {
-                        diemLan1 /= 10;
-                        db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
-                    }
-                    else if (giuaKi > 10 && giuaKi < 100)
-                    {
-                        giuaKi /= 10;
-                        db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
-                    }
-                    else if (chuyenCan > 10 && chuyenCan < 100)
-                    {
-                        chuyenCan /= 10;
-                        db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
-                    }
-                    else
-                    {
-                        db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
-                    }
+                    diemLan1 /= 10;
+                    db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
                 }
-                catch (Exception err)
+                if (giuaKi > 10 && giuaKi < 100)
                 {
-                    XtraMessageBox.Show("Không được để trống !\n" + err, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    giuaKi /= 10;
+                    db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
                 }
-                luHP_EditValueChanged(sender, e);
+                if (chuyenCan > 10 && chuyenCan < 100)
+                {
+                    chuyenCan /= 10;
+                    db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
+                }
+                else
+                {
+                    db.DiemLan1Update(chuyenCan, giuaKi, diemLan1, view.GetRowCellValue(e.RowHandle, "MaSV").ToString(), luHP.EditValue.ToString());
+                }
             }
+
+            catch (Exception err)
+            {
+                XtraMessageBox.Show("Có lỗi xảy ra !\n" + err, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            luHP_EditValueChanged(sender, e);
         }
 
         private void gridView1_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)

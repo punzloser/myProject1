@@ -30,6 +30,7 @@ namespace QuanLyDiem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHeThong));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.circularLabel1 = new QuanLyDiem.CircularLabel();
             this.circularPanel1 = new QuanLyDiem.CircularPanel();
@@ -86,6 +87,7 @@ namespace QuanLyDiem
             this.panelControl1.Appearance.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.panelControl1.ContentImage = ((System.Drawing.Image)(resources.GetObject("panelControl1.ContentImage")));
             this.panelControl1.Controls.Add(this.circularLabel1);
             this.panelControl1.Controls.Add(this.circularPanel1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -93,7 +95,7 @@ namespace QuanLyDiem
             this.panelControl1.LookAndFeel.SkinName = "Blue";
             this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1021, 522);
+            this.panelControl1.Size = new System.Drawing.Size(1196, 522);
             this.panelControl1.TabIndex = 0;
             // 
             // circularLabel1
@@ -104,7 +106,7 @@ namespace QuanLyDiem
             this.circularLabel1.Appearance.Options.UseBackColor = true;
             this.circularLabel1.Appearance.Options.UseFont = true;
             this.circularLabel1.Appearance.Options.UseForeColor = true;
-            this.circularLabel1.Location = new System.Drawing.Point(320, 28);
+            this.circularLabel1.Location = new System.Drawing.Point(56, 36);
             this.circularLabel1.Name = "circularLabel1";
             this.circularLabel1.Padding = new System.Windows.Forms.Padding(5);
             this.circularLabel1.Size = new System.Drawing.Size(344, 32);
@@ -118,7 +120,7 @@ namespace QuanLyDiem
             this.circularPanel1.Appearance.Options.UseBackColor = true;
             this.circularPanel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.circularPanel1.Controls.Add(this.dataLayoutControl1);
-            this.circularPanel1.Location = new System.Drawing.Point(102, 66);
+            this.circularPanel1.Location = new System.Drawing.Point(56, 74);
             this.circularPanel1.Name = "circularPanel1";
             this.circularPanel1.Size = new System.Drawing.Size(814, 333);
             this.circularPanel1.TabIndex = 0;
@@ -354,7 +356,7 @@ namespace QuanLyDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1021, 522);
+            this.ClientSize = new System.Drawing.Size(1196, 522);
             this.Controls.Add(this.panelControl1);
             this.Name = "frmHeThong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

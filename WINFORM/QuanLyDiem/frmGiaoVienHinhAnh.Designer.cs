@@ -29,10 +29,10 @@ namespace QuanLyDiem
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.gcGV = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnLink = new DevExpress.XtraEditors.SimpleButton();
             this.controlNavigator1 = new DevExpress.XtraEditors.ControlNavigator();
             this.luChonTheoCV = new DevExpress.XtraEditors.LookUpEdit();
@@ -52,12 +52,11 @@ namespace QuanLyDiem
             this.ItemForFileIMG2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForGV_IMG = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.btnDuongDan = new DevExpress.XtraEditors.SimpleButton();
             this.btnDuongDan1 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.gcGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
@@ -80,24 +79,18 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForGV_IMG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.gcGV);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl1.Location = new System.Drawing.Point(557, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(807, 604);
-            this.panelControl1.TabIndex = 0;
             // 
             // gcGV
             // 
             this.gcGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcGV.Location = new System.Drawing.Point(2, 2);
+            this.gcGV.Location = new System.Drawing.Point(0, 0);
             this.gcGV.MainView = this.gridView1;
             this.gcGV.Name = "gcGV";
-            this.gcGV.Size = new System.Drawing.Size(803, 600);
+            this.gcGV.Size = new System.Drawing.Size(781, 604);
             this.gcGV.TabIndex = 0;
             this.gcGV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -119,18 +112,28 @@ namespace QuanLyDiem
             this.dataLayoutControl1.Controls.Add(this.txtFile);
             this.dataLayoutControl1.Controls.Add(this.luTenGV);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(2, 2);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(557, 604);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(579, 600);
             this.dataLayoutControl1.TabIndex = 1;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(12, 136);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(555, 32);
+            this.btnXoa.StyleController = this.dataLayoutControl1;
+            this.btnXoa.TabIndex = 20;
+            this.btnXoa.Text = "Xóa HA";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
             // btnLink
             // 
-            this.btnLink.Location = new System.Drawing.Point(280, 100);
+            this.btnLink.Location = new System.Drawing.Point(291, 100);
             this.btnLink.Name = "btnLink";
-            this.btnLink.Size = new System.Drawing.Size(265, 32);
+            this.btnLink.Size = new System.Drawing.Size(276, 32);
             this.btnLink.StyleController = this.dataLayoutControl1;
             this.btnLink.TabIndex = 19;
             this.btnLink.Text = "--Đường dẫn--";
@@ -145,7 +148,7 @@ namespace QuanLyDiem
             this.controlNavigator1.Name = "controlNavigator1";
             this.controlNavigator1.NavigatableControl = this.gcGV;
             this.controlNavigator1.Padding = new System.Windows.Forms.Padding(2);
-            this.controlNavigator1.Size = new System.Drawing.Size(533, 40);
+            this.controlNavigator1.Size = new System.Drawing.Size(555, 40);
             this.controlNavigator1.StyleController = this.dataLayoutControl1;
             this.controlNavigator1.TabIndex = 13;
             this.controlNavigator1.Text = "controlNavigator1";
@@ -160,16 +163,16 @@ namespace QuanLyDiem
             this.luChonTheoCV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.luChonTheoCV.Properties.NullText = "";
-            this.luChonTheoCV.Size = new System.Drawing.Size(360, 26);
+            this.luChonTheoCV.Size = new System.Drawing.Size(382, 26);
             this.luChonTheoCV.StyleController = this.dataLayoutControl1;
             this.luChonTheoCV.TabIndex = 8;
             this.luChonTheoCV.EditValueChanged += new System.EventHandler(this.luChonTheoCV_EditValueChanged);
             // 
             // txtIDgvIMG
             // 
-            this.txtIDgvIMG.Location = new System.Drawing.Point(435, 172);
+            this.txtIDgvIMG.Location = new System.Drawing.Point(446, 172);
             this.txtIDgvIMG.Name = "txtIDgvIMG";
-            this.txtIDgvIMG.Size = new System.Drawing.Size(110, 26);
+            this.txtIDgvIMG.Size = new System.Drawing.Size(121, 26);
             this.txtIDgvIMG.StyleController = this.dataLayoutControl1;
             this.txtIDgvIMG.TabIndex = 14;
             // 
@@ -178,7 +181,7 @@ namespace QuanLyDiem
             this.imgGV.Location = new System.Drawing.Point(167, 212);
             this.imgGV.Name = "imgGV";
             this.imgGV.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.imgGV.Size = new System.Drawing.Size(378, 350);
+            this.imgGV.Size = new System.Drawing.Size(400, 346);
             this.imgGV.StyleController = this.dataLayoutControl1;
             this.imgGV.TabIndex = 15;
             // 
@@ -186,7 +189,7 @@ namespace QuanLyDiem
             // 
             this.txtMaGV.Location = new System.Drawing.Point(167, 172);
             this.txtMaGV.Name = "txtMaGV";
-            this.txtMaGV.Size = new System.Drawing.Size(109, 26);
+            this.txtMaGV.Size = new System.Drawing.Size(120, 26);
             this.txtMaGV.StyleController = this.dataLayoutControl1;
             this.txtMaGV.TabIndex = 16;
             // 
@@ -194,15 +197,15 @@ namespace QuanLyDiem
             // 
             this.txtFile.Location = new System.Drawing.Point(167, 100);
             this.txtFile.Name = "txtFile";
-            this.txtFile.Size = new System.Drawing.Size(109, 26);
+            this.txtFile.Size = new System.Drawing.Size(120, 26);
             this.txtFile.StyleController = this.dataLayoutControl1;
             this.txtFile.TabIndex = 17;
             // 
             // luTenGV
             // 
-            this.luTenGV.Location = new System.Drawing.Point(167, 566);
+            this.luTenGV.Location = new System.Drawing.Point(167, 562);
             this.luTenGV.Name = "luTenGV";
-            this.luTenGV.Size = new System.Drawing.Size(378, 26);
+            this.luTenGV.Size = new System.Drawing.Size(400, 26);
             this.luTenGV.StyleController = this.dataLayoutControl1;
             this.luTenGV.TabIndex = 18;
             // 
@@ -221,7 +224,7 @@ namespace QuanLyDiem
             this.ItemForGV_IMG,
             this.layoutControlItem3});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(557, 604);
+            this.Root.Size = new System.Drawing.Size(579, 600);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -229,7 +232,7 @@ namespace QuanLyDiem
             this.layoutControlItem1.Control = this.controlNavigator1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(537, 44);
+            this.layoutControlItem1.Size = new System.Drawing.Size(559, 44);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -238,7 +241,7 @@ namespace QuanLyDiem
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 190);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(537, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(559, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // ItemForMaSV1
@@ -249,7 +252,7 @@ namespace QuanLyDiem
             this.ItemForMaSV1.Location = new System.Drawing.Point(0, 44);
             this.ItemForMaSV1.Name = "ItemForMaSV1";
             this.ItemForMaSV1.Padding = new DevExpress.XtraLayout.Utils.Padding(11, 11, 9, 9);
-            this.ItemForMaSV1.Size = new System.Drawing.Size(537, 44);
+            this.ItemForMaSV1.Size = new System.Drawing.Size(559, 44);
             this.ItemForMaSV1.Text = "Chọn theo chức vụ";
             this.ItemForMaSV1.TextSize = new System.Drawing.Size(152, 18);
             // 
@@ -262,14 +265,14 @@ namespace QuanLyDiem
             this.ItemForGiaoVien});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 200);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(537, 384);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(559, 380);
             // 
             // ItemForIMG
             // 
             this.ItemForIMG.Control = this.imgGV;
             this.ItemForIMG.Location = new System.Drawing.Point(0, 0);
             this.ItemForIMG.Name = "ItemForIMG";
-            this.ItemForIMG.Size = new System.Drawing.Size(537, 354);
+            this.ItemForIMG.Size = new System.Drawing.Size(559, 350);
             this.ItemForIMG.StartNewLine = true;
             this.ItemForIMG.Text = "IMG";
             this.ItemForIMG.TextSize = new System.Drawing.Size(152, 18);
@@ -277,9 +280,9 @@ namespace QuanLyDiem
             // ItemForGiaoVien
             // 
             this.ItemForGiaoVien.Control = this.luTenGV;
-            this.ItemForGiaoVien.Location = new System.Drawing.Point(0, 354);
+            this.ItemForGiaoVien.Location = new System.Drawing.Point(0, 350);
             this.ItemForGiaoVien.Name = "ItemForGiaoVien";
-            this.ItemForGiaoVien.Size = new System.Drawing.Size(537, 30);
+            this.ItemForGiaoVien.Size = new System.Drawing.Size(559, 30);
             this.ItemForGiaoVien.Text = "Tên GV";
             this.ItemForGiaoVien.TextSize = new System.Drawing.Size(152, 18);
             // 
@@ -288,7 +291,7 @@ namespace QuanLyDiem
             this.ItemForMaGV.Control = this.txtMaGV;
             this.ItemForMaGV.Location = new System.Drawing.Point(0, 160);
             this.ItemForMaGV.Name = "ItemForMaGV";
-            this.ItemForMaGV.Size = new System.Drawing.Size(268, 30);
+            this.ItemForMaGV.Size = new System.Drawing.Size(279, 30);
             this.ItemForMaGV.Text = "Ma GV";
             this.ItemForMaGV.TextSize = new System.Drawing.Size(152, 18);
             // 
@@ -297,27 +300,36 @@ namespace QuanLyDiem
             this.ItemForFileIMG2.Control = this.txtFile;
             this.ItemForFileIMG2.Location = new System.Drawing.Point(0, 88);
             this.ItemForFileIMG2.Name = "ItemForFileIMG2";
-            this.ItemForFileIMG2.Size = new System.Drawing.Size(268, 36);
+            this.ItemForFileIMG2.Size = new System.Drawing.Size(279, 36);
             this.ItemForFileIMG2.Text = "File IMG";
             this.ItemForFileIMG2.TextSize = new System.Drawing.Size(152, 18);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnLink;
-            this.layoutControlItem2.Location = new System.Drawing.Point(268, 88);
+            this.layoutControlItem2.Location = new System.Drawing.Point(279, 88);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(269, 36);
+            this.layoutControlItem2.Size = new System.Drawing.Size(280, 36);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // ItemForGV_IMG
             // 
             this.ItemForGV_IMG.Control = this.txtIDgvIMG;
-            this.ItemForGV_IMG.Location = new System.Drawing.Point(268, 160);
+            this.ItemForGV_IMG.Location = new System.Drawing.Point(279, 160);
             this.ItemForGV_IMG.Name = "ItemForGV_IMG";
-            this.ItemForGV_IMG.Size = new System.Drawing.Size(269, 30);
+            this.ItemForGV_IMG.Size = new System.Drawing.Size(280, 30);
             this.ItemForGV_IMG.Text = "GV_IMG";
             this.ItemForGV_IMG.TextSize = new System.Drawing.Size(152, 18);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.btnXoa;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 124);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(559, 36);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
             // 
             // btnDuongDan
             // 
@@ -335,37 +347,34 @@ namespace QuanLyDiem
             this.btnDuongDan1.TabIndex = 18;
             this.btnDuongDan1.Text = "-- Đường dẫn --";
             // 
-            // btnXoa
+            // panelControl2
             // 
-            this.btnXoa.Location = new System.Drawing.Point(12, 136);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(533, 32);
-            this.btnXoa.StyleController = this.dataLayoutControl1;
-            this.btnXoa.TabIndex = 20;
-            this.btnXoa.Text = "Xóa HA";
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            this.panelControl2.Controls.Add(this.dataLayoutControl1);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelControl2.Location = new System.Drawing.Point(0, 0);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(583, 604);
+            this.panelControl2.TabIndex = 2;
             // 
-            // layoutControlItem3
+            // panel1
             // 
-            this.layoutControlItem3.Control = this.btnXoa;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 124);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(537, 36);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
+            this.panel1.Controls.Add(this.gcGV);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(583, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(781, 604);
+            this.panel1.TabIndex = 3;
             // 
             // frmGiaoVienHinhAnh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1364, 604);
-            this.Controls.Add(this.dataLayoutControl1);
-            this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelControl2);
             this.Name = "frmGiaoVienHinhAnh";
             this.Text = "frmGiaoVienHinhAnh";
             this.Load += new System.EventHandler(this.frmGiaoVienHinhAnh_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
@@ -388,13 +397,14 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForGV_IMG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraEditors.ControlNavigator controlNavigator1;
@@ -421,5 +431,7 @@ namespace QuanLyDiem
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.SimpleButton btnXoa;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

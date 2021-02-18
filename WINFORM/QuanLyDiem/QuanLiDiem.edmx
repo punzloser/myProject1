@@ -4,15 +4,28 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="QuanLiDiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="DangNhap">
+      <Schema Namespace="QuanLiDiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ChucNang">
+          <Key>
+            <PropertyRef Name="Menu" />
+          </Key>
+          <Property Name="Menu" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="App" Type="varchar" MaxLength="100" />
+          <Property Name="Detail" Type="nvarchar" MaxLength="100" />
+          <Property Name="ParentMenu" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ChucNang_TaiKhoan">
           <Key>
             <PropertyRef Name="UserName" />
+            <PropertyRef Name="Menu" />
           </Key>
           <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Pass" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Quyen" Type="varchar" MaxLength="20" />
+          <Property Name="Menu" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SetTime" Type="datetime" />
+          <Property Name="QuyenThem" Type="bit" />
+          <Property Name="QuyenSua" Type="bit" />
+          <Property Name="QuyenXoa" Type="bit" />
+          <Property Name="Cam" Type="bit" />
         </EntityType>
         <EntityType Name="DiemHP">
           <Key>
@@ -44,7 +57,7 @@
             <PropertyRef Name="MaGV" />
           </Key>
           <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaGV" Type="varchar" MaxLength="6" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaGV" Type="varchar" MaxLength="6" StoreGeneratedPattern="Computed" Nullable="false" />
           <Property Name="TenGV" Type="nvarchar" MaxLength="40" />
           <Property Name="TrinhDo" Type="nvarchar" MaxLength="10" />
           <Property Name="NgaySinh" Type="datetime" />
@@ -58,7 +71,7 @@
             <PropertyRef Name="GV_IMG" />
           </Key>
           <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" Nullable="false" />
           <Property Name="IMG" Type="varbinary(max)" />
           <Property Name="MaGV" Type="varchar" MaxLength="6" />
           <Property Name="FileIMG2" Type="nvarchar" MaxLength="100" />
@@ -84,7 +97,7 @@
             <PropertyRef Name="MaLop" />
           </Key>
           <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaLop" Type="varchar" MaxLength="6" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaLop" Type="varchar" MaxLength="6" StoreGeneratedPattern="Computed" Nullable="false" />
           <Property Name="TenLop" Type="char" MaxLength="7" />
           <Property Name="MaHe" Type="varchar" MaxLength="6" />
         </EntityType>
@@ -93,7 +106,7 @@
             <PropertyRef Name="MaMonHP" />
           </Key>
           <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaMonHP" Type="varchar" MaxLength="6" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaMonHP" Type="varchar" MaxLength="6" StoreGeneratedPattern="Computed" Nullable="false" />
           <Property Name="TenMonHP" Type="nvarchar" MaxLength="50" />
           <Property Name="SoTin" Type="tinyint" />
           <Property Name="TietLT" Type="tinyint" />
@@ -125,6 +138,14 @@
           <Property Name="MaSV" Type="varchar" MaxLength="6" />
           <Property Name="FileIMG" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="TinhTrang">
           <Key>
             <PropertyRef Name="MaTinhTrang" />
@@ -146,6 +167,30 @@
           <Property Name="NganhHoc" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ChuyenNganh" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK__ChucNang_T__Menu__12FDD1B2">
+          <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1" />
+          <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChucNang">
+              <PropertyRef Name="Menu" />
+            </Principal>
+            <Dependent Role="ChucNang_TaiKhoan">
+              <PropertyRef Name="Menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChucNang_Ta__Cam__1209AD79">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
+          <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="ChucNang_TaiKhoan">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__DiemHP__GhiChu__267ABA7A">
           <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="1" />
           <End Role="DiemHP" Type="Self.DiemHP" Multiplicity="*" />
@@ -510,7 +555,8 @@
           <Parameter Name="TinhTrang" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="QuanLiDiemModelStoreContainer">
-          <EntitySet Name="DangNhap" EntityType="Self.DangNhap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChucNang" EntityType="Self.ChucNang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChucNang_TaiKhoan" EntityType="Self.ChucNang_TaiKhoan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DiemHP" EntityType="Self.DiemHP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GV_PhanCong" EntityType="Self.GV_PhanCong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GiaoVien" EntityType="Self.GiaoVien" Schema="dbo" store:Type="Tables" />
@@ -521,8 +567,17 @@
           <EntitySet Name="MonHP" EntityType="Self.MonHP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SinhVien_HinhAnh" EntityType="Self.SinhVien_HinhAnh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TinhTrang" EntityType="Self.TinhTrang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThongTin" EntityType="Self.ThongTin" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ChucNang_T__Menu__12FDD1B2" Association="Self.FK__ChucNang_T__Menu__12FDD1B2">
+            <End Role="ChucNang" EntitySet="ChucNang" />
+            <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChucNang_Ta__Cam__1209AD79" Association="Self.FK__ChucNang_Ta__Cam__1209AD79">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
+          </AssociationSet>
           <AssociationSet Name="FK__DiemHP__GhiChu__267ABA7A" Association="Self.FK__DiemHP__GhiChu__267ABA7A">
             <End Role="SinhVien" EntitySet="SinhVien" />
             <End Role="DiemHP" EntitySet="DiemHP" />
@@ -568,18 +623,35 @@
             <End Role="SinhVien" EntitySet="SinhVien" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLiDiemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="DangNhap">
+        <EntityType Name="ChucNang">
+          <Key>
+            <PropertyRef Name="Menu" />
+          </Key>
+          <Property Name="Menu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="App" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Detail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ParentMenu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ChucNang_TaiKhoan" Relationship="Self.FK__ChucNang_T__Menu__12FDD1B2" FromRole="ChucNang" ToRole="ChucNang_TaiKhoan" />
+        </EntityType>
+        <EntityType Name="ChucNang_TaiKhoan">
           <Key>
             <PropertyRef Name="UserName" />
+            <PropertyRef Name="Menu" />
           </Key>
           <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Pass" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Quyen" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Menu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SetTime" Type="DateTime" Precision="3" />
+          <Property Name="QuyenThem" Type="Boolean" />
+          <Property Name="QuyenSua" Type="Boolean" />
+          <Property Name="QuyenXoa" Type="Boolean" />
+          <Property Name="Cam" Type="Boolean" />
+          <NavigationProperty Name="ChucNang" Relationship="Self.FK__ChucNang_T__Menu__12FDD1B2" FromRole="ChucNang_TaiKhoan" ToRole="ChucNang" />
+          <NavigationProperty Name="TaiKhoan" Relationship="Self.FK__ChucNang_Ta__Cam__1209AD79" FromRole="ChucNang_TaiKhoan" ToRole="TaiKhoan" />
         </EntityType>
         <EntityType Name="DiemHP">
           <Key>
@@ -616,7 +688,7 @@
             <PropertyRef Name="MaGV" />
           </Key>
           <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaGV" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaGV" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="TenGV" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="TrinhDo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="3" />
@@ -632,7 +704,7 @@
             <PropertyRef Name="GV_IMG" />
           </Key>
           <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GV_IMG" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GV_IMG" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="MaGV" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="FileIMG2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -661,7 +733,7 @@
             <PropertyRef Name="MaLop" />
           </Key>
           <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaLop" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaLop" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="TenLop" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
           <Property Name="MaHe" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="GV_PhanCong" Relationship="Self.FK__GV_PhanCo__MaLop__51300E55" FromRole="Lop" ToRole="GV_PhanCong" />
@@ -673,7 +745,7 @@
             <PropertyRef Name="MaMonHP" />
           </Key>
           <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaMonHP" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaMonHP" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="TenMonHP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SoTin" Type="Byte" />
           <Property Name="TietLT" Type="Byte" />
@@ -713,6 +785,15 @@
           <Property Name="FileIMG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SinhVien" Relationship="Self.FK__SinhVien___FileI__239E4DCF" FromRole="SinhVien_HinhAnh" ToRole="SinhVien" />
         </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ChucNang_TaiKhoan" Relationship="Self.FK__ChucNang_Ta__Cam__1209AD79" FromRole="TaiKhoan" ToRole="ChucNang_TaiKhoan" />
+        </EntityType>
         <EntityType Name="TinhTrang">
           <Key>
             <PropertyRef Name="MaTinhTrang" />
@@ -735,6 +816,30 @@
           <Property Name="NganhHoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ChuyenNganh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
+        <Association Name="FK__ChucNang_T__Menu__12FDD1B2">
+          <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1" />
+          <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChucNang">
+              <PropertyRef Name="Menu" />
+            </Principal>
+            <Dependent Role="ChucNang_TaiKhoan">
+              <PropertyRef Name="Menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChucNang_Ta__Cam__1209AD79">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
+          <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="ChucNang_TaiKhoan">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__DiemHP__GhiChu__267ABA7A">
           <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="1" />
           <End Role="DiemHP" Type="Self.DiemHP" Multiplicity="*" />
@@ -760,7 +865,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__GV_PhanCo__MaLop__4F47C5E3">
-          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1" />
+          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="GV_PhanCong" Type="Self.GV_PhanCong" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GiaoVien">
@@ -772,7 +879,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__GV_PhanCo__MaLop__51300E55">
-          <End Role="Lop" Type="Self.Lop" Multiplicity="1" />
+          <End Role="Lop" Type="Self.Lop" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="GV_PhanCong" Type="Self.GV_PhanCong" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lop">
@@ -784,7 +893,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__GV_PhanCo__MaMon__503BEA1C">
-          <End Role="MonHP" Type="Self.MonHP" Multiplicity="1" />
+          <End Role="MonHP" Type="Self.MonHP" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="GV_PhanCong" Type="Self.GV_PhanCong" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MonHP">
@@ -822,7 +933,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__MonHP__MaHK__164452B1">
-          <End Role="HocKy" Type="Self.HocKy" Multiplicity="0..1" />
+          <End Role="HocKy" Type="Self.HocKy" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MonHP" Type="Self.MonHP" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HocKy">
@@ -834,7 +947,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__SinhVien__MaTinh__1FCDBCEB">
-          <End Role="Lop" Type="Self.Lop" Multiplicity="0..1" />
+          <End Role="Lop" Type="Self.Lop" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Lop">
@@ -872,7 +987,8 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QuanLiDiemEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="DangNhap" EntityType="Self.DangNhap" />
+          <EntitySet Name="ChucNang" EntityType="Self.ChucNang" />
+          <EntitySet Name="ChucNang_TaiKhoan" EntityType="Self.ChucNang_TaiKhoan" />
           <EntitySet Name="DiemHP" EntityType="Self.DiemHP" />
           <EntitySet Name="GV_PhanCong" EntityType="Self.GV_PhanCong" />
           <EntitySet Name="GiaoVien" EntityType="Self.GiaoVien" />
@@ -883,8 +999,17 @@
           <EntitySet Name="MonHP" EntityType="Self.MonHP" />
           <EntitySet Name="SinhVien" EntityType="Self.SinhVien" />
           <EntitySet Name="SinhVien_HinhAnh" EntityType="Self.SinhVien_HinhAnh" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" />
           <EntitySet Name="TinhTrang" EntityType="Self.TinhTrang" />
           <EntitySet Name="ThongTin" EntityType="Self.ThongTin" />
+          <AssociationSet Name="FK__ChucNang_T__Menu__12FDD1B2" Association="Self.FK__ChucNang_T__Menu__12FDD1B2">
+            <End Role="ChucNang" EntitySet="ChucNang" />
+            <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChucNang_Ta__Cam__1209AD79" Association="Self.FK__ChucNang_Ta__Cam__1209AD79">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
+          </AssociationSet>
           <AssociationSet Name="FK__DiemHP__GhiChu__267ABA7A" Association="Self.FK__DiemHP__GhiChu__267ABA7A">
             <End Role="SinhVien" EntitySet="SinhVien" />
             <End Role="DiemHP" EntitySet="DiemHP" />
@@ -974,18 +1099,37 @@
           </FunctionImport>
           <FunctionImport Name="GiaoVienHA_SelectALL" ReturnType="Collection(QuanLiDiemModel.GiaoVienHA_SelectALL_Result)" />
           <FunctionImport Name="GiaoVienHA_SelectByCV" ReturnType="Collection(QuanLiDiemModel.GiaoVienHA_SelectByCV_Result)">
-          <Parameter Name="ChucVu" Mode="In" Type="String" />
+            <Parameter Name="ChucVu" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GiaoVienHA_Update">
             <Parameter Name="GV_IMG" Mode="In" Type="String" />
             <Parameter Name="IMG" Mode="In" Type="Binary" />
             <Parameter Name="FileIMG2" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="GVPhanCong_Delete">
+            <Parameter Name="TenGV" Mode="In" Type="String" />
+            <Parameter Name="TenMonHP" Mode="In" Type="String" />
+            <Parameter Name="TenLop" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GVPhanCong_Insert">
+            <Parameter Name="TenGV" Mode="In" Type="String" />
+            <Parameter Name="TenMonHP" Mode="In" Type="String" />
+            <Parameter Name="TenLop" Mode="In" Type="String" />
+            <Parameter Name="NgayBD" Mode="In" Type="DateTime" />
+            <Parameter Name="NgayKT" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GVPhanCong_Update">
+            <Parameter Name="TenGV" Mode="In" Type="String" />
+            <Parameter Name="TenMonHP" Mode="In" Type="String" />
+            <Parameter Name="TenLop" Mode="In" Type="String" />
+            <Parameter Name="NgayBD" Mode="In" Type="DateTime" />
+            <Parameter Name="NgayKT" Mode="In" Type="DateTime" />
+          </FunctionImport>
           <FunctionImport Name="HeDaoTaoDelete">
-          <Parameter Name="MaHe" Mode="In" Type="String" />
+            <Parameter Name="MaHe" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="HeDaoTaoInsert">
-          <Parameter Name="TenHe" Mode="In" Type="String" />
+            <Parameter Name="TenHe" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="HeDaoTaoUpdate">
             <Parameter Name="MaHe" Mode="In" Type="String" />
@@ -994,17 +1138,17 @@
           <FunctionImport Name="HeSelectALL" ReturnType="Collection(QuanLiDiemModel.HeSelectALL_Result)" />
           <FunctionImport Name="HKSelectALL" ReturnType="Collection(QuanLiDiemModel.HKSelectALL_Result)" />
           <FunctionImport Name="HocKyDelete">
-          <Parameter Name="MaHK" Mode="In" Type="String" />
+            <Parameter Name="MaHK" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="HocKyInsert">
-          <Parameter Name="TenHK" Mode="In" Type="String" />
+            <Parameter Name="TenHK" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="HocKyUpdate">
             <Parameter Name="MaHK" Mode="In" Type="String" />
             <Parameter Name="TenHK" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LopDelete">
-          <Parameter Name="MaLop" Mode="In" Type="String" />
+            <Parameter Name="MaLop" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LopInsert">
             <Parameter Name="TenLop" Mode="In" Type="String" />
@@ -1012,17 +1156,17 @@
           </FunctionImport>
           <FunctionImport Name="LopSelectAll" ReturnType="Collection(QuanLiDiemModel.LopSelectAll_Result)" />
           <FunctionImport Name="LopSelectALLByHe" ReturnType="Collection(QuanLiDiemModel.LopSelectALLByHe_Result)">
-          <Parameter Name="MaHe" Mode="In" Type="String" />
+            <Parameter Name="MaHe" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LopUpdate">
             <Parameter Name="MaLop" Mode="In" Type="String" />
             <Parameter Name="TenLop" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHP_SelectByHK" ReturnType="Collection(QuanLiDiemModel.MonHP_SelectByHK_Result)">
-          <Parameter Name="MaHK" Mode="In" Type="String" />
+            <Parameter Name="MaHK" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHPDelete">
-          <Parameter Name="MaMonHP" Mode="In" Type="String" />
+            <Parameter Name="MaMonHP" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHPInsert">
             <Parameter Name="TenMonHP" Mode="In" Type="String" />
@@ -1032,11 +1176,11 @@
             <Parameter Name="MaHK" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHPOnlySelect" ReturnType="Collection(QuanLiDiemModel.MonHPOnlySelect_Result)">
-          <Parameter Name="MaMonHP" Mode="In" Type="String" />
+            <Parameter Name="MaMonHP" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHPSelectAll" ReturnType="Collection(QuanLiDiemModel.MonHPSelectAll_Result)" />
           <FunctionImport Name="MonHPSelectBySV" ReturnType="Collection(QuanLiDiemModel.MonHPSelectBySV_Result)">
-          <Parameter Name="MaSV" Mode="In" Type="String" />
+            <Parameter Name="MaSV" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="MonHPUpdate">
             <Parameter Name="MaMonHP" Mode="In" Type="String" />
@@ -1046,11 +1190,11 @@
             <Parameter Name="TietTH" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="SinhVienDelete">
-          <Parameter Name="MaSV" Mode="In" Type="String" />
+            <Parameter Name="MaSV" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SinhVienHA_SelectALL" ReturnType="Collection(QuanLiDiemModel.SinhVienHA_SelectALL_Result)" />
           <FunctionImport Name="SinhVienHA_SelectByLop" ReturnType="Collection(QuanLiDiemModel.SinhVienHA_SelectByLop_Result)">
-          <Parameter Name="MaLop" Mode="In" Type="String" />
+            <Parameter Name="MaLop" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SinhVienHA_Update">
             <Parameter Name="SV_IMG" Mode="In" Type="String" />
@@ -1078,13 +1222,13 @@
           </FunctionImport>
           <FunctionImport Name="SinhVienSelectAll" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAll_Result)" />
           <FunctionImport Name="SinhVienSelectAllByID" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllByID_Result)">
-          <Parameter Name="MaSV" Mode="In" Type="String" />
+            <Parameter Name="MaSV" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SinhVienSelectAllByLop" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllByLop_Result)">
-          <Parameter Name="MaLop" Mode="In" Type="String" />
+            <Parameter Name="MaLop" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SinhVienSelectAllByLopDetail" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllByLopDetail_Result)">
-          <Parameter Name="MaLop" Mode="In" Type="String" />
+            <Parameter Name="MaLop" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SinhVienSelectAllDetail" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllDetail_Result)" />
           <FunctionImport Name="SinhVienSelectAllDetail_1" ReturnType="Collection(QuanLiDiemModel.SinhVienSelectAllDetail_1_Result)" />
@@ -1118,33 +1262,14 @@
             <Parameter Name="ChuyenNganh" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="TinhTrangDelete">
-          <Parameter Name="MaTinhTrang" Mode="In" Type="String" />
+            <Parameter Name="MaTinhTrang" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="TinhTrangInsert">
-          <Parameter Name="TinhTrang" Mode="In" Type="String" />
+            <Parameter Name="TinhTrang" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="TinhTrangUpdate">
             <Parameter Name="MaTinhTrang" Mode="In" Type="String" />
             <Parameter Name="TinhTrang" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="GVPhanCong_Insert">
-            <Parameter Name="TenGV" Mode="In" Type="String" />
-            <Parameter Name="TenMonHP" Mode="In" Type="String" />
-            <Parameter Name="TenLop" Mode="In" Type="String" />
-            <Parameter Name="NgayBD" Mode="In" Type="DateTime" />
-            <Parameter Name="NgayKT" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="GVPhanCong_Update">
-            <Parameter Name="TenGV" Mode="In" Type="String" />
-            <Parameter Name="TenMonHP" Mode="In" Type="String" />
-            <Parameter Name="TenLop" Mode="In" Type="String" />
-            <Parameter Name="NgayBD" Mode="In" Type="DateTime" />
-            <Parameter Name="NgayKT" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="GVPhanCong_Delete">
-            <Parameter Name="TenGV" Mode="In" Type="String" />
-            <Parameter Name="TenMonHP" Mode="In" Type="String" />
-            <Parameter Name="TenLop" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="BangDiemHP_Result">
@@ -1324,13 +1449,26 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QuanLiDiemModelStoreContainer" CdmEntityContainer="QuanLiDiemEntities">
-          <EntitySetMapping Name="DangNhap">
-            <EntityTypeMapping TypeName="QuanLiDiemModel.DangNhap">
-              <MappingFragment StoreEntitySet="DangNhap">
+          <EntitySetMapping Name="ChucNang">
+            <EntityTypeMapping TypeName="QuanLiDiemModel.ChucNang">
+              <MappingFragment StoreEntitySet="ChucNang">
+                <ScalarProperty Name="Menu" ColumnName="Menu" />
+                <ScalarProperty Name="App" ColumnName="App" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="ParentMenu" ColumnName="ParentMenu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChucNang_TaiKhoan">
+            <EntityTypeMapping TypeName="QuanLiDiemModel.ChucNang_TaiKhoan">
+              <MappingFragment StoreEntitySet="ChucNang_TaiKhoan">
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Pass" ColumnName="Pass" />
-                <ScalarProperty Name="Quyen" ColumnName="Quyen" />
+                <ScalarProperty Name="Menu" ColumnName="Menu" />
+                <ScalarProperty Name="SetTime" ColumnName="SetTime" />
+                <ScalarProperty Name="QuyenThem" ColumnName="QuyenThem" />
+                <ScalarProperty Name="QuyenSua" ColumnName="QuyenSua" />
+                <ScalarProperty Name="QuyenXoa" ColumnName="QuyenXoa" />
+                <ScalarProperty Name="Cam" ColumnName="Cam" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1452,6 +1590,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoan">
+            <EntityTypeMapping TypeName="QuanLiDiemModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TinhTrang">
             <EntityTypeMapping TypeName="QuanLiDiemModel.TinhTrang">
               <MappingFragment StoreEntitySet="TinhTrang">
@@ -1532,6 +1679,9 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GiaoVienHA_Update" FunctionName="QuanLiDiemModel.Store.GiaoVienHA_Update" />
+          <FunctionImportMapping FunctionImportName="GVPhanCong_Delete" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Delete" />
+          <FunctionImportMapping FunctionImportName="GVPhanCong_Insert" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Insert" />
+          <FunctionImportMapping FunctionImportName="GVPhanCong_Update" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Update" />
           <FunctionImportMapping FunctionImportName="HeDaoTaoDelete" FunctionName="QuanLiDiemModel.Store.HeDaoTaoDelete" />
           <FunctionImportMapping FunctionImportName="HeDaoTaoInsert" FunctionName="QuanLiDiemModel.Store.HeDaoTaoInsert" />
           <FunctionImportMapping FunctionImportName="HeDaoTaoUpdate" FunctionName="QuanLiDiemModel.Store.HeDaoTaoUpdate" />
@@ -1759,9 +1909,6 @@
           <FunctionImportMapping FunctionImportName="TinhTrangDelete" FunctionName="QuanLiDiemModel.Store.TinhTrangDelete" />
           <FunctionImportMapping FunctionImportName="TinhTrangInsert" FunctionName="QuanLiDiemModel.Store.TinhTrangInsert" />
           <FunctionImportMapping FunctionImportName="TinhTrangUpdate" FunctionName="QuanLiDiemModel.Store.TinhTrangUpdate" />
-          <FunctionImportMapping FunctionImportName="GVPhanCong_Insert" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Insert" />
-          <FunctionImportMapping FunctionImportName="GVPhanCong_Update" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Update" />
-          <FunctionImportMapping FunctionImportName="GVPhanCong_Delete" FunctionName="QuanLiDiemModel.Store.GVPhanCong_Delete" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
