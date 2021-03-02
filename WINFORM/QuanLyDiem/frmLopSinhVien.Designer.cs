@@ -30,6 +30,7 @@ namespace QuanLyDiem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.colNgaySinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -71,7 +72,6 @@ namespace QuanLyDiem
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colHoLot = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNgaySinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGioiTinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNoiSinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDanToc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -111,6 +111,15 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // colNgaySinh
+            // 
+            this.colNgaySinh.FieldName = "NgaySinh";
+            this.colNgaySinh.MinWidth = 33;
+            this.colNgaySinh.Name = "colNgaySinh";
+            this.colNgaySinh.Visible = true;
+            this.colNgaySinh.VisibleIndex = 2;
+            this.colNgaySinh.Width = 124;
             // 
             // panelControl1
             // 
@@ -561,15 +570,6 @@ namespace QuanLyDiem
             this.colTen.Visible = true;
             this.colTen.VisibleIndex = 1;
             this.colTen.Width = 124;
-            // 
-            // colNgaySinh
-            // 
-            this.colNgaySinh.FieldName = "NgaySinh";
-            this.colNgaySinh.MinWidth = 33;
-            this.colNgaySinh.Name = "colNgaySinh";
-            this.colNgaySinh.Visible = true;
-            this.colNgaySinh.VisibleIndex = 2;
-            this.colNgaySinh.Width = 124;
             // 
             // colGioiTinh
             // 

@@ -14,7 +14,7 @@
       <PropertyRef Name="UserName" />
       <PropertyRef Name="Menu" />
     </Key>
-    <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="Menu" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="SetTime" Type="datetime" />
     <Property Name="QuyenThem" Type="bit" />
@@ -52,7 +52,7 @@
       <PropertyRef Name="MaGV" />
     </Key>
     <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaGV" Type="varchar" MaxLength="6" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="MaGV" Type="varchar" MaxLength="6" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenGV" Type="nvarchar" MaxLength="40" />
     <Property Name="TrinhDo" Type="nvarchar" MaxLength="10" />
     <Property Name="NgaySinh" Type="datetime" />
@@ -128,7 +128,7 @@
       <PropertyRef Name="SV_IMG" />
     </Key>
     <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="SV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IMG" Type="varbinary(max)" />
     <Property Name="MaSV" Type="varchar" MaxLength="6" />
     <Property Name="FileIMG" Type="nvarchar" MaxLength="100" />
@@ -137,9 +137,9 @@
     <Key>
       <PropertyRef Name="UserName" />
     </Key>
-    <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Pass" Type="nvarchar" MaxLength="50" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="40" />
   </EntityType>
   <EntityType Name="TinhTrang">
     <Key>
@@ -162,7 +162,7 @@
     <Property Name="NganhHoc" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ChuyenNganh" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Association Name="FK__ChucNang_T__Menu__12FDD1B2">
+  <Association Name="FK__ChucNang_T__Menu__2CBDA3B5">
     <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1" />
     <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
     <ReferentialConstraint>
@@ -174,7 +174,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ChucNang_Ta__Cam__1209AD79">
+  <Association Name="FK__ChucNang_Ta__Cam__2BC97F7C">
     <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
     <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
     <ReferentialConstraint>
@@ -565,11 +565,11 @@
     <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TinhTrang" EntityType="Self.TinhTrang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ThongTin" EntityType="Self.ThongTin" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__ChucNang_T__Menu__12FDD1B2" Association="Self.FK__ChucNang_T__Menu__12FDD1B2">
+    <AssociationSet Name="FK__ChucNang_T__Menu__2CBDA3B5" Association="Self.FK__ChucNang_T__Menu__2CBDA3B5">
       <End Role="ChucNang" EntitySet="ChucNang" />
       <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
     </AssociationSet>
-    <AssociationSet Name="FK__ChucNang_Ta__Cam__1209AD79" Association="Self.FK__ChucNang_Ta__Cam__1209AD79">
+    <AssociationSet Name="FK__ChucNang_Ta__Cam__2BC97F7C" Association="Self.FK__ChucNang_Ta__Cam__2BC97F7C">
       <End Role="TaiKhoan" EntitySet="TaiKhoan" />
       <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
     </AssociationSet>

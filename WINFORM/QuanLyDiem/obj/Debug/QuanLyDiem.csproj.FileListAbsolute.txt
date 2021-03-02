@@ -228,7 +228,6 @@ C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\es\DevExpress.Dia
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\ja\DevExpress.Diagram.v19.2.Core.resources.dll
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\ru\DevExpress.Diagram.v19.2.Core.resources.dll
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.Report.rptSV.resources
-C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.csprojAssemblyReference.cache
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmQuyen.resources
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmDangNhap.resources
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmSaoLuu.resources
@@ -241,3 +240,9 @@ C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\Microsoft.SqlServ
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\Microsoft.SqlServer.Dmf.dll
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmXemPhanCong.resources
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmSV_XemDiem.resources
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.csprojAssemblyReference.cache
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmDoiMatKhau.resources
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmSplashScreen.resources
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmWait.resources

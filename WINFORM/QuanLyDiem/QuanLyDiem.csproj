@@ -176,6 +176,12 @@
     <Compile Include="frmDiemHP_GiaoVien.Designer.cs">
       <DependentUpon>frmDiemHP_GiaoVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoiMatKhau.Designer.cs">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGiaoVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +229,30 @@
     </Compile>
     <Compile Include="frmLopSinhVien.Designer.cs">
       <DependentUpon>frmLopSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplashScreen.Designer.cs">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSV_XemDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSV_XemDiem.Designer.cs">
+      <DependentUpon>frmSV_XemDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWait.Designer.cs">
+      <DependentUpon>frmWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXemPhanCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXemPhanCong.Designer.cs">
+      <DependentUpon>frmXemPhanCong.cs</DependentUpon>
     </Compile>
     <Compile Include="GiaoVien.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
@@ -362,6 +392,9 @@
     <EmbeddedResource Include="frmDiemHP_GiaoVien.resx">
       <DependentUpon>frmDiemHP_GiaoVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDoiMatKhau.resx">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGiaoVien.resx">
       <DependentUpon>frmGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,6 +418,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLopSinhVien.resx">
       <DependentUpon>frmLopSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplashScreen.resx">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSV_XemDiem.resx">
+      <DependentUpon>frmSV_XemDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWait.resx">
+      <DependentUpon>frmWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXemPhanCong.resx">
+      <DependentUpon>frmXemPhanCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -411,6 +456,7 @@
     <None Include="Properties\DataSources\GiaoVien.datasource" />
     <None Include="Properties\DataSources\GiaoVienHA_SelectALL_Result.datasource" />
     <None Include="Properties\DataSources\GiaoVien_HinhAnh.datasource" />
+    <None Include="Properties\DataSources\GV_PhanCong.datasource" />
     <None Include="Properties\DataSources\HKSelectALL_Result.datasource" />
     <None Include="Properties\DataSources\HocKy.datasource" />
     <None Include="Properties\DataSources\Lop.datasource" />

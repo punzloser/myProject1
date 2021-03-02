@@ -87,12 +87,12 @@ namespace QuanLyDiem
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar3 = new DevExpress.XtraBars.Bar();
+            this.lblQuyen = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.lbQuyen = new DevExpress.XtraBars.BarStaticItem();
-            this.lblQuyen = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -256,7 +256,7 @@ namespace QuanLyDiem
             this.md020101.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("md020101.ImageOptions.Image")));
             this.md020101.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("md020101.ImageOptions.LargeImage")));
             this.md020101.Name = "md020101";
-            this.md020101.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem11_ItemClick);
+            this.md020101.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.md020101_ItemClick);
             // 
             // md020102
             // 
@@ -627,6 +627,12 @@ namespace QuanLyDiem
             this.bar3.OptionsBar.UseWholeRow = true;
             this.bar3.Text = "Status bar";
             // 
+            // lblQuyen
+            // 
+            this.lblQuyen.Caption = "Quyền";
+            this.lblQuyen.Id = 1;
+            this.lblQuyen.Name = "lblQuyen";
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -664,12 +670,6 @@ namespace QuanLyDiem
             this.lbQuyen.Caption = "lbQuyen";
             this.lbQuyen.Id = 0;
             this.lbQuyen.Name = "lbQuyen";
-            // 
-            // lblQuyen
-            // 
-            this.lblQuyen.Caption = "Quyền";
-            this.lblQuyen.Id = 1;
-            this.lblQuyen.Name = "lblQuyen";
             // 
             // frmMain
             // 

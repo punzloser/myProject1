@@ -3,36 +3,34 @@ GO
 USE QuanLiDiem
 GO
 
---EXEC sp_rename 'DangNhap', 'TaiKhoan'
-
 CREATE TABLE TaiKhoan 
 (
-		UserName VARCHAR(30) PRIMARY KEY,
-		FullName NVARCHAR(50) NOT NULL,
-		Pass NVARCHAR(50) NOT NULL,
-		App VARCHAR(100)
-		FOREIGN KEY (App) REFERENCES dbo.ChucNang (App)
+		UserName VARCHAR(6) PRIMARY KEY,
+		FullName NVARCHAR(40),
+		Pass NVARCHAR(50),
 )
 GO
 
 CREATE TABLE ChucNang 
 (
-		Menu VARCHAR(100),
+		Menu VARCHAR(20) PRIMARY KEY,
 		App VARCHAR(100),
-		Detail NVARCHAR(100) NOT NULL,
-		ParentMenu NVARCHAR(100)
-		PRIMARY KEY (Menu, App)
+		Detail NVARCHAR(100),
+		ParentMenu VARCHAR(20)
 )
 GO
 CREATE TABLE ChucNang_TaiKhoan 
 (
-		UserName VARCHAR(30),
-		Menu VARCHAR(100),
+		UserName VARCHAR(6),
+		Menu VARCHAR(20),
 		SetTime DATETIME,
 		QuyenThem BIT,
 		QuyenSua BIT,
 		QuyenXoa BIT,
 		Cam BIT
+		PRIMARY KEY (UserName, Menu)
+		FOREIGN KEY (UserName) REFERENCES dbo.TaiKhoan (UserName),
+		FOREIGN KEY (Menu) REFERENCES dbo.ChucNang (Menu)
 )
 GO
 
@@ -97,6 +95,10 @@ CREATE TABLE TinhTrang
 	TinhTrang NVARCHAR(20)
 )
 GO
+
+--ALTER TABLE SinhVien
+--ADD UserName VARCHAR(30),
+--FOREIGN KEY(UserName) REFERENCES TaiKhoan(UserName)
 
 CREATE TABLE SinhVien
 (
@@ -174,6 +176,7 @@ CREATE TABLE GV_PhanCong
 	FOREIGN KEY (MaLop) REFERENCES dbo.Lop (MaLop)
 )
 
+--SELECT * FROM dbo.GiaoVien_HinhAnh
 CREATE TABLE GiaoVien_HinhAnh
 (
 	ID SMALLINT IDENTITY(1,1),
@@ -245,22 +248,52 @@ INSERT DiemHP (MaSV, MaMonHP, ChuyenCan, GiuaKi, DiemLan1, DiemLan2, GhiChu) VAL
 CREATE TRIGGER UpdateMaSVToSVHA ON dbo.SinhVien
 AFTER INSERT
 AS
-BEGIN
-DECLARE @MaSV VARCHAR(6)
-SELECT @MaSV = a.MaSV FROM Inserted a
-INSERT INTO dbo.SinhVien_HinhAnh(MaSV) VALUES (@MaSV)
+	BEGIN
+	DECLARE @MaSV VARCHAR(6)
+	SELECT @MaSV = a.MaSV FROM Inserted a
+	INSERT INTO dbo.SinhVien_HinhAnh(MaSV) VALUES (@MaSV)
 
-END
+	END
 
 CREATE TRIGGER UpdateMaGVToGVHA ON dbo.GiaoVien
 AFTER INSERT
 AS
-BEGIN
-DECLARE @MaGV VARCHAR(6)
-SELECT @MaGV = a.MaGV FROM Inserted a
-INSERT INTO dbo.GiaoVien_HinhAnh(MaGV) VALUES (@MaGV)
+	BEGIN
+	DECLARE @MaGV VARCHAR(6)
+	SELECT @MaGV = a.MaGV FROM Inserted a
+	INSERT INTO dbo.GiaoVien_HinhAnh(MaGV) VALUES (@MaGV)
 
-END
+	END
+
+CREATE TRIGGER UpdateIdUserSVIntoTaiKhoan ON dbo.SinhVien
+AFTER INSERT
+AS
+	BEGIN
+		DECLARE @MaSV VARCHAR(6), @TenSV NVARCHAR(40)
+		SET @MaSV = (SELECT a.MaSV FROM Inserted a)
+		SET @TenSV = (SELECT b.HoLot + ' ' + b.Ten FROM Inserted b)
+
+		INSERT INTO dbo.TaiKhoan (UserName, Pass, FullName) VALUES (@MaSV, @MaSV, @TenSV)
+	END
+
+CREATE TRIGGER UpdateIdUser_GVIntoTaiKhoan ON dbo.GiaoVien
+AFTER INSERT
+AS
+	BEGIN
+		DECLARE @MaGV VARCHAR(6), @TenGV NVARCHAR(40)
+		SET @MaGV = (SELECT a.MaGV FROM Inserted a)
+		SET @TenGV = (SELECT b.TenGV FROM Inserted b)
+
+		INSERT INTO dbo.TaiKhoan (UserName, Pass, FullName) VALUES (@MaGV, @MaGV, @TenGV)
+	END
+
+CREATE TRIGGER NhapDiemHopLi ON dbo.DiemHP
+AFTER UPDATE
+AS
+	BEGIN
+		
+	END
+
 -------------
 
 CREATE PROC TinhTrangInsert
@@ -752,7 +785,7 @@ CREATE PROC DiemLan1Update
 AS
 BEGIN
 	IF(@ChuyenCan IS NULL)
-	BEGIN	
+	BEGIN
 		UPDATE dbo.DiemHP SET GiuaKi = @GiuaKi, DiemLan1 = @DiemLan1
 		WHERE MaSV = @MaSV AND MaMonHP = @MaMonHP
 	END
@@ -790,20 +823,26 @@ BEGIN
 END
 GO
 
-SELECT * FROM dbo.MonHP
-WHERE MaHK = 'HK0005'
+SELECT * FROM dbo.ChucNang LEFT JOIN  dbo.ChucNang_TaiKhoan ON ChucNang_TaiKhoan.Menu = ChucNang.Menu
+LEFT JOIN dbo.TaiKhoan ON  TaiKhoan.UserName = ChucNang_TaiKhoan.UserName
+WHERE dbo.ChucNang.App = 'Quyen'
 
-SELECT TenGV, TenLop, TenMonHP, dbo.GV_PhanCong.NgayBD, dbo.GV_PhanCong.NgayKT FROM dbo.GV_PhanCong
-JOIN dbo.GiaoVien ON GiaoVien.MaGV = GV_PhanCong.MaGV
-JOIN dbo.Lop ON Lop.MaLop = GV_PhanCong.MaLop
-JOIN dbo.MonHP ON MonHP.MaMonHP = GV_PhanCong.MaMonHP
-WHERE TenGV = N'Nguyễn Thái Học'
+SELECT * from dbo.GV_PhanCong a JOIN dbo.GiaoVien b ON b.MaGV = a.MaGV
+JOIN dbo.MonHP c ON c.MaMonHP = a.MaMonHP
+JOIN dbo.TaiKhoan d ON b.TenGV = d.FullName
+WHERE d.UserName = 'a'
 
+SELECT b.MaSV FROM dbo.TaiKhoan a JOIN dbo.SinhVien b ON a.UserName = b.MaSV
+WHERE a.UserName = ''
 
+UPDATE  dbo.ChucNang_TaiKhoan
+SET Cam = 0
+WHERE UserName = 'admin'
 
+SELECT * FROM dbo.TaiKhoan 
+SELECT * FROM dbo.ChucNang
 
-
-
-
-
+SELECT * FROM dbo.DiemHP WHERE MaSV = '190001'
+SELECT Detail FROM dbo.ChucNang WHERE Detail NOT LIKE N'Thoát' 
+OR Detail NOT LIKE N'About%' 
 

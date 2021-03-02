@@ -34,7 +34,7 @@ namespace QuanLyDiem
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colUserName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUser = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFullName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.colDanhMuc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -70,7 +70,7 @@ namespace QuanLyDiem
             this.splitContainerControl1.Panel2.Controls.Add(this.treeList1);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(1190, 526);
-            this.splitContainerControl1.SplitterPosition = 349;
+            this.splitContainerControl1.SplitterPosition = 456;
             this.splitContainerControl1.TabIndex = 0;
             // 
             // gridControl1
@@ -79,7 +79,7 @@ namespace QuanLyDiem
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(349, 526);
+            this.gridControl1.Size = new System.Drawing.Size(465, 526);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -87,21 +87,21 @@ namespace QuanLyDiem
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colUserName,
+            this.colUser,
             this.colFullName});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
-            // colUserName
+            // colUser
             // 
-            this.colUserName.Caption = "Tài Khoản";
-            this.colUserName.FieldName = "UserName";
-            this.colUserName.MinWidth = 30;
-            this.colUserName.Name = "colUserName";
-            this.colUserName.Visible = true;
-            this.colUserName.VisibleIndex = 0;
-            this.colUserName.Width = 112;
+            this.colUser.Caption = "Tài Khoản";
+            this.colUser.FieldName = "UserName";
+            this.colUser.MinWidth = 30;
+            this.colUser.Name = "colUser";
+            this.colUser.Visible = true;
+            this.colUser.VisibleIndex = 0;
+            this.colUser.Width = 112;
             // 
             // colFullName
             // 
@@ -131,7 +131,7 @@ namespace QuanLyDiem
             this.treeList1.Name = "treeList1";
             this.treeList1.OptionsView.TreeLineStyle = DevExpress.XtraTreeList.LineStyle.Dark;
             this.treeList1.ParentFieldName = "ParentMenu";
-            this.treeList1.Size = new System.Drawing.Size(826, 526);
+            this.treeList1.Size = new System.Drawing.Size(719, 526);
             this.treeList1.TabIndex = 0;
             this.treeList1.CustomDrawNodeCell += new DevExpress.XtraTreeList.CustomDrawNodeCellEventHandler(this.treeList1_CustomDrawNodeCell);
             this.treeList1.CellValueChanging += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.treeList1_CellValueChanging);
@@ -150,45 +150,69 @@ namespace QuanLyDiem
             // 
             // colQThem
             // 
+            this.colQThem.AppearanceCell.BackColor = System.Drawing.Color.Silver;
+            this.colQThem.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.colQThem.AppearanceCell.Options.UseBackColor = true;
+            this.colQThem.AppearanceCell.Options.UseForeColor = true;
             this.colQThem.AppearanceCell.Options.UseTextOptions = true;
             this.colQThem.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colQThem.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.colQThem.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.colQThem.AppearanceHeader.ForeColor = System.Drawing.Color.Silver;
+            this.colQThem.AppearanceHeader.Options.UseBackColor = true;
             this.colQThem.AppearanceHeader.Options.UseFont = true;
+            this.colQThem.AppearanceHeader.Options.UseForeColor = true;
             this.colQThem.AppearanceHeader.Options.UseTextOptions = true;
             this.colQThem.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colQThem.Caption = "Quyền Thêm";
             this.colQThem.FieldName = "QuyenThem";
             this.colQThem.Name = "colQThem";
             this.colQThem.Visible = true;
-            this.colQThem.VisibleIndex = 1;
+            this.colQThem.VisibleIndex = 2;
             // 
             // colQSua
             // 
+            this.colQSua.AppearanceCell.BackColor = System.Drawing.Color.Silver;
+            this.colQSua.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.colQSua.AppearanceCell.Options.UseBackColor = true;
+            this.colQSua.AppearanceCell.Options.UseForeColor = true;
             this.colQSua.AppearanceCell.Options.UseTextOptions = true;
             this.colQSua.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colQSua.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.colQSua.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.colQSua.AppearanceHeader.ForeColor = System.Drawing.Color.Silver;
+            this.colQSua.AppearanceHeader.Options.UseBackColor = true;
             this.colQSua.AppearanceHeader.Options.UseFont = true;
+            this.colQSua.AppearanceHeader.Options.UseForeColor = true;
             this.colQSua.AppearanceHeader.Options.UseTextOptions = true;
             this.colQSua.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colQSua.Caption = "Quyền Sửa";
             this.colQSua.FieldName = "QuyenSua";
             this.colQSua.Name = "colQSua";
             this.colQSua.Visible = true;
-            this.colQSua.VisibleIndex = 2;
+            this.colQSua.VisibleIndex = 3;
             // 
             // colQXoa
             // 
+            this.colQXoa.AppearanceCell.BackColor = System.Drawing.Color.Silver;
+            this.colQXoa.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.colQXoa.AppearanceCell.Options.UseBackColor = true;
+            this.colQXoa.AppearanceCell.Options.UseForeColor = true;
             this.colQXoa.AppearanceCell.Options.UseTextOptions = true;
             this.colQXoa.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colQXoa.AppearanceHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.colQXoa.AppearanceHeader.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.colQXoa.AppearanceHeader.ForeColor = System.Drawing.Color.Silver;
+            this.colQXoa.AppearanceHeader.Options.UseBackColor = true;
             this.colQXoa.AppearanceHeader.Options.UseFont = true;
+            this.colQXoa.AppearanceHeader.Options.UseForeColor = true;
             this.colQXoa.AppearanceHeader.Options.UseTextOptions = true;
             this.colQXoa.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colQXoa.Caption = "Quyền Xóa";
             this.colQXoa.FieldName = "QuyenXoa";
             this.colQXoa.Name = "colQXoa";
             this.colQXoa.Visible = true;
-            this.colQXoa.VisibleIndex = 3;
+            this.colQXoa.VisibleIndex = 4;
             // 
             // colCam
             // 
@@ -202,7 +226,7 @@ namespace QuanLyDiem
             this.colCam.FieldName = "Cam";
             this.colCam.Name = "colCam";
             this.colCam.Visible = true;
-            this.colCam.VisibleIndex = 4;
+            this.colCam.VisibleIndex = 1;
             // 
             // colMenu
             // 
@@ -328,8 +352,6 @@ namespace QuanLyDiem
         private DevExpress.XtraTreeList.Columns.TreeListColumn colQSua;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colQXoa;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colCam;
-        private DevExpress.XtraGrid.Columns.GridColumn colUserName;
-        private DevExpress.XtraGrid.Columns.GridColumn colFullName;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colMenu;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colParent;
         private DevExpress.XtraBars.BarManager barManager1;
@@ -340,5 +362,7 @@ namespace QuanLyDiem
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem btnRef;
         private DevExpress.XtraBars.BarButtonItem btnUpdate;
+        private DevExpress.XtraGrid.Columns.GridColumn colUser;
+        private DevExpress.XtraGrid.Columns.GridColumn colFullName;
     }
 }

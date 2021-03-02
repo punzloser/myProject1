@@ -1,0 +1,1 @@
+File báo cáo chung về đặc tả, thiết kế ,,, đang hoàn thiện, sẽ gửi Thầy sau nếu Thầy có yêu cầu !

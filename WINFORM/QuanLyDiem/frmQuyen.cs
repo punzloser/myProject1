@@ -1,5 +1,6 @@
 ﻿using DevExpress.Skins;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using DevExpress.XtraTreeList.Columns;
 using DevExpress.XtraTreeList.Nodes;
 using System;
@@ -29,14 +30,24 @@ namespace QuanLyDiem
         }
 
         QuanLiDiemEntities db = new QuanLiDiemEntities();
+
+        private void waitToLoad()
+        {
+            SplashScreenManager.ShowForm(this, typeof(frmWait), true, true, false);
+            for (int i = 70; i <= 100; i++)
+            {
+                SplashScreenManager.Default.SetWaitFormDescription(i.ToString() + "%");
+                SplashScreenManager.Default.SetWaitFormCaption("Dữ liệu đang được cập nhật . . .");
+                System.Threading.Thread.Sleep(25);
+            }
+            SplashScreenManager.CloseForm(false);
+        }
         private void frmQuyen_Load(object sender, EventArgs e)
         {
-            var user = from a in db.TaiKhoan
-                       select new
-                       {
-                          a.UserName,
-                          a.FullName
-                       };
+            waitToLoad();
+
+            var user = from a in db.TaiKhoan where a.UserName != "admin" select a;
+
             gridControl1.DataSource = user.ToList();
             
         }

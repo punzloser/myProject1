@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,50 +19,35 @@ namespace QuanLyDiem
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         QuanLiDiemEntities db = new QuanLiDiemEntities();
+
         public frmMain()
         {
             InitializeComponent();
         }
-        protected override void OnShown(EventArgs e)
-        {
-            base.OnShown(e);
-            Update_Region();
-        }
-
-        protected override void OnSizeChanged(EventArgs e)
-        {
-            base.OnSizeChanged(e);
-            Update_Region();
-        }
-
-        private void Update_Region()
-        {
-            Region prevRgn = Region;
-            Region = new Region(CreateFormRegion(8));
-            if (prevRgn != null)
-                prevRgn.Dispose();
-        }
-
-        // bo góc form tròn
-        public GraphicsPath CreateFormRegion(int cornerRadius)
-        {
-            GraphicsPath GrpRect = new GraphicsPath();
-            int width = Width + 1;
-            int height = Height + 1;
-            GrpRect.AddArc(new Rectangle(0, 0, cornerRadius * 2, cornerRadius * 2), 180f, 90f);//left-top
-            GrpRect.AddArc(new Rectangle((width - cornerRadius * 2) - 1, 0, cornerRadius * 2, cornerRadius * 2), -90f, 90f);//right-top
-            GrpRect.AddArc(new Rectangle((width - cornerRadius * 2) - 1, (height - cornerRadius * 2) - 1, cornerRadius * 2, cornerRadius * 2), 0f, 90f);//right-bottom
-            GrpRect.AddArc(new Rectangle(0, (height - cornerRadius * 2) - 1, cornerRadius * 2, cornerRadius * 2), 90f, 90f);//left-bottom
-            GrpRect.CloseAllFigures();
-            return GrpRect;
-        }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            lblDate.Text = changeDate(DateTime.Now.DayOfWeek.ToString()) + ", " + DateTime.Now.Day.ToString() 
+            showFlashScreen();
+            //
+            lblDate.Text = changeDate(DateTime.Now.DayOfWeek.ToString()) + ", " + DateTime.Now.Day.ToString()
                 + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+            //
             lblQuyen.Caption = ClassTaiKhoan.TaiKhoan;
+            //
             setQuyen();
+        }
+
+        //Màn hình chờ
+        protected void showFlashScreen()
+        {
+            //devexpress phiên bản 20.1 mới dùng được SplashScreenManager.ShowSkinSplashScreen
+
+            SplashScreenManager.ShowForm(this, typeof(frmSplashScreen), true, true, false);
+
+            System.Threading.Thread.Sleep(1000);
+
+            SplashScreenManager.CloseForm();
+
         }
 
         private void setQuyen()
@@ -100,7 +86,7 @@ namespace QuanLyDiem
                         }
                     }
                 }
-               
+
             }
         }
 
@@ -150,13 +136,13 @@ namespace QuanLyDiem
             String date = "";
             switch (name)
             {
-                case "Monday": 
+                case "Monday":
                     date = "Thứ hai";
                     break;
-                case "Tuesday": 
+                case "Tuesday":
                     date = "Thứ ba";
                     break;
-                case "Webnesday": 
+                case "Webnesday":
                     date = "Thứ tư";
                     break;
                 case "Thurday":
@@ -181,6 +167,56 @@ namespace QuanLyDiem
                 DateTime.Now.Second.ToString();
         }
 
+        protected override void OnShown(EventArgs e)
+        {
+            try
+            {
+                base.OnShown(e);
+                Update_Region();
+            }
+            catch (Exception)
+            {
+                XtraMessageBox.Show("Lỗi phát sinh dữ liệu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            try
+            {
+                base.OnSizeChanged(e);
+                Update_Region();
+            }
+            catch (Exception)
+            {
+                XtraMessageBox.Show("Lỗi phát sinh dữ liệu !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+           
+        }
+
+        private void Update_Region()
+        {
+            Region prevRgn = Region;
+            Region = new Region(CreateFormRegion(8));
+            if (prevRgn != null)
+                prevRgn.Dispose();
+        }
+
+        // bo góc form tròn
+        public GraphicsPath CreateFormRegion(int cornerRadius)
+        {
+            GraphicsPath GrpRect = new GraphicsPath();
+            int width = Width + 1;
+            int height = Height + 1;
+            GrpRect.AddArc(new Rectangle(0, 0, cornerRadius * 2, cornerRadius * 2), 180f, 90f);//left-top
+            GrpRect.AddArc(new Rectangle((width - cornerRadius * 2) - 1, 0, cornerRadius * 2, cornerRadius * 2), -90f, 90f);//right-top
+            GrpRect.AddArc(new Rectangle((width - cornerRadius * 2) - 1, (height - cornerRadius * 2) - 1, cornerRadius * 2, cornerRadius * 2), 0f, 90f);//right-bottom
+            GrpRect.AddArc(new Rectangle(0, (height - cornerRadius * 2) - 1, cornerRadius * 2, cornerRadius * 2), 90f, 90f);//left-bottom
+            GrpRect.CloseAllFigures();
+            return GrpRect;
+        }
+
         private void barButtonItem23_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             panelControl1.Controls.Clear();
@@ -190,24 +226,6 @@ namespace QuanLyDiem
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frm.Dock = System.Windows.Forms.DockStyle.Fill;
             frm.Show();
-        }
-
-        //info student
-        private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
-        //login
-        private void md010101_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
-        //register
-        private void md010102_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
         }
 
         //close
@@ -231,19 +249,25 @@ namespace QuanLyDiem
         //sv xem diem
         private void md020102_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
-        }
-
-        //info teacher
-        private void md030101_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
+            panelControl1.Controls.Clear();
+            frmSV_XemDiem frm = new frmSV_XemDiem();
+            frm.TopLevel = false;
+            panelControl1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = System.Windows.Forms.DockStyle.Fill;
+            frm.Show();
         }
 
         //GV xem phan cong
         private void md030102_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            panelControl1.Controls.Clear();
+            frmXemPhanCong frm = new frmXemPhanCong();
+            frm.TopLevel = false;
+            panelControl1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = System.Windows.Forms.DockStyle.Fill;
+            frm.Show();
         }
 
         //ds lop
@@ -256,12 +280,6 @@ namespace QuanLyDiem
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frm.Dock = System.Windows.Forms.DockStyle.Fill;
             frm.Show();
-        }
-
-        //cham diem
-        private void md030104_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
         }
 
         //giao vu quan li thong tin giao vien
@@ -349,12 +367,6 @@ namespace QuanLyDiem
             frm.Show();
         }
 
-        //doi mk
-        private void md010104_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
         //phan quyen
         private void md010301_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -410,10 +422,63 @@ namespace QuanLyDiem
             }
         }
 
+        //doi mk
+        private void md010104_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            panelControl1.Controls.Clear();
+            frmDoiMatKhau frm = new frmDoiMatKhau();
+            frm.TopLevel = false;
+            panelControl1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = System.Windows.Forms.DockStyle.Fill;
+            frm.Show();
+        }
+
+        //login
+        private void md010101_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+            if (true)
+            {
+                if(XtraMessageBox.Show("Bạn có muốn đóng tất cả cửa sổ và đăng nhập tài khoản khác ? ", 
+                    "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    this.Close();
+                    frmDangNhap frm = new frmDangNhap();
+                    frm.ShowDialog();
+                }
+            }
+        }
+
+        //register
+        private void md010102_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        //cham diem
+        private void md030104_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
         //lich su
         private void md010302_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
         }
+
+        //info teacher
+        private void md030101_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        //info student
+        private void md020101_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+
     }
 }

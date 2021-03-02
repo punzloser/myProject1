@@ -19,7 +19,7 @@
             <PropertyRef Name="UserName" />
             <PropertyRef Name="Menu" />
           </Key>
-          <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="Menu" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="SetTime" Type="datetime" />
           <Property Name="QuyenThem" Type="bit" />
@@ -57,7 +57,7 @@
             <PropertyRef Name="MaGV" />
           </Key>
           <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaGV" Type="varchar" MaxLength="6" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="MaGV" Type="varchar" MaxLength="6" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenGV" Type="nvarchar" MaxLength="40" />
           <Property Name="TrinhDo" Type="nvarchar" MaxLength="10" />
           <Property Name="NgaySinh" Type="datetime" />
@@ -133,7 +133,7 @@
             <PropertyRef Name="SV_IMG" />
           </Key>
           <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="SV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IMG" Type="varbinary(max)" />
           <Property Name="MaSV" Type="varchar" MaxLength="6" />
           <Property Name="FileIMG" Type="nvarchar" MaxLength="100" />
@@ -142,9 +142,9 @@
           <Key>
             <PropertyRef Name="UserName" />
           </Key>
-          <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="TinhTrang">
           <Key>
@@ -167,7 +167,7 @@
           <Property Name="NganhHoc" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ChuyenNganh" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__ChucNang_T__Menu__12FDD1B2">
+        <Association Name="FK__ChucNang_T__Menu__2CBDA3B5">
           <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1" />
           <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -179,7 +179,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChucNang_Ta__Cam__1209AD79">
+        <Association Name="FK__ChucNang_Ta__Cam__2BC97F7C">
           <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
           <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -570,11 +570,11 @@
           <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TinhTrang" EntityType="Self.TinhTrang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ThongTin" EntityType="Self.ThongTin" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__ChucNang_T__Menu__12FDD1B2" Association="Self.FK__ChucNang_T__Menu__12FDD1B2">
+          <AssociationSet Name="FK__ChucNang_T__Menu__2CBDA3B5" Association="Self.FK__ChucNang_T__Menu__2CBDA3B5">
             <End Role="ChucNang" EntitySet="ChucNang" />
             <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChucNang_Ta__Cam__1209AD79" Association="Self.FK__ChucNang_Ta__Cam__1209AD79">
+          <AssociationSet Name="FK__ChucNang_Ta__Cam__2BC97F7C" Association="Self.FK__ChucNang_Ta__Cam__2BC97F7C">
             <End Role="TaiKhoan" EntitySet="TaiKhoan" />
             <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
           </AssociationSet>
@@ -636,22 +636,22 @@
           <Property Name="App" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Detail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ParentMenu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ChucNang_TaiKhoan" Relationship="Self.FK__ChucNang_T__Menu__12FDD1B2" FromRole="ChucNang" ToRole="ChucNang_TaiKhoan" />
+          <NavigationProperty Name="ChucNang_TaiKhoan" Relationship="Self.FK__ChucNang_T__Menu__2CBDA3B5" FromRole="ChucNang" ToRole="ChucNang_TaiKhoan" />
         </EntityType>
         <EntityType Name="ChucNang_TaiKhoan">
           <Key>
             <PropertyRef Name="UserName" />
             <PropertyRef Name="Menu" />
           </Key>
-          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Menu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SetTime" Type="DateTime" Precision="3" />
           <Property Name="QuyenThem" Type="Boolean" />
           <Property Name="QuyenSua" Type="Boolean" />
           <Property Name="QuyenXoa" Type="Boolean" />
           <Property Name="Cam" Type="Boolean" />
-          <NavigationProperty Name="ChucNang" Relationship="Self.FK__ChucNang_T__Menu__12FDD1B2" FromRole="ChucNang_TaiKhoan" ToRole="ChucNang" />
-          <NavigationProperty Name="TaiKhoan" Relationship="Self.FK__ChucNang_Ta__Cam__1209AD79" FromRole="ChucNang_TaiKhoan" ToRole="TaiKhoan" />
+          <NavigationProperty Name="ChucNang" Relationship="Self.FK__ChucNang_T__Menu__2CBDA3B5" FromRole="ChucNang_TaiKhoan" ToRole="ChucNang" />
+          <NavigationProperty Name="TaiKhoan" Relationship="Self.FK__ChucNang_Ta__Cam__2BC97F7C" FromRole="ChucNang_TaiKhoan" ToRole="TaiKhoan" />
         </EntityType>
         <EntityType Name="DiemHP">
           <Key>
@@ -688,7 +688,7 @@
             <PropertyRef Name="MaGV" />
           </Key>
           <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaGV" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="MaGV" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenGV" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="TrinhDo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="3" />
@@ -779,7 +779,7 @@
             <PropertyRef Name="SV_IMG" />
           </Key>
           <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SV_IMG" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="SV_IMG" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="MaSV" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="FileIMG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -789,10 +789,10 @@
           <Key>
             <PropertyRef Name="UserName" />
           </Key>
-          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="ChucNang_TaiKhoan" Relationship="Self.FK__ChucNang_Ta__Cam__1209AD79" FromRole="TaiKhoan" ToRole="ChucNang_TaiKhoan" />
+          <Property Name="UserName" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChucNang_TaiKhoan" Relationship="Self.FK__ChucNang_Ta__Cam__2BC97F7C" FromRole="TaiKhoan" ToRole="ChucNang_TaiKhoan" />
         </EntityType>
         <EntityType Name="TinhTrang">
           <Key>
@@ -816,7 +816,7 @@
           <Property Name="NganhHoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ChuyenNganh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <Association Name="FK__ChucNang_T__Menu__12FDD1B2">
+        <Association Name="FK__ChucNang_T__Menu__2CBDA3B5">
           <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1" />
           <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -828,7 +828,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChucNang_Ta__Cam__1209AD79">
+        <Association Name="FK__ChucNang_Ta__Cam__2BC97F7C">
           <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
           <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1002,11 +1002,11 @@
           <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" />
           <EntitySet Name="TinhTrang" EntityType="Self.TinhTrang" />
           <EntitySet Name="ThongTin" EntityType="Self.ThongTin" />
-          <AssociationSet Name="FK__ChucNang_T__Menu__12FDD1B2" Association="Self.FK__ChucNang_T__Menu__12FDD1B2">
+          <AssociationSet Name="FK__ChucNang_T__Menu__2CBDA3B5" Association="Self.FK__ChucNang_T__Menu__2CBDA3B5">
             <End Role="ChucNang" EntitySet="ChucNang" />
             <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChucNang_Ta__Cam__1209AD79" Association="Self.FK__ChucNang_Ta__Cam__1209AD79">
+          <AssociationSet Name="FK__ChucNang_Ta__Cam__2BC97F7C" Association="Self.FK__ChucNang_Ta__Cam__2BC97F7C">
             <End Role="TaiKhoan" EntitySet="TaiKhoan" />
             <End Role="ChucNang_TaiKhoan" EntitySet="ChucNang_TaiKhoan" />
           </AssociationSet>
@@ -1594,8 +1594,8 @@
             <EntityTypeMapping TypeName="QuanLiDiemModel.TaiKhoan">
               <MappingFragment StoreEntitySet="TaiKhoan">
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

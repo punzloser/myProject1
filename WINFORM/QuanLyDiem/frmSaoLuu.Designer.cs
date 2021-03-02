@@ -32,24 +32,24 @@ namespace QuanLyDiem
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSaoLuu));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lbPercent = new DevExpress.XtraEditors.LabelControl();
+            this.btnExit = new QuanLyDiem.CircularButton();
+            this.btnBackup = new QuanLyDiem.CircularButton();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.lbStatus = new DevExpress.XtraEditors.LabelControl();
             this.txtServer = new DevExpress.XtraEditors.TextEdit();
             this.pgbarBackup = new DevExpress.XtraEditors.ProgressBarControl();
+            this.btnChon = new QuanLyDiem.CircularButton();
             this.txtDuongDan = new DevExpress.XtraEditors.TextEdit();
             this.txtDatabase = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.btnExit = new QuanLyDiem.CircularButton();
-            this.btnBackup = new QuanLyDiem.CircularButton();
-            this.btnChon = new QuanLyDiem.CircularButton();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.circularLabel1 = new QuanLyDiem.CircularLabel();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -60,14 +60,14 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.txtDuongDan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDatabase.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -97,6 +97,24 @@ namespace QuanLyDiem
             this.lbPercent.Size = new System.Drawing.Size(175, 161);
             this.lbPercent.TabIndex = 3;
             this.lbPercent.Text = "0 %";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(485, 334);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(155, 70);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "EXIT";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnBackup
+            // 
+            this.btnBackup.Location = new System.Drawing.Point(24, 334);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Size = new System.Drawing.Size(155, 70);
+            this.btnBackup.TabIndex = 2;
+            this.btnBackup.Text = "BACK UP";
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
             // layoutControl1
             // 
@@ -158,6 +176,16 @@ namespace QuanLyDiem
             this.pgbarBackup.StyleController = this.layoutControl1;
             this.pgbarBackup.TabIndex = 6;
             // 
+            // btnChon
+            // 
+            this.btnChon.Location = new System.Drawing.Point(322, 12);
+            this.btnChon.Name = "btnChon";
+            this.btnChon.Size = new System.Drawing.Size(306, 32);
+            this.btnChon.StyleController = this.layoutControl1;
+            this.btnChon.TabIndex = 0;
+            this.btnChon.Text = "Chọn đường dẫn";
+            this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
+            // 
             // txtDuongDan
             // 
             this.txtDuongDan.Location = new System.Drawing.Point(104, 57);
@@ -198,6 +226,41 @@ namespace QuanLyDiem
             this.Root.Size = new System.Drawing.Size(640, 223);
             this.Root.TextVisible = false;
             // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(310, 80);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(310, 40);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.btnChon;
+            this.layoutControlItem2.Location = new System.Drawing.Point(310, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(310, 40);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.pgbarBackup;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(620, 22);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.lbStatus;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 177);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(620, 26);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.txtDuongDan;
@@ -207,14 +270,6 @@ namespace QuanLyDiem
             this.layoutControlItem1.Size = new System.Drawing.Size(620, 40);
             this.layoutControlItem1.Text = "::::::";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(84, 18);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(310, 80);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(310, 40);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
@@ -238,24 +293,6 @@ namespace QuanLyDiem
             this.layoutControlItem5.Text = "Database";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(84, 18);
             // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.pgbarBackup;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 120);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(620, 22);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.lbStatus;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 177);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(620, 26);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
-            // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
@@ -263,43 +300,6 @@ namespace QuanLyDiem
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(620, 35);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(485, 334);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(155, 70);
-            this.btnExit.TabIndex = 2;
-            this.btnExit.Text = "EXIT";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnBackup
-            // 
-            this.btnBackup.Location = new System.Drawing.Point(24, 334);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(155, 70);
-            this.btnBackup.TabIndex = 2;
-            this.btnBackup.Text = "BACK UP";
-            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
-            // 
-            // btnChon
-            // 
-            this.btnChon.Location = new System.Drawing.Point(322, 12);
-            this.btnChon.Name = "btnChon";
-            this.btnChon.Size = new System.Drawing.Size(306, 32);
-            this.btnChon.StyleController = this.layoutControl1;
-            this.btnChon.TabIndex = 0;
-            this.btnChon.Text = "Chọn đường dẫn";
-            this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.btnChon;
-            this.layoutControlItem2.Location = new System.Drawing.Point(310, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(310, 40);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
             // 
             // circularLabel1
             // 
@@ -335,14 +335,14 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.txtDuongDan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDatabase.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }

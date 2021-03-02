@@ -43,7 +43,7 @@ namespace QuanLyDiem
         public Double DiemHe4 (Double Diem)
         {
             int d;
-            if (Diem >= 8.5)
+            if (Diem >= 8.5) 
             {
                 d = 4;
             }

@@ -25,6 +25,8 @@ namespace QuanLyDiem
 
         QuanLiDiemEntities db = new QuanLiDiemEntities();
         XuLyDiem xl = new XuLyDiem();
+
+
         private void frmBangDiemFull_Load(object sender, EventArgs e)
         {
             lopSelectAllResultBindingSource.DataSource = db.LopSelectAll().ToList();

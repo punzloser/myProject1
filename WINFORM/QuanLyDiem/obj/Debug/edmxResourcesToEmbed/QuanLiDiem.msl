@@ -146,8 +146,8 @@
       <EntityTypeMapping TypeName="QuanLiDiemModel.TaiKhoan">
         <MappingFragment StoreEntitySet="TaiKhoan">
           <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
