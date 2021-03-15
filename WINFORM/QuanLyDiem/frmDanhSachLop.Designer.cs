@@ -106,7 +106,7 @@ namespace QuanLyDiem
             this.gcDanhSachLop.Location = new System.Drawing.Point(2, 2);
             this.gcDanhSachLop.MainView = this.gridView1;
             this.gcDanhSachLop.Name = "gcDanhSachLop";
-            this.gcDanhSachLop.Size = new System.Drawing.Size(1044, 314);
+            this.gcDanhSachLop.Size = new System.Drawing.Size(1044, 291);
             this.gcDanhSachLop.TabIndex = 0;
             this.gcDanhSachLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -117,6 +117,14 @@ namespace QuanLyDiem
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.EvenRow.Options.UseTextOptions = true;
+            this.gridView1.Appearance.EvenRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView1.Appearance.GroupPanel.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.GroupPanel.Options.UseFont = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView1.Appearance.Row.Options.UseTextOptions = true;
+            this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaSV,
             this.colHoLot,
@@ -126,12 +134,14 @@ namespace QuanLyDiem
             this.colNoiSinh,
             this.colDanToc});
             this.gridView1.GridControl = this.gcDanhSachLop;
+            this.gridView1.GroupPanelText = "DANH SÁCH LỚP";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditFormInplaceHideCurrentRow;
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
             // 
             // colMaSV
             // 
+            this.colMaSV.Caption = "Mã SV";
             this.colMaSV.FieldName = "MaSV";
             this.colMaSV.MinWidth = 30;
             this.colMaSV.Name = "colMaSV";
@@ -141,6 +151,7 @@ namespace QuanLyDiem
             // 
             // colHoLot
             // 
+            this.colHoLot.Caption = "Họ Lót";
             this.colHoLot.FieldName = "HoLot";
             this.colHoLot.MinWidth = 30;
             this.colHoLot.Name = "colHoLot";
@@ -150,6 +161,7 @@ namespace QuanLyDiem
             // 
             // colTen
             // 
+            this.colTen.Caption = "Tên";
             this.colTen.FieldName = "Ten";
             this.colTen.MinWidth = 30;
             this.colTen.Name = "colTen";
@@ -159,6 +171,7 @@ namespace QuanLyDiem
             // 
             // colNgaySinh
             // 
+            this.colNgaySinh.Caption = "Ngày Sinh";
             this.colNgaySinh.FieldName = "NgaySinh";
             this.colNgaySinh.MinWidth = 30;
             this.colNgaySinh.Name = "colNgaySinh";
@@ -168,6 +181,7 @@ namespace QuanLyDiem
             // 
             // colGioiTinh
             // 
+            this.colGioiTinh.Caption = "Giới Tính";
             this.colGioiTinh.FieldName = "GioiTinh";
             this.colGioiTinh.MinWidth = 30;
             this.colGioiTinh.Name = "colGioiTinh";
@@ -177,6 +191,7 @@ namespace QuanLyDiem
             // 
             // colNoiSinh
             // 
+            this.colNoiSinh.Caption = "Nơi Sinh";
             this.colNoiSinh.FieldName = "NoiSinh";
             this.colNoiSinh.MinWidth = 30;
             this.colNoiSinh.Name = "colNoiSinh";
@@ -186,6 +201,7 @@ namespace QuanLyDiem
             // 
             // colDanToc
             // 
+            this.colDanToc.Caption = "Dân Tộc";
             this.colDanToc.FieldName = "DanToc";
             this.colDanToc.MinWidth = 30;
             this.colDanToc.Name = "colDanToc";
@@ -207,9 +223,9 @@ namespace QuanLyDiem
             // 
             this.panelControl3.Controls.Add(this.gcDanhSachLop);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 207);
+            this.panelControl3.Location = new System.Drawing.Point(2, 230);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1048, 318);
+            this.panelControl3.Size = new System.Drawing.Size(1048, 295);
             this.panelControl3.TabIndex = 2;
             // 
             // dataLayoutControl1
@@ -227,13 +243,13 @@ namespace QuanLyDiem
             this.dataLayoutControl1.Location = new System.Drawing.Point(2, 2);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(1048, 205);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(1048, 228);
             this.dataLayoutControl1.TabIndex = 1;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
             // luLop
             // 
-            this.luLop.Location = new System.Drawing.Point(97, 12);
+            this.luLop.Location = new System.Drawing.Point(99, 14);
             this.luLop.Name = "luLop";
             this.luLop.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -243,7 +259,7 @@ namespace QuanLyDiem
             this.luLop.Properties.DisplayMember = "TenLop";
             this.luLop.Properties.NullText = "";
             this.luLop.Properties.ValueMember = "MaLop";
-            this.luLop.Size = new System.Drawing.Size(939, 26);
+            this.luLop.Size = new System.Drawing.Size(935, 26);
             this.luLop.StyleController = this.dataLayoutControl1;
             this.luLop.TabIndex = 10;
             this.luLop.EditValueChanged += new System.EventHandler(this.luLop_EditValueChanged);
@@ -255,27 +271,27 @@ namespace QuanLyDiem
             // txtMaSV
             // 
             this.txtMaSV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetail1ResultBindingSource, "MaSV", true));
-            this.txtMaSV.Location = new System.Drawing.Point(97, 42);
+            this.txtMaSV.Location = new System.Drawing.Point(99, 48);
             this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.Size = new System.Drawing.Size(939, 26);
+            this.txtMaSV.Size = new System.Drawing.Size(935, 26);
             this.txtMaSV.StyleController = this.dataLayoutControl1;
             this.txtMaSV.TabIndex = 11;
             // 
             // txtHoLot
             // 
             this.txtHoLot.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetail1ResultBindingSource, "HoLot", true));
-            this.txtHoLot.Location = new System.Drawing.Point(97, 72);
+            this.txtHoLot.Location = new System.Drawing.Point(99, 82);
             this.txtHoLot.Name = "txtHoLot";
-            this.txtHoLot.Size = new System.Drawing.Size(425, 26);
+            this.txtHoLot.Size = new System.Drawing.Size(421, 26);
             this.txtHoLot.StyleController = this.dataLayoutControl1;
             this.txtHoLot.TabIndex = 12;
             // 
             // txtTen
             // 
             this.txtTen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetail1ResultBindingSource, "Ten", true));
-            this.txtTen.Location = new System.Drawing.Point(611, 72);
+            this.txtTen.Location = new System.Drawing.Point(613, 82);
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(425, 26);
+            this.txtTen.Size = new System.Drawing.Size(421, 26);
             this.txtTen.StyleController = this.dataLayoutControl1;
             this.txtTen.TabIndex = 13;
             // 
@@ -283,41 +299,41 @@ namespace QuanLyDiem
             // 
             this.dateNgaySinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetail1ResultBindingSource, "NgaySinh", true));
             this.dateNgaySinh.EditValue = null;
-            this.dateNgaySinh.Location = new System.Drawing.Point(97, 102);
+            this.dateNgaySinh.Location = new System.Drawing.Point(99, 116);
             this.dateNgaySinh.Name = "dateNgaySinh";
             this.dateNgaySinh.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.dateNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgaySinh.Size = new System.Drawing.Size(939, 26);
+            this.dateNgaySinh.Size = new System.Drawing.Size(935, 26);
             this.dateNgaySinh.StyleController = this.dataLayoutControl1;
             this.dateNgaySinh.TabIndex = 14;
             // 
             // txtGioiTinh
             // 
             this.txtGioiTinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetail1ResultBindingSource, "GioiTinh", true));
-            this.txtGioiTinh.Location = new System.Drawing.Point(97, 132);
+            this.txtGioiTinh.Location = new System.Drawing.Point(99, 150);
             this.txtGioiTinh.Name = "txtGioiTinh";
-            this.txtGioiTinh.Size = new System.Drawing.Size(939, 26);
+            this.txtGioiTinh.Size = new System.Drawing.Size(935, 26);
             this.txtGioiTinh.StyleController = this.dataLayoutControl1;
             this.txtGioiTinh.TabIndex = 15;
             // 
             // txtNoiSinh
             // 
             this.txtNoiSinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetail1ResultBindingSource, "NoiSinh", true));
-            this.txtNoiSinh.Location = new System.Drawing.Point(97, 162);
+            this.txtNoiSinh.Location = new System.Drawing.Point(99, 184);
             this.txtNoiSinh.Name = "txtNoiSinh";
-            this.txtNoiSinh.Size = new System.Drawing.Size(425, 26);
+            this.txtNoiSinh.Size = new System.Drawing.Size(421, 26);
             this.txtNoiSinh.StyleController = this.dataLayoutControl1;
             this.txtNoiSinh.TabIndex = 16;
             // 
             // txtDanToc
             // 
             this.txtDanToc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienSelectAllDetail1ResultBindingSource, "DanToc", true));
-            this.txtDanToc.Location = new System.Drawing.Point(611, 162);
+            this.txtDanToc.Location = new System.Drawing.Point(613, 184);
             this.txtDanToc.Name = "txtDanToc";
-            this.txtDanToc.Size = new System.Drawing.Size(425, 26);
+            this.txtDanToc.Size = new System.Drawing.Size(421, 26);
             this.txtDanToc.StyleController = this.dataLayoutControl1;
             this.txtDanToc.TabIndex = 17;
             // 
@@ -328,7 +344,7 @@ namespace QuanLyDiem
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1048, 205);
+            this.Root.Size = new System.Drawing.Size(1048, 228);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -346,78 +362,103 @@ namespace QuanLyDiem
             this.ItemForHoLot});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1028, 185);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1028, 208);
             // 
             // layoutControlItem1
             // 
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.layoutControlItem1.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem1.Control = this.luLop;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1028, 30);
-            this.layoutControlItem1.Text = "Chọn lớp";
+            this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1028, 34);
+            this.layoutControlItem1.Text = "Chọn Lớp";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForMaSV
             // 
+            this.ItemForMaSV.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForMaSV.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForMaSV.Control = this.txtMaSV;
-            this.ItemForMaSV.Location = new System.Drawing.Point(0, 30);
+            this.ItemForMaSV.Location = new System.Drawing.Point(0, 34);
             this.ItemForMaSV.Name = "ItemForMaSV";
-            this.ItemForMaSV.Size = new System.Drawing.Size(1028, 30);
-            this.ItemForMaSV.Text = "Ma SV";
+            this.ItemForMaSV.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForMaSV.Size = new System.Drawing.Size(1028, 34);
+            this.ItemForMaSV.Text = "Mã SV";
             this.ItemForMaSV.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForNgaySinh
             // 
+            this.ItemForNgaySinh.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForNgaySinh.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForNgaySinh.Control = this.dateNgaySinh;
-            this.ItemForNgaySinh.Location = new System.Drawing.Point(0, 90);
+            this.ItemForNgaySinh.Location = new System.Drawing.Point(0, 102);
             this.ItemForNgaySinh.Name = "ItemForNgaySinh";
-            this.ItemForNgaySinh.Size = new System.Drawing.Size(1028, 30);
-            this.ItemForNgaySinh.Text = "Ngay Sinh";
+            this.ItemForNgaySinh.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForNgaySinh.Size = new System.Drawing.Size(1028, 34);
+            this.ItemForNgaySinh.Text = "Ngày Sinh";
             this.ItemForNgaySinh.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForGioiTinh
             // 
+            this.ItemForGioiTinh.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForGioiTinh.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForGioiTinh.Control = this.txtGioiTinh;
-            this.ItemForGioiTinh.Location = new System.Drawing.Point(0, 120);
+            this.ItemForGioiTinh.Location = new System.Drawing.Point(0, 136);
             this.ItemForGioiTinh.Name = "ItemForGioiTinh";
-            this.ItemForGioiTinh.Size = new System.Drawing.Size(1028, 30);
-            this.ItemForGioiTinh.Text = "Gioi Tinh";
+            this.ItemForGioiTinh.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForGioiTinh.Size = new System.Drawing.Size(1028, 34);
+            this.ItemForGioiTinh.Text = "Giới Tính";
             this.ItemForGioiTinh.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForNoiSinh
             // 
+            this.ItemForNoiSinh.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForNoiSinh.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForNoiSinh.Control = this.txtNoiSinh;
-            this.ItemForNoiSinh.Location = new System.Drawing.Point(0, 150);
+            this.ItemForNoiSinh.Location = new System.Drawing.Point(0, 170);
             this.ItemForNoiSinh.Name = "ItemForNoiSinh";
-            this.ItemForNoiSinh.Size = new System.Drawing.Size(514, 35);
-            this.ItemForNoiSinh.Text = "Noi Sinh";
+            this.ItemForNoiSinh.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForNoiSinh.Size = new System.Drawing.Size(514, 38);
+            this.ItemForNoiSinh.Text = "Nơi Sinh";
             this.ItemForNoiSinh.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForTen
             // 
+            this.ItemForTen.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForTen.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.ItemForTen.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.ItemForTen.Control = this.txtTen;
-            this.ItemForTen.Location = new System.Drawing.Point(514, 60);
+            this.ItemForTen.Location = new System.Drawing.Point(514, 68);
             this.ItemForTen.Name = "ItemForTen";
-            this.ItemForTen.Size = new System.Drawing.Size(514, 30);
-            this.ItemForTen.Text = "Ten";
+            this.ItemForTen.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForTen.Size = new System.Drawing.Size(514, 34);
+            this.ItemForTen.Text = "Tên";
             this.ItemForTen.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForDanToc
             // 
+            this.ItemForDanToc.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForDanToc.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForDanToc.Control = this.txtDanToc;
-            this.ItemForDanToc.Location = new System.Drawing.Point(514, 150);
+            this.ItemForDanToc.Location = new System.Drawing.Point(514, 170);
             this.ItemForDanToc.Name = "ItemForDanToc";
-            this.ItemForDanToc.Size = new System.Drawing.Size(514, 35);
-            this.ItemForDanToc.Text = "Dan Toc";
+            this.ItemForDanToc.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForDanToc.Size = new System.Drawing.Size(514, 38);
+            this.ItemForDanToc.Text = "Dân Tộc";
             this.ItemForDanToc.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForHoLot
             // 
+            this.ItemForHoLot.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForHoLot.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForHoLot.Control = this.txtHoLot;
-            this.ItemForHoLot.Location = new System.Drawing.Point(0, 60);
+            this.ItemForHoLot.Location = new System.Drawing.Point(0, 68);
             this.ItemForHoLot.Name = "ItemForHoLot";
-            this.ItemForHoLot.Size = new System.Drawing.Size(514, 30);
-            this.ItemForHoLot.Text = "Ho Lot";
+            this.ItemForHoLot.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForHoLot.Size = new System.Drawing.Size(514, 34);
+            this.ItemForHoLot.Text = "Họ Lót";
             this.ItemForHoLot.TextSize = new System.Drawing.Size(82, 18);
             // 
             // panelControl2

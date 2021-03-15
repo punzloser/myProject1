@@ -19,6 +19,7 @@ namespace QuanLyDiem
         public frmSV_XemDiem()
         {
             InitializeComponent();
+            loadHK();
         }
         QuanLiDiemEntities db = new QuanLiDiemEntities();
         XuLyDiem xl = new XuLyDiem();
@@ -98,7 +99,6 @@ namespace QuanLyDiem
                         //error the same with frmDiemHP
                         //row["ChuyenCan"] = n.ChuyenCan.ToString() == "" ? (double?)0.0f : double.Parse(n.ChuyenCan.ToString());
 
-                        // bug khó chịu fix sau 2 tuần, lỗi do thiếu kiến thức nền
                         // gridview chỉ cho phép hiển thị Format Rule khi dữ liệu là số thực hoặc nguyên
                         // giá trị số thực null từ database đồng bộ sang gridview phải là DBNULL
                         // gridview set null sẽ tự nhận là chuỗi => xuất hiện số 0 thay vì NULL
@@ -253,12 +253,45 @@ namespace QuanLyDiem
             var tenSV = from a in db.TaiKhoan
                         join b in db.SinhVien
                         on a.UserName equals b.MaSV
-                        where a.UserName == ClassTaiKhoan.TaiKhoan
+                        where a.UserName == ClassTaiKhoan.TaiKhoan/*"190001"*/
                         select b.HoLot + " " + b.Ten;
 
             lbTenSV.Text = tenSV.FirstOrDefault();
 
             lbTenSV.Focus();
+        }
+
+        public void loadHK()
+        {
+            var kq = from a in db.HocKy select a.TenHK;
+            if (kq.Any())
+            {
+                luHK.Properties.DataSource = kq.ToList();
+            }
+        }
+        private void luHK_EditValueChanged(object sender, EventArgs e)
+        {
+            DataTable data = createTable();
+            var result = from a in data.AsEnumerable()
+                         join b in db.MonHP on a.Field<String>("MaMonHP") equals b.MaMonHP
+                         where b.HocKy.TenHK == luHK.EditValue.ToString()
+                         select new
+                         {
+                             MaMonHP = a.Field<String>("MaMonHP"),
+                             TenMonHP = a.Field<String>("TenMonHP"),
+                             SoTin = a.Field<String>("SoTin"),
+                             ChuyenCan = a.Field<double?>("ChuyenCan"),
+                             GiuaKi = a.Field<double?>("GiuaKi"),
+                             CuoiKy = a.Field<double?>("CuoiKy"),
+                             DiemHP = a.Field<double?>("DiemHP"),
+                             DiemChu = a.Field<String>("DiemChu"),
+                             DiemHe4 = a.Field<String>("DiemHe4"),
+                             KetQua = a.Field<String>("KetQua"),
+                             Check = a.Field<int>("Check")
+                         };
+
+            gcXemDiem.DataSource = result.ToList();
+
         }
     }
 }

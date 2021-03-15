@@ -113,36 +113,47 @@ namespace QuanLyDiem
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            try
+            if (luLop.EditValue != null)
             {
-                OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Test\DanhSachSV.xlsx;Extended Properties='Excel 8.0;HDR=YES'");
-                DataTable table = new DataTable();
-                OleDbDataAdapter dap = new OleDbDataAdapter("SELECT * FROM [Sheet1$]", conn);
-                dap.Fill(table);
-                conn.Close();
-
-                //XtraMessageBox.Show("Kết nối thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                foreach (DataRow a in table.Rows)
+                try
                 {
-                    if (db.SinhVienSelectAllByID(a[1].ToString()).Count() == 0)
+                    OpenFileDialog dlg = new OpenFileDialog();
+
+                    if (dlg.ShowDialog() == DialogResult.OK)
                     {
-                        if (luLop.EditValue is null)
+                        string fileName;
+                        fileName = dlg.FileName;
+
+
+                        OleDbConnection conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source= " + fileName + ";Extended Properties='Excel 8.0;HDR=YES'");
+                        DataTable table = new DataTable();
+                        OleDbDataAdapter dap = new OleDbDataAdapter("SELECT * FROM [Sheet1$]", conn);
+                        dap.Fill(table);
+                        conn.Close();
+
+                        //XtraMessageBox.Show("Kết nối thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        foreach (DataRow a in table.Rows)
                         {
-                            XtraMessageBox.Show("Vui lòng chọn lớp !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                            return;
+                            if (db.SinhVienSelectAllByID(a[1].ToString()).Count() == 0)
+                            {
+                                db.SinhVienInsert_1(a[2].ToString(), a[3].ToString(), Convert.ToDateTime(a[4]), a[5].ToString(), a[6].ToString(), a[7].ToString(), luLop.EditValue.ToString());
+                            }
                         }
-                        db.SinhVienInsert_1(a[2].ToString(), a[3].ToString(), Convert.ToDateTime(a[4]), a[5].ToString(), a[6].ToString(), a[7].ToString(), luLop.EditValue.ToString());
                     }
+                    luLop_EditValueChanged(sender, e);
                 }
-                luLop_EditValueChanged(sender, e);
+                catch (Exception er)
+                {
+
+                    XtraMessageBox.Show("Cập nhật dữ liệu thất bại !\n" + er, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
-            catch (Exception er)
+            else
             {
-
-                XtraMessageBox.Show("Cập nhật dữ liệu thất bại !\n" + er, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                XtraMessageBox.Show("Vui lòng chọn lớp !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                luLop.ShowPopup();
             }
 
         }

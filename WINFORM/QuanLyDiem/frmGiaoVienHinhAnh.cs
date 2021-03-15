@@ -18,15 +18,24 @@ namespace QuanLyDiem
         {
             InitializeComponent();
         }
+        QuanLiDiemEntities db = new QuanLiDiemEntities();
+
 
         private void frmGiaoVienHinhAnh_Load(object sender, EventArgs e)
         {
             frmLoad();
         }
 
-        QuanLiDiemEntities db = new QuanLiDiemEntities();
+        public void frmLoad()
+        {
+            GiaoVien_SelectCV();
+            GiaoVienHA_SelectAll();
+            //hideColumn();
+            addBinding();
 
-        byte[] ConvertImageToBytes(Image img)
+        }
+
+        public static byte[] ConvertImageToBytes(Image img)
         {
             using (MemoryStream ms = new MemoryStream())
             {
@@ -40,6 +49,8 @@ namespace QuanLyDiem
                           select a.ChucVu).Distinct();
             
             luChonTheoCV.Properties.DataSource = KetQua.ToList();
+            //luChonTheoCV.EditValue = KetQua.Select(a => a).First();
+
         }
 
         public void addBinding()
@@ -87,7 +98,6 @@ namespace QuanLyDiem
 
         public void HinhAnh_Delete()
         {
-            //GiaoVien_HinhAnh XoaHA = db.GiaoVien_HinhAnh.Where(a => a.GV_IMG.Equals(txtIDgvIMG.Text)).SingleOrDefault();
 
             GiaoVien_HinhAnh XoaHA = db.GiaoVien_HinhAnh.Where(a => a.GV_IMG.Equals(txtIDgvIMG.Text)).SingleOrDefault();
             XoaHA.FileIMG2 = null;
@@ -95,16 +105,6 @@ namespace QuanLyDiem
             db.SaveChanges();
             XtraMessageBox.Show("Xóa ảnh Giáo Viên thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmLoad();
-        }
-
-        public void frmLoad()
-        {
-            GiaoVien_SelectCV();
-            GiaoVienHA_SelectAll();
-            hideColumn();
-            addBinding();
-            //giaoVienHASelectALLResultBindingSource.DataSource = db.GiaoVienHA_SelectALL().ToList();
-        
         }
 
         private void luChonTheoCV_EditValueChanged(object sender, EventArgs e)

@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,19 +19,21 @@ namespace QuanLyDiem
             InitializeComponent();
         }
 
-        QuanLiDiemEntities db;
+        QuanLiDiemEntities db = new QuanLiDiemEntities();
         private void frmSinhVienHinhAnh_Load(object sender, EventArgs e)
         {
-            db = new QuanLiDiemEntities();
-           // db.SinhVienHA_SelectALL().ToList();
-            sinhVienHASelectALLResultBindingSource.DataSource = db.SinhVienHA_SelectALL().ToList();
-            lopBindingSource.DataSource = db.Lop.ToList();
+            frmLoad();
         }
 
-        private void luChonTheoLop_EditValueChanged(object sender, EventArgs e)
+        private void frmLoad()
         {
-            gcSVHA.DataSource = db.SinhVienHA_SelectByLop(luChonTheoLop.EditValue.ToString());
-           
+            chonSVTheoLop();
+            SinhVienHA_SelectALL();
+            addBinding();
+        }
+
+        private void addBinding()
+        {
             txtMaSV.DataBindings.Clear();
             txtMaSV.DataBindings.Add("Text", gcSVHA.DataSource, "MaSV");
             imgSV.DataBindings.Clear();
@@ -45,22 +46,28 @@ namespace QuanLyDiem
             txtFile.DataBindings.Add("Text", gcSVHA.DataSource, "FileIMG");
         }
 
-        byte[] ConvertImageToBytes(Image img)
+        private void SinhVienHA_SelectALL()
         {
-            using(MemoryStream ms = new MemoryStream())
-            {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                return ms.ToArray();
-            }
+            var kq = from a in db.SinhVien
+                     join b in db.SinhVien_HinhAnh on a.MaSV equals b.MaSV
+                     orderby a.MaSV
+                     select new
+                     {
+                         a.MaSV,
+                         HoTenSV = a.HoLot + " " + a.Ten,
+                         b.IMG,
+                         b.FileIMG,
+                         b.SV_IMG
+                     };
+            gcSVHA.DataSource = kq.ToList();
         }
 
-        public Image ConvertByteArrayToImage(byte[] data)
+        private void chonSVTheoLop()
         {
-            using (MemoryStream ms = new MemoryStream(data))
-            {
-                return Image.FromStream(ms);
-            }
-        }
+            var kq = (from a in db.Lop select a.TenLop);
+
+            luChonLop.Properties.DataSource = kq.ToList();
+        }      
         
         private void btnDuongDan_Click(object sender, EventArgs e)
         {
@@ -70,11 +77,46 @@ namespace QuanLyDiem
                 {
                     imgSV.Image = Image.FromFile(ofd.FileName);
                     txtFile.Text = ofd.FileName;
-                    db.SinhVienHA_Update(txtIDsvIMG.Text, ConvertImageToBytes(imgSV.Image), txtFile.Text);
+                    HinhAnh_Update();
                     XtraMessageBox.Show("Tải ảnh Sinh Viên thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmSinhVienHinhAnh_Load(sender, e);
                 }
             }
+        }
+
+        public void HinhAnh_Update()
+        {
+            SinhVien_HinhAnh SuaHA = db.SinhVien_HinhAnh.Where(a => a.SV_IMG.Equals(txtIDsvIMG.Text)).SingleOrDefault();
+            SuaHA.IMG = frmGiaoVienHinhAnh.ConvertImageToBytes(imgSV.Image);
+            SuaHA.FileIMG = txtFile.Text;
+            db.SaveChanges();
+        }
+        public void HinhAnh_Delete()
+        {
+            SinhVien_HinhAnh SuaHA = db.SinhVien_HinhAnh.Where(a => a.SV_IMG.Equals(txtIDsvIMG.Text)).SingleOrDefault();
+            SuaHA.IMG = frmGiaoVienHinhAnh.ConvertImageToBytes(imgSV.Image);
+            SuaHA.FileIMG = txtFile.Text;
+            db.SaveChanges();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            SinhVien_HinhAnh XoaHA = db.SinhVien_HinhAnh.Where(a => a.SV_IMG.Equals(txtIDsvIMG.Text)).SingleOrDefault();
+            XoaHA.FileIMG = null;
+            XoaHA.IMG = null;
+            db.SaveChanges();
+            XtraMessageBox.Show("Xóa ảnh Sinh Viên thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmLoad();
+        }
+
+        private void luChonLop_EditValueChanged(object sender, EventArgs e)
+        {
+            var kq = from a in db.Lop
+                     where a.TenLop == luChonLop.EditValue.ToString()
+                     select a.MaLop;
+
+            gcSVHA.DataSource = db.SinhVienHA_SelectByLop(kq.ToList().First());
+            addBinding();
         }
     }
 }

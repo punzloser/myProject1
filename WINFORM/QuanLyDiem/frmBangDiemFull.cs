@@ -252,22 +252,22 @@ namespace QuanLyDiem
                 worksheet.Cells[6, 11] = "Kết quả";
 
                 //vòng lặp i row - in từ hàng 0 tới số hàng hiện có
-                for (int i = 0; i < gridView1.RowCount; i++)
+                for (int i = 0; i < gridView2.RowCount; i++)
                 {
                     // vòng lặp j column in từ cột 0 tới cột hiện có
-                    for (int j = 0; j < gridView1.Columns.Count; j++)
+                    for (int j = 0; j < gridView2.Columns.Count; j++)
                     {
                         //worksheet.Cells[9, 1] = "STT" hàng 9 cột 1 
                         // bắt đầu đổ STT i 0 - vị trí row 0 + 10, cột 1 = 0 + 1 (số)  v.v...
                         worksheet.Cells[i + 7, 1] = i + 1;
 
                         // tương tự đổ dữ liệu từ gridview
-                        worksheet.Cells[i + 7, j + 2] = gridView1.GetRowCellValue(i, gridView1.Columns[j]);
+                        worksheet.Cells[i + 7, j + 2] = gridView2.GetRowCellValue(i, gridView2.Columns[j]);
                     }
                 }
                 //ExportExcelGoc();
 
-                int setViTri = gridView1.RowCount;
+                int setViTri = gridView2.RowCount;
                 worksheet.Cells[setViTri + 7, 1] = "Chú ý : _Những môn có dấu (*) sẽ không tính điểm trung bình mà chỉ là môn điều kiện";
                 worksheet.Cells[setViTri + 9, 1] = "Trung bình toàn khóa : " + lblTB.Text;
                 worksheet.Cells[setViTri + 10, 1] = "Xếp loại toàn khóa : " + lblXL.Text;

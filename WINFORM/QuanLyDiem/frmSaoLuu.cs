@@ -44,9 +44,10 @@ namespace QuanLyDiem
                 dbBackup.Database = txtDatabase.Text;
 
                 //Declare a BackupDeviceItem
+                // lưu mặc định nếu có
                 if (txtDuongDan.Text == "")
                 {
-                    BackupDeviceItem deviceItem = new BackupDeviceItem(@"C:\Test\" + @"\QLD_" + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + ".bak", DeviceType.File);
+                    BackupDeviceItem deviceItem = new BackupDeviceItem(@"C:\" + @"\QLD_" + DateTime.Today.Day + DateTime.Today.Month + DateTime.Today.Year + ".bak", DeviceType.File);
                     dbBackup.Devices.Add(deviceItem);
                 }
                 else

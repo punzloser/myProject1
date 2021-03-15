@@ -31,10 +31,10 @@ namespace QuanLyDiem
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSplashScreen));
             this.progressBarControl = new DevExpress.XtraEditors.MarqueeProgressBarControl();
-            this.labelCopyright = new DevExpress.XtraEditors.LabelControl();
             this.labelStatus = new DevExpress.XtraEditors.LabelControl();
             this.peImage = new DevExpress.XtraEditors.PictureEdit();
             this.peLogo = new DevExpress.XtraEditors.PictureEdit();
+            this.labelCopyright = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peLogo.Properties)).BeginInit();
@@ -43,21 +43,13 @@ namespace QuanLyDiem
             // progressBarControl
             // 
             this.progressBarControl.EditValue = 0;
-            this.progressBarControl.Location = new System.Drawing.Point(34, 355);
+            this.progressBarControl.Location = new System.Drawing.Point(34, 345);
             this.progressBarControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.progressBarControl.Name = "progressBarControl";
-            this.progressBarControl.Size = new System.Drawing.Size(606, 18);
+            this.progressBarControl.Properties.LookAndFeel.SkinName = "London Liquid Sky";
+            this.progressBarControl.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.progressBarControl.Size = new System.Drawing.Size(606, 28);
             this.progressBarControl.TabIndex = 5;
-            // 
-            // labelCopyright
-            // 
-            this.labelCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelCopyright.Location = new System.Drawing.Point(34, 440);
-            this.labelCopyright.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(78, 18);
-            this.labelCopyright.TabIndex = 6;
-            this.labelCopyright.Text = "Copyright";
             // 
             // labelStatus
             // 
@@ -71,7 +63,7 @@ namespace QuanLyDiem
             // peImage
             // 
             this.peImage.EditValue = ((object)(resources.GetObject("peImage.EditValue")));
-            this.peImage.Location = new System.Drawing.Point(18, 18);
+            this.peImage.Location = new System.Drawing.Point(-3, -2);
             this.peImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.peImage.Name = "peImage";
             this.peImage.Properties.AllowFocused = false;
@@ -79,32 +71,41 @@ namespace QuanLyDiem
             this.peImage.Properties.Appearance.Options.UseBackColor = true;
             this.peImage.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.peImage.Properties.ShowMenu = false;
-            this.peImage.Size = new System.Drawing.Size(639, 277);
+            this.peImage.Size = new System.Drawing.Size(681, 309);
             this.peImage.TabIndex = 9;
             // 
             // peLogo
             // 
             this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
-            this.peLogo.Location = new System.Drawing.Point(417, 409);
+            this.peLogo.Location = new System.Drawing.Point(34, 383);
             this.peLogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.peLogo.Name = "peLogo";
             this.peLogo.Properties.AllowFocused = false;
-            this.peLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.peLogo.Properties.Appearance.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.peLogo.Properties.Appearance.Options.UseBackColor = true;
             this.peLogo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.peLogo.Properties.LookAndFeel.SkinName = "Office 2010 Silver";
+            this.peLogo.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.peLogo.Properties.ShowMenu = false;
-            this.peLogo.Size = new System.Drawing.Size(240, 74);
+            this.peLogo.Size = new System.Drawing.Size(606, 49);
             this.peLogo.TabIndex = 8;
+            // 
+            // labelCopyright
+            // 
+            this.labelCopyright.Location = new System.Drawing.Point(47, 450);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(0, 18);
+            this.labelCopyright.TabIndex = 10;
             // 
             // frmSplashScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(675, 492);
+            this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.peImage);
             this.Controls.Add(this.peLogo);
             this.Controls.Add(this.labelStatus);
-            this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.progressBarControl);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmSplashScreen";
@@ -120,9 +121,9 @@ namespace QuanLyDiem
         #endregion
 
         private DevExpress.XtraEditors.MarqueeProgressBarControl progressBarControl;
-        private DevExpress.XtraEditors.LabelControl labelCopyright;
         private DevExpress.XtraEditors.LabelControl labelStatus;
         private DevExpress.XtraEditors.PictureEdit peLogo;
         private DevExpress.XtraEditors.PictureEdit peImage;
+        private DevExpress.XtraEditors.LabelControl labelCopyright;
     }
 }

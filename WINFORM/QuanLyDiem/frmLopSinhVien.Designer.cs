@@ -30,6 +30,7 @@ namespace QuanLyDiem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLopSinhVien));
             this.colNgaySinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
@@ -40,8 +41,8 @@ namespace QuanLyDiem
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
-            this.btnHuy = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHuy = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -67,6 +68,7 @@ namespace QuanLyDiem
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForMaTinhTrang = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForMaSV = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -106,6 +108,7 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMaTinhTrang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMaSV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -114,6 +117,7 @@ namespace QuanLyDiem
             // 
             // colNgaySinh
             // 
+            this.colNgaySinh.Caption = "Ngày Sinh";
             this.colNgaySinh.FieldName = "NgaySinh";
             this.colNgaySinh.MinWidth = 33;
             this.colNgaySinh.Name = "colNgaySinh";
@@ -125,9 +129,9 @@ namespace QuanLyDiem
             // 
             this.panelControl1.Controls.Add(this.dataLayoutControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 32);
+            this.panelControl1.Location = new System.Drawing.Point(0, 39);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1367, 209);
+            this.panelControl1.Size = new System.Drawing.Size(1796, 209);
             this.panelControl1.TabIndex = 0;
             // 
             // dataLayoutControl1
@@ -148,7 +152,7 @@ namespace QuanLyDiem
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(945, 0, 975, 600);
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(1363, 205);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(1792, 205);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -168,7 +172,7 @@ namespace QuanLyDiem
             this.txtMaSV.Location = new System.Drawing.Point(338, 159);
             this.txtMaSV.MenuManager = this.barManager1;
             this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.Size = new System.Drawing.Size(210, 26);
+            this.txtMaSV.Size = new System.Drawing.Size(332, 26);
             this.txtMaSV.StyleController = this.dataLayoutControl1;
             this.txtMaSV.TabIndex = 4;
             // 
@@ -201,37 +205,51 @@ namespace QuanLyDiem
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnThem),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnLuu),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnHuy),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnXoa)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnXoa),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnHuy)});
             this.bar1.Text = "Tools";
             // 
             // btnThem
             // 
             this.btnThem.Caption = "Thêm";
             this.btnThem.Id = 0;
+            this.btnThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.Image")));
+            this.btnThem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.LargeImage")));
             this.btnThem.Name = "btnThem";
+            this.btnThem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
             // btnLuu
             // 
             this.btnLuu.Caption = "Lưu";
             this.btnLuu.Id = 1;
+            this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
+            this.btnLuu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.LargeImage")));
             this.btnLuu.Name = "btnLuu";
+            this.btnLuu.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Caption = "Hủy";
-            this.btnHuy.Id = 2;
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHuy_ItemClick);
             // 
             // btnXoa
             // 
             this.btnXoa.Caption = "Xóa";
+            this.btnXoa.Enabled = false;
             this.btnXoa.Id = 3;
+            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
+            this.btnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.LargeImage")));
             this.btnXoa.Name = "btnXoa";
+            this.btnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Caption = "Hủy";
+            this.btnHuy.Enabled = false;
+            this.btnHuy.Id = 2;
+            this.btnHuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.ImageOptions.Image")));
+            this.btnHuy.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHuy.ImageOptions.LargeImage")));
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnHuy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHuy_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -239,31 +257,31 @@ namespace QuanLyDiem
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1367, 32);
+            this.barDockControlTop.Size = new System.Drawing.Size(1796, 39);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 507);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 605);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1367, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1796, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 32);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 39);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 475);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 566);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1367, 32);
+            this.barDockControlRight.Location = new System.Drawing.Point(1796, 39);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 475);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 566);
             // 
             // txtHo
             // 
@@ -271,17 +289,18 @@ namespace QuanLyDiem
             this.txtHo.Location = new System.Drawing.Point(112, 15);
             this.txtHo.MenuManager = this.barManager1;
             this.txtHo.Name = "txtHo";
-            this.txtHo.Size = new System.Drawing.Size(403, 26);
+            this.txtHo.Size = new System.Drawing.Size(566, 26);
             this.txtHo.StyleController = this.dataLayoutControl1;
             this.txtHo.TabIndex = 5;
+            this.txtHo.TextChanged += new System.EventHandler(this.txtHo_TextChanged);
             // 
             // txtTen
             // 
             this.txtTen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienBindingSource, "Ten", true));
-            this.txtTen.Location = new System.Drawing.Point(623, 15);
+            this.txtTen.Location = new System.Drawing.Point(786, 15);
             this.txtTen.MenuManager = this.barManager1;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(724, 26);
+            this.txtTen.Size = new System.Drawing.Size(990, 26);
             this.txtTen.StyleController = this.dataLayoutControl1;
             this.txtTen.TabIndex = 6;
             // 
@@ -297,7 +316,7 @@ namespace QuanLyDiem
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgaySinh.Size = new System.Drawing.Size(562, 26);
+            this.dateNgaySinh.Size = new System.Drawing.Size(776, 26);
             this.dateNgaySinh.StyleController = this.dataLayoutControl1;
             this.dateNgaySinh.TabIndex = 7;
             // 
@@ -307,7 +326,7 @@ namespace QuanLyDiem
             this.txtNoiSinh.Location = new System.Drawing.Point(112, 87);
             this.txtNoiSinh.MenuManager = this.barManager1;
             this.txtNoiSinh.Name = "txtNoiSinh";
-            this.txtNoiSinh.Size = new System.Drawing.Size(562, 26);
+            this.txtNoiSinh.Size = new System.Drawing.Size(776, 26);
             this.txtNoiSinh.StyleController = this.dataLayoutControl1;
             this.txtNoiSinh.TabIndex = 9;
             // 
@@ -315,17 +334,17 @@ namespace QuanLyDiem
             // 
             this.txtMTT.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienBindingSource, "MaTinhTrang", true));
             this.txtMTT.Enabled = false;
-            this.txtMTT.Location = new System.Drawing.Point(656, 159);
+            this.txtMTT.Location = new System.Drawing.Point(778, 159);
             this.txtMTT.MenuManager = this.barManager1;
             this.txtMTT.Name = "txtMTT";
-            this.txtMTT.Size = new System.Drawing.Size(691, 26);
+            this.txtMTT.Size = new System.Drawing.Size(998, 26);
             this.txtMTT.StyleController = this.dataLayoutControl1;
             this.txtMTT.TabIndex = 12;
             // 
             // txtGioiTinh
             // 
             this.txtGioiTinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienBindingSource, "GioiTinh", true));
-            this.txtGioiTinh.Location = new System.Drawing.Point(782, 51);
+            this.txtGioiTinh.Location = new System.Drawing.Point(996, 51);
             this.txtGioiTinh.MenuManager = this.barManager1;
             this.txtGioiTinh.Name = "txtGioiTinh";
             this.txtGioiTinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -334,14 +353,15 @@ namespace QuanLyDiem
             "Nam",
             "Nữ",
             "Khác"});
-            this.txtGioiTinh.Size = new System.Drawing.Size(565, 26);
+            this.txtGioiTinh.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.txtGioiTinh.Size = new System.Drawing.Size(780, 26);
             this.txtGioiTinh.StyleController = this.dataLayoutControl1;
             this.txtGioiTinh.TabIndex = 8;
             // 
             // txtDanToc
             // 
             this.txtDanToc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sinhVienBindingSource, "DanToc", true));
-            this.txtDanToc.Location = new System.Drawing.Point(782, 87);
+            this.txtDanToc.Location = new System.Drawing.Point(996, 87);
             this.txtDanToc.MenuManager = this.barManager1;
             this.txtDanToc.Name = "txtDanToc";
             this.txtDanToc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -351,7 +371,7 @@ namespace QuanLyDiem
             "Tày",
             "Nùng",
             "Khác"});
-            this.txtDanToc.Size = new System.Drawing.Size(565, 26);
+            this.txtDanToc.Size = new System.Drawing.Size(780, 26);
             this.txtDanToc.StyleController = this.dataLayoutControl1;
             this.txtDanToc.TabIndex = 10;
             // 
@@ -369,7 +389,7 @@ namespace QuanLyDiem
             this.luLop.Properties.DisplayMember = "TenLop";
             this.luLop.Properties.NullText = "";
             this.luLop.Properties.ValueMember = "MaLop";
-            this.luLop.Size = new System.Drawing.Size(1235, 26);
+            this.luLop.Size = new System.Drawing.Size(558, 26);
             this.luLop.StyleController = this.dataLayoutControl1;
             this.luLop.TabIndex = 11;
             // 
@@ -384,7 +404,7 @@ namespace QuanLyDiem
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1363, 205);
+            this.Root.Size = new System.Drawing.Size(1792, 205);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -401,10 +421,11 @@ namespace QuanLyDiem
             this.ItemForDanToc,
             this.layoutControlItem1,
             this.ItemForMaTinhTrang,
-            this.ItemForMaSV});
+            this.ItemForMaSV,
+            this.emptySpaceItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1343, 185);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1772, 185);
             // 
             // ItemForHoLot
             // 
@@ -412,8 +433,8 @@ namespace QuanLyDiem
             this.ItemForHoLot.Location = new System.Drawing.Point(0, 0);
             this.ItemForHoLot.Name = "ItemForHoLot";
             this.ItemForHoLot.Padding = new DevExpress.XtraLayout.Utils.Padding(17, 6, 5, 5);
-            this.ItemForHoLot.Size = new System.Drawing.Size(511, 36);
-            this.ItemForHoLot.Text = "Ho Lot";
+            this.ItemForHoLot.Size = new System.Drawing.Size(674, 36);
+            this.ItemForHoLot.Text = "Họ Lót";
             this.ItemForHoLot.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForNgaySinh
@@ -422,8 +443,8 @@ namespace QuanLyDiem
             this.ItemForNgaySinh.Location = new System.Drawing.Point(0, 36);
             this.ItemForNgaySinh.Name = "ItemForNgaySinh";
             this.ItemForNgaySinh.Padding = new DevExpress.XtraLayout.Utils.Padding(17, 6, 5, 5);
-            this.ItemForNgaySinh.Size = new System.Drawing.Size(670, 36);
-            this.ItemForNgaySinh.Text = "Ngay Sinh";
+            this.ItemForNgaySinh.Size = new System.Drawing.Size(884, 36);
+            this.ItemForNgaySinh.Text = "Ngày Sinh";
             this.ItemForNgaySinh.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForNoiSinh
@@ -432,8 +453,8 @@ namespace QuanLyDiem
             this.ItemForNoiSinh.Location = new System.Drawing.Point(0, 72);
             this.ItemForNoiSinh.Name = "ItemForNoiSinh";
             this.ItemForNoiSinh.Padding = new DevExpress.XtraLayout.Utils.Padding(17, 6, 5, 5);
-            this.ItemForNoiSinh.Size = new System.Drawing.Size(670, 36);
-            this.ItemForNoiSinh.Text = "Noi Sinh";
+            this.ItemForNoiSinh.Size = new System.Drawing.Size(884, 36);
+            this.ItemForNoiSinh.Text = "Nơi Sinh";
             this.ItemForNoiSinh.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForMaLop
@@ -442,38 +463,40 @@ namespace QuanLyDiem
             this.ItemForMaLop.Location = new System.Drawing.Point(0, 108);
             this.ItemForMaLop.Name = "ItemForMaLop";
             this.ItemForMaLop.Padding = new DevExpress.XtraLayout.Utils.Padding(17, 6, 5, 5);
-            this.ItemForMaLop.Size = new System.Drawing.Size(1343, 36);
-            this.ItemForMaLop.Text = "Chọn lớp";
+            this.ItemForMaLop.Size = new System.Drawing.Size(666, 36);
+            this.ItemForMaLop.Text = "Chọn Lớp";
             this.ItemForMaLop.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForTen
             // 
+            this.ItemForTen.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForTen.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForTen.Control = this.txtTen;
-            this.ItemForTen.Location = new System.Drawing.Point(511, 0);
+            this.ItemForTen.Location = new System.Drawing.Point(674, 0);
             this.ItemForTen.Name = "ItemForTen";
             this.ItemForTen.Padding = new DevExpress.XtraLayout.Utils.Padding(17, 6, 5, 5);
-            this.ItemForTen.Size = new System.Drawing.Size(832, 36);
-            this.ItemForTen.Text = "Ten";
+            this.ItemForTen.Size = new System.Drawing.Size(1098, 36);
+            this.ItemForTen.Text = "Tên";
             this.ItemForTen.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForGioiTinh
             // 
             this.ItemForGioiTinh.Control = this.txtGioiTinh;
-            this.ItemForGioiTinh.Location = new System.Drawing.Point(670, 36);
+            this.ItemForGioiTinh.Location = new System.Drawing.Point(884, 36);
             this.ItemForGioiTinh.Name = "ItemForGioiTinh";
             this.ItemForGioiTinh.Padding = new DevExpress.XtraLayout.Utils.Padding(17, 6, 5, 5);
-            this.ItemForGioiTinh.Size = new System.Drawing.Size(673, 36);
-            this.ItemForGioiTinh.Text = "Gioi Tinh";
+            this.ItemForGioiTinh.Size = new System.Drawing.Size(888, 36);
+            this.ItemForGioiTinh.Text = "Giới Tính";
             this.ItemForGioiTinh.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForDanToc
             // 
             this.ItemForDanToc.Control = this.txtDanToc;
-            this.ItemForDanToc.Location = new System.Drawing.Point(670, 72);
+            this.ItemForDanToc.Location = new System.Drawing.Point(884, 72);
             this.ItemForDanToc.Name = "ItemForDanToc";
             this.ItemForDanToc.Padding = new DevExpress.XtraLayout.Utils.Padding(17, 6, 5, 5);
-            this.ItemForDanToc.Size = new System.Drawing.Size(673, 36);
-            this.ItemForDanToc.Text = "Dan Toc";
+            this.ItemForDanToc.Size = new System.Drawing.Size(888, 36);
+            this.ItemForDanToc.Text = "Dân Tộc";
             this.ItemForDanToc.TextSize = new System.Drawing.Size(82, 18);
             // 
             // layoutControlItem1
@@ -489,10 +512,10 @@ namespace QuanLyDiem
             // ItemForMaTinhTrang
             // 
             this.ItemForMaTinhTrang.Control = this.txtMTT;
-            this.ItemForMaTinhTrang.Location = new System.Drawing.Point(544, 144);
+            this.ItemForMaTinhTrang.Location = new System.Drawing.Point(666, 144);
             this.ItemForMaTinhTrang.Name = "ItemForMaTinhTrang";
             this.ItemForMaTinhTrang.Padding = new DevExpress.XtraLayout.Utils.Padding(17, 6, 5, 5);
-            this.ItemForMaTinhTrang.Size = new System.Drawing.Size(799, 41);
+            this.ItemForMaTinhTrang.Size = new System.Drawing.Size(1106, 41);
             this.ItemForMaTinhTrang.Text = "Mã TT";
             this.ItemForMaTinhTrang.TextSize = new System.Drawing.Size(82, 18);
             // 
@@ -502,17 +525,25 @@ namespace QuanLyDiem
             this.ItemForMaSV.Location = new System.Drawing.Point(226, 144);
             this.ItemForMaSV.Name = "ItemForMaSV";
             this.ItemForMaSV.Padding = new DevExpress.XtraLayout.Utils.Padding(17, 6, 5, 5);
-            this.ItemForMaSV.Size = new System.Drawing.Size(318, 41);
-            this.ItemForMaSV.Text = "Ma SV";
+            this.ItemForMaSV.Size = new System.Drawing.Size(440, 41);
+            this.ItemForMaSV.Text = "Mã SV";
             this.ItemForMaSV.TextSize = new System.Drawing.Size(82, 18);
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(666, 108);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1106, 36);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.gridControl1);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 241);
+            this.panelControl2.Location = new System.Drawing.Point(0, 248);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1367, 266);
+            this.panelControl2.Size = new System.Drawing.Size(1796, 357);
             this.panelControl2.TabIndex = 5;
             // 
             // gridControl1
@@ -523,7 +554,7 @@ namespace QuanLyDiem
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1363, 262);
+            this.gridControl1.Size = new System.Drawing.Size(1792, 353);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -532,6 +563,8 @@ namespace QuanLyDiem
             // 
             this.gridView1.Appearance.EvenRow.Options.UseTextOptions = true;
             this.gridView1.Appearance.EvenRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView1.Appearance.GroupPanel.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.GroupPanel.Options.UseFont = true;
             this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
             this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView1.Appearance.Row.Options.UseTextOptions = true;
@@ -547,12 +580,14 @@ namespace QuanLyDiem
             this.colMaTinhTrang});
             this.gridView1.DetailHeight = 332;
             this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GroupPanelText = "LỚP - SINH VIÊN";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditFormInplaceHideCurrentRow;
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
             // 
             // colHoLot
             // 
+            this.colHoLot.Caption = "Họ Lót";
             this.colHoLot.FieldName = "HoLot";
             this.colHoLot.MinWidth = 33;
             this.colHoLot.Name = "colHoLot";
@@ -564,6 +599,7 @@ namespace QuanLyDiem
             // 
             this.colTen.AppearanceCell.Options.UseTextOptions = true;
             this.colTen.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTen.Caption = "Tên";
             this.colTen.FieldName = "Ten";
             this.colTen.MinWidth = 33;
             this.colTen.Name = "colTen";
@@ -573,6 +609,7 @@ namespace QuanLyDiem
             // 
             // colGioiTinh
             // 
+            this.colGioiTinh.Caption = "Giới Tính";
             this.colGioiTinh.FieldName = "GioiTinh";
             this.colGioiTinh.MinWidth = 33;
             this.colGioiTinh.Name = "colGioiTinh";
@@ -582,6 +619,7 @@ namespace QuanLyDiem
             // 
             // colNoiSinh
             // 
+            this.colNoiSinh.Caption = "Nơi Sinh";
             this.colNoiSinh.FieldName = "NoiSinh";
             this.colNoiSinh.MinWidth = 33;
             this.colNoiSinh.Name = "colNoiSinh";
@@ -591,6 +629,7 @@ namespace QuanLyDiem
             // 
             // colDanToc
             // 
+            this.colDanToc.Caption = "Dân Tộc";
             this.colDanToc.FieldName = "DanToc";
             this.colDanToc.MinWidth = 33;
             this.colDanToc.Name = "colDanToc";
@@ -622,7 +661,7 @@ namespace QuanLyDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1367, 507);
+            this.ClientSize = new System.Drawing.Size(1796, 605);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -661,6 +700,7 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMaTinhTrang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMaSV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -719,5 +759,6 @@ namespace QuanLyDiem
         private DevExpress.XtraGrid.Columns.GridColumn colDanToc;
         private DevExpress.XtraGrid.Columns.GridColumn colMaLop;
         private DevExpress.XtraGrid.Columns.GridColumn colMaTinhTrang;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }

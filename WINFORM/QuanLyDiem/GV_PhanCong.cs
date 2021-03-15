@@ -19,6 +19,7 @@ namespace QuanLyDiem
         public string MaLop { get; set; }
         public Nullable<System.DateTime> NgayBD { get; set; }
         public Nullable<System.DateTime> NgayKT { get; set; }
+        public byte ID { get; set; }
     
         public virtual GiaoVien GiaoVien { get; set; }
         public virtual Lop Lop { get; set; }

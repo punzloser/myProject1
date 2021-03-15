@@ -54,6 +54,7 @@
     <NavigationProperty Name="GiaoVien" Relationship="Self.FK__GV_PhanCo__MaLop__4F47C5E3" FromRole="GV_PhanCong" ToRole="GiaoVien" />
     <NavigationProperty Name="Lop" Relationship="Self.FK__GV_PhanCo__MaLop__51300E55" FromRole="GV_PhanCong" ToRole="Lop" />
     <NavigationProperty Name="MonHP" Relationship="Self.FK__GV_PhanCo__MaMon__503BEA1C" FromRole="GV_PhanCong" ToRole="MonHP" />
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="GiaoVien">
     <Key>
@@ -76,7 +77,7 @@
       <PropertyRef Name="GV_IMG" />
     </Key>
     <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="GV_IMG" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="GV_IMG" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="MaGV" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
     <Property Name="FileIMG2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -162,7 +163,7 @@
       <PropertyRef Name="UserName" />
     </Key>
     <Property Name="UserName" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="FullName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ChucNang_TaiKhoan" Relationship="Self.FK__ChucNang_Ta__Cam__2BC97F7C" FromRole="TaiKhoan" ToRole="ChucNang_TaiKhoan" />
   </EntityType>
@@ -189,7 +190,9 @@
     <Property Name="ChuyenNganh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <Association Name="FK__ChucNang_T__Menu__2CBDA3B5">
-    <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1" />
+    <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ChucNang">
@@ -201,7 +204,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__ChucNang_Ta__Cam__2BC97F7C">
-    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TaiKhoan">
@@ -455,17 +460,10 @@
       <Parameter Name="MaSV" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="DiemHPUpdate">
-      <Parameter Name="MaSV" Mode="In" Type="String" />
-      <Parameter Name="MaMonHP" Mode="In" Type="String" />
       <Parameter Name="ChuyenCan" Mode="In" Type="Double" />
       <Parameter Name="GiuaKi" Mode="In" Type="Double" />
       <Parameter Name="DiemLan1" Mode="In" Type="Double" />
-      <Parameter Name="GhiChu" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="DiemLan1Update">
-      <Parameter Name="ChuyenCan" Mode="In" Type="Double" />
-      <Parameter Name="GiuaKi" Mode="In" Type="Double" />
-      <Parameter Name="DiemLan1" Mode="In" Type="Double" />
+      <Parameter Name="DiemLan2" Mode="In" Type="Double" />
       <Parameter Name="MaSV" Mode="In" Type="String" />
       <Parameter Name="MaMonHP" Mode="In" Type="String" />
     </FunctionImport>
@@ -491,6 +489,7 @@
       <Parameter Name="NgayKT" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="GVPhanCong_Update">
+      <Parameter Name="ID" Mode="In" Type="Byte" />
       <Parameter Name="TenGV" Mode="In" Type="String" />
       <Parameter Name="TenMonHP" Mode="In" Type="String" />
       <Parameter Name="TenLop" Mode="In" Type="String" />
@@ -642,6 +641,9 @@
     <FunctionImport Name="TinhTrangUpdate">
       <Parameter Name="MaTinhTrang" Mode="In" Type="String" />
       <Parameter Name="TinhTrang" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="MonHPSelectByGVPhanCong" ReturnType="Collection(QuanLiDiemModel.MonHPSelectByGVPhanCong_Result)">
+      <Parameter Name="MaHK" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="BangDiemHP_Result">
@@ -814,5 +816,19 @@
     <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="4" />
     <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="30" />
     <Property Type="String" Name="DanToc" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="MonHPSelectByGVPhanCong_Result">
+    <Property Type="Int16" Name="ID" Nullable="false" />
+    <Property Type="String" Name="MaMonHP" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="TenMonHP" Nullable="true" MaxLength="50" />
+    <Property Type="Byte" Name="SoTin" Nullable="true" />
+    <Property Type="Byte" Name="TietLT" Nullable="true" />
+    <Property Type="Byte" Name="TietTH" Nullable="true" />
+    <Property Type="String" Name="MaHK" Nullable="true" MaxLength="6" />
+    <Property Type="String" Name="MaGV" Nullable="false" MaxLength="6" />
+    <Property Type="String" Name="MaMonHP1" Nullable="false" MaxLength="6" />
+    <Property Type="String" Name="MaLop" Nullable="false" MaxLength="6" />
+    <Property Type="DateTime" Name="NgayBD" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="NgayKT" Nullable="true" Precision="23" />
   </ComplexType>
 </Schema>

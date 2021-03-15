@@ -46,6 +46,7 @@
     <Property Name="MaLop" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="NgayBD" Type="datetime" />
     <Property Name="NgayKT" Type="datetime" />
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="GiaoVien">
     <Key>
@@ -66,7 +67,7 @@
       <PropertyRef Name="GV_IMG" />
     </Key>
     <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="GV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="GV_IMG" Type="varchar" MaxLength="8" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IMG" Type="varbinary(max)" />
     <Property Name="MaGV" Type="varchar" MaxLength="6" />
     <Property Name="FileIMG2" Type="nvarchar" MaxLength="100" />
@@ -138,7 +139,7 @@
       <PropertyRef Name="UserName" />
     </Key>
     <Property Name="UserName" Type="varchar" MaxLength="6" Nullable="false" />
-    <Property Name="Pass" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pass" Type="nvarchar" MaxLength="100" />
     <Property Name="FullName" Type="nvarchar" MaxLength="40" />
   </EntityType>
   <EntityType Name="TinhTrang">
@@ -163,7 +164,9 @@
     <Property Name="ChuyenNganh" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK__ChucNang_T__Menu__2CBDA3B5">
-    <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1" />
+    <End Role="ChucNang" Type="Self.ChucNang" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ChucNang">
@@ -175,7 +178,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__ChucNang_Ta__Cam__2BC97F7C">
-    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1" />
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="ChucNang_TaiKhoan" Type="Self.ChucNang_TaiKhoan" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TaiKhoan">
@@ -361,17 +366,10 @@
     <Parameter Name="MaSV" Type="varchar" Mode="In" />
   </Function>
   <Function Name="DiemHPUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="MaSV" Type="varchar" Mode="In" />
-    <Parameter Name="MaMonHP" Type="varchar" Mode="In" />
     <Parameter Name="ChuyenCan" Type="float" Mode="In" />
     <Parameter Name="GiuaKi" Type="float" Mode="In" />
     <Parameter Name="DiemLan1" Type="float" Mode="In" />
-    <Parameter Name="GhiChu" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="DiemLan1Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ChuyenCan" Type="float" Mode="In" />
-    <Parameter Name="GiuaKi" Type="float" Mode="In" />
-    <Parameter Name="DiemLan1" Type="float" Mode="In" />
+    <Parameter Name="DiemLan2" Type="float" Mode="In" />
     <Parameter Name="MaSV" Type="varchar" Mode="In" />
     <Parameter Name="MaMonHP" Type="varchar" Mode="In" />
   </Function>
@@ -397,6 +395,7 @@
     <Parameter Name="NgayKT" Type="datetime" Mode="In" />
   </Function>
   <Function Name="GVPhanCong_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="tinyint" Mode="In" />
     <Parameter Name="TenGV" Type="nvarchar" Mode="In" />
     <Parameter Name="TenMonHP" Type="nvarchar" Mode="In" />
     <Parameter Name="TenLop" Type="char" Mode="In" />
@@ -457,6 +456,9 @@
     <Parameter Name="MaMonHP" Type="varchar" Mode="In" />
   </Function>
   <Function Name="MonHPSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="MonHPSelectByGVPhanCong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaHK" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="MonHPSelectBySV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="MaSV" Type="varchar" Mode="In" />
   </Function>

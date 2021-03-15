@@ -255,6 +255,7 @@ namespace QuanLyDiem
             this.md020101.Id = 12;
             this.md020101.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("md020101.ImageOptions.Image")));
             this.md020101.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("md020101.ImageOptions.LargeImage")));
+            this.md020101.LargeWidth = 100;
             this.md020101.Name = "md020101";
             this.md020101.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.md020101_ItemClick);
             // 
@@ -264,6 +265,7 @@ namespace QuanLyDiem
             this.md020102.Id = 13;
             this.md020102.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("md020102.ImageOptions.Image")));
             this.md020102.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("md020102.ImageOptions.LargeImage")));
+            this.md020102.LargeWidth = 100;
             this.md020102.Name = "md020102";
             this.md020102.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.md020102_ItemClick);
             // 
@@ -370,7 +372,9 @@ namespace QuanLyDiem
             this.md050201.Id = 25;
             this.md050201.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("md050201.ImageOptions.Image")));
             this.md050201.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("md050201.ImageOptions.LargeImage")));
+            this.md050201.LargeWidth = 100;
             this.md050201.Name = "md050201";
+            this.md050201.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.md050201_ItemClick);
             // 
             // md010301
             // 
@@ -401,7 +405,7 @@ namespace QuanLyDiem
             // 
             // md010302
             // 
-            this.md010302.Caption = "LỊCH SỬ HIỆU CHỈNH";
+            this.md010302.Caption = "LỊCH SỬ CHỈNH SỬA";
             this.md010302.Id = 29;
             this.md010302.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("md010302.ImageOptions.Image")));
             this.md010302.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("md010302.ImageOptions.LargeImage")));

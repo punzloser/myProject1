@@ -52,6 +52,7 @@ namespace QuanLyDiem
             this.colSoTin = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDiemHe4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.luHK = new DevExpress.XtraEditors.LookUpEdit();
             this.lbTenSV = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gcXemDiem = new DevExpress.XtraGrid.GridControl();
@@ -63,6 +64,7 @@ namespace QuanLyDiem
             this.colDiemChu = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.luHK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcXemDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -97,7 +99,7 @@ namespace QuanLyDiem
             this.colKQ.OptionsColumn.AllowSize = false;
             this.colKQ.Visible = true;
             this.colKQ.VisibleIndex = 9;
-            this.colKQ.Width = 112;
+            this.colKQ.Width = 176;
             // 
             // colChuyenCan
             // 
@@ -118,7 +120,7 @@ namespace QuanLyDiem
             this.colChuyenCan.OptionsColumn.AllowSize = false;
             this.colChuyenCan.Visible = true;
             this.colChuyenCan.VisibleIndex = 3;
-            this.colChuyenCan.Width = 95;
+            this.colChuyenCan.Width = 137;
             // 
             // colDiemHP
             // 
@@ -139,7 +141,7 @@ namespace QuanLyDiem
             this.colDiemHP.OptionsColumn.AllowSize = false;
             this.colDiemHP.Visible = true;
             this.colDiemHP.VisibleIndex = 6;
-            this.colDiemHP.Width = 92;
+            this.colDiemHP.Width = 133;
             // 
             // colSoTin
             // 
@@ -158,7 +160,7 @@ namespace QuanLyDiem
             this.colSoTin.OptionsColumn.AllowSize = false;
             this.colSoTin.Visible = true;
             this.colSoTin.VisibleIndex = 2;
-            this.colSoTin.Width = 92;
+            this.colSoTin.Width = 133;
             // 
             // colDiemHe4
             // 
@@ -179,17 +181,35 @@ namespace QuanLyDiem
             this.colDiemHe4.OptionsColumn.AllowSize = false;
             this.colDiemHe4.Visible = true;
             this.colDiemHe4.VisibleIndex = 8;
-            this.colDiemHe4.Width = 92;
+            this.colDiemHe4.Width = 133;
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.luHK);
             this.panelControl1.Controls.Add(this.lbTenSV);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1248, 63);
+            this.panelControl1.Size = new System.Drawing.Size(1796, 63);
             this.panelControl1.TabIndex = 0;
+            // 
+            // luHK
+            // 
+            this.luHK.Location = new System.Drawing.Point(1005, 20);
+            this.luHK.Name = "luHK";
+            this.luHK.Properties.Appearance.Options.UseTextOptions = true;
+            this.luHK.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.luHK.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.luHK.Properties.AppearanceFocused.Options.UseForeColor = true;
+            this.luHK.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luHK.Properties.LookAndFeel.SkinName = "Caramel";
+            this.luHK.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.luHK.Properties.NullText = "[Chọn HK]";
+            this.luHK.Size = new System.Drawing.Size(216, 27);
+            this.luHK.TabIndex = 1;
+            this.luHK.EditValueChanged += new System.EventHandler(this.luHK_EditValueChanged);
             // 
             // lbTenSV
             // 
@@ -219,13 +239,15 @@ namespace QuanLyDiem
             this.gcXemDiem.Location = new System.Drawing.Point(0, 63);
             this.gcXemDiem.MainView = this.gridView1;
             this.gcXemDiem.Name = "gcXemDiem";
-            this.gcXemDiem.Size = new System.Drawing.Size(1248, 440);
+            this.gcXemDiem.Size = new System.Drawing.Size(1796, 542);
             this.gcXemDiem.TabIndex = 7;
             this.gcXemDiem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.GroupPanel.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold);
+            this.gridView1.Appearance.GroupPanel.Options.UseFont = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaMonHP,
             this.colTenMonHP,
@@ -333,6 +355,7 @@ namespace QuanLyDiem
             this.gridView1.FormatRules.Add(gridFormatRule2);
             this.gridView1.FormatRules.Add(gridFormatRule3);
             this.gridView1.GridControl = this.gcXemDiem;
+            this.gridView1.GroupPanelText = "XEM ĐIỂM";
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsMenu.EnableGroupRowMenu = true;
             this.gridView1.OptionsMenu.ShowConditionalFormattingItem = true;
@@ -354,7 +377,7 @@ namespace QuanLyDiem
             this.colMaMonHP.OptionsColumn.AllowSize = false;
             this.colMaMonHP.Visible = true;
             this.colMaMonHP.VisibleIndex = 0;
-            this.colMaMonHP.Width = 120;
+            this.colMaMonHP.Width = 164;
             // 
             // colTenMonHP
             // 
@@ -373,7 +396,7 @@ namespace QuanLyDiem
             this.colTenMonHP.OptionsColumn.AllowSize = false;
             this.colTenMonHP.Visible = true;
             this.colTenMonHP.VisibleIndex = 1;
-            this.colTenMonHP.Width = 333;
+            this.colTenMonHP.Width = 485;
             // 
             // colGiuaKy
             // 
@@ -394,7 +417,7 @@ namespace QuanLyDiem
             this.colGiuaKy.OptionsColumn.AllowSize = false;
             this.colGiuaKy.Visible = true;
             this.colGiuaKy.VisibleIndex = 4;
-            this.colGiuaKy.Width = 92;
+            this.colGiuaKy.Width = 133;
             // 
             // colCuoiKy
             // 
@@ -415,7 +438,7 @@ namespace QuanLyDiem
             this.colCuoiKy.OptionsColumn.AllowSize = false;
             this.colCuoiKy.Visible = true;
             this.colCuoiKy.VisibleIndex = 5;
-            this.colCuoiKy.Width = 92;
+            this.colCuoiKy.Width = 133;
             // 
             // colDiemChu
             // 
@@ -438,13 +461,13 @@ namespace QuanLyDiem
             this.colDiemChu.OptionsColumn.AllowSize = false;
             this.colDiemChu.Visible = true;
             this.colDiemChu.VisibleIndex = 7;
-            this.colDiemChu.Width = 92;
+            this.colDiemChu.Width = 133;
             // 
             // frmSV_XemDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 503);
+            this.ClientSize = new System.Drawing.Size(1796, 605);
             this.Controls.Add(this.gcXemDiem);
             this.Controls.Add(this.panelControl1);
             this.Name = "frmSV_XemDiem";
@@ -452,6 +475,7 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.luHK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcXemDiem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
@@ -476,5 +500,6 @@ namespace QuanLyDiem
         private DevExpress.XtraGrid.Columns.GridColumn colKQ;
         private DevExpress.XtraGrid.Columns.GridColumn colCuoiKy;
         private DevExpress.XtraGrid.Columns.GridColumn colCheckKQ;
+        private DevExpress.XtraEditors.LookUpEdit luHK;
     }
 }

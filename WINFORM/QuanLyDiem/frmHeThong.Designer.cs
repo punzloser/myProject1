@@ -95,7 +95,7 @@ namespace QuanLyDiem
             this.panelControl1.LookAndFeel.SkinName = "Blue";
             this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1196, 522);
+            this.panelControl1.Size = new System.Drawing.Size(1796, 605);
             this.panelControl1.TabIndex = 0;
             // 
             // circularLabel1
@@ -106,7 +106,7 @@ namespace QuanLyDiem
             this.circularLabel1.Appearance.Options.UseBackColor = true;
             this.circularLabel1.Appearance.Options.UseFont = true;
             this.circularLabel1.Appearance.Options.UseForeColor = true;
-            this.circularLabel1.Location = new System.Drawing.Point(56, 36);
+            this.circularLabel1.Location = new System.Drawing.Point(56, 23);
             this.circularLabel1.Name = "circularLabel1";
             this.circularLabel1.Padding = new System.Windows.Forms.Padding(5);
             this.circularLabel1.Size = new System.Drawing.Size(344, 32);
@@ -267,62 +267,74 @@ namespace QuanLyDiem
             // 
             // ItemForTinh
             // 
+            this.ItemForTinh.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForTinh.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForTinh.Control = this.txtTinh;
             this.ItemForTinh.Location = new System.Drawing.Point(0, 0);
             this.ItemForTinh.Name = "ItemForTinh";
             this.ItemForTinh.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
             this.ItemForTinh.Size = new System.Drawing.Size(509, 39);
-            this.ItemForTinh.Text = "Tinh";
+            this.ItemForTinh.Text = "Tỉnh";
             this.ItemForTinh.TextSize = new System.Drawing.Size(140, 18);
             // 
             // ItemForDonViChuQuan
             // 
+            this.ItemForDonViChuQuan.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForDonViChuQuan.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForDonViChuQuan.Control = this.txtDonVi;
             this.ItemForDonViChuQuan.Location = new System.Drawing.Point(0, 39);
             this.ItemForDonViChuQuan.Name = "ItemForDonViChuQuan";
             this.ItemForDonViChuQuan.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
             this.ItemForDonViChuQuan.Size = new System.Drawing.Size(790, 39);
-            this.ItemForDonViChuQuan.Text = "Don Vi Chu Quan";
+            this.ItemForDonViChuQuan.Text = "Đơn Vị Chủ Quản";
             this.ItemForDonViChuQuan.TextSize = new System.Drawing.Size(140, 18);
             // 
             // ItemForTenTruong
             // 
+            this.ItemForTenTruong.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForTenTruong.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForTenTruong.Control = this.txtTenTruong;
             this.ItemForTenTruong.Location = new System.Drawing.Point(0, 78);
             this.ItemForTenTruong.Name = "ItemForTenTruong";
             this.ItemForTenTruong.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
             this.ItemForTenTruong.Size = new System.Drawing.Size(790, 39);
-            this.ItemForTenTruong.Text = "Ten Truong";
+            this.ItemForTenTruong.Text = "Tên Trường";
             this.ItemForTenTruong.TextSize = new System.Drawing.Size(140, 18);
             // 
             // ItemForKhoaHoc
             // 
+            this.ItemForKhoaHoc.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForKhoaHoc.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForKhoaHoc.Control = this.txtKhoaHoc;
             this.ItemForKhoaHoc.Location = new System.Drawing.Point(0, 117);
             this.ItemForKhoaHoc.Name = "ItemForKhoaHoc";
             this.ItemForKhoaHoc.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
             this.ItemForKhoaHoc.Size = new System.Drawing.Size(790, 39);
-            this.ItemForKhoaHoc.Text = "Khoa Hoc";
+            this.ItemForKhoaHoc.Text = "Khóa Học";
             this.ItemForKhoaHoc.TextSize = new System.Drawing.Size(140, 18);
             // 
             // ItemForNganhHoc
             // 
+            this.ItemForNganhHoc.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForNganhHoc.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForNganhHoc.Control = this.txtNganh;
             this.ItemForNganhHoc.Location = new System.Drawing.Point(0, 156);
             this.ItemForNganhHoc.Name = "ItemForNganhHoc";
             this.ItemForNganhHoc.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
             this.ItemForNganhHoc.Size = new System.Drawing.Size(790, 39);
-            this.ItemForNganhHoc.Text = "Nganh Hoc";
+            this.ItemForNganhHoc.Text = "Ngành Học";
             this.ItemForNganhHoc.TextSize = new System.Drawing.Size(140, 18);
             // 
             // ItemForChuyenNganh
             // 
+            this.ItemForChuyenNganh.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForChuyenNganh.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForChuyenNganh.Control = this.txtChuyenNganh;
             this.ItemForChuyenNganh.Location = new System.Drawing.Point(0, 195);
             this.ItemForChuyenNganh.Name = "ItemForChuyenNganh";
             this.ItemForChuyenNganh.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
             this.ItemForChuyenNganh.Size = new System.Drawing.Size(790, 39);
-            this.ItemForChuyenNganh.Text = "Chuyen Nganh";
+            this.ItemForChuyenNganh.Text = "Chuyên Ngành";
             this.ItemForChuyenNganh.TextSize = new System.Drawing.Size(140, 18);
             // 
             // emptySpaceItem1
@@ -344,19 +356,21 @@ namespace QuanLyDiem
             // 
             // ItemForMaThongTin
             // 
+            this.ItemForMaThongTin.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForMaThongTin.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForMaThongTin.Control = this.txtMTT;
             this.ItemForMaThongTin.Location = new System.Drawing.Point(509, 0);
             this.ItemForMaThongTin.Name = "ItemForMaThongTin";
             this.ItemForMaThongTin.Padding = new DevExpress.XtraLayout.Utils.Padding(6, 6, 6, 6);
             this.ItemForMaThongTin.Size = new System.Drawing.Size(281, 39);
-            this.ItemForMaThongTin.Text = "Ma Thong Tin";
+            this.ItemForMaThongTin.Text = "Mã Thông Tin";
             this.ItemForMaThongTin.TextSize = new System.Drawing.Size(140, 18);
             // 
             // frmHeThong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1196, 522);
+            this.ClientSize = new System.Drawing.Size(1796, 605);
             this.Controls.Add(this.panelControl1);
             this.Name = "frmHeThong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

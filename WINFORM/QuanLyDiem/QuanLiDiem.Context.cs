@@ -137,36 +137,7 @@ namespace QuanLyDiem
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DiemHPSearch_Result>("DiemHPSearch", maMonHPParameter, maSVParameter);
         }
     
-        public virtual int DiemHPUpdate(string maSV, string maMonHP, Nullable<double> chuyenCan, Nullable<double> giuaKi, Nullable<double> diemLan1, string ghiChu)
-        {
-            var maSVParameter = maSV != null ?
-                new ObjectParameter("MaSV", maSV) :
-                new ObjectParameter("MaSV", typeof(string));
-    
-            var maMonHPParameter = maMonHP != null ?
-                new ObjectParameter("MaMonHP", maMonHP) :
-                new ObjectParameter("MaMonHP", typeof(string));
-    
-            var chuyenCanParameter = chuyenCan.HasValue ?
-                new ObjectParameter("ChuyenCan", chuyenCan) :
-                new ObjectParameter("ChuyenCan", typeof(double));
-    
-            var giuaKiParameter = giuaKi.HasValue ?
-                new ObjectParameter("GiuaKi", giuaKi) :
-                new ObjectParameter("GiuaKi", typeof(double));
-    
-            var diemLan1Parameter = diemLan1.HasValue ?
-                new ObjectParameter("DiemLan1", diemLan1) :
-                new ObjectParameter("DiemLan1", typeof(double));
-    
-            var ghiChuParameter = ghiChu != null ?
-                new ObjectParameter("GhiChu", ghiChu) :
-                new ObjectParameter("GhiChu", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DiemHPUpdate", maSVParameter, maMonHPParameter, chuyenCanParameter, giuaKiParameter, diemLan1Parameter, ghiChuParameter);
-        }
-    
-        public virtual int DiemLan1Update(Nullable<double> chuyenCan, Nullable<double> giuaKi, Nullable<double> diemLan1, string maSV, string maMonHP)
+        public virtual int DiemHPUpdate(Nullable<double> chuyenCan, Nullable<double> giuaKi, Nullable<double> diemLan1, Nullable<double> diemLan2, string maSV, string maMonHP)
         {
             var chuyenCanParameter = chuyenCan.HasValue ?
                 new ObjectParameter("ChuyenCan", chuyenCan) :
@@ -180,6 +151,10 @@ namespace QuanLyDiem
                 new ObjectParameter("DiemLan1", diemLan1) :
                 new ObjectParameter("DiemLan1", typeof(double));
     
+            var diemLan2Parameter = diemLan2.HasValue ?
+                new ObjectParameter("DiemLan2", diemLan2) :
+                new ObjectParameter("DiemLan2", typeof(double));
+    
             var maSVParameter = maSV != null ?
                 new ObjectParameter("MaSV", maSV) :
                 new ObjectParameter("MaSV", typeof(string));
@@ -188,7 +163,7 @@ namespace QuanLyDiem
                 new ObjectParameter("MaMonHP", maMonHP) :
                 new ObjectParameter("MaMonHP", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DiemLan1Update", chuyenCanParameter, giuaKiParameter, diemLan1Parameter, maSVParameter, maMonHPParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DiemHPUpdate", chuyenCanParameter, giuaKiParameter, diemLan1Parameter, diemLan2Parameter, maSVParameter, maMonHPParameter);
         }
     
         public virtual ObjectResult<GiaoVienHA_SelectALL_Result> GiaoVienHA_SelectALL()
@@ -264,8 +239,12 @@ namespace QuanLyDiem
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Insert", tenGVParameter, tenMonHPParameter, tenLopParameter, ngayBDParameter, ngayKTParameter);
         }
     
-        public virtual int GVPhanCong_Update(string tenGV, string tenMonHP, string tenLop, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT)
+        public virtual int GVPhanCong_Update(Nullable<byte> iD, string tenGV, string tenMonHP, string tenLop, Nullable<System.DateTime> ngayBD, Nullable<System.DateTime> ngayKT)
         {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(byte));
+    
             var tenGVParameter = tenGV != null ?
                 new ObjectParameter("TenGV", tenGV) :
                 new ObjectParameter("TenGV", typeof(string));
@@ -286,7 +265,7 @@ namespace QuanLyDiem
                 new ObjectParameter("NgayKT", ngayKT) :
                 new ObjectParameter("NgayKT", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Update", tenGVParameter, tenMonHPParameter, tenLopParameter, ngayBDParameter, ngayKTParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GVPhanCong_Update", iDParameter, tenGVParameter, tenMonHPParameter, tenLopParameter, ngayBDParameter, ngayKTParameter);
         }
     
         public virtual int HeDaoTaoDelete(string maHe)
@@ -786,6 +765,15 @@ namespace QuanLyDiem
                 new ObjectParameter("TinhTrang", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TinhTrangUpdate", maTinhTrangParameter, tinhTrangParameter);
+        }
+    
+        public virtual ObjectResult<MonHPSelectByGVPhanCong_Result> MonHPSelectByGVPhanCong(string maHK)
+        {
+            var maHKParameter = maHK != null ?
+                new ObjectParameter("MaHK", maHK) :
+                new ObjectParameter("MaHK", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MonHPSelectByGVPhanCong_Result>("MonHPSelectByGVPhanCong", maHKParameter);
         }
     }
 }

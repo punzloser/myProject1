@@ -7,7 +7,7 @@ CREATE TABLE TaiKhoan
 (
 		UserName VARCHAR(6) PRIMARY KEY,
 		FullName NVARCHAR(40),
-		Pass NVARCHAR(50),
+		Pass NVARCHAR(100),
 )
 GO
 
@@ -162,8 +162,9 @@ CREATE TABLE GiaoVien
 )
 GO
 
-CREATE TABLE GV_PhanCong
+ALTER TABLE GV_PhanCong ADD ID TINYINT IDENTITY(1,1)
 (
+	
 	MaGV VARCHAR(6),
 	MaMonHP VARCHAR(6),
 	MaLop VARCHAR(6),
@@ -489,6 +490,21 @@ BEGIN
 	WHERE MaSV = @MaSV
 END
 
+CREATE PROC [dbo].[MonHP_SelectByHK]
+@MaHK VARCHAR(6)
+AS
+BEGIN
+	SELECT * FROM dbo.MonHP WHERE dbo.MonHP.MaHK  = @MaHK
+END
+
+CREATE PROC MonHPSelectByGVPhanCong
+@MaHK VARCHAR(6)
+AS
+BEGIN
+	SELECT * FROM dbo.MonHP mhp JOIN dbo.GV_PhanCong pc ON pc.MaMonHP = mhp.MaMonHP
+	WHERE mhp.MaHK = @MaHK
+END
+
 CREATE PROC GVPhanCong_Insert
 @TenGV NVARCHAR(40),
 @TenMonHP NVARCHAR(50),
@@ -505,9 +521,11 @@ BEGIN
 
 END
 
-GVPhanCong_Update N'Phạm Mạnh Cương', N'Các hệ cơ sở dữ liệu', 'K14CNTT'
-, '2021-02-10 00:00:00.000', '2021-04-18 00:00:00.000'
-CREATE PROC GVPhanCong_Update
+GVPhanCong_Update N'Phạm Mạnh Mẽ', N'Công nghệ phần mềm', 'K14CNTT'
+, '2021-02-19 00:00:00.000', '2021-04-06 00:00:00.000'
+SELECT * FROM dbo.GV_PhanCong
+ALTER PROC GVPhanCong_Update
+@ID TINYINT,
 @TenGV NVARCHAR(40),
 @TenMonHP NVARCHAR(50),
 @TenLop CHAR(7),
@@ -519,15 +537,14 @@ BEGIN
 	SET @TenMonHP = (SELECT MaMonHP FROM dbo.MonHP WHERE TenMonHP = @TenMonHP)
 	SET @TenLop = (SELECT MaLop FROM dbo.Lop WHERE TenLop = @TenLop)
 
-	UPDATE GV_PhanCong
-	SET MaGV = @TenGV,
-		MaMonHP = @TenMonHP,
-		MaLop = @TenLop,
-		NgayBD = @NgayBD,
-		NgayKT = @NgayKT
-	WHERE MaGV = @TenGV
-	AND	MaMonHP = @TenMonHP
-	AND MaLop = @TenLop
+		UPDATE GV_PhanCong
+		SET MaMonHP = @TenMonHP,
+			MaLop = @TenLop,
+			MaGV = @TenGV,
+			NgayBD = @NgayBD,
+			NgayKT = @NgayKT
+		WHERE ID = @ID
+	
 END
 
 CREATE PROC GVPhanCong_Delete
@@ -776,36 +793,18 @@ BEGIN
 END
 GO
 
-CREATE PROC DiemLan1Update 
+CREATE PROC DiemHPUpdate 
 @ChuyenCan FLOAT,
 @GiuaKi FLOAT,
 @DiemLan1 FLOAT,
+@DiemLan2 FLOAT,
 @MaSV VARCHAR(6),
 @MaMonHP VARCHAR(6)
 AS
-BEGIN
-	IF(@ChuyenCan IS NULL)
 	BEGIN
-		UPDATE dbo.DiemHP SET GiuaKi = @GiuaKi, DiemLan1 = @DiemLan1
+		UPDATE dbo.DiemHP SET ChuyenCan = @ChuyenCan, GiuaKi = @GiuaKi, DiemLan1 = @DiemLan1, DiemLan2 = @DiemLan2
 		WHERE MaSV = @MaSV AND MaMonHP = @MaMonHP
 	END
-	IF(@GiuaKi IS NULL)
-	BEGIN	
-		UPDATE dbo.DiemHP SET ChuyenCan = @ChuyenCan, DiemLan1 = @DiemLan1
-		WHERE MaSV = @MaSV AND MaMonHP = @MaMonHP
-	END
-	IF(@DiemLan1 IS NULL)
-	BEGIN	
-		UPDATE dbo.DiemHP SET GiuaKi = @GiuaKi, ChuyenCan = @ChuyenCan
-		WHERE MaSV = @MaSV AND MaMonHP = @MaMonHP
-	END
-	IF(@ChuyenCan IS NOT NULL AND @GiuaKi IS NOT NULL AND @DiemLan1 IS NOT NULL)
-	BEGIN
-		UPDATE dbo.DiemHP SET ChuyenCan = @ChuyenCan, GiuaKi = @GiuaKi, DiemLan1 = @DiemLan1
-		WHERE MaSV = @MaSV AND MaMonHP = @MaMonHP
-	END	
-	
-END
 GO
 
 CREATE PROC ThongTinUpdate
@@ -846,3 +845,40 @@ SELECT * FROM dbo.DiemHP WHERE MaSV = '190001'
 SELECT Detail FROM dbo.ChucNang WHERE Detail NOT LIKE N'Thoát' 
 OR Detail NOT LIKE N'About%' 
 
+
+SELECT a.MaSV, a.HoLot + ' ' + a.Ten [Họ Tên], a.NgaySinh, a.GioiTinh, a.NoiSinh, a.DanToc, c.TenLop, d.TinhTrang, b.SV_IMG
+FROM dbo.SinhVien a JOIN dbo.SinhVien_HinhAnh b ON b.MaSV = a.MaSV
+JOIN dbo.Lop c ON c.MaLop = a.MaLop
+JOIN dbo.TinhTrang d ON d.MaTinhTrang = a.MaTinhTrang
+
+SELECT s.MaSV, s.HoLot + ' ' + s.Ten [HoTenSV], s.NgaySinh, hp.ChuyenCan, hp.GiuaKi, hp.DiemLan1, hp.DiemLan2, hp.GhiChu FROM dbo.SinhVien s JOIN dbo.DiemHP hp ON  hp.MaSV = s.MaSV
+JOIN dbo.GV_PhanCong pc ON pc.MaLop = s.MaLop AND pc.MaMonHP = hp.MaMonHP
+JOIN dbo.GiaoVien gv ON gv.MaGV = pc.MaGV
+--WHERE gv.TenGV = N'Phạm Mạnh Cương'
+
+SELECT sv.MaSV, sv.HoLot + ' ' + sv.Ten [HoTenSV], sv.NgaySinh, hp.ChuyenCan, hp.GiuaKi, hp.DiemLan1, hp.DiemLan2, hp.GhiChu 
+FROM dbo.GV_PhanCong pc JOIN dbo.DiemHP hp ON hp.MaMonHP = pc.MaMonHP
+JOIN dbo.SinhVien sv ON sv.MaSV = hp.MaSV
+WHERE pc.MaLop = 'L00001' AND pc.MaMonHP = 'HP0008'
+
+
+--load hk
+SELECT DISTINCT hk.MaHK, hk.TenHK FROM dbo.HocKy hk JOIN dbo.MonHP monhp ON monhp.MaHK = hk.MaHK
+JOIN dbo.GV_PhanCong pc ON pc.MaMonHP = monhp.MaMonHP
+WHERE pc.MaGV = 'GV0125'
+--load hp
+SELECT monhp.MaMonHP, monhp.TenMonHP, monhp.SoTin 
+FROM dbo.MonHP monhp JOIN dbo.GV_PhanCong pc ON pc.MaMonHP = monhp.MaMonHP
+WHERE monhp.MaHK = 'HK0004' AND pc.MaGV = 'GV0126'
+
+SELECT * FROM dbo.TaiKhoan JOIN dbo.GiaoVien ON dbo.TaiKhoan.UserName = dbo.GiaoVien.MaGV
+
+SELECT DISTINCT hk.TenHK FROM dbo.HocKy hk JOIN dbo.MonHP hp ON hp.MaHK = hk.MaHK
+
+SELECT hp.*  FROM dbo.DiemHP hp JOIN dbo.MonHP monhp ON monhp.MaMonHP = hp.MaMonHP
+WHERE hp.MaSV = '190001' --AND monhp.MaHK = 'HK0004'
+
+SELECT * FROM dbo.GV_PhanCong pc JOIN dbo.MonHP hp ON hp.MaMonHP = pc.MaMonHP
+WHERE hp.MaHK = 'HK0004'
+
+SELECT * FROM dbo.SinhVien

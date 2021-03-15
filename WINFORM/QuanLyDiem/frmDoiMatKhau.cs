@@ -16,13 +16,17 @@ namespace QuanLyDiem
         public frmDoiMatKhau()
         {
             InitializeComponent();
+            txtOld.Properties.CharacterCasing = CharacterCasing.Upper;
+            txtNew.Properties.CharacterCasing = CharacterCasing.Upper;
+            txtConfirm.Properties.CharacterCasing = CharacterCasing.Upper;
         }
 
         QuanLiDiemEntities db = new QuanLiDiemEntities();
+        HashPass hc = new HashPass();
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtOld.Text))
+            if (String.IsNullOrWhiteSpace(txtOld.Text) || String.IsNullOrWhiteSpace(txtNew.Text))
             {
                 XtraMessageBox.Show("Vui lòng nhập thông tin !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -49,9 +53,9 @@ namespace QuanLyDiem
                     if (key != null)
                     {
                         TaiKhoan change = pass.SingleOrDefault();
-                        change.Pass = txtNew.Text;
+                        change.Pass = hc.Hash(txtNew.Text);
                         db.SaveChanges();
-                        XtraMessageBox.Show("Đổi mật khẩu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show("Đổi mật khẩu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -85,10 +89,10 @@ namespace QuanLyDiem
                     XtraMessageBox.Show("Nhập vào mật khẩu mới !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtNew.Focus();
                 }
-                else if (txtNew.Text.Length >= 50)
+                else if (txtNew.Text.Length >= 100)
                 {
                     e.Cancel = true;
-                    XtraMessageBox.Show("Nhập khẩu tối đa 50 kí tự !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Nhập khẩu tối đa 100 kí tự !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtNew.Text = "";
                     txtNew.Focus();
                 }
@@ -102,22 +106,15 @@ namespace QuanLyDiem
 
         private void txtConfirm_Validating(object sender, CancelEventArgs e)
         {
-            if (txtConfirm.Text == "")
+            if (txtConfirm.Text.Trim().CompareTo(txtNew.Text.Trim()) == 0)
             {
-                return;
+                e.Cancel = false;
             }
             else
             {
-                if (txtConfirm.Text.Trim().CompareTo(txtNew.Text.Trim()) == 0)
-                {
-                    e.Cancel = false;
-                }
-                else
-                {
-                    e.Cancel = true;
-                    XtraMessageBox.Show("Nhập lại mật khẩu không khớp !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtConfirm.Focus();
-                }
+                e.Cancel = true;
+                XtraMessageBox.Show("Nhập lại mật khẩu không khớp !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtConfirm.Focus();
             }
             
         }

@@ -102,7 +102,6 @@ C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\EntityFramework.x
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmSinhVienHinhAnh.resources
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmLopSinhVien.resources
-C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmDiemHP.resources
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\DevExpress.XtraNavBar.v19.2.dll
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\DevExpress.XtraNavBar.v19.2.xml
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\de\DevExpress.XtraNavBar.v19.2.resources.dll
@@ -242,7 +241,11 @@ C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\Microsoft.SqlServ
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmXemPhanCong.resources
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmSV_XemDiem.resources
-C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.csprojAssemblyReference.cache
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmDoiMatKhau.resources
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmSplashScreen.resources
 C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmWait.resources
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmXemThongTinHS.resources
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmXemThongTinGV.resources
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmDiemHP_GiaoVu.resources
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.frmAbout.resources
+C:\Users\punzl\Desktop\myProject1\WINFORM\QuanLyDiem\obj\Debug\QuanLyDiem.csprojAssemblyReference.cache

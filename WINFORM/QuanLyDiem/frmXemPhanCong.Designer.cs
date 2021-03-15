@@ -30,7 +30,6 @@ namespace QuanLyDiem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gVPhanCongBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lbTenGV = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -41,25 +40,23 @@ namespace QuanLyDiem
             this.colMaLop = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNgayBD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNgayKT = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.gVPhanCongBindingSource)).BeginInit();
+            this.luHK = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcXemPC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luHK.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gVPhanCongBindingSource
-            // 
-            this.gVPhanCongBindingSource.DataSource = typeof(QuanLyDiem.GV_PhanCong);
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.luHK);
             this.panelControl1.Controls.Add(this.lbTenGV);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1248, 63);
+            this.panelControl1.Size = new System.Drawing.Size(1796, 63);
             this.panelControl1.TabIndex = 1;
             // 
             // lbTenGV
@@ -86,18 +83,23 @@ namespace QuanLyDiem
             // 
             // gcXemPC
             // 
-            this.gcXemPC.DataSource = this.gVPhanCongBindingSource;
             this.gcXemPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcXemPC.Location = new System.Drawing.Point(0, 63);
             this.gcXemPC.MainView = this.gridView1;
             this.gcXemPC.Name = "gcXemPC";
-            this.gcXemPC.Size = new System.Drawing.Size(1248, 440);
+            this.gcXemPC.Size = new System.Drawing.Size(1796, 542);
             this.gcXemPC.TabIndex = 3;
             this.gcXemPC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.GroupPanel.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold);
+            this.gridView1.Appearance.GroupPanel.Options.UseFont = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView1.Appearance.Row.Options.UseTextOptions = true;
+            this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaGV,
             this.colMaMonHP,
@@ -105,6 +107,7 @@ namespace QuanLyDiem
             this.colNgayBD,
             this.colNgayKT});
             this.gridView1.GridControl = this.gcXemPC;
+            this.gridView1.GroupPanelText = "PHÂN CÔNG";
             this.gridView1.Name = "gridView1";
             // 
             // colMaGV
@@ -157,28 +160,44 @@ namespace QuanLyDiem
             this.colNgayKT.VisibleIndex = 4;
             this.colNgayKT.Width = 112;
             // 
+            // luHK
+            // 
+            this.luHK.Location = new System.Drawing.Point(1005, 20);
+            this.luHK.Name = "luHK";
+            this.luHK.Properties.Appearance.Options.UseTextOptions = true;
+            this.luHK.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.luHK.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.luHK.Properties.AppearanceFocused.Options.UseForeColor = true;
+            this.luHK.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luHK.Properties.LookAndFeel.SkinName = "Caramel";
+            this.luHK.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.luHK.Properties.NullText = "[Chọn HK]";
+            this.luHK.Size = new System.Drawing.Size(216, 27);
+            this.luHK.TabIndex = 2;
+            this.luHK.EditValueChanged += new System.EventHandler(this.luHK_EditValueChanged);
+            // 
             // frmXemPhanCong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 503);
+            this.ClientSize = new System.Drawing.Size(1796, 605);
             this.Controls.Add(this.gcXemPC);
             this.Controls.Add(this.panelControl1);
             this.Name = "frmXemPhanCong";
             this.Text = "frmXemPhanCong";
             this.Load += new System.EventHandler(this.frmXemPhanCong_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gVPhanCongBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcXemPC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luHK.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource gVPhanCongBindingSource;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.GridControl gcXemPC;
@@ -189,5 +208,6 @@ namespace QuanLyDiem
         private DevExpress.XtraGrid.Columns.GridColumn colNgayBD;
         private DevExpress.XtraGrid.Columns.GridColumn colNgayKT;
         private DevExpress.XtraEditors.LabelControl lbTenGV;
+        private DevExpress.XtraEditors.LookUpEdit luHK;
     }
 }

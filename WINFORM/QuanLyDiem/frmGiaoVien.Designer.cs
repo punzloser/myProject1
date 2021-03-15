@@ -30,17 +30,18 @@ namespace QuanLyDiem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGiaoVien));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.txtMaGV = new DevExpress.XtraEditors.TextEdit();
             this.giaoVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtTenGV = new DevExpress.XtraEditors.TextEdit();
-            this.txtTrinhDo = new DevExpress.XtraEditors.TextEdit();
             this.dateNgaySinh = new DevExpress.XtraEditors.DateEdit();
-            this.txtGioiTinh = new DevExpress.XtraEditors.TextEdit();
             this.txtNoiSinh = new DevExpress.XtraEditors.TextEdit();
-            this.txtDanToc = new DevExpress.XtraEditors.TextEdit();
-            this.txtChucVu = new DevExpress.XtraEditors.TextEdit();
+            this.txtGioiTinh = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtChucVu = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtDanToc = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtTrinhDo = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForMaGV = new DevExpress.XtraLayout.LayoutControlItem();
@@ -65,8 +66,8 @@ namespace QuanLyDiem
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
-            this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnSua = new DevExpress.XtraBars.BarButtonItem();
+            this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -78,13 +79,13 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.giaoVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenGV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrinhDo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGioiTinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDanToc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGioiTinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChucVu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDanToc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrinhDo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMaGV)).BeginInit();
@@ -106,7 +107,7 @@ namespace QuanLyDiem
             // 
             this.panelControl1.Controls.Add(this.dataLayoutControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 32);
+            this.panelControl1.Location = new System.Drawing.Point(0, 39);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1246, 196);
             this.panelControl1.TabIndex = 0;
@@ -115,12 +116,12 @@ namespace QuanLyDiem
             // 
             this.dataLayoutControl1.Controls.Add(this.txtMaGV);
             this.dataLayoutControl1.Controls.Add(this.txtTenGV);
-            this.dataLayoutControl1.Controls.Add(this.txtTrinhDo);
             this.dataLayoutControl1.Controls.Add(this.dateNgaySinh);
-            this.dataLayoutControl1.Controls.Add(this.txtGioiTinh);
             this.dataLayoutControl1.Controls.Add(this.txtNoiSinh);
-            this.dataLayoutControl1.Controls.Add(this.txtDanToc);
+            this.dataLayoutControl1.Controls.Add(this.txtGioiTinh);
             this.dataLayoutControl1.Controls.Add(this.txtChucVu);
+            this.dataLayoutControl1.Controls.Add(this.txtDanToc);
+            this.dataLayoutControl1.Controls.Add(this.txtTrinhDo);
             this.dataLayoutControl1.DataSource = this.giaoVienBindingSource;
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(2, 2);
@@ -134,9 +135,9 @@ namespace QuanLyDiem
             // 
             this.txtMaGV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giaoVienBindingSource, "MaGV", true));
             this.txtMaGV.Enabled = false;
-            this.txtMaGV.Location = new System.Drawing.Point(538, 12);
+            this.txtMaGV.Location = new System.Drawing.Point(539, 13);
             this.txtMaGV.Name = "txtMaGV";
-            this.txtMaGV.Size = new System.Drawing.Size(692, 26);
+            this.txtMaGV.Size = new System.Drawing.Size(690, 26);
             this.txtMaGV.StyleController = this.dataLayoutControl1;
             this.txtMaGV.TabIndex = 4;
             // 
@@ -147,71 +148,105 @@ namespace QuanLyDiem
             // txtTenGV
             // 
             this.txtTenGV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giaoVienBindingSource, "TenGV", true));
-            this.txtTenGV.Location = new System.Drawing.Point(97, 12);
+            this.txtTenGV.Location = new System.Drawing.Point(98, 13);
             this.txtTenGV.Name = "txtTenGV";
-            this.txtTenGV.Size = new System.Drawing.Size(352, 26);
+            this.txtTenGV.Size = new System.Drawing.Size(350, 26);
             this.txtTenGV.StyleController = this.dataLayoutControl1;
             this.txtTenGV.TabIndex = 5;
-            // 
-            // txtTrinhDo
-            // 
-            this.txtTrinhDo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giaoVienBindingSource, "TrinhDo", true));
-            this.txtTrinhDo.Location = new System.Drawing.Point(708, 102);
-            this.txtTrinhDo.Name = "txtTrinhDo";
-            this.txtTrinhDo.Size = new System.Drawing.Size(522, 26);
-            this.txtTrinhDo.StyleController = this.dataLayoutControl1;
-            this.txtTrinhDo.TabIndex = 6;
+            this.txtTenGV.TextChanged += new System.EventHandler(this.txtTenGV_TextChanged);
             // 
             // dateNgaySinh
             // 
             this.dateNgaySinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giaoVienBindingSource, "NgaySinh", true));
             this.dateNgaySinh.EditValue = null;
-            this.dateNgaySinh.Location = new System.Drawing.Point(97, 42);
+            this.dateNgaySinh.Location = new System.Drawing.Point(98, 45);
             this.dateNgaySinh.Name = "dateNgaySinh";
             this.dateNgaySinh.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.dateNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgaySinh.Size = new System.Drawing.Size(352, 26);
+            this.dateNgaySinh.Size = new System.Drawing.Size(350, 26);
             this.dateNgaySinh.StyleController = this.dataLayoutControl1;
             this.dateNgaySinh.TabIndex = 7;
-            // 
-            // txtGioiTinh
-            // 
-            this.txtGioiTinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giaoVienBindingSource, "GioiTinh", true));
-            this.txtGioiTinh.Location = new System.Drawing.Point(538, 42);
-            this.txtGioiTinh.Name = "txtGioiTinh";
-            this.txtGioiTinh.Size = new System.Drawing.Size(216, 26);
-            this.txtGioiTinh.StyleController = this.dataLayoutControl1;
-            this.txtGioiTinh.TabIndex = 8;
             // 
             // txtNoiSinh
             // 
             this.txtNoiSinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giaoVienBindingSource, "NoiSinh", true));
-            this.txtNoiSinh.Location = new System.Drawing.Point(97, 72);
+            this.txtNoiSinh.Location = new System.Drawing.Point(98, 77);
             this.txtNoiSinh.Name = "txtNoiSinh";
-            this.txtNoiSinh.Size = new System.Drawing.Size(352, 26);
+            this.txtNoiSinh.Size = new System.Drawing.Size(350, 26);
             this.txtNoiSinh.StyleController = this.dataLayoutControl1;
             this.txtNoiSinh.TabIndex = 9;
             // 
-            // txtDanToc
+            // txtGioiTinh
             // 
-            this.txtDanToc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giaoVienBindingSource, "DanToc", true));
-            this.txtDanToc.Location = new System.Drawing.Point(843, 42);
-            this.txtDanToc.Name = "txtDanToc";
-            this.txtDanToc.Size = new System.Drawing.Size(387, 26);
-            this.txtDanToc.StyleController = this.dataLayoutControl1;
-            this.txtDanToc.TabIndex = 10;
+            this.txtGioiTinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giaoVienBindingSource, "GioiTinh", true));
+            this.txtGioiTinh.Location = new System.Drawing.Point(539, 45);
+            this.txtGioiTinh.Name = "txtGioiTinh";
+            this.txtGioiTinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtGioiTinh.Properties.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ",
+            "Khác"});
+            this.txtGioiTinh.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.txtGioiTinh.Size = new System.Drawing.Size(214, 26);
+            this.txtGioiTinh.StyleController = this.dataLayoutControl1;
+            this.txtGioiTinh.TabIndex = 8;
             // 
             // txtChucVu
             // 
             this.txtChucVu.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giaoVienBindingSource, "ChucVu", true));
-            this.txtChucVu.Location = new System.Drawing.Point(97, 102);
+            this.txtChucVu.Location = new System.Drawing.Point(98, 109);
             this.txtChucVu.Name = "txtChucVu";
-            this.txtChucVu.Size = new System.Drawing.Size(522, 26);
+            this.txtChucVu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtChucVu.Properties.Items.AddRange(new object[] {
+            "Giảng Viên",
+            "Thỉnh Giảng",
+            "Giáo Vụ",
+            "Hiệu Trưởng",
+            "Hiệu Phó",
+            "Khác"});
+            this.txtChucVu.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.txtChucVu.Size = new System.Drawing.Size(520, 26);
             this.txtChucVu.StyleController = this.dataLayoutControl1;
             this.txtChucVu.TabIndex = 11;
+            // 
+            // txtDanToc
+            // 
+            this.txtDanToc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giaoVienBindingSource, "DanToc", true));
+            this.txtDanToc.Location = new System.Drawing.Point(844, 45);
+            this.txtDanToc.Name = "txtDanToc";
+            this.txtDanToc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDanToc.Properties.Items.AddRange(new object[] {
+            "Kinh",
+            "Tày",
+            "Nùng",
+            "Khác"});
+            this.txtDanToc.Size = new System.Drawing.Size(385, 26);
+            this.txtDanToc.StyleController = this.dataLayoutControl1;
+            this.txtDanToc.TabIndex = 10;
+            // 
+            // txtTrinhDo
+            // 
+            this.txtTrinhDo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.giaoVienBindingSource, "TrinhDo", true));
+            this.txtTrinhDo.Location = new System.Drawing.Point(709, 109);
+            this.txtTrinhDo.Name = "txtTrinhDo";
+            this.txtTrinhDo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtTrinhDo.Properties.Items.AddRange(new object[] {
+            "Cử Nhân",
+            "Thạc Sĩ",
+            "Tiến Sĩ",
+            "Phó Giáo Sư",
+            "Giáo Sư",
+            "Khác"});
+            this.txtTrinhDo.Size = new System.Drawing.Size(520, 26);
+            this.txtTrinhDo.StyleController = this.dataLayoutControl1;
+            this.txtTrinhDo.TabIndex = 6;
             // 
             // Root
             // 
@@ -242,83 +277,107 @@ namespace QuanLyDiem
             // 
             // ItemForMaGV
             // 
+            this.ItemForMaGV.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForMaGV.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForMaGV.Control = this.txtMaGV;
             this.ItemForMaGV.Location = new System.Drawing.Point(441, 0);
             this.ItemForMaGV.Name = "ItemForMaGV";
-            this.ItemForMaGV.Size = new System.Drawing.Size(781, 30);
-            this.ItemForMaGV.Text = "Ma GV";
+            this.ItemForMaGV.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.ItemForMaGV.Size = new System.Drawing.Size(781, 32);
+            this.ItemForMaGV.Text = "Mã GV";
             this.ItemForMaGV.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForGioiTinh
             // 
+            this.ItemForGioiTinh.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForGioiTinh.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForGioiTinh.Control = this.txtGioiTinh;
-            this.ItemForGioiTinh.Location = new System.Drawing.Point(441, 30);
+            this.ItemForGioiTinh.Location = new System.Drawing.Point(441, 32);
             this.ItemForGioiTinh.Name = "ItemForGioiTinh";
-            this.ItemForGioiTinh.Size = new System.Drawing.Size(305, 60);
-            this.ItemForGioiTinh.Text = "Gioi Tinh";
+            this.ItemForGioiTinh.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.ItemForGioiTinh.Size = new System.Drawing.Size(305, 64);
+            this.ItemForGioiTinh.Text = "Giới Tính";
             this.ItemForGioiTinh.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForTenGV
             // 
+            this.ItemForTenGV.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForTenGV.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForTenGV.Control = this.txtTenGV;
             this.ItemForTenGV.Location = new System.Drawing.Point(0, 0);
             this.ItemForTenGV.Name = "ItemForTenGV";
-            this.ItemForTenGV.Size = new System.Drawing.Size(441, 30);
-            this.ItemForTenGV.Text = "Ten GV";
+            this.ItemForTenGV.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.ItemForTenGV.Size = new System.Drawing.Size(441, 32);
+            this.ItemForTenGV.Text = "Tên GV";
             this.ItemForTenGV.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForNgaySinh
             // 
+            this.ItemForNgaySinh.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForNgaySinh.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForNgaySinh.Control = this.dateNgaySinh;
-            this.ItemForNgaySinh.Location = new System.Drawing.Point(0, 30);
+            this.ItemForNgaySinh.Location = new System.Drawing.Point(0, 32);
             this.ItemForNgaySinh.Name = "ItemForNgaySinh";
-            this.ItemForNgaySinh.Size = new System.Drawing.Size(441, 30);
-            this.ItemForNgaySinh.Text = "Ngay Sinh";
+            this.ItemForNgaySinh.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.ItemForNgaySinh.Size = new System.Drawing.Size(441, 32);
+            this.ItemForNgaySinh.Text = "Ngày Sinh";
             this.ItemForNgaySinh.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForNoiSinh
             // 
+            this.ItemForNoiSinh.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForNoiSinh.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForNoiSinh.Control = this.txtNoiSinh;
-            this.ItemForNoiSinh.Location = new System.Drawing.Point(0, 60);
+            this.ItemForNoiSinh.Location = new System.Drawing.Point(0, 64);
             this.ItemForNoiSinh.Name = "ItemForNoiSinh";
-            this.ItemForNoiSinh.Size = new System.Drawing.Size(441, 30);
-            this.ItemForNoiSinh.Text = "Noi Sinh";
+            this.ItemForNoiSinh.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.ItemForNoiSinh.Size = new System.Drawing.Size(441, 32);
+            this.ItemForNoiSinh.Text = "Nơi Sinh";
             this.ItemForNoiSinh.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForChucVu
             // 
+            this.ItemForChucVu.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForChucVu.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForChucVu.Control = this.txtChucVu;
-            this.ItemForChucVu.Location = new System.Drawing.Point(0, 90);
+            this.ItemForChucVu.Location = new System.Drawing.Point(0, 96);
             this.ItemForChucVu.Name = "ItemForChucVu";
-            this.ItemForChucVu.Size = new System.Drawing.Size(611, 82);
-            this.ItemForChucVu.Text = "Chuc Vu";
+            this.ItemForChucVu.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.ItemForChucVu.Size = new System.Drawing.Size(611, 76);
+            this.ItemForChucVu.Text = "Chức Vụ";
             this.ItemForChucVu.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForDanToc
             // 
+            this.ItemForDanToc.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForDanToc.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForDanToc.Control = this.txtDanToc;
-            this.ItemForDanToc.Location = new System.Drawing.Point(746, 30);
+            this.ItemForDanToc.Location = new System.Drawing.Point(746, 32);
             this.ItemForDanToc.Name = "ItemForDanToc";
-            this.ItemForDanToc.Size = new System.Drawing.Size(476, 60);
-            this.ItemForDanToc.Text = "Dan Toc";
+            this.ItemForDanToc.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.ItemForDanToc.Size = new System.Drawing.Size(476, 64);
+            this.ItemForDanToc.Text = "Dân Tộc";
             this.ItemForDanToc.TextSize = new System.Drawing.Size(82, 18);
             // 
             // ItemForTrinhDo
             // 
+            this.ItemForTrinhDo.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForTrinhDo.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForTrinhDo.Control = this.txtTrinhDo;
-            this.ItemForTrinhDo.Location = new System.Drawing.Point(611, 90);
+            this.ItemForTrinhDo.Location = new System.Drawing.Point(611, 96);
             this.ItemForTrinhDo.Name = "ItemForTrinhDo";
-            this.ItemForTrinhDo.Size = new System.Drawing.Size(611, 82);
-            this.ItemForTrinhDo.Text = "Trinh Do";
+            this.ItemForTrinhDo.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.ItemForTrinhDo.Size = new System.Drawing.Size(611, 76);
+            this.ItemForTrinhDo.Text = "Trình Độ";
             this.ItemForTrinhDo.TextSize = new System.Drawing.Size(82, 18);
             // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.gcGiaoVien);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 228);
+            this.panelControl2.Location = new System.Drawing.Point(0, 235);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1246, 315);
+            this.panelControl2.Size = new System.Drawing.Size(1246, 308);
             this.panelControl2.TabIndex = 0;
             // 
             // gcGiaoVien
@@ -328,13 +387,19 @@ namespace QuanLyDiem
             this.gcGiaoVien.Location = new System.Drawing.Point(2, 2);
             this.gcGiaoVien.MainView = this.gridView1;
             this.gcGiaoVien.Name = "gcGiaoVien";
-            this.gcGiaoVien.Size = new System.Drawing.Size(1242, 311);
+            this.gcGiaoVien.Size = new System.Drawing.Size(1242, 304);
             this.gcGiaoVien.TabIndex = 0;
             this.gcGiaoVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.GroupPanel.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.GroupPanel.Options.UseFont = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView1.Appearance.Row.Options.UseTextOptions = true;
+            this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaGV,
             this.colTenGV,
@@ -345,10 +410,12 @@ namespace QuanLyDiem
             this.colDanToc,
             this.colChucVu});
             this.gridView1.GridControl = this.gcGiaoVien;
+            this.gridView1.GroupPanelText = "GIÁO VIÊN";
             this.gridView1.Name = "gridView1";
             // 
             // colMaGV
             // 
+            this.colMaGV.Caption = "Mã GV";
             this.colMaGV.FieldName = "MaGV";
             this.colMaGV.MinWidth = 30;
             this.colMaGV.Name = "colMaGV";
@@ -361,6 +428,7 @@ namespace QuanLyDiem
             // 
             // colTenGV
             // 
+            this.colTenGV.Caption = "Tên GV";
             this.colTenGV.FieldName = "TenGV";
             this.colTenGV.MinWidth = 30;
             this.colTenGV.Name = "colTenGV";
@@ -373,6 +441,7 @@ namespace QuanLyDiem
             // 
             // colTrinhDo
             // 
+            this.colTrinhDo.Caption = "Trình Độ";
             this.colTrinhDo.FieldName = "TrinhDo";
             this.colTrinhDo.MinWidth = 30;
             this.colTrinhDo.Name = "colTrinhDo";
@@ -385,6 +454,7 @@ namespace QuanLyDiem
             // 
             // colNgaySinh
             // 
+            this.colNgaySinh.Caption = "Ngày Sinh";
             this.colNgaySinh.FieldName = "NgaySinh";
             this.colNgaySinh.MinWidth = 30;
             this.colNgaySinh.Name = "colNgaySinh";
@@ -397,6 +467,7 @@ namespace QuanLyDiem
             // 
             // colGioiTinh
             // 
+            this.colGioiTinh.Caption = "Giới Tính";
             this.colGioiTinh.FieldName = "GioiTinh";
             this.colGioiTinh.MinWidth = 30;
             this.colGioiTinh.Name = "colGioiTinh";
@@ -409,6 +480,7 @@ namespace QuanLyDiem
             // 
             // colNoiSinh
             // 
+            this.colNoiSinh.Caption = "Nơi Sinh";
             this.colNoiSinh.FieldName = "NoiSinh";
             this.colNoiSinh.MinWidth = 30;
             this.colNoiSinh.Name = "colNoiSinh";
@@ -421,6 +493,7 @@ namespace QuanLyDiem
             // 
             // colDanToc
             // 
+            this.colDanToc.Caption = "Dân Tộc";
             this.colDanToc.FieldName = "DanToc";
             this.colDanToc.MinWidth = 30;
             this.colDanToc.Name = "colDanToc";
@@ -433,6 +506,7 @@ namespace QuanLyDiem
             // 
             // colChucVu
             // 
+            this.colChucVu.Caption = "Chức Vụ";
             this.colChucVu.FieldName = "ChucVu";
             this.colChucVu.MinWidth = 30;
             this.colChucVu.Name = "colChucVu";
@@ -466,30 +540,40 @@ namespace QuanLyDiem
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnThem),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnXoa),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnSua)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnSua),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnXoa)});
             this.bar1.Text = "Tools";
             // 
             // btnThem
             // 
             this.btnThem.Caption = "Thêm";
             this.btnThem.Id = 0;
+            this.btnThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.Image")));
+            this.btnThem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.LargeImage")));
             this.btnThem.Name = "btnThem";
+            this.btnThem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick_1);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Caption = "Xóa";
-            this.btnXoa.Id = 1;
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
             // 
             // btnSua
             // 
             this.btnSua.Caption = "Lưu";
             this.btnSua.Id = 2;
+            this.btnSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.Image")));
+            this.btnSua.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.LargeImage")));
             this.btnSua.Name = "btnSua";
+            this.btnSua.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSua_ItemClick);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Caption = "Xóa";
+            this.btnXoa.Enabled = false;
+            this.btnXoa.Id = 1;
+            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
+            this.btnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.LargeImage")));
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -497,7 +581,7 @@ namespace QuanLyDiem
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1246, 32);
+            this.barDockControlTop.Size = new System.Drawing.Size(1246, 39);
             // 
             // barDockControlBottom
             // 
@@ -511,17 +595,17 @@ namespace QuanLyDiem
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 32);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 39);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 511);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 504);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1246, 32);
+            this.barDockControlRight.Location = new System.Drawing.Point(1246, 39);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 511);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 504);
             // 
             // frmGiaoVien
             // 
@@ -545,13 +629,13 @@ namespace QuanLyDiem
             ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.giaoVienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenGV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTrinhDo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGioiTinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDanToc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGioiTinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChucVu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDanToc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTrinhDo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMaGV)).EndInit();
@@ -579,12 +663,8 @@ namespace QuanLyDiem
         private DevExpress.XtraEditors.TextEdit txtMaGV;
         private System.Windows.Forms.BindingSource giaoVienBindingSource;
         private DevExpress.XtraEditors.TextEdit txtTenGV;
-        private DevExpress.XtraEditors.TextEdit txtTrinhDo;
         private DevExpress.XtraEditors.DateEdit dateNgaySinh;
-        private DevExpress.XtraEditors.TextEdit txtGioiTinh;
         private DevExpress.XtraEditors.TextEdit txtNoiSinh;
-        private DevExpress.XtraEditors.TextEdit txtDanToc;
-        private DevExpress.XtraEditors.TextEdit txtChucVu;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem ItemForMaGV;
@@ -615,5 +695,9 @@ namespace QuanLyDiem
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraEditors.ComboBoxEdit txtGioiTinh;
+        private DevExpress.XtraEditors.ComboBoxEdit txtChucVu;
+        private DevExpress.XtraEditors.ComboBoxEdit txtDanToc;
+        private DevExpress.XtraEditors.ComboBoxEdit txtTrinhDo;
     }
 }

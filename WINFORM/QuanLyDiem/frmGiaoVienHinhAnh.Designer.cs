@@ -31,6 +31,9 @@ namespace QuanLyDiem
         {
             this.gcGV = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnLink = new DevExpress.XtraEditors.SimpleButton();
@@ -97,8 +100,49 @@ namespace QuanLyDiem
             // 
             // gridView1
             // 
+            this.gridView1.Appearance.GroupPanel.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView1.Appearance.GroupPanel.Options.UseFont = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView1.Appearance.Row.Options.UseTextOptions = true;
+            this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3});
             this.gridView1.GridControl = this.gcGV;
+            this.gridView1.GroupPanelText = "IMAGE";
             this.gridView1.Name = "gridView1";
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Tên GV";
+            this.gridColumn1.FieldName = "TenGV";
+            this.gridColumn1.MinWidth = 30;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.Width = 329;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "IMG";
+            this.gridColumn2.FieldName = "IMG";
+            this.gridColumn2.MinWidth = 30;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 2;
+            this.gridColumn2.Width = 195;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Mã GV";
+            this.gridColumn3.FieldName = "MaGV";
+            this.gridColumn3.MinWidth = 30;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 0;
+            this.gridColumn3.Width = 221;
             // 
             // dataLayoutControl1
             // 
@@ -157,55 +201,55 @@ namespace QuanLyDiem
             // 
             // luChonTheoCV
             // 
-            this.luChonTheoCV.Location = new System.Drawing.Point(176, 63);
+            this.luChonTheoCV.Location = new System.Drawing.Point(184, 63);
             this.luChonTheoCV.Margin = new System.Windows.Forms.Padding(4);
             this.luChonTheoCV.Name = "luChonTheoCV";
             this.luChonTheoCV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.luChonTheoCV.Properties.NullText = "";
-            this.luChonTheoCV.Size = new System.Drawing.Size(382, 26);
+            this.luChonTheoCV.Size = new System.Drawing.Size(374, 26);
             this.luChonTheoCV.StyleController = this.dataLayoutControl1;
             this.luChonTheoCV.TabIndex = 8;
             this.luChonTheoCV.EditValueChanged += new System.EventHandler(this.luChonTheoCV_EditValueChanged);
             // 
             // txtIDgvIMG
             // 
-            this.txtIDgvIMG.Location = new System.Drawing.Point(446, 172);
+            this.txtIDgvIMG.Location = new System.Drawing.Point(454, 172);
             this.txtIDgvIMG.Name = "txtIDgvIMG";
-            this.txtIDgvIMG.Size = new System.Drawing.Size(121, 26);
+            this.txtIDgvIMG.Size = new System.Drawing.Size(113, 26);
             this.txtIDgvIMG.StyleController = this.dataLayoutControl1;
             this.txtIDgvIMG.TabIndex = 14;
             // 
             // imgGV
             // 
-            this.imgGV.Location = new System.Drawing.Point(167, 212);
+            this.imgGV.Location = new System.Drawing.Point(12, 212);
             this.imgGV.Name = "imgGV";
             this.imgGV.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.imgGV.Size = new System.Drawing.Size(400, 346);
+            this.imgGV.Size = new System.Drawing.Size(555, 344);
             this.imgGV.StyleController = this.dataLayoutControl1;
             this.imgGV.TabIndex = 15;
             // 
             // txtMaGV
             // 
-            this.txtMaGV.Location = new System.Drawing.Point(167, 172);
+            this.txtMaGV.Location = new System.Drawing.Point(175, 172);
             this.txtMaGV.Name = "txtMaGV";
-            this.txtMaGV.Size = new System.Drawing.Size(120, 26);
+            this.txtMaGV.Size = new System.Drawing.Size(112, 26);
             this.txtMaGV.StyleController = this.dataLayoutControl1;
             this.txtMaGV.TabIndex = 16;
             // 
             // txtFile
             // 
-            this.txtFile.Location = new System.Drawing.Point(167, 100);
+            this.txtFile.Location = new System.Drawing.Point(12, 100);
             this.txtFile.Name = "txtFile";
-            this.txtFile.Size = new System.Drawing.Size(120, 26);
+            this.txtFile.Size = new System.Drawing.Size(275, 26);
             this.txtFile.StyleController = this.dataLayoutControl1;
             this.txtFile.TabIndex = 17;
             // 
             // luTenGV
             // 
-            this.luTenGV.Location = new System.Drawing.Point(167, 562);
+            this.luTenGV.Location = new System.Drawing.Point(176, 561);
             this.luTenGV.Name = "luTenGV";
-            this.luTenGV.Size = new System.Drawing.Size(400, 26);
+            this.luTenGV.Size = new System.Drawing.Size(390, 26);
             this.luTenGV.StyleController = this.dataLayoutControl1;
             this.luTenGV.TabIndex = 18;
             // 
@@ -253,8 +297,8 @@ namespace QuanLyDiem
             this.ItemForMaSV1.Name = "ItemForMaSV1";
             this.ItemForMaSV1.Padding = new DevExpress.XtraLayout.Utils.Padding(11, 11, 9, 9);
             this.ItemForMaSV1.Size = new System.Drawing.Size(559, 44);
-            this.ItemForMaSV1.Text = "Chọn theo chức vụ";
-            this.ItemForMaSV1.TextSize = new System.Drawing.Size(152, 18);
+            this.ItemForMaSV1.Text = "Chọn Theo Chức Vụ";
+            this.ItemForMaSV1.TextSize = new System.Drawing.Size(160, 18);
             // 
             // layoutControlGroup1
             // 
@@ -272,28 +316,34 @@ namespace QuanLyDiem
             this.ItemForIMG.Control = this.imgGV;
             this.ItemForIMG.Location = new System.Drawing.Point(0, 0);
             this.ItemForIMG.Name = "ItemForIMG";
-            this.ItemForIMG.Size = new System.Drawing.Size(559, 350);
+            this.ItemForIMG.Size = new System.Drawing.Size(559, 348);
             this.ItemForIMG.StartNewLine = true;
             this.ItemForIMG.Text = "IMG";
-            this.ItemForIMG.TextSize = new System.Drawing.Size(152, 18);
+            this.ItemForIMG.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForIMG.TextVisible = false;
             // 
             // ItemForGiaoVien
             // 
+            this.ItemForGiaoVien.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForGiaoVien.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForGiaoVien.Control = this.luTenGV;
-            this.ItemForGiaoVien.Location = new System.Drawing.Point(0, 350);
+            this.ItemForGiaoVien.Location = new System.Drawing.Point(0, 348);
             this.ItemForGiaoVien.Name = "ItemForGiaoVien";
-            this.ItemForGiaoVien.Size = new System.Drawing.Size(559, 30);
+            this.ItemForGiaoVien.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
+            this.ItemForGiaoVien.Size = new System.Drawing.Size(559, 32);
             this.ItemForGiaoVien.Text = "Tên GV";
-            this.ItemForGiaoVien.TextSize = new System.Drawing.Size(152, 18);
+            this.ItemForGiaoVien.TextSize = new System.Drawing.Size(160, 18);
             // 
             // ItemForMaGV
             // 
+            this.ItemForMaGV.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForMaGV.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForMaGV.Control = this.txtMaGV;
             this.ItemForMaGV.Location = new System.Drawing.Point(0, 160);
             this.ItemForMaGV.Name = "ItemForMaGV";
             this.ItemForMaGV.Size = new System.Drawing.Size(279, 30);
-            this.ItemForMaGV.Text = "Ma GV";
-            this.ItemForMaGV.TextSize = new System.Drawing.Size(152, 18);
+            this.ItemForMaGV.Text = "Mã GV";
+            this.ItemForMaGV.TextSize = new System.Drawing.Size(160, 18);
             // 
             // ItemForFileIMG2
             // 
@@ -302,7 +352,8 @@ namespace QuanLyDiem
             this.ItemForFileIMG2.Name = "ItemForFileIMG2";
             this.ItemForFileIMG2.Size = new System.Drawing.Size(279, 36);
             this.ItemForFileIMG2.Text = "File IMG";
-            this.ItemForFileIMG2.TextSize = new System.Drawing.Size(152, 18);
+            this.ItemForFileIMG2.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForFileIMG2.TextVisible = false;
             // 
             // layoutControlItem2
             // 
@@ -315,12 +366,14 @@ namespace QuanLyDiem
             // 
             // ItemForGV_IMG
             // 
+            this.ItemForGV_IMG.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.ItemForGV_IMG.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.ItemForGV_IMG.Control = this.txtIDgvIMG;
             this.ItemForGV_IMG.Location = new System.Drawing.Point(279, 160);
             this.ItemForGV_IMG.Name = "ItemForGV_IMG";
             this.ItemForGV_IMG.Size = new System.Drawing.Size(280, 30);
             this.ItemForGV_IMG.Text = "GV_IMG";
-            this.ItemForGV_IMG.TextSize = new System.Drawing.Size(152, 18);
+            this.ItemForGV_IMG.TextSize = new System.Drawing.Size(160, 18);
             // 
             // layoutControlItem3
             // 
@@ -433,5 +486,8 @@ namespace QuanLyDiem
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
     }
 }

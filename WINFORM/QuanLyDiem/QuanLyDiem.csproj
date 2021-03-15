@@ -146,6 +146,12 @@
     <Compile Include="DiemHPSearch_Result.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBangDiemFull.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,11 +170,11 @@
     <Compile Include="frmDanhSachLop.Designer.cs">
       <DependentUpon>frmDanhSachLop.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDiemHP.cs">
+    <Compile Include="frmDiemHP_GiaoVu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDiemHP.Designer.cs">
-      <DependentUpon>frmDiemHP.cs</DependentUpon>
+    <Compile Include="frmDiemHP_GiaoVu.Designer.cs">
+      <DependentUpon>frmDiemHP_GiaoVu.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDiemHP_GiaoVien.cs">
       <SubType>Form</SubType>
@@ -242,6 +248,18 @@
     <Compile Include="frmSV_XemDiem.Designer.cs">
       <DependentUpon>frmSV_XemDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXemThongTinGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXemThongTinGV.Designer.cs">
+      <DependentUpon>frmXemThongTinGV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXemThongTinHS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXemThongTinHS.Designer.cs">
+      <DependentUpon>frmXemThongTinHS.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmWait.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +287,7 @@
     <Compile Include="GV_PhanCong.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
+    <Compile Include="HashPass.cs" />
     <Compile Include="HeDaoTao.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
@@ -297,6 +316,9 @@
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="MonHPSelectAll_Result.cs">
+      <DependentUpon>QuanLiDiem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MonHPSelectByGVPhanCong_Result.cs">
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="MonHPSelectBySV_Result.cs">
@@ -377,6 +399,9 @@
       <DependentUpon>QuanLiDiem.tt</DependentUpon>
     </Compile>
     <Compile Include="XuLyDiem.cs" />
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBangDiemFull.resx">
       <DependentUpon>frmBangDiemFull.cs</DependentUpon>
     </EmbeddedResource>
@@ -386,8 +411,8 @@
     <EmbeddedResource Include="frmDanhSachLop.resx">
       <DependentUpon>frmDanhSachLop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDiemHP.resx">
-      <DependentUpon>frmDiemHP.cs</DependentUpon>
+    <EmbeddedResource Include="frmDiemHP_GiaoVu.resx">
+      <DependentUpon>frmDiemHP_GiaoVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiemHP_GiaoVien.resx">
       <DependentUpon>frmDiemHP_GiaoVien.cs</DependentUpon>
@@ -425,6 +450,12 @@
     <EmbeddedResource Include="frmSV_XemDiem.resx">
       <DependentUpon>frmSV_XemDiem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmXemThongTinGV.resx">
+      <DependentUpon>frmXemThongTinGV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXemThongTinHS.resx">
+      <DependentUpon>frmXemThongTinHS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmWait.resx">
       <DependentUpon>frmWait.cs</DependentUpon>
     </EmbeddedResource>
@@ -450,6 +481,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BangDiemHP_Result.datasource" />
+    <None Include="Properties\DataSources\DiemHP.datasource" />
     <None Include="Properties\DataSources\frmGiaoVien.datasource" />
     <None Include="Properties\DataSources\frmLopSinhVien.datasource" />
     <None Include="Properties\DataSources\frmSinhVienHinhAnh.datasource" />

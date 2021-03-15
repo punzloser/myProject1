@@ -40,6 +40,7 @@
     <EntitySetMapping Name="GV_PhanCong">
       <EntityTypeMapping TypeName="QuanLiDiemModel.GV_PhanCong">
         <MappingFragment StoreEntitySet="GV_PhanCong">
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="MaGV" ColumnName="MaGV" />
           <ScalarProperty Name="MaMonHP" ColumnName="MaMonHP" />
           <ScalarProperty Name="MaLop" ColumnName="MaLop" />
@@ -207,7 +208,6 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="DiemHPUpdate" FunctionName="QuanLiDiemModel.Store.DiemHPUpdate" />
-    <FunctionImportMapping FunctionImportName="DiemLan1Update" FunctionName="QuanLiDiemModel.Store.DiemLan1Update" />
     <FunctionImportMapping FunctionImportName="GiaoVienHA_SelectALL" FunctionName="QuanLiDiemModel.Store.GiaoVienHA_SelectALL">
       <ResultMapping>
         <ComplexTypeMapping TypeName="QuanLiDiemModel.GiaoVienHA_SelectALL_Result">
@@ -461,5 +461,23 @@
     <FunctionImportMapping FunctionImportName="TinhTrangDelete" FunctionName="QuanLiDiemModel.Store.TinhTrangDelete" />
     <FunctionImportMapping FunctionImportName="TinhTrangInsert" FunctionName="QuanLiDiemModel.Store.TinhTrangInsert" />
     <FunctionImportMapping FunctionImportName="TinhTrangUpdate" FunctionName="QuanLiDiemModel.Store.TinhTrangUpdate" />
+    <FunctionImportMapping FunctionImportName="MonHPSelectByGVPhanCong" FunctionName="QuanLiDiemModel.Store.MonHPSelectByGVPhanCong">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLiDiemModel.MonHPSelectByGVPhanCong_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaMonHP" ColumnName="MaMonHP" />
+          <ScalarProperty Name="TenMonHP" ColumnName="TenMonHP" />
+          <ScalarProperty Name="SoTin" ColumnName="SoTin" />
+          <ScalarProperty Name="TietLT" ColumnName="TietLT" />
+          <ScalarProperty Name="TietTH" ColumnName="TietTH" />
+          <ScalarProperty Name="MaHK" ColumnName="MaHK" />
+          <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+          <ScalarProperty Name="MaMonHP1" ColumnName="MaMonHP1" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="NgayBD" ColumnName="NgayBD" />
+          <ScalarProperty Name="NgayKT" ColumnName="NgayKT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

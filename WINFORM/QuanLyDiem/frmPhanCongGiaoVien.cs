@@ -21,6 +21,8 @@ namespace QuanLyDiem
         private void frmGiaoVienPhanCong_Load(object sender, EventArgs e)
         {
             frmLoad();
+
+            btnLuu.Enabled = false;
         }
 
         QuanLiDiemEntities db = new QuanLiDiemEntities();
@@ -38,8 +40,10 @@ namespace QuanLyDiem
             var KetQua = from a in db.GV_PhanCong join b in db.GiaoVien on a.MaGV equals b.MaGV
                          join c in db.Lop on a.MaLop equals c.MaLop
                          join d in db.MonHP on a.MaMonHP equals d.MaMonHP
+                         orderby a.ID
                          select new
                          {
+                             a.ID,
                              a.MaGV, a.MaLop, a.MaMonHP,
                              Tên_GV = b.TenGV,
                              Tên_Lớp = c.TenLop,
@@ -56,8 +60,9 @@ namespace QuanLyDiem
             luLop.Properties.DataSource = Lop.Select(a => a.TenLop).Distinct().ToList();
             luTenGV.Properties.DataSource = GV.Select(a => a.TenGV).Distinct().ToList();
             luTenMH.Properties.DataSource = Mon.Select(a => a.TenMonHP).Distinct().ToList();
-            //luTenMH.Properties.DataSource = Mon.Select(a => a.TenMonHP).ToList();
 
+            lbID.DataBindings.Clear();
+            lbID.DataBindings.Add("Text", gcPhanCong.DataSource, "ID", true);
         }
 
         public void loadHK()
@@ -86,6 +91,7 @@ namespace QuanLyDiem
                          where e.MaHK == luTheoHK.EditValue.ToString()
                          select new
                          {
+                             a.ID,
                              Tên_GV = b.TenGV,
                              Tên_Lớp = c.TenLop,
                              Tên_MH = d.TenMonHP,
@@ -120,6 +126,7 @@ namespace QuanLyDiem
                          where a.MaGV == luTheoTenGV.EditValue.ToString()
                          select new
                          {
+                             a.ID,
                              Tên_GV = b.TenGV,
                              Tên_Lớp = c.TenLop,
                              Tên_MH = d.TenMonHP,
@@ -131,7 +138,7 @@ namespace QuanLyDiem
 
         public void hideColumn()
         {
-            for (int i = 0; i <= 2; i++)
+            for (int i = 0; i <= 3; i++)
             {
                 this.gridView1.Columns[i].Visible = false;
             }
@@ -186,6 +193,7 @@ namespace QuanLyDiem
             };
             db.GV_PhanCong.Add(Them);
             db.SaveChanges();
+
             loadPhanCong();
             addPC = false;
         }
@@ -210,26 +218,59 @@ namespace QuanLyDiem
                     XtraMessageBox.Show("Thêm dữ liệu thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
                 }
+                frmLoad();
+                addPC = false;
 
             }
             else
             {
-                db.GVPhanCong_Update(luTenGV.EditValue.ToString(), luTenMH.EditValue.ToString(), luLop.EditValue.ToString(), Convert.ToDateTime(dateBegin.Text), Convert.ToDateTime(dateEnd.Text));
-                XtraMessageBox.Show("Sửa dữ liệu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+                try
+                {
+                    db.GVPhanCong_Update(Convert.ToByte(lbID.Text), luTenGV.EditValue.ToString(), luTenMH.EditValue.ToString(), luLop.EditValue.ToString(), Convert.ToDateTime(dateBegin.Text), Convert.ToDateTime(dateEnd.Text));
+
+                    XtraMessageBox.Show("Sữa dữ liệu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                catch (Exception)
+                {
+
+                    XtraMessageBox.Show("Sữa dữ liệu thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                frmLoad();
+                addPC = false;
             }
-            frmLoad();
-            addPC = false;
+            
         }
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            db.GVPhanCong_Delete(luTenGV.EditValue.ToString(), luTenMH.EditValue.ToString(), luLop.EditValue.ToString());
-            XtraMessageBox.Show("Xóa dữ liệu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            loadPhanCong();
-            addPC = false;
-            binding();
+            try
+            {
+                if (XtraMessageBox.Show("Xác nhận xóa phân công GV : " + luTenGV.EditValue.ToString() + " - Môn : " + luTenMH.EditValue.ToString() + " !", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    db.GVPhanCong_Delete(luTenGV.EditValue.ToString(), luTenMH.EditValue.ToString(), luLop.EditValue.ToString());
+                    XtraMessageBox.Show("Xóa dữ liệu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadPhanCong();
+
+                }
+
+                addPC = false;
+                binding();
+            }
+            catch (Exception)
+            {
+
+                XtraMessageBox.Show("Xóa dữ liệu thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
         }
 
+        private void luTenGV_TextChanged(object sender, EventArgs e)
+        {
+            this.btnLuu.Enabled = !String.IsNullOrWhiteSpace(this.luTenGV.Properties.GetDisplayText(luTenGV.EditValue));
+            this.btnXoa.Enabled = !String.IsNullOrWhiteSpace(this.luTenGV.Properties.GetDisplayText(luTenGV.EditValue));
+        }
     }
 }

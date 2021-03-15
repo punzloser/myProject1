@@ -310,7 +310,7 @@ namespace QuanLyDiem
         private void md040103_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             panelControl1.Controls.Clear();
-            frmDiemHP frm = new frmDiemHP();
+            frmDiemHP_GiaoVu frm = new frmDiemHP_GiaoVu();
             frm.TopLevel = false;
             panelControl1.Controls.Add(frm);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -450,35 +450,62 @@ namespace QuanLyDiem
             }
         }
 
-        //register
-        private void md010102_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
-        //cham diem
-        private void md030104_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-        //lich su
-        private void md010302_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
         //info teacher
         private void md030101_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            panelControl1.Controls.Clear();
+            frmXemThongTinGV frm = new frmXemThongTinGV();
+            frm.TopLevel = false;
+            panelControl1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = System.Windows.Forms.DockStyle.Fill;
+            frm.Show();
         }
 
         //info student
         private void md020101_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            panelControl1.Controls.Clear();
+            frmXemThongTinHS frm = new frmXemThongTinHS();
+            frm.TopLevel = false;
+            panelControl1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = System.Windows.Forms.DockStyle.Fill;
+            frm.Show();
         }
 
+        //register
+        private void md010102_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraMessageBox.Show("Tài khoản hệ thống dùng trong nội bộ, chưa hỗ trợ chức năng đăng ký !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
+        //cham diem
+        private void md030104_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            panelControl1.Controls.Clear();
+            frmDiemHP_GiaoVien frm = new frmDiemHP_GiaoVien();
+            frm.TopLevel = false;
+            panelControl1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = System.Windows.Forms.DockStyle.Fill;
+            frm.Show();
+        }
+        //lich su
+        private void md010302_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraMessageBox.Show("Tính năng sẽ được update trong phiên bản sau !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void md050201_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            panelControl1.Controls.Clear();
+            frmAbout frm = new frmAbout();
+            frm.TopLevel = false;
+            panelControl1.Controls.Add(frm);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.Dock = System.Windows.Forms.DockStyle.Fill;
+            frm.Show();
+        }
     }
 }

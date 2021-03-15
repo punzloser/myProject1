@@ -119,6 +119,7 @@ namespace QuanLyDiem
             // 
             this.txtOld.Location = new System.Drawing.Point(212, 17);
             this.txtOld.Name = "txtOld";
+            this.txtOld.Properties.PasswordChar = '*';
             this.txtOld.Size = new System.Drawing.Size(416, 26);
             this.txtOld.StyleController = this.dataLayoutControl1;
             this.txtOld.TabIndex = 4;
@@ -127,6 +128,7 @@ namespace QuanLyDiem
             // 
             this.txtNew.Location = new System.Drawing.Point(212, 57);
             this.txtNew.Name = "txtNew";
+            this.txtNew.Properties.PasswordChar = '*';
             this.txtNew.Size = new System.Drawing.Size(416, 26);
             this.txtNew.StyleController = this.dataLayoutControl1;
             this.txtNew.TabIndex = 4;
@@ -136,6 +138,7 @@ namespace QuanLyDiem
             // 
             this.txtConfirm.Location = new System.Drawing.Point(212, 97);
             this.txtConfirm.Name = "txtConfirm";
+            this.txtConfirm.Properties.PasswordChar = '*';
             this.txtConfirm.Size = new System.Drawing.Size(416, 26);
             this.txtConfirm.StyleController = this.dataLayoutControl1;
             this.txtConfirm.TabIndex = 4;
@@ -145,6 +148,7 @@ namespace QuanLyDiem
             // 
             this.txtKey.Location = new System.Drawing.Point(212, 137);
             this.txtKey.Name = "txtKey";
+            this.txtKey.Properties.PasswordChar = '*';
             this.txtKey.Size = new System.Drawing.Size(416, 26);
             this.txtKey.StyleController = this.dataLayoutControl1;
             this.txtKey.TabIndex = 4;

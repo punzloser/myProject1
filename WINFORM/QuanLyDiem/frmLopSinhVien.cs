@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -39,13 +40,27 @@ namespace QuanLyDiem
             sinhVienBindingSource.AddNew();
             txtHo.Focus();
             ThemSV = true;
+
+            btnXoa.Enabled = false;
         }
+
+        public static String maHoa(String textEdit)
+        {
+            if (textEdit != "")
+            {
+                textEdit = Regex.Replace(textEdit, " {2,}", " ").Trim();
+                textEdit = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(textEdit);
+            }
+            return textEdit;
+        }
+
         public void txtMaHoa()
         {
-            txtHo.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(txtHo.Text.ToLower().Trim()).Replace("     ", " ").Replace("    ", " ").Replace("   ", " ").Replace("  ", " ");
-            txtTen.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(txtTen.Text.ToLower().Trim()).Replace("     ", " ").Replace("    ", " ").Replace("   ", " ").Replace("  ", " ");
-            txtNoiSinh.Text = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(txtNoiSinh.Text.ToLower().Replace("     ", " ").Trim()).Replace("    ", " ").Replace("   ", " ").Replace("  ", " ");
+            txtHo.Text = maHoa(txtHo.Text);
+            txtTen.Text = maHoa(txtTen.Text);
+            txtNoiSinh.Text = maHoa(txtNoiSinh.Text);
         }
+
         public void updateSV()
         {
 
@@ -53,6 +68,7 @@ namespace QuanLyDiem
             XtraMessageBox.Show("Sửa dữ liệu thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+
         private void btnLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (ThemSV == true)
@@ -97,6 +113,13 @@ namespace QuanLyDiem
             txtMaHoa();
             updateSV();
             frmLopSinhVien_Load(sender, e);
+        }
+
+        private void txtHo_TextChanged(object sender, EventArgs e)
+        {
+            this.btnLuu.Enabled = !String.IsNullOrWhiteSpace(this.txtHo.Text);
+            this.btnHuy.Enabled = !String.IsNullOrWhiteSpace(this.txtHo.Text);
+            this.btnXoa.Enabled = !String.IsNullOrWhiteSpace(this.txtHo.Text);
         }
     }
 }
