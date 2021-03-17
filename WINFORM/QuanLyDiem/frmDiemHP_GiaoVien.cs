@@ -141,8 +141,8 @@ namespace QuanLyDiem
             if (gridView1.FocusedColumn.FieldName == "ChuyenCan")
             {
                 float chuyenCan = 0;
-                
-                if (chuyenCan >= 100)
+
+                if (chuyenCan < 0 || chuyenCan > 100)
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm không hợp lệ !";
@@ -153,7 +153,7 @@ namespace QuanLyDiem
             {
                 float giuaKy = 0;
 
-                if (giuaKy >= 100)
+                if (giuaKy < 0 || giuaKy > 100)
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm không hợp lệ !";
@@ -164,7 +164,7 @@ namespace QuanLyDiem
             {
                 float diemLan1 = 0;
 
-                if (diemLan1 >= 100)
+                if (diemLan1 < 0 || diemLan1 > 100)
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm không hợp lệ !";
@@ -175,7 +175,7 @@ namespace QuanLyDiem
             {
                 float diemLan2 = 0;
 
-                if (diemLan2 >= 100)
+                if (diemLan2 < 0 || diemLan2 > 100)
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm không hợp lệ !";

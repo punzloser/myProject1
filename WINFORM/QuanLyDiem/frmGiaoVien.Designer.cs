@@ -166,6 +166,7 @@ namespace QuanLyDiem
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNgaySinh.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dateNgaySinh.Size = new System.Drawing.Size(350, 26);
             this.dateNgaySinh.StyleController = this.dataLayoutControl1;
             this.dateNgaySinh.TabIndex = 7;

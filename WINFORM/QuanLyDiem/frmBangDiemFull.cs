@@ -224,7 +224,7 @@ namespace QuanLyDiem
             //worksheet.Rows.AutoFit();
             app.WindowState = Microsoft.Office.Interop.Excel.XlWindowState.xlMaximized;
             app.Visible = true;
-        // cho vô báo cáo
+        
         app1:
             try
             {
@@ -325,6 +325,11 @@ namespace QuanLyDiem
                 XtraMessageBox.Show("Cứ từ từ Excel đang làm đẹp !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 goto app1;
             }
+        }
+
+        private void lbMaSV_TextChanged(object sender, EventArgs e)
+        {
+            this.btnXuatExcel.Enabled = !String.IsNullOrWhiteSpace(this.lbMaSV.Text);
         }
     }
 }

@@ -434,9 +434,9 @@ namespace QuanLyDiem
             this.lbMaSV.Location = new System.Drawing.Point(93, 56);
             this.lbMaSV.Name = "lbMaSV";
             this.lbMaSV.Padding = new System.Windows.Forms.Padding(5);
-            this.lbMaSV.Size = new System.Drawing.Size(42, 32);
+            this.lbMaSV.Size = new System.Drawing.Size(10, 32);
             this.lbMaSV.TabIndex = 3;
-            this.lbMaSV.Text = "null";
+            this.lbMaSV.TextChanged += new System.EventHandler(this.lbMaSV_TextChanged);
             // 
             // lbGioiTinh
             // 
@@ -518,6 +518,7 @@ namespace QuanLyDiem
             // 
             this.btnXuatExcel.Appearance.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold);
             this.btnXuatExcel.Appearance.Options.UseFont = true;
+            this.btnXuatExcel.Enabled = false;
             this.btnXuatExcel.Location = new System.Drawing.Point(1046, 77);
             this.btnXuatExcel.LookAndFeel.SkinName = "VS2010";
             this.btnXuatExcel.LookAndFeel.UseDefaultLookAndFeel = false;

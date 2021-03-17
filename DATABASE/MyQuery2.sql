@@ -246,53 +246,74 @@ INSERT DiemHP (MaSV, MaMonHP, ChuyenCan, GiuaKi, DiemLan1, DiemLan2, GhiChu) VAL
 
 ----------------------------------------------------------------------------------------------------------------------------
 -- Trigger
-CREATE TRIGGER UpdateMaSVToSVHA ON dbo.SinhVien
-AFTER INSERT
-AS
-	BEGIN
-	DECLARE @MaSV VARCHAR(6)
-	SELECT @MaSV = a.MaSV FROM Inserted a
-	INSERT INTO dbo.SinhVien_HinhAnh(MaSV) VALUES (@MaSV)
-
-	END
-
-CREATE TRIGGER UpdateMaGVToGVHA ON dbo.GiaoVien
-AFTER INSERT
-AS
-	BEGIN
-	DECLARE @MaGV VARCHAR(6)
-	SELECT @MaGV = a.MaGV FROM Inserted a
-	INSERT INTO dbo.GiaoVien_HinhAnh(MaGV) VALUES (@MaGV)
-
-	END
-
-CREATE TRIGGER UpdateIdUserSVIntoTaiKhoan ON dbo.SinhVien
-AFTER INSERT
+CREATE TRIGGER trSinhVien ON dbo.SinhVien
+AFTER INSERT, DELETE, UPDATE
 AS
 	BEGIN
 		DECLARE @MaSV VARCHAR(6), @TenSV NVARCHAR(40)
-		SET @MaSV = (SELECT a.MaSV FROM Inserted a)
-		SET @TenSV = (SELECT b.HoLot + ' ' + b.Ten FROM Inserted b)
 
-		INSERT INTO dbo.TaiKhoan (UserName, Pass, FullName) VALUES (@MaSV, @MaSV, @TenSV)
+		--active = 'INSERT'
+		IF EXISTS (SELECT 1 FROM Inserted) AND NOT EXISTS (SELECT 1 FROM Deleted)
+			BEGIN
+				SELECT @MaSV = a.MaSV FROM Inserted a
+				INSERT INTO dbo.SinhVien_HinhAnh(MaSV) VALUES (@MaSV)
+
+				SET @TenSV = (SELECT b.HoLot + ' ' + b.Ten FROM Inserted b)
+				INSERT INTO dbo.TaiKhoan (UserName, Pass, FullName) VALUES (@MaSV, @MaSV, @TenSV)
+			END
+
+		--active = 'DELETE'
+		IF EXISTS (SELECT 1 FROM Deleted) AND NOT EXISTS (SELECT 1 FROM Inserted)
+			BEGIN
+				SELECT @MaSV = a.MaSV FROM Deleted a
+				
+				DELETE dbo.TaiKhoan
+				WHERE UserName = @MaSV	
+			END
+		--active = 'UPDATE'
+		IF EXISTS (SELECT 1 FROM Inserted) AND EXISTS (SELECT 1 FROM Deleted)
+			BEGIN
+				SELECT @MaSV = a.MaSV FROM Deleted a
+				SET @TenSV = (SELECT b.HoLot + ' ' + b.Ten FROM Inserted b)
+				UPDATE dbo.TaiKhoan
+				SET FullName = @TenSV
+				WHERE UserName = @MaSV
+			END
 	END
 
-CREATE TRIGGER UpdateIdUser_GVIntoTaiKhoan ON dbo.GiaoVien
-AFTER INSERT
+CREATE TRIGGER trGiaoVien ON dbo.GiaoVien
+AFTER INSERT, DELETE, UPDATE
 AS
 	BEGIN
 		DECLARE @MaGV VARCHAR(6), @TenGV NVARCHAR(40)
-		SET @MaGV = (SELECT a.MaGV FROM Inserted a)
-		SET @TenGV = (SELECT b.TenGV FROM Inserted b)
 
-		INSERT INTO dbo.TaiKhoan (UserName, Pass, FullName) VALUES (@MaGV, @MaGV, @TenGV)
-	END
+		--active = 'INSERT'
+		IF EXISTS (SELECT 1 FROM Inserted) AND NOT EXISTS (SELECT 1 FROM Deleted)
+			BEGIN
+				SELECT @MaGV = a.MaGV FROM Inserted a
+				INSERT INTO dbo.GiaoVien_HinhAnh(MaGV) VALUES (@MaGV)
 
-CREATE TRIGGER NhapDiemHopLi ON dbo.DiemHP
-AFTER UPDATE
-AS
-	BEGIN
-		
+				SET @TenGV = (SELECT b.TenGV FROM Inserted b)
+				INSERT INTO dbo.TaiKhoan (UserName, Pass, FullName) VALUES (@MaGV, @MaGV, @TenGV)
+			END
+
+		--active = 'DELETE'
+		IF EXISTS (SELECT 1 FROM Deleted) AND NOT EXISTS (SELECT 1 FROM Inserted)
+			BEGIN
+				SELECT @MaGV = a.MaGV FROM Deleted a
+				
+				DELETE dbo.TaiKhoan
+				WHERE UserName = @MaGV	
+			END
+		--active = 'UPDATE'
+		IF EXISTS (SELECT 1 FROM Inserted) AND EXISTS (SELECT 1 FROM Deleted)
+			BEGIN
+				SELECT @MaGV = a.MaGV FROM Deleted a
+				SET @TenGV = (SELECT b.TenGV FROM Inserted b)
+				UPDATE dbo.TaiKhoan
+				SET FullName = @TenGV
+				WHERE UserName = @MaGV
+			END
 	END
 
 -------------

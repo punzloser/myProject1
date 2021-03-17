@@ -14,8 +14,17 @@ namespace QuanLyDiem
     {
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);
-            Update_Region();
+            try
+            {
+                base.OnPaint(e);
+                Update_Region();
+            }
+            catch (Exception)
+            {
+
+                XtraMessageBox.Show("Lỗi không xác định !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         protected override void OnSizeChanged(EventArgs e)

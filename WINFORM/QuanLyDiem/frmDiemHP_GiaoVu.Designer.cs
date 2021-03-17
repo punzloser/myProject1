@@ -193,7 +193,7 @@ namespace QuanLyDiem
             this.gcDiem.TabIndex = 0;
             this.gcDiem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.gcDiem.Click += new System.EventHandler(this.gcDiem_Click);
+            this.gcDiem.DoubleClick += new System.EventHandler(this.gcDiem_DoubleClick);
             // 
             // bangDiemHPResultBindingSource
             // 

@@ -290,12 +290,8 @@ namespace QuanLyDiem
             if (gridView1.FocusedColumn.FieldName == "ChuyenCan")
             {
                 float chuyenCan = 0;
-                if (!float.TryParse(e.Value as String, out chuyenCan))
-                {
-                    e.Valid = false;
-                    e.ErrorText = "Điểm không đúng định dạng !";
-                }
-                if (chuyenCan >= 100)
+                
+                if (chuyenCan < 0 || chuyenCan > 100)
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm không hợp lệ !";
@@ -306,12 +302,7 @@ namespace QuanLyDiem
             {
                 float giuaKy = 0;
 
-                if (!float.TryParse(e.Value as String, out giuaKy))
-                {
-                    e.Valid = false;
-                    e.ErrorText = "Điểm không đúng định dạng !";
-                }
-                if (giuaKy >= 100)
+                if (giuaKy <0 || giuaKy > 100)
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm không hợp lệ !";
@@ -322,17 +313,23 @@ namespace QuanLyDiem
             {
                 float diemLan1 = 0;
 
-                if (!float.TryParse(e.Value as String, out diemLan1))
-                {
-                    e.Valid = false;
-                    e.ErrorText = "Điểm không đúng định dạng !";
-                }
-                if (diemLan1 >= 100)
+                if (diemLan1 < 0 || diemLan1 > 100)
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm không hợp lệ !";
                 }
                 
+            }
+            if (gridView1.FocusedColumn.FieldName == "DiemLan2")
+            {
+                float diemLan2 = 0;
+
+                if (diemLan2 < 0 || diemLan2 > 100)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Điểm không hợp lệ !";
+                }
+
             }
         }
 
@@ -407,10 +404,12 @@ namespace QuanLyDiem
             this.btnXoaHP.Enabled = !String.IsNullOrWhiteSpace(this.txtTenMonHP.Text);
         }
 
-        private void gcDiem_Click(object sender, EventArgs e)
+        private void gcDiem_DoubleClick(object sender, EventArgs e)
         {
             XtraMessageBox.Show("Giáo vụ chú ý : điểm sẽ cập nhật tự động cập nhật trên mỗi dòng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
         }
+
 
         //private void gcDiem_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
         //{
